@@ -1,0 +1,3531 @@
+[
+  {
+    "question_id": "nq-001",
+    "question": "sequel to a christmas story it runs in the family",
+    "answers": [
+      "My Summer Story"
+    ],
+    "source_lines": {
+      "10": 503,
+      "20": 503
+    },
+    "gold_document": {
+      "title": "My Summer Story",
+      "text": "My Summer Story, originally released in theaters as It Runs in the Family, is a 1994 film that follows the further adventures of the Parker family from A Christmas Story.  Like the previous film, it is based on semi-autobiographical stories by Jean Shepherd, primarily from his book In God We Trust, All Others Pay Cash.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-002",
+    "question": "who votes to elect a rajya sabha memmber",
+    "answers": [
+      "state legislatures"
+    ],
+    "source_lines": {
+      "10": 1249,
+      "20": 1249
+    },
+    "gold_document": {
+      "title": "List of Rajya Sabha members from Assam",
+      "text": "The Rajya Sabha (meaning the \"Council of States\") is the upper house of the Parliament of India. Assam elects 7 seats since 1956 and 6 seats since 1952. and they are indirectly elected by the state legislators of Assam. The number of seats allocated to the party, are determined by the number of seats a party possesses during nomination and the party nominates a member to be voted on. Elections within the state legislatures are held using proportional representation via Single transferable vote.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-003",
+    "question": "what kind of metric system does the us use",
+    "answers": [
+      "international units",
+      "United States customary units"
+    ],
+    "source_lines": {
+      "10": 2476,
+      "20": 2476
+    },
+    "gold_document": {
+      "title": "United States customary units",
+      "text": "and pound agreement of 1959. Americans primarily use customary units in commercial activities, as well as for personal and social use. In science, medicine, many sectors of industry and some of government and military, metric units are used. The International System of Units (SI), the modern form of the metric system, is preferred for many uses by the U.S. National Institute of Standards and Technology (NIST). For newer units of measure where there is no traditional customary unit, international units are used, sometimes mixed with customary units, such as electrical resistance of wire expressed in ohms (SI) per thousand feet.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-004",
+    "question": "what is the origin of the name robinson",
+    "answers": [
+      "English language patronymic surname"
+    ],
+    "source_lines": {
+      "10": 2028,
+      "20": 2028
+    },
+    "gold_document": {
+      "title": "Robinson (name)",
+      "text": "Robinson is an English language patronymic surname, originating in England.  It means \"son of Robin (a diminutive of Robert)\". There are similar surname spellings such as Robison and Robeson. Robinson is the 15th most common surname in the United Kingdom. According to the 1990 United States Census, Robinson was the twentieth most frequently encountered surname among those reported, accounting for 0.23% of the population.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-005",
+    "question": "where was the tv show friday night lights filmed",
+    "answers": [
+      "Austin",
+      "Pflugerville"
+    ],
+    "source_lines": {
+      "10": 467,
+      "20": 467
+    },
+    "gold_document": {
+      "title": "Friday Night Lights (TV series)",
+      "text": "All five seasons of Friday Night Lights were filmed in Austin and Pflugerville. With the show yielding roughly $33 million a year in revenue, other states courted the production company after the state of Texas failed to pay all the rebates it had promised to the show's producers. The Texas legislature authorized funding to match the offers of other states, and the production company preferred to stay near Austin, so the show remained in Texas.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-006",
+    "question": "who has the most gold gloves at shortstop",
+    "answers": [
+      "Ozzie Smith"
+    ],
+    "source_lines": {
+      "10": 2305,
+      "20": 2305
+    },
+    "gold_document": {
+      "title": "List of Gold Glove Award winners at shortstop",
+      "text": "Ozzie Smith, known as \"the Wizard of Oz\", has won the most Gold Glove Awards at shortstop; he captured 13 awards in his 19 seasons with the St. Louis Cardinals.  Omar Vizquel is second among shortstops with 11 wins; he won two with the San Francisco Giants in the National League after winning nine with the Seattle Mariners and the Cleveland Indians in the American League. Luis Aparicio won nine times at shortstop for the third-highest total, followed by Mark Belanger with eight wins. Dave Concepción and Derek Jeter have won five awards; four-time winners at shortstop include Tony Fernández",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-007",
+    "question": "who dies in the beginning of deathly hallows part 1",
+    "answers": [
+      "Mad-Eye Moody",
+      "Hedwig"
+    ],
+    "source_lines": {
+      "10": 1779,
+      "20": 1779
+    },
+    "gold_document": {
+      "title": "Harry Potter and the Deathly Hallows – Part 1",
+      "text": "The Order of the Phoenix gather and escort Harry to safety, using Polyjuice Potion to create decoy Harrys for the trip. During their flight they all are ambushed by Death Eaters who kill Mad-Eye Moody and Hedwig, injure George Weasley, and knock out Hagrid.  After arriving at the Burrow, Harry has a vision of the wand-maker Ollivander being tortured by Voldemort. The next day Scrimgeour arrives at the Burrow with Albus Dumbledore's will and distributes three items to Ron, Hermione, and Harry. Ron receives Dumbledore's Deluminator, Hermione receives a copy of The Tales of Beedle the Bard, and Harry receives",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-008",
+    "question": "who holds the most home runs in mlb history",
+    "answers": [
+      "Barry Bonds"
+    ],
+    "source_lines": {
+      "10": 1493,
+      "20": 1493
+    },
+    "gold_document": {
+      "title": "List of Major League Baseball career home run leaders",
+      "text": "Barry Bonds holds the Major League Baseball home run record with 762.  He passed Hank Aaron, who is currently second with 755, on August 7, 2007. The only other player to have hit 700 or more is Babe Ruth with 714. Alex Rodriguez (696), Willie Mays (660), Ken Griffey, Jr. (630), Albert Pujols (614), Jim Thome (612), and Sammy Sosa (609) are the only other players to have hit 600 or more.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-009",
+    "question": "who has the most followers in the world on instagram",
+    "answers": [
+      "Instagram's own account",
+      "Instagram"
+    ],
+    "source_lines": {
+      "10": 1466,
+      "20": 1466
+    },
+    "gold_document": {
+      "title": "List of most-followed Instagram accounts",
+      "text": "This list contains the top 25 accounts with the most followers on the social photo-sharing platform Instagram. As of December 2017, the most followed user is Instagram's own account, with over 230 million followers.  Selena Gomez is the most followed individual, with over 132 million followers. Eight accounts have exceeded 100 million followers on the site.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-010",
+    "question": "when did the united states acquired puerto rico",
+    "answers": [
+      "1898"
+    ],
+    "source_lines": {
+      "10": 419,
+      "20": 419
+    },
+    "gold_document": {
+      "title": "United States territorial acquisitions",
+      "text": "Puerto Rico, Guam, and the Philippines (for which the United States compensated Spain $20 million, equivalent to $588 million in present-day terms), were ceded by Spain after the Spanish–American War in the 1898 Treaty of Paris.  Spain relinquished all claim of sovereignty over Cuba, but did not cede it to the United States, so it became a protectorate. All four of these areas were under United States Military Government (USMG) for extended periods. Cuba became an independent nation in 1902, and the Philippines became an independent nation in 1946.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-011",
+    "question": "skin that covers the palms fingertips and soles of the feet",
+    "answers": [
+      "stratum lucidum"
+    ],
+    "source_lines": {
+      "10": 391,
+      "20": 391
+    },
+    "gold_document": {
+      "title": "Stratum lucidum",
+      "text": "The stratum lucidum (Latin for \"clear layer\") is a thin, clear layer of dead skin cells in the epidermis named for its translucent appearance under a microscope.  It is readily visible by light microscopy only in areas of thick skin, which are found on the palms of the hands and the soles of the feet.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-012",
+    "question": "who was elected president in mexico in 2000",
+    "answers": [
+      "Vicente Fox"
+    ],
+    "source_lines": {
+      "10": 1998,
+      "20": 1998
+    },
+    "gold_document": {
+      "title": "Mexican general election, 2000",
+      "text": "The presidential elections were won by Vicente Fox of the Alliance for Change, who received 43.4% of the vote, the first time the opposition had won an election since the Mexican Revolution.  In the Congressional elections the Alliance for Change emerged as the largest faction in the Chamber of Deputies with 224 of the 500 seats, whilst the Institutional Revolutionary Party remained the largest faction in the Senate with 60 of the 128 seats in the Senate. Voter turnout was between 63 and 64% in the elections.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-013",
+    "question": "what kind of sentence contains an independent clause and a dependent clause",
+    "answers": [
+      "A complex sentence",
+      "complex sentence"
+    ],
+    "source_lines": {
+      "10": 958,
+      "20": 958
+    },
+    "gold_document": {
+      "title": "Sentence clause structure",
+      "text": "A simple sentence consists of only one clause. A compound sentence consists of two or more independent clauses. A complex sentence has at least one independent clause plus at least one dependent clause.  A set of words with no independent clause may be an incomplete sentence, also called a sentence fragment.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-014",
+    "question": "what is the population of fayetteville north carolina",
+    "answers": [
+      "204,408 in 2013"
+    ],
+    "source_lines": {
+      "10": 838,
+      "20": 838
+    },
+    "gold_document": {
+      "title": "Fayetteville, North Carolina",
+      "text": "Fayetteville has received the All-America City Award from the National Civic League three times. As of the 2010 census it had a population of 200,564, with an estimated population of 204,408 in 2013.  It is the 6th-largest city in North Carolina. Fayetteville is in the Sandhills in the western part of the Coastal Plain region, on the Cape Fear River.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-015",
+    "question": "where was the witch of blackbird pond published",
+    "answers": [
+      "United States",
+      "1958",
+      "Houghton Mifflin"
+    ],
+    "source_lines": {
+      "10": 439,
+      "20": 439
+    },
+    "gold_document": {
+      "title": "The Witch of Blackbird Pond",
+      "text": "The Witch of Blackbird Pond is a children's novel by American author Elizabeth George Speare, published in 1958.  The story takes place in late-17th century New England. It won the Newbery Medal in 1959.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-016",
+    "question": "who has the most wins on around the horn",
+    "answers": [
+      "Woody Paige"
+    ],
+    "source_lines": {
+      "10": 1385,
+      "20": 1385
+    },
+    "gold_document": {
+      "title": "Around the Horn",
+      "text": "until January 2004, the show was hosted by Max Kellerman, who at the time was largely known strictly as a contributor to ESPN's Friday Night Fights. Kellerman departed from the network for Fox Sports and after the show tried out several replacements, current host Tony Reali was named the permanent host in February 2004. As of August 2017, Woody Paige has the most wins in the history of the show, with more than five hundred.  Despite early negative reviews due to its argumentative formatting, the show has lasted more than fifteen years on the air, remaining a staple on ESPN.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-017",
+    "question": "who discovered gold in the sierra nevada of california",
+    "answers": [
+      "James W. Marshall"
+    ],
+    "source_lines": {
+      "10": 1019,
+      "20": 1019
+    },
+    "gold_document": {
+      "title": "California Gold Rush",
+      "text": "The California Gold Rush (1848–1855) began on January 24, 1848, when gold was found by James W. Marshall at Sutter's Mill in Coloma, California.  The news of gold brought some 300,000 people to California from the rest of the United States and abroad. The sudden influx of immigration and gold into the money supply reinvigorated the American economy, and California became one of the few American states to go directly to statehood without first being a territory, in the Compromise of 1850. The Gold Rush had severe effects on Native Californians and resulted in a precipitous population decline from disease,",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-018",
+    "question": "who invented the cornell method of note taking",
+    "answers": [
+      "Walter Pauk"
+    ],
+    "source_lines": {
+      "10": 215,
+      "20": 215
+    },
+    "gold_document": {
+      "title": "Cornell Notes",
+      "text": "The Cornell Notes system (also Cornell note-taking system, Cornell method, or Cornell way) is a note-taking system devised in the 1940s by Walter Pauk, an education professor at Cornell University.  Pauk advocated its use in his best-selling book How to Study in College.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-019",
+    "question": "who has the most super bowls in nfl history",
+    "answers": [
+      "Pittsburgh Steelers",
+      "The Pittsburgh Steelers"
+    ],
+    "source_lines": {
+      "10": 1920,
+      "20": 1920
+    },
+    "gold_document": {
+      "title": "List of Super Bowl champions",
+      "text": "The Pittsburgh Steelers (6–2) have won the most Super Bowls with six championships, while the New England Patriots (5-4), the Dallas Cowboys (5–3), and the San Francisco 49ers (5–1) have five wins. New England has the most Super Bowl appearances with nine, while the Buffalo Bills (0–4) have the most consecutive appearances with four losses in a row from 1990 to 1993. The Miami Dolphins are the only other team to have at least three consecutive appearances: 1972–74. The Denver Broncos (3–5) have lost a record five Super Bowls. The New England Patriots (5–4), the Minnesota Vikings (0–4), and the Bills have lost four. The record for consecutive wins is two and is shared by seven franchises: the 1966–67 Green Bay Packers, the 1972–73 Miami Dolphins, the 1974–75 and 1978–79 Pittsburgh Steelers (the only team to accomplish this feat twice), the 1988–89 San Francisco 49ers, the 1992–93 Dallas Cowboys, the 1997–98 Denver Broncos, and the 2003–04 New England Patriots. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-020",
+    "question": "when did the us dollar leave the gold standard",
+    "answers": [
+      "October 1976",
+      "August 15, 1971",
+      "1934"
+    ],
+    "source_lines": {
+      "10": 1807,
+      "20": 1807
+    },
+    "gold_document": {
+      "title": "Gold standard",
+      "text": "Congress passed the Gold Reserve Act on 30 January 1934; the measure nationalized all gold by ordering Federal Reserve banks to turn over their supply to the U.S. Treasury. In return the banks received gold certificates to be used as reserves against deposits and Federal Reserve notes. The act also authorized the president to devalue the gold dollar. Under this authority the president, on 31 January 1934, changed the value of the dollar from $20.67 to the troy ounce to $35 to the troy ounce, a devaluation of over 40%.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-021",
+    "question": "when did the nba add the three point line",
+    "answers": [
+      "1979–80",
+      "1979–80 season",
+      "the 1979–80 season"
+    ],
+    "source_lines": {
+      "10": 736,
+      "20": 736
+    },
+    "gold_document": {
+      "title": "Three-point field goal",
+      "text": "In the 1979–80 season, after having tested it in the previous pre-season, the NBA adopted the three-point line despite the view of many that it was a gimmick.  Chris Ford of the Boston Celtics is widely credited with making the first three-point shot in NBA history on October 12, 1979. Kevin Grevey of the Washington Bullets also made one on the same day.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-022",
+    "question": "what type of political system does el salvador have",
+    "answers": [
+      "a presidential representative democratic republic",
+      "\"flawed democracy\"",
+      "presidential representative democratic republic"
+    ],
+    "source_lines": {
+      "10": 201,
+      "20": 201
+    },
+    "gold_document": {
+      "title": "Politics of El Salvador",
+      "text": "Politics of El Salvador takes place in land a framework of a presidential representative democratic republic, whereby the President of El Salvador is both head of state and head of government, and of an Executive power is exercised by the government.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-023",
+    "question": "who was the great wall of china built to defend against",
+    "answers": [
+      "nomads from Inner Asia",
+      "nomads from Inner Asia."
+    ],
+    "source_lines": {
+      "10": 833,
+      "20": 833
+    },
+    "gold_document": {
+      "title": "History of the Great Wall of China",
+      "text": "The history of the Great Wall of China began when fortifications built by various states during the Spring and Autumn (771–476 BC) and Warring States periods (475–221 BC) were connected by the first emperor of China, Qin Shi Huang, to protect his newly founded Qin dynasty (221–206 BC) against incursions by nomads from Inner Asia.  The walls were built of rammed earth, constructed using forced labour, and by 212 BC ran from Gansu to the coast of southern Manchuria.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-024",
+    "question": "where does the red wolf live in the world",
+    "answers": [
+      "the southeastern United States",
+      "southeastern United States"
+    ],
+    "source_lines": {
+      "10": 675,
+      "20": 675
+    },
+    "gold_document": {
+      "title": "Red wolf",
+      "text": "The red wolf (Canis rufus or Canis lupus rufus), also known as the Florida black wolf or Mississippi Valley wolf, is a canid native to the southeastern United States of unresolved taxonomic identity.  Morphologically it is intermediate between the coyote and gray wolf, and is of a reddish, tawny color. The Red Wolf is a federally listed endangered species of the United States and is protected by law. It has been listed by IUCN as a critically endangered species since 1996. It is considered the rarest species of wolf and is one of the five most endangered species of wolf",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-025",
+    "question": "who is the owner of reading football club",
+    "answers": [
+      "Xiu Li Dai",
+      "Dai Xiuli",
+      "Dai Yongge",
+      "Yongge Dai"
+    ],
+    "source_lines": {
+      "10": 6,
+      "20": 6
+    },
+    "gold_document": {
+      "title": "Reading F.C.",
+      "text": "Reading Football Club ownership structure: 75% Owned by Renhe Sports Management Ltd, 100% owned by Xiu Li Dai and Yongge Dai. 25% Owned by Narin Niruttinanon",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-026",
+    "question": "when did holland become involved in world war 2",
+    "answers": [
+      "15 May 1940",
+      "10 May 1940"
+    ],
+    "source_lines": {
+      "10": 2114,
+      "20": 2114
+    },
+    "gold_document": {
+      "title": "Netherlands in World War II",
+      "text": "The direct involvement of the Netherlands in World War II began with its invasion by Nazi Germany on 10 May 1940. The Netherlands had proclaimed neutrality when war broke out in September 1939, just as it had in World War I, but Adolf Hitler ordered it to be invaded anyway. On 15 May 1940, one day after the bombing of Rotterdam, the Dutch forces surrendered.  The Dutch government and the royal family escaped and went into exile in London.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-027",
+    "question": "when did gaurdians of the galaxy 2 come out",
+    "answers": [
+      "2017",
+      "May 5, 2017"
+    ],
+    "source_lines": {
+      "10": 948,
+      "20": 948
+    },
+    "gold_document": {
+      "title": "Guardians of the Galaxy Vol. 2",
+      "text": "Guardians of the Galaxy Vol. 2 is a 2017 American superhero film based on the Marvel Comics superhero team Guardians of the Galaxy, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.  It is the sequel to 2014's Guardians of the Galaxy and the fifteenth film in the Marvel Cinematic Universe (MCU). Written and directed by James Gunn, the film stars an ensemble cast featuring Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel, Bradley Cooper, Michael Rooker, Karen Gillan, Pom Klementieff, Elizabeth Debicki, Chris Sullivan, Sean Gunn, Sylvester Stallone, and Kurt Russell. In Guardians of the Galaxy",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-028",
+    "question": "where is the suez canal located on a map",
+    "answers": [
+      "Egypt"
+    ],
+    "source_lines": {
+      "10": 1893,
+      "20": 1893
+    },
+    "gold_document": {
+      "title": "Suez Canal",
+      "text": "The Suez Canal (Arabic: قناة السويس‎‎ qanāt as-suwēs) is an artificial sea-level waterway in Egypt, connecting the Mediterranean Sea to the Red Sea through the Isthmus of Suez.  Constructed by the Suez Canal Company between 1859 and 1869, it was officially opened on November 17, 1869. The canal offers watercraft a shorter journey between the North Atlantic and northern Indian Oceans via the Mediterranean and Red seas by avoiding the South Atlantic and southern Indian oceans, in turn reducing the journey by approximately 7,000 kilometres (4,300 mi). It extends from the northern terminus of Port Said to the southern terminus",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-029",
+    "question": "the first element on the periodic table is",
+    "answers": [
+      "Hydro­gen",
+      "hydrogen"
+    ],
+    "source_lines": {
+      "10": 1388,
+      "20": 1388
+    },
+    "gold_document": {
+      "title": "Periodic table",
+      "text": "All elements from atomic numbers 1 (hydrogen) to 118 (oganesson) have been discovered or synthesized, with the most recent additions (nihonium, moscovium, tennessine, and oganesson) being confirmed by the International Union of Pure and Applied Chemistry (IUPAC) in 2015 and officially named in 2016: they complete the first seven rows of the periodic table.  The first 94 elements exist naturally, although some are found only in trace amounts and were synthesized in laboratories before being found in nature. Elements with atomic numbers from 95 to 118 have only been synthesized in laboratories or nuclear reactors. Synthesis of elements having higher",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-030",
+    "question": "the art and science of making objects from clay is called",
+    "answers": [
+      "Ceramic art",
+      "Ceramic"
+    ],
+    "source_lines": {
+      "10": 1762,
+      "20": 1762
+    },
+    "gold_document": {
+      "title": "Ceramic art",
+      "text": "Ceramic art is art made from ceramic materials, including clay. It may take forms including art ware, tile, figurines, sculpture, and tableware. Ceramic art is one of the arts, particularly the visual arts. Of these, it is one of the plastic arts. While some ceramics are considered fine art, as pottery or sculpture, some are considered to be decorative, industrial or applied art objects. Ceramics may also be considered artefacts in archaeology. Ceramic art can be made by one person or by a group of people.  In a pottery or ceramic factory, a group of people design, manufacture and decorate",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-031",
+    "question": "who formed and first came to the colony of maryland",
+    "answers": [
+      "the English"
+    ],
+    "source_lines": {
+      "10": 1009,
+      "20": 1009
+    },
+    "gold_document": {
+      "title": "History of Maryland",
+      "text": "The recorded history of Maryland dates back to when Europeans began exploring the area, starting with the Italian/Venetian John Cabot (c. 1450 – c. 1500), exploring the coast of the continent of North America for England in 1498. The first European settlements were made in 1634, when the English arrived in significant numbers and created a permanent colony.  Maryland was notable for having been established with religious freedom for Roman Catholics. Like other colonies of the Chesapeake Bay, its economy was based on tobacco as a commodity crop, cultivated primarily by African slave labor, although many young people came from",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-032",
+    "question": "who recorded i can't help falling in love with you",
+    "answers": [
+      "Elvis Presley"
+    ],
+    "source_lines": {
+      "10": 1551,
+      "20": 1551
+    },
+    "gold_document": {
+      "title": "Can't Help Falling in Love",
+      "text": "\"Can't Help Falling in Love\" is a pop ballad originally recorded by American singer Elvis Presley and published by Gladys Music, Presley's publishing company.  It was written by Hugo Peretti, Luigi Creatore, and George David Weiss. The melody is based on \"Plaisir d'amour\", a popular romance by Jean-Paul-Égide Martini (1784). The song was featured in Presley's 1961 film, Blue Hawaii. During the following four decades, it was recorded by numerous other artists, including Tom Smothers, Swedish pop group A-Teens, and the British reggae group UB40, whose 1993 version topped the U.S. and UK charts.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-033",
+    "question": "why is the indian ocean the warmest in the world",
+    "answers": [
+      "human induced greenhouse warming"
+    ],
+    "source_lines": {
+      "10": 1287,
+      "20": 1287
+    },
+    "gold_document": {
+      "title": "Indian Ocean",
+      "text": "The Indian Ocean is the warmest ocean in the world. Long-term ocean temperature records show a rapid, continuous warming in the Indian Ocean, at about 0.7–1.2 °C (1.3–2.2 °F) during 1901–2012. Indian Ocean warming is the largest among the tropical oceans, and about 3 times faster than the warming observed in the Pacific. Research indicates that human induced greenhouse warming, and changes in the frequency and magnitude of El Niño events are a trigger to this strong warming in the Indian Ocean.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-034",
+    "question": "when was pac man released in the us",
+    "answers": [
+      "October 26, 1980",
+      "October 1980",
+      "in October 1980"
+    ],
+    "source_lines": {
+      "10": 1903,
+      "20": 1903
+    },
+    "gold_document": {
+      "title": "Pac-Man",
+      "text": "Pac-Man (Japanese: パックマン, Hepburn: Pakkuman), stylized as PAC-MAN, is an arcade game developed by Namco and first released in Japan in May 1980. It was created by Japanese video game designer Toru Iwatani. It was licensed for distribution in the United States by Midway Games and released in October 1980.  Immensely popular from its original release to the present day, Pac-Man is considered one of the classics of the medium, and an icon of 1980s popular culture. Upon its release, the game—and, subsequently, Pac-Man derivatives—became a social phenomenon that yielded high sales of merchandise and inspired a legacy in other",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-035",
+    "question": "where is the setting for beauty and the beast",
+    "answers": [
+      "Rococo-era France",
+      "France"
+    ],
+    "source_lines": {
+      "10": 1609,
+      "20": 1609
+    },
+    "gold_document": {
+      "title": "Beauty and the Beast (2017 film)",
+      "text": "In Rococo-era France, an enchantress disguised as an old beggar woman arrives at a castle during a ball and offers the host, a coldhearted prince, a rose for shelter.  When he refuses, she reveals her identity as an enchantress and transforms him into a beast and his servants into household objects, then erases the castle, the prince and his servants from the memories of their loved ones. She casts a spell on the rose and warns the prince that the curse will never lift unless he learns to love another, and earn their love in return, before the last petal",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-036",
+    "question": "who sang the song oh what a lonely boy",
+    "answers": [
+      "Andrew Gold"
+    ],
+    "source_lines": {
+      "10": 903,
+      "20": 903
+    },
+    "gold_document": {
+      "title": "Lonely Boy (Andrew Gold song)",
+      "text": "\"Lonely Boy\" is an international hit song from 1977, written and recorded by Andrew Gold in 1976 for his album What's Wrong with This Picture?  It spent five months on the American charts, peaking at number seven in both Canada and the United States, and number 11 in the United Kingdom. While \"Lonely Boy\" would be Gold's biggest U.S. hit, his \"Never Let Her Slip Away\" achieved greater success in the U.K.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-037",
+    "question": "where do most star formation occur in the milky way today",
+    "answers": [
+      "molecular clouds in interstellar space"
+    ],
+    "source_lines": {
+      "10": 1190,
+      "20": 1190
+    },
+    "gold_document": {
+      "title": "Star formation",
+      "text": "Star formation is the process by which dense regions within molecular clouds in interstellar space, sometimes referred to as \"stellar nurseries\" or \"star-forming regions\", collapse and form stars.  As a branch of astronomy, star formation includes the study of the interstellar medium (ISM) and giant molecular clouds (GMC) as precursors to the star formation process, and the study of protostars and young stellar objects as its immediate products. It is closely related to planet formation, another branch of astronomy. Star formation theory, as well as accounting for the formation of a single star, must also account for the statistics of",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-038",
+    "question": "where in the bible are the 12 disciples",
+    "answers": [
+      "Acts 1:13"
+    ],
+    "source_lines": {
+      "10": 405,
+      "20": 405
+    },
+    "gold_document": {
+      "title": "Apostles",
+      "text": "Each of the four listings of apostles in the New Testament (Mark 3:13–19, Matthew 10:1–4, Luke 6:12–16, and Acts 1:13) indicate that all the apostles were men.  The canonical gospels and the book of Acts give varying names of the twelve apostles. The list in the Gospel of Luke differs from Matthew and Mark at two points. It lists \"Judas the son of James\" instead of \"Thaddeus\". (For more information, see Jude the Apostle.) Unlike the Synoptic Gospels, the Gospel of John does not offer a formal list of apostles. Although it refers to \"the Twelve\" (John 6:67–71), the gospel",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-039",
+    "question": "who sang first line of we are the world",
+    "answers": [
+      "Lionel Richie",
+      "Kenny Rogers",
+      "James Ingram",
+      "Billy Joel",
+      "Tina Turner",
+      "Stevie Wonder",
+      "Paul Simon"
+    ],
+    "source_lines": {
+      "10": 1008,
+      "20": 1008
+    },
+    "gold_document": {
+      "title": "We Are the World",
+      "text": "been described as \"an appeal to human compassion\". The first lines in the song's repetitive chorus proclaim, \"We are the world, we are the children, we are the ones who make a brighter day, so let's start giving\". \"We Are the World\" opens with Lionel Richie, Stevie Wonder, Paul Simon, Kenny Rogers, James Ingram, Tina Turner, and Billy Joel singing the first verse.  Michael Jackson and Diana Ross follow, completing the first chorus together. Dionne Warwick, Willie Nelson, and Al Jarreau sing the second verse, before Bruce Springsteen, Kenny Loggins, Steve Perry, and Daryl Hall go through the second chorus.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-040",
+    "question": "who did cora marry in once upon a time",
+    "answers": [
+      "Henry"
+    ],
+    "source_lines": {
+      "10": 176,
+      "20": 176
+    },
+    "gold_document": {
+      "title": "The Miller's Daughter (Once Upon a Time)",
+      "text": "The day before her wedding, Cora questions her plans; she is unlikely to become queen as Henry is fifth in line to the throne, while Rumplestiltskin, with whom she has been having an affair, offers her love.  They agree to amend the contract so Cora owes Rumplestiltskin his child. He also agrees to teach her how to take a heart, so that she can kill King Xavier. That night, she confronts the king. He reveals that he knows of her relationship with Rumplestiltskin; telling her that \"love is weakness,\" he lays out her choice between love and power. Cora returns",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-041",
+    "question": "what makes a mini bike a mini bike",
+    "answers": [
+      "a miniature motorcycle"
+    ],
+    "source_lines": {
+      "10": 1818,
+      "20": 1818
+    },
+    "gold_document": {
+      "title": "Minibike",
+      "text": "A minibike, sometimes called a minimoto or pocketbike, is a miniature motorcycle.  Most minibikes use two-stroke engines and chain drive.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-042",
+    "question": "where did students for a democratic society start",
+    "answers": [
+      "Ann Arbor, Michigan"
+    ],
+    "source_lines": {
+      "10": 250,
+      "20": 250
+    },
+    "gold_document": {
+      "title": "Students for a Democratic Society",
+      "text": "Aryeh Neier. The phrase “industrial democracy” sounded too narrow and too labor oriented, making it more difficult to recruit students. Moreover, because the LID's leadership did not correspond to the expectations and the mood on the campuses, the SLID felt the need to dissociate itself from its parent organization. SDS held its first meeting in 1960 on the University of Michigan campus at Ann Arbor, Michigan, where Alan Haber was elected president.  Its political manifesto, known as the Port Huron Statement, was adopted at the organization's first convention in 1962, based on an earlier draft by staff member Tom Hayden.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-043",
+    "question": "what role does the president play in foreign affairs",
+    "answers": [
+      "negotiates treaties with foreign nations"
+    ],
+    "source_lines": {
+      "10": 645,
+      "20": 645
+    },
+    "gold_document": {
+      "title": "Foreign policy of the United States",
+      "text": "Subject to the advice and consent role of the U.S. Senate, the President of the United States negotiates treaties with foreign nations, but treaties enter into force if ratified by two-thirds of the Senate.  The President is also Commander in Chief of the United States Armed Forces, and as such has broad authority over the armed forces. Both the Secretary of State and ambassadors are appointed by the President, with the advice and consent of the Senate. The United States Secretary of State acts similarly to a foreign minister and under Executive leadership is the primary conductor of state-to-state diplomacy.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-044",
+    "question": "where is the meridian that is opposite the prime meridian located",
+    "answers": [
+      "the 180th meridian",
+      "antimeridian"
+    ],
+    "source_lines": {
+      "10": 1448,
+      "20": 1448
+    },
+    "gold_document": {
+      "title": "Prime meridian",
+      "text": "A prime meridian is a meridian (a line of longitude) in a geographical coordinate system at which longitude is defined to be 0°. Together, a prime meridian and its antimeridian (the 180th meridian in a 360°-system) form a great circle.  This great circle divides the sphere, e.g., the Earth, into two hemispheres. If one uses directions of East and West from a defined prime meridian, then they can be called Eastern Hemisphere and Western Hemisphere.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-045",
+    "question": "where does the un security council get troops for military actions",
+    "answers": [
+      "member states of the UN",
+      "member states"
+    ],
+    "source_lines": {
+      "10": 1490,
+      "20": 1490
+    },
+    "gold_document": {
+      "title": "United Nations peacekeeping",
+      "text": "In 2007, a peacekeeper volunteer was required to be over the age of 25 with no maximum age limit. Peacekeeping forces are contributed by member states on a voluntary basis.  As of 31 December 2013, the total size of the peacekeeping force is 98,200 police, troops, and military experts. European nations contribute nearly 6,000 units to this total. Pakistan, India, and Bangladesh are among the largest individual contributors with around 8,000 units each. African nations contributed nearly half the total, almost 44,000 units.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-046",
+    "question": "who says that which we call a rose",
+    "answers": [
+      "Juliet",
+      "William Shakespeare"
+    ],
+    "source_lines": {
+      "10": 334,
+      "20": 334
+    },
+    "gold_document": {
+      "title": "A rose by any other name would smell as sweet",
+      "text": "\"A rose by any other name would smell as sweet\" is a popular reference to William Shakespeare's play Romeo and Juliet, in which Juliet seems to argue that it does not matter that Romeo is from her family's rival house of Montague, that is, that he is named \"Montague\". The reference is often used to imply that the names of things do not affect what they really are. This formulation is, however, a paraphrase of Shakespeare's actual language. Juliet compares Romeo to a rose saying that if he was not named Romeo he would still be handsome and be Juliet's love. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-047",
+    "question": "when did equus first appear in fossil record",
+    "answers": [
+      "1820s",
+      "~3.5 million years old",
+      "about 3.5 mya"
+    ],
+    "source_lines": {
+      "10": 654,
+      "20": 654
+    },
+    "gold_document": {
+      "title": "Evolution of the horse",
+      "text": "The genus Equus, which includes all extant equines, is believed to have evolved from Dinohippus, via the intermediate form Plesippus. One of the oldest species is Equus simplicidens, described as zebra-like with a donkey-shaped head. The oldest fossil to date is ~3.5 million years old from Idaho, USA.  The genus appears to have spread quickly into the Old World, with the similarly aged Equus livenzovensis documented from western Europe and Russia.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-048",
+    "question": "when do love and hip hop new york come back on",
+    "answers": [
+      "November 13, 2017",
+      "October 30, 2017"
+    ],
+    "source_lines": {
+      "10": 2318,
+      "20": 2318
+    },
+    "gold_document": {
+      "title": "Love & Hip Hop: New York",
+      "text": "Love & Hip Hop reality television franchise on VH1. The series premiered on March 6, 2011, and chronicles the lives of several people in New York City (and nearby areas, including New Jersey, and Yonkers), involved with hip hop music. Its success has produced the spin-offs Love & Hip Hop: Atlanta, Chrissy & Mr. Jones, Love & Hip Hop: Hollywood, K. Michelle: My Life, Stevie J & Joseline: Go Hollywood, Leave It To Stevie and Love & Hip Hop: Miami. On October 2, 2017, VH1 announced the show's return for an eighth season, which will premiere on October 30, 2017.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-049",
+    "question": "how many numbers are in the euromillions draw",
+    "answers": [
+      "7"
+    ],
+    "source_lines": {
+      "10": 1830,
+      "20": 1830
+    },
+    "gold_document": {
+      "title": "EuroMillions",
+      "text": "EuroMillions is a transnational lottery requiring 7 correct numbers to win the jackpot . It was launched on 7 February 2004 by France's Française des Jeux, Spain's Loterías y Apuestas del Estado and the United Kingdom's Camelot.  The first draw was held on Friday 13 February 2004 in Paris. Initially, only the UK, France and Spain participated, with the Austrian, Belgian, Irish, Luxembourgish, Portuguese and Swiss lotteries joining for the 8 October 2004 drawing.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-050",
+    "question": "who played the oldest brother in 7th heaven",
+    "answers": [
+      "Barry Watson"
+    ],
+    "source_lines": {
+      "10": 1865,
+      "20": 1865
+    },
+    "gold_document": {
+      "title": "List of 7th Heaven characters",
+      "text": "Matthew \"Matt\" Camden (played by Barry Watson) (born 1980) is Annie and Eric's firstborn.  In the beginning of the series, Matt is a junior in high school. Matt sacrifices his school time to help others; if they wished to remain anonymous, he would respect that and not even tell his father. During high school, he bounces from job to job, including tutor and Dairy Shack delivery driver. He is not always a star student, but he manages to graduate at the top of his class and get accepted for a White House internship in Washington, D.C. with First Lady Hillary",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-051",
+    "question": "in 1945 which party came into power in england",
+    "answers": [
+      "Labour Party",
+      "Conservative",
+      "Labour"
+    ],
+    "source_lines": {
+      "10": 1028,
+      "20": 1028
+    },
+    "gold_document": {
+      "title": "United Kingdom general election, 1945",
+      "text": "The result was an unexpected landslide victory for Clement Attlee's Labour Party, over Winston Churchill's Conservatives. It was the first time the Conservatives had lost the popular vote since the 1906 election; they would not win it again until 1955. Labour won its first majority government, and a mandate to implement its postwar reforms. The 12.0% national swing from the Conservative Party to the Labour Party remains the largest ever achieved in a British general election.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-052",
+    "question": "where was harry potter and the deathly hallows part 1 filmed",
+    "answers": [
+      "on location"
+    ],
+    "source_lines": {
+      "10": 2392,
+      "20": 2392
+    },
+    "gold_document": {
+      "title": "Harry Potter and the Deathly Hallows – Part 1",
+      "text": "Stuart Craig, set designer for all of the previous Harry Potter films, returned for the final two parts. He said, \"We made a very different kind of film, which was shot a great deal on location.  We travelled quite far, we built sets, and they spend a lot of time in a forest,\" he explained. \"We built forest sets and integrated them into the real forests, so there were challenges there, as you might imagine.\" Craig was ultimately nominated for an Academy Award for his work on Part 1.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-053",
+    "question": "who created separation of powers and checks and balances",
+    "answers": [
+      "Montesquieu in the Enlightenment"
+    ],
+    "source_lines": {
+      "10": 2157,
+      "20": 2157
+    },
+    "gold_document": {
+      "title": "Separation of powers",
+      "text": "separate the powers and guarantee their independence but to give the various branches the constitutional means to defend their own legitimate powers from the encroachments of the other branches. They guarantee that the powers of the State have the same weight (co-equal), that is, to be balanced, so that they can limit each other, avoiding the abuse of state power. the origin of checks and balances, like separation of powers itself, is specifically credited to Montesquieu in the Enlightenment (in The Spirit of the Laws, 1748), under this influence was implemented in 1787 in the Constitution of the United States.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-054",
+    "question": "what type of boundary was the mexico earthquake",
+    "answers": [
+      "a subduction zone"
+    ],
+    "source_lines": {
+      "10": 1936,
+      "20": 1936
+    },
+    "gold_document": {
+      "title": "2017 Central Mexico earthquake",
+      "text": "Mexico is one of the world's most seismically active regions, sitting atop several intersecting tectonic plates. The border between the Cocos Plate and North American Plate, along the Pacific Coast of Mexico, creates a subduction zone that generates large seismic events.  Activity along the edges of the Rivera and Caribbean plates also generate seismic events. All together, these seismic forces cause an average of 40 earthquakes a day in Mexico.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-055",
+    "question": "who plays the lion in the movie zookeeper",
+    "answers": [
+      "Sylvester Stallone"
+    ],
+    "source_lines": {
+      "10": 2510,
+      "20": 2510
+    },
+    "gold_document": {
+      "title": "Zookeeper (film)",
+      "text": "animals hold a meeting saying that they think Griffin is the best zookeeper at the zoo and don't want him to leave, so they decide to find some way to help him win Stephanie's heart. Jerome the Bear (Jon Favreau) suggests that they teach Griffin their animal mating techniques, but Joe the Lion (Sylvester Stallone) protests, reminding them that it's against the animal code to talk to humans.  Donald the Monkey (Adam Sandler) says that Stephanie will be at the zoo tomorrow, and all the animals have to do is make Griffin look like a hero in front of her.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-056",
+    "question": "what was the name of darth vader star destroyer",
+    "answers": [
+      "Devastator",
+      "the Devastator"
+    ],
+    "source_lines": {
+      "10": 2347,
+      "20": 2347
+    },
+    "gold_document": {
+      "title": "Star Destroyer",
+      "text": "The iconic Star Destroyer first appears in the opening scene of Star Wars, as Darth Vader's flagship, the Devastator, chases the Tantive IV above Tatooine.  This appearance shows the Imperial ship's massive size in comparison to the Tantive IV.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-057",
+    "question": "locations for the film an englishman who went up a hill",
+    "answers": [
+      "Llanrhaeadr-ym-Mochnant",
+      "Llansilin in Powys"
+    ],
+    "source_lines": {
+      "10": 637,
+      "20": 637
+    },
+    "gold_document": {
+      "title": "The Englishman who Went up a Hill but Came down a Mountain",
+      "text": "The film is based on a story heard by Christopher Monger from his grandfather about the real village of Taff's Well, in the old county of Glamorgan, and its neighbouring Garth Hill. Due to 20th century urbanisation of the area, it was filmed in the more rural Llanrhaeadr-ym-Mochnant and Llansilin in Powys.  The Welsh Male Voice Choir used to provide background music throughout the film was, in fact, the London-based Gwalia Male Choir.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-058",
+    "question": "who plays young voldemort in the half blood prince",
+    "answers": [
+      "Hero Beauregard Fiennes-Tiffin"
+    ],
+    "source_lines": {
+      "10": 2004,
+      "20": 2004
+    },
+    "gold_document": {
+      "title": "Hero Fiennes-Tiffin",
+      "text": "Hero Beauregard Fiennes-Tiffin (born 6 November 1997) is an English actor best known for his role as the 11-year-old Tom Riddle, the young version of antagonist Lord Voldemort (played in the films by his uncle, Ralph Fiennes), in Harry Potter and the Half Blood Prince, the sixth installment of the Harry Potter films.  He also played the role of \"younger Charlie\" in the war based film Private Peaceful.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-059",
+    "question": "who did the steelers lose to in the playoffs last year",
+    "answers": [
+      "New England Patriots"
+    ],
+    "source_lines": {
+      "10": 2359,
+      "20": 2359
+    },
+    "gold_document": {
+      "title": "2016 Pittsburgh Steelers season",
+      "text": "the AFC North for the second time in three years and made the playoffs for the third straight year. The team also improved upon their 10–6 record from 2015. Le'Veon Bell made his career first playoff appearance with the Steelers in the 2016–17 playoffs. The Steelers went on to defeat the Miami Dolphins in the Wild Card round and the Kansas City Chiefs in the Divisional round before losing to the eventual Super Bowl champion New England Patriots 36–17 in the AFC Championship Game.  This was the Steelers' first appearance in the AFC Championship Game since the 2010–11 NFL Season.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-060",
+    "question": "who abandoned traditional harmony and created the twelve-tone system for composition",
+    "answers": [
+      "Arnold Schoenberg"
+    ],
+    "source_lines": {
+      "10": 1494,
+      "20": 1494
+    },
+    "gold_document": {
+      "title": "Serialism",
+      "text": "In music, serialism is a method of composition using series of pitches, rhythms, dynamics, timbres or other musical elements. Serialism began primarily with Arnold Schoenberg's twelve-tone technique, though some of his contemporaries were also working to establish serialism as a form of post-tonal thinking.  Twelve-tone technique orders the twelve notes of the chromatic scale, forming a row or series and providing a unifying basis for a composition's melody, harmony, structural progressions, and variations. Other types of serialism also work with sets, collections of objects, but not necessarily with fixed-order series, and extend the technique to other musical dimensions (often called",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-061",
+    "question": "who wrote the poem for whom the bell tolls",
+    "answers": [
+      "Ernest Hemingway",
+      "John Donne"
+    ],
+    "source_lines": {
+      "10": 2374,
+      "20": 2374
+    },
+    "gold_document": {
+      "title": "For Whom the Bell Tolls",
+      "text": "For Whom the Bell Tolls is a novel by Ernest Hemingway published in 1940.  It tells the story of Robert Jordan, a young American in the International Brigades attached to a republican guerrilla unit during the Spanish Civil War. As a dynamiter, he is assigned to blow up a bridge during an attack on the city of Segovia.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-062",
+    "question": "when does the new episodes of supernatural start",
+    "answers": [
+      "October 12, 2017",
+      "May 3, 2018",
+      "October 12, 2017"
+    ],
+    "source_lines": {
+      "10": 1400,
+      "20": 1400
+    },
+    "gold_document": {
+      "title": "Supernatural (season 13)",
+      "text": "The thirteenth season of Supernatural, an American fantasy horror television series created by Eric Kripke, premiered on October 12, 2017, on The CW and is set to conclude on May 17, 2018.  The season will consist of 23 episodes and air on Thursdays at 8:00 pm (ET). This is the second season with Andrew Dabb and Robert Singer as showrunners.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-063",
+    "question": "who played the wicked witch in wicked on broadway",
+    "answers": [
+      "Rachel Kelly Tucker"
+    ],
+    "source_lines": {
+      "10": 1784,
+      "20": 1784
+    },
+    "gold_document": {
+      "title": "Rachel Tucker",
+      "text": "Rachel Kelly Tucker (born 29 May 1981) is a Northern Irish singer and actress who competed as one of the finalists in the BBC talent show-themed television series I'd Do Anything in 2008.  She is perhaps best known for playing Elphaba in the hit musical Wicked in the West End, where she played the role longer than any other actress in the production's history, and on Broadway.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-064",
+    "question": "where do they film take me out fernando's",
+    "answers": [
+      "Club Bijou on Chapel Street"
+    ],
+    "source_lines": {
+      "10": 2391,
+      "20": 2391
+    },
+    "gold_document": {
+      "title": "Take Me Out (UK game show)",
+      "text": "man must leave the show without going on a date, accompanied by the Céline Dion version of the hit Eric Carmen song \"All by Myself\". In the first series, the successful couples conducted their date at FERNANDO'S! in Manchester, which is actually Club Bijou on Chapel Street, the outcome of which is shown as part of the following week's show.  For the second series, the date took place abroad on the Isle of FERNANDO'S!, a fictional location based in Puerto de la Cruz, Tenerife. Previously the date took place in Cyprus. Successful couples leave the programme upstairs on the opposite",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-065",
+    "question": "what is the most fundamental unit of life according to the cell theory",
+    "answers": [
+      "cells"
+    ],
+    "source_lines": {
+      "10": 1759,
+      "20": 1759
+    },
+    "gold_document": {
+      "title": "Cell theory",
+      "text": "In biology, cell theory is the historic scientific theory, now universally accepted, that living organisms are made up of cells. Cells are the basic unit of structure in all organisms and also the basic unit of reproduction. With continual improvements made to microscopes over time, magnification technology advanced enough to discover cells in the 17th century. This discovery is largely attributed to Robert Hooke, and began the scientific study of cells, also known as cell biology. Over a century later, many debates about cells began amongst scientists. Most of these debates involved the nature of cellular regeneration, and the idea of cells as a fundamental unit of life. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-066",
+    "question": "who was the last nba player to get drafted out of high school",
+    "answers": [
+      "Thon Maker"
+    ],
+    "source_lines": {
+      "10": 1630,
+      "20": 1630
+    },
+    "gold_document": {
+      "title": "NBA high school draftees",
+      "text": "the 52nd pick in the draft, thus becoming the first high school student to be drafted since the rule changes. In the 2016 draft, one of the Top–10 players that was declared eligible for NCAA play in 2016, Thon Maker, decided to enter the draft instead as a post-graduate from Orangeville Prep in Orangeville, Ontario, Canada due to him originally declaring himself as eligible for college in 2015.  Thon would also mark the first player to be drafted directly from a Canadian high school, as well as the second player to enter as a post-graduate. He'd also be the first",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-067",
+    "question": "who signed the largest on the declaration of independence",
+    "answers": [
+      "John Hancock"
+    ],
+    "source_lines": {
+      "10": 365,
+      "20": 365
+    },
+    "gold_document": {
+      "title": "John Hancock",
+      "text": "John Hancock (January 23, 1737 [O.S. January 12, 1736] – October 8, 1793) was an American merchant, statesman, and prominent Patriot of the American Revolution. He served as president of the Second Continental Congress and was the first and third Governor of the Commonwealth of Massachusetts. He is remembered for his large and stylish signature on the United States Declaration of Independence, so much so that the term John Hancock has become a synonym in the United States for one's signature.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-068",
+    "question": "who does the vocals for feel it still",
+    "answers": [
+      "Portugal. The Man"
+    ],
+    "source_lines": {
+      "10": 1478,
+      "20": 1478
+    },
+    "gold_document": {
+      "title": "Feel It Still",
+      "text": "\"Feel It Still\" is a song by American rock band Portugal. The Man.  The song, which has interpolations from The Marvelettes' 1961 hit \"Please Mr. Postman\", was written by the band along with John Hill and Asa Taccone, with the latter two serving as producers. It serves as the second single and first radio single off their eighth studio album Woodstock. The song reached number one on the US Alternative Songs, Mexican and Russian Tophit airplay chart, and became their first entry on the Hot 100, reaching number four as of October 2017. It was also featured in advertisements for",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-069",
+    "question": "where did the french immigrants settle in texas",
+    "answers": [
+      "1685",
+      "Arenosa Creek",
+      "present-day southeastern Texas",
+      "Matagorda Bay"
+    ],
+    "source_lines": {
+      "10": 1209,
+      "20": 1209
+    },
+    "gold_document": {
+      "title": "French colonization of Texas",
+      "text": "The French colonization of Texas began with the establishment of a fort in present-day southeastern Texas. It was established in 1685 near Arenosa Creek and Matagorda Bay by explorer Robert Cavelier de La Salle.  He intended to found the colony at the mouth of the Mississippi River, but inaccurate maps and navigational errors caused his ships to anchor instead 400 miles (640 km) to the west, off the coast of Texas. The colony survived until 1688. The present-day town of Inez is near the fort's site.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-070",
+    "question": "who gets the golden boot if its a tie",
+    "answers": [
+      "shared"
+    ],
+    "source_lines": {
+      "10": 475,
+      "20": 475
+    },
+    "gold_document": {
+      "title": "Premier League Golden Boot",
+      "text": "to win the Golden Boot, while Nicolas Anelka scored the fewest to clinch the award outright, with 19 goals in 2008–09. The all-time record for lowest number of goals scored to be bestowed the award, however, is 18 goals; this was achieved during the 1997–98 and 1998–99 seasons, when the award was shared between three players both times. The latter season marked the last time the Golden Boot was shared until 2010–11, when Dimitar Berbatov and Carlos Tevez both scored 20 goals that season to tie for the award.  Harry Kane recorded the highest goals-to-games ratio to win the award,",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-071",
+    "question": "who sings gimme shelter with mick jagger",
+    "answers": [
+      "Merry Clayton"
+    ],
+    "source_lines": {
+      "10": 1281,
+      "20": 1281
+    },
+    "gold_document": {
+      "title": "Merry Clayton",
+      "text": "Merry Clayton (born December 25, 1948) is an American soul and gospel singer and an actress. She provided a number of backing vocal tracks for major performing artists in the 1960s, most notably in her duet with Mick Jagger on the Rolling Stones song \"Gimme Shelter.\" Clayton is featured in 20 Feet from Stardom, the Oscar-winning documentary about background singers and their contributions to the music industry. In 2013, she released The Best of Merry Clayton, a compilation of her favorite songs.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-072",
+    "question": "what year does the quiet man take place",
+    "answers": [
+      "the 1920s",
+      "In the 1920s"
+    ],
+    "source_lines": {
+      "10": 1104,
+      "20": 1104
+    },
+    "gold_document": {
+      "title": "The Quiet Man",
+      "text": "In the 1920s, Sean Thornton (John Wayne), an Irish-born American from Pittsburgh, travels to Ireland to reclaim his family's farm and his birthplace in Inisfree.  He meets and falls in love with the fiery Mary Kate Danaher (Maureen O'Hara), the sister of the bullying, loud-mouthed landowner Squire \"Red\" Will Danaher (Victor McLaglen). Danaher, who had wanted the farm himself, is angry that the Widow Tillane (angered by Danaher's admission that he had discussed her in the local pub) accepts Sean's bid, and retaliates by refusing consent for his sister to marry. Several town locals, including the Catholic priest, Father Lonergan",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-073",
+    "question": "where did the rulers of the qing dynasty originate",
+    "answers": [
+      "Manchuria"
+    ],
+    "source_lines": {
+      "10": 718,
+      "20": 718
+    },
+    "gold_document": {
+      "title": "Qing dynasty",
+      "text": "The dynasty was founded by the Jurchen Aisin Gioro clan in Manchuria.  In the late sixteenth century, Nurhaci, originally a Ming vassal, began organizing \"Banners\", military-social units that included Jurchen, Han Chinese, and Mongol elements. Nurhaci formed the Jurchen clans into a unified entity, which he renamed as the Manchus. By 1636, his son Hong Taiji began driving Ming forces out of Liaodong and declared a new dynasty, the Qing. In 1644, peasant rebels led by Li Zicheng conquered the Ming capital, Beijing. Rather than serve them, Ming general Wu Sangui made an alliance with the Manchus and opened the",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-074",
+    "question": "who does the voice of alistair in dragon age",
+    "answers": [
+      "Steve Valentine"
+    ],
+    "source_lines": {
+      "10": 1860,
+      "20": 1860
+    },
+    "gold_document": {
+      "title": "Alistair (Dragon Age)",
+      "text": "Alistair was mainly written by David Gaider—the lead writer of Origins—and is voiced by Steve Valentine.  Alistair is a relatively new Grey Warden, who are a group devoted to fighting darkspawn. He's believed to be the secret son of King Maric and a serving girl, and was originally raised in Redcliffe Castle by Arl Eamon after his mother's death. However, he was later given to the Chantry for training as a templar, a military order who are trained to kill \"apostates\" (mages outside of the Circle of Magi) and watch over the Circle of Magi. Alistair is described as having",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-075",
+    "question": "where do they film young and the restless",
+    "answers": [
+      "CBS Television City"
+    ],
+    "source_lines": {
+      "10": 2053,
+      "20": 2053
+    },
+    "gold_document": {
+      "title": "The Young and the Restless",
+      "text": "Taped at CBS Television City, studios 41 and 43 in Hollywood since its debut on March 26, 1973, the show was packaged by the distribution company Columbia Pictures Television, which has now been replaced by Sony Pictures Television.  The Young and the Restless originally aired as a half-hour series on CBS and was the first soap opera to focus on the visual aspects of production, creating \"a look that broke with the visual conventions of the genre.\" Similar to the radio serials that had preceded them, soap operas at the time primarily focused on dialogue, characters, and story, with details",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-076",
+    "question": "in another world with my smartphone japanese title",
+    "answers": [
+      "異世界はスマートフォンとともに"
+    ],
+    "source_lines": {
+      "10": 313,
+      "20": 313
+    },
+    "gold_document": {
+      "title": "In Another World With My Smartphone",
+      "text": "In Another World With My Smartphone (異世界はスマートフォンとともに, Isekai wa Sumātofon to Tomo ni) is a Japanese light novel series written by Patora Fuyuhara and illustrated by Eiji Usatsuka.  J-Novel Club has licensed the series for an English release, releasing each novel in six weekly parts since February 2017. A manga adaptation by Soto began its serialization in Kadokawa Shoten's Comp Ace in November 2016. An anime television series adaptation by Production Reed aired from July to September 2017.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-077",
+    "question": "who won the world cup in cricket 2017",
+    "answers": [
+      "Pakistan"
+    ],
+    "source_lines": {
+      "10": 1108,
+      "20": 1108
+    },
+    "gold_document": {
+      "title": "2017 ICC Champions Trophy",
+      "text": "The 2017 ICC Champions Trophy was the eighth ICC Champions Trophy, a cricket tournament for the eight top-ranked One Day International (ODI) teams in the world. It was held in England and Wales from 1 June to 18 June 2017. Pakistan won the competition for the first time with a 180-run victory over India in the final at The Oval.  The margin of victory was the largest by any team in the final of an ICC ODI tournament in terms of runs.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-078",
+    "question": "which type of hematoma is a result of torn bridging meningeal veins",
+    "answers": [
+      "A subdural hematoma",
+      "subdural hematoma (SDH)",
+      "subdural hematoma"
+    ],
+    "source_lines": {
+      "10": 734,
+      "20": 734
+    },
+    "gold_document": {
+      "title": "Subdural hematoma",
+      "text": "A subdural hematoma (SDH), is a type of hematoma, usually associated with traumatic brain injury. Blood gathers between the inner layer of the dura mater and the arachnoid mater. Usually resulting from tears in bridging veins which cross the subdural space, subdural hemorrhages may cause an increase in intracranial pressure (ICP), which can cause compression of and damage to delicate brain tissue. Subdural hematomas are often life-threatening when acute. Chronic subdural hematomas, however, have a better prognosis if properly managed.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-079",
+    "question": "what side does us army go on acu",
+    "answers": [
+      "the right"
+    ],
+    "source_lines": {
+      "10": 2406,
+      "20": 2406
+    },
+    "gold_document": {
+      "title": "Army Combat Uniform",
+      "text": "preference. Skill tabs, such as the President's Hundred Tab, Special Forces, Ranger, and Sapper are worn on the left sleeve pocket flap, and are subject to a 3-tab-only rule. A tab that is an integral part of a unit patch, such as the \"Mountain\" or \"Airborne\" tab, is not counted against the rule. The U.S. Army Chaplain insignia is the only authorized army branch insignia to be worn on the ACU. It is centered 1/8 inch above the right name tape.  The insignia may be the metal pin-on variety or the black embroidered insignia on digitized fabric with Velcro fasteners.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-080",
+    "question": "who played jennifer in back to the future",
+    "answers": [
+      "Claudia Grace Wells"
+    ],
+    "source_lines": {
+      "10": 2178,
+      "20": 2178
+    },
+    "gold_document": {
+      "title": "Claudia Wells",
+      "text": "Claudia Grace Wells (born July 5, 1966) is an American actress.  She is best known for her role as Jennifer Parker in the film Back to the Future (1985).",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-081",
+    "question": "when was the debating club established in almora",
+    "answers": [
+      "1871 A.D.",
+      "1871"
+    ],
+    "source_lines": {
+      "10": 1605,
+      "20": 1605
+    },
+    "gold_document": {
+      "title": "Almora",
+      "text": "In 1871 A.D.  Pt. Buddhiballav Pant opened a debating club. When Sir William Muir, the then provincial Governor, came here he was highly pleased with the working of this club. It is said that he also advised to open a press here and publish a newspaper. Mr. Pant, as advised, opened a press here and started publishing a weekly magazine Almora Akhbar. Almora Akhbar was the oldest Hindi weekly of this province. In 1913 A.D. Badri Datt Pandey took over the editing work of the magazine. Almora Akhbar made much progress; The number of its customers rose from 50-60 to",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-082",
+    "question": "when did hootie and the blowfish come out",
+    "answers": [
+      "2003",
+      "1986",
+      "March 4, 2003"
+    ],
+    "source_lines": {
+      "10": 1437,
+      "20": 1437
+    },
+    "gold_document": {
+      "title": "Hootie & the Blowfish",
+      "text": "Hootie & the Blowfish is an American rock band that was formed in Columbia, South Carolina, in 1986 by Darius Rucker, Mark Bryan, Dean Felber and Jim Sonefeld.  As of July 2010, the band had charted 16 singles on various Billboard singles charts and recorded five studio albums. Their debut album, Cracked Rear View (1994), is the 14th-best-selling album of all time in the United States, and was certified platinum 16 times. They have sold over 21 million copies of their albums in the United States. The group was also popular in Canada, having three number-one singles in the country.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-083",
+    "question": "who played the middle sister on full house",
+    "answers": [
+      "Jodie Sweetin"
+    ],
+    "source_lines": {
+      "10": 2182,
+      "20": 2182
+    },
+    "gold_document": {
+      "title": "List of Full House and Fuller House characters",
+      "text": "Stephanie Judith Tanner (portrayed by Jodie Sweetin) is the witty, sarcastic middle child of Danny and Pam, the younger sister of D.J., and the older sister of Michelle.  Her mother died when she was five years old. Her catchphrases during the early seasons of the series include \"how rude!,\" \"well, pin a rose on your nose!\" and \"hot dog\". She eventually evolved into something of a tomboy in seasons four and five. Stephanie has a habit of spying on D.J.'s life by reading her diary and eavesdropping on her telephone calls (having been caught in the act several times), and",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-084",
+    "question": "who sponsored the phoenix open before waste management",
+    "answers": [
+      "Friedman Billings Ramsey"
+    ],
+    "source_lines": {
+      "10": 2070,
+      "20": 2070
+    },
+    "gold_document": {
+      "title": "Phoenix Open",
+      "text": "The tournament was originally the Arizona Open, but was known for most of its history as the Phoenix Open until the investment bank Friedman Billings Ramsey became the title sponsor in October 2003, and it was known as the FBR Open for the next six editions.  Waste Management began its sponsorship in 2010.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-085",
+    "question": "who sang it must have been love but its over now",
+    "answers": [
+      "Roxette"
+    ],
+    "source_lines": {
+      "10": 1177,
+      "20": 1177
+    },
+    "gold_document": {
+      "title": "Roxette",
+      "text": "Roxette are a Swedish pop rock duo, consisting of Marie Fredriksson (vocals) and Per Gessle (vocals and guitar). Formed in 1986, the duo became an international act in the late 1980s, when they released their breakthrough album Look Sharp! Their third album Joyride, which was released in 1991, became just as successful as its predecessor. Roxette went on to achieve nineteen UK Top 40 hits and several US Hot 100 hits, including four US number-ones with \"The Look,\" \"Listen to Your Heart,\" \"It Must Have Been Love,\" and \"Joyride.\"  Other hits include \"Dangerous,\" \"Fading Like a Flower,\" \"Spending My Time,\"",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-086",
+    "question": "what is the longest english word in the dictionary",
+    "answers": [
+      "Methionylglutaminylarginyltyrosylglutamyl...serine",
+      "pneumonoultramicroscopicsilicovolcanoconiosis",
+      "Pneumonoultramicroscopicsilicovolcanoconiosis"
+    ],
+    "source_lines": {
+      "10": 1033,
+      "20": 1033
+    },
+    "gold_document": {
+      "title": "Longest word in English",
+      "text": "The longest word in any of the major English language dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a word that refers to a lung disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it is the same as silicosis.  The word was deliberately coined to be the longest word in English, and has since been used in a close approximation of its originally intended meaning, lending at least some degree of validity to its claim.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-087",
+    "question": "who was the editor of the journal jugantor published in the time of swadeshi movement",
+    "answers": [
+      "Bhupendranath Dutt"
+    ],
+    "source_lines": {
+      "10": 1295,
+      "20": 1295
+    },
+    "gold_document": {
+      "title": "Jugantar Patrika",
+      "text": "The paper rapidly acquired a broad popularity, at one time having a readership of 20,000. Bhupendranath Dutt served as the editor of the newspaper till his arrest in 1907, although it also published articles from a number of noted Bengali revolutionaries including Barindra Kumar Ghosh and Aurobindo Ghosh. It faced prosecution a number of times by the British Indian government for publishing seditious articles. Bhupendranath Dutt was arrested in 1907 for publication of articles \"inciting violence against the Government of India\", for which he was sentenced to a year's rigorous imprisonment.  The paper was ultimately forced to shut down in",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-088",
+    "question": "the winner of the best actor award in the 64th national film festival 2017",
+    "answers": [
+      "Akshay Kumar",
+      "Manoj Joshi"
+    ],
+    "source_lines": {
+      "10": 1943,
+      "20": 1943
+    },
+    "gold_document": {
+      "title": "64th National Film Awards",
+      "text": "There was controversy over the National Film Award for Best Actor, which the committee awarded to Akshay Kumar for his performance in Rustom, snubbing Aamir Khan's performance for Dangal.  Committee member Priyadarshan, who has worked with Kumar on several films, gave the following explanation for awarding Kumar instead of Khan:",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-089",
+    "question": "which is the largest great lake in north america",
+    "answers": [
+      "Lake Superior"
+    ],
+    "source_lines": {
+      "10": 1392,
+      "20": 1392
+    },
+    "gold_document": {
+      "title": "Great Lakes",
+      "text": "containing 21% of the world's surface fresh water by volume. The total surface is 94,250 square miles (244,106 km), and the total volume (measured at the low water datum) is 5,439 cubic miles (22,671 km), a bit less than the volume of Lake Baikal (23,615 km³). Due to their sea-like characteristics (rolling waves, sustained winds, strong currents, great depths, and distant horizons) the five Great Lakes have also long been referred to as inland seas. Lake Superior is the second largest lake in the world by area, and Lake Michigan is the largest lake that is entirely within one country.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-090",
+    "question": "how many seasons are in star wars the clone wars",
+    "answers": [
+      "6"
+    ],
+    "source_lines": {
+      "10": 2349,
+      "20": 2349
+    },
+    "gold_document": {
+      "title": "List of Star Wars: The Clone Wars episodes",
+      "text": "On March 11, 2013, Lucasfilm announced that Star Wars: The Clone Wars would be \"winding down,\" effectively canceling the series as Lucasfilm ended its contract with Cartoon Network, following its acquisition by Disney. The unreleased episodes that had already been produced are referred to as \"bonus content.\" On January 16, 2014, the German television network Super RTL announced their plans to air the \"bonus content\" as a sixth season, which would consist of 13 episodes. Season 6, along with the other seasons and the feature film, were made available on Netflix on March 7, 2014.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-091",
+    "question": "bible verse taking the lord's name in vain",
+    "answers": [
+      "Exodus 20:7"
+    ],
+    "source_lines": {
+      "10": 763,
+      "20": 763
+    },
+    "gold_document": {
+      "title": "Thou shalt not take the name of the Lord thy God in vain",
+      "text": "It is a prohibition of blasphemy, specifically, the misuse or \"taking in vain\" of the name of the God of Israel, or using His name to commit evil. Exodus 20:7 reads:",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-092",
+    "question": "when was the wheel introduced to north america",
+    "answers": [
+      "about 1500 BC"
+    ],
+    "source_lines": {
+      "10": 925,
+      "20": 925
+    },
+    "gold_document": {
+      "title": "Wheel",
+      "text": "Although large-scale use of wheels did not occur in the Americas prior to European contact, numerous small wheeled artifacts, identified as children's toys, have been found in Mexican archeological sites, some dating to about 1500 BC.  It is thought that the primary obstacle to large-scale development of the wheel in the Americas was the absence of domesticated large animals which could be used to pull wheeled carriages. The closest relative of cattle present in Americas in pre-Columbian times, the American Bison, is difficult to domesticate and was never domesticated by Native Americans; several horse species existed until about 12,000 years",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-093",
+    "question": "who plays voldemort in harry potter and the philosopher's stone",
+    "answers": [
+      "Richard Bremmer",
+      "Ian Hart"
+    ],
+    "source_lines": {
+      "10": 1918,
+      "20": 1918
+    },
+    "gold_document": {
+      "title": "Lord Voldemort",
+      "text": "In Harry Potter and the Philosopher's Stone, Voldemort's manifestation is as a face on the back of Quirrell's head, an effect achieved by computer generated imagery. Ian Hart, the actor who played Quirrell in the same film, provided the voice and the facial source for this character. Voldemort also appears in a scene in the Forbidden Forest where he is seen drinking the blood of a unicorn. As Voldemort's face was altered enough by CG work, and Hart's voice was affected enough, there was no confusion by Hart's playing of the two roles. In that film, he was also shown in a flashback sequence when he arrived at the home of James and Lily Potter to kill them. In this scene Voldemort is played by Richard Bremmer, though his face is never seen. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-094",
+    "question": "what is the number of cities in texas",
+    "answers": [
+      "961"
+    ],
+    "source_lines": {
+      "10": 1619,
+      "20": 1619
+    },
+    "gold_document": {
+      "title": "List of cities in Texas",
+      "text": "Texas is a state located in the Southern United States. There are 961 cities in the sections below.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-095",
+    "question": "do you cut cards to the left or right",
+    "answers": [
+      "right"
+    ],
+    "source_lines": {
+      "10": 1649,
+      "20": 1649
+    },
+    "gold_document": {
+      "title": "Cut (cards)",
+      "text": "A common procedure is that after the cards have been shuffled, the dealer sets the cards face-down on the table near the player designated to make the cut, typically the player to the dealer's right.  That player initiates a cut of the deck by taking a contiguous range of cards off the top of the deck and placing it face-down on the table closer to the dealer; the dealer completes the cut by taking the original bottom portion of the deck and placing it on top of the just-moved cards. Once the cut is complete, the dealer picks up the",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-096",
+    "question": "who was the actor who played grizzly adams",
+    "answers": [
+      "\"Dan\" Haggerty"
+    ],
+    "source_lines": {
+      "10": 985,
+      "20": 985
+    },
+    "gold_document": {
+      "title": "Dan Haggerty",
+      "text": "Daniel Francis \"Dan\" Haggerty (November 19, 1941 – January 15, 2016) was an American actor, best known for playing the title role in The Life and Times of Grizzly Adams.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-097",
+    "question": "who appoints the chief election commissioner of india",
+    "answers": [
+      "President of India",
+      "the president"
+    ],
+    "source_lines": {
+      "10": 1293,
+      "20": 1293
+    },
+    "gold_document": {
+      "title": "Chief Election Commissioner of India",
+      "text": "The Chief Election Commissioner heads the Election Commission of India, a body constitutionally empowered to conduct free and fair elections to the national and state legislatures. Chief Election Commissioner of India is usually a member of the Indian Civil Service and mostly from the Indian Administrative Service. It is very difficult to remove the authority of the Chief Election Commissioner once elected by the president, as two-thirds of the Lok Sabha and the Rajya Sabha need to vote against him for disorderly conduct or improper actions.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-098",
+    "question": "bacterial cell walls are made rigid by the presence of",
+    "answers": [
+      "Peptidoglycan"
+    ],
+    "source_lines": {
+      "10": 1866,
+      "20": 1866
+    },
+    "gold_document": {
+      "title": "Peptidoglycan",
+      "text": "Peptidoglycan, also known as murein, is a polymer consisting of sugars and amino acids that forms a mesh-like layer outside the plasma membrane of most bacteria, forming the cell wall. The sugar component consists of alternating residues of β-(1,4) linked N-acetylglucosamine (NAG) and N-acetylmuramic acid (NAM) . Attached to the N-acetylmuramic acid is a peptide chain of three to five amino acids. The peptide chain can be cross-linked to the peptide chain of another strand forming the 3D mesh-like layer. Peptidoglycan serves a structural role in the bacterial cell wall, giving structural strength, as well as counteracting the osmotic pressure of the cytoplasm. A common misconception is that peptidoglycan gives the cell its shape; however, whereas peptidoglycan helps maintain the structural strength of the cell, it is actually the MreB protein that facilitates cell shape. Peptidoglycan is also involved in binary fission during bacterial cell reproduction.\n",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-099",
+    "question": "who wrote the song oh lord won't you buy me a mercedes benz",
+    "answers": [
+      "Janis Joplin",
+      "Bob Neuwirth",
+      "Michael McClure"
+    ],
+    "source_lines": {
+      "10": 1223,
+      "20": 1223
+    },
+    "gold_document": {
+      "title": "Mercedes Benz (song)",
+      "text": "\"Mercedes Benz\" is an a cappella song written by singer Janis Joplin with the poets Michael McClure and Bob Neuwirth, and originally recorded by Joplin.  In the song, the singer asks the Lord to prove His love for her by buying her a Mercedes-Benz, a color TV, and a \"night on the town.\" There is also a reference to Dialing for Dollars, a franchised format local television program, which required one to be watching the show to win when the show called your phone number, hence the singer's need for a TV.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-100",
+    "question": "who owns the delano hotel in las vegas",
+    "answers": [
+      "MGM Resorts International"
+    ],
+    "source_lines": {
+      "10": 1806,
+      "20": 1806
+    },
+    "gold_document": {
+      "title": "Delano Las Vegas",
+      "text": "Delano Las Vegas (formerly known as THEhotel) is a 45-story 1,117 room luxury suite hotel. It is owned and operated by MGM Resorts International.  It is located within the Mandalay Bay complex on the Las Vegas Strip in Paradise, Nevada. It was renovated and rebranded as the Delano Las Vegas on September 2, 2014, under a partnership between MGM and Morgans Hotel Group.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-101",
+    "question": "when was how deep is your love released",
+    "answers": [
+      "1977",
+      "September 1977"
+    ],
+    "source_lines": {
+      "10": 1721,
+      "20": 1721
+    },
+    "gold_document": {
+      "title": "How Deep Is Your Love (Bee Gees song)",
+      "text": "\"How Deep Is Your Love\" is a pop ballad and Rap based, written, and recorded by the Bee Gees in 1977 and released as a single in September of that year. It was ultimately used as part of the soundtrack to the film Saturday Night Fever. It was a number three hit in the United Kingdom and Australia. In the United States, it topped the Billboard Hot 100 on 24 December 1977 (becoming the first of six consecutive US number-one hits), ended the 10-week reign of Debby Boone's \"You Light Up My Life\" and stayed in the Top 10 for a then-record 17 weeks. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-102",
+    "question": "when did canada gain independence from great britain",
+    "answers": [
+      "April 17, 1982"
+    ],
+    "source_lines": {
+      "10": 2117,
+      "20": 2117
+    },
+    "gold_document": {
+      "title": "Canada Act 1982",
+      "text": "Canada's Constitution Act, 1982 was signed into law by Elizabeth II as Queen of Canada on April 17, 1982 on Parliament Hill in Ottawa.  Queen Elizabeth's constitutional powers over Canada were not affected by the Act, and she remains Queen and Head of State of Canada. Canada has complete sovereignty as an independent country, however, and the Queen's role as monarch of Canada is separate from her role as the British monarch or the monarch of any of the other Commonwealth realms.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-103",
+    "question": "where does the synthesis of new dna from existing dna occurs",
+    "answers": [
+      "origins of replication"
+    ],
+    "source_lines": {
+      "10": 1280,
+      "20": 1280
+    },
+    "gold_document": {
+      "title": "DNA replication",
+      "text": "In a cell, DNA replication begins at specific locations, or origins of replication, in the genome.  Unwinding of DNA at the origin and synthesis of new strands, accommodated by an enzyme known as ligase, results in replication forks growing bi-directionally from the origin. A number of proteins are associated with the replication fork to help in the initiation and continuation of DNA synthesis. Most prominently, DNA polymerase synthesizes the new strands by adding nucleotides that complement each (template) strand. DNA replication occurs during the S-stage of interphase.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-104",
+    "question": "where does the this is us family live",
+    "answers": [
+      "Pittsburgh"
+    ],
+    "source_lines": {
+      "10": 2174,
+      "20": 2174
+    },
+    "gold_document": {
+      "title": "This Is Us (TV series)",
+      "text": "at a set time in the past; but some episodes are set in one time period or use multiple flashback time periods. Flashbacks often focus on Jack and Rebecca c.1980 both before and after their babies' birth, or on the family when the Big Three are children (at least ages 8–10) or adolescents; these scenes usually take place in Pittsburgh, where the Big Three are born and raised.  Various other time periods and locations have also served a settings. As adults, Kate lives in Los Angeles, Randall and his family are in New Jersey, and Kevin relocates from Los Angeles",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-105",
+    "question": "turkey stuffed with a duck stuffed with a chicken",
+    "answers": [
+      "Turducken"
+    ],
+    "source_lines": {
+      "10": 2298,
+      "20": 2298
+    },
+    "gold_document": {
+      "title": "Turducken",
+      "text": "Turducken is a dish consisting of a deboned chicken stuffed into a deboned duck, further stuffed into a deboned turkey.  Outside of the United States and Canada, it is known as a three bird roast. Gooducken is a traditional English variant, replacing turkey with goose.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-106",
+    "question": "which domain of life are humans members of",
+    "answers": [
+      "Eukarya"
+    ],
+    "source_lines": {
+      "10": 609,
+      "20": 609
+    },
+    "gold_document": {
+      "title": "Domain (biology)",
+      "text": "In biological taxonomy, a domain (Latin: regio), also superkingdom or empire, is the highest taxonomic rank of organisms in the three-domain system of taxonomy designed by Carl Woese, an American microbiologist and biophysicist. According to the Woese system, introduced in 1990, the tree of life consists of three domains: Archaea, Bacteria, and Eukarya. The first two are all prokaryotic microorganisms, or single-celled organisms whose cells have no nucleus. All life that has a nucleus and membrane-bound organelles, and multicellular organisms, is included in the Eukarya.  Stefan Luketa in 2012 proposed a five \"dominion\" system, adding two more to the above.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-107",
+    "question": "when did the age of new media began",
+    "answers": [
+      "the 1980s"
+    ],
+    "source_lines": {
+      "10": 1423,
+      "20": 1423
+    },
+    "gold_document": {
+      "title": "New media",
+      "text": "Until the 1980s media relied primarily upon print and analog broadcast models, such as those of television and radio.  The last twenty-five years have seen the rapid transformation into media which are predicated upon the use of digital technologies, such as the Internet and video games. However, these examples are only a small representation of new media. The use of digital computers has transformed the remaining 'old' media, as suggested by the advent of digital television and online publications. Even traditional media forms such as the printing press have been transformed through the application of technologies such as image manipulation",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-108",
+    "question": "when did the newest macbook pro come out",
+    "answers": [
+      "June 5, 2017",
+      "October 27, 2016",
+      "June 5, 2017"
+    ],
+    "source_lines": {
+      "10": 1990,
+      "20": 1990
+    },
+    "gold_document": {
+      "title": "MacBook Pro",
+      "text": "The fourth generation MacBook Pro was announced on October 27, 2016. It replaced the function keys with an interactive, multi-touch \"Touch Bar\" and a Touch ID sensor integrated into the Power button. The 15-inch notebook started at $2,399, compared to $1,999 for the previous iteration. On June 5, 2017, Apple upgraded the internals of the MacBook Pro, such as enhanced Iris Plus and AMD Radeon graphics, Kaby Lake processors, and added memory.  Additionally, the 13-inch MacBook Pro now comes with a 128GB storage option (down from the base 256GB storage) with a lowered starting price of $1299. All other configurations",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-109",
+    "question": "who sings i wanna rock'n'roll all night",
+    "answers": [
+      "Kiss"
+    ],
+    "source_lines": {
+      "10": 2254,
+      "20": 2254
+    },
+    "gold_document": {
+      "title": "Rock and Roll All Nite",
+      "text": "\"Rock and Roll All Nite\" is a song by Kiss, originally released on their 1975 album Dressed to Kill. It was released as the A-side of their fifth single, with the album track \"Getaway.\" The studio version of the song peaked at No. 68 on the Billboard singles chart, besting the band's previous charting single, \"Kissin' Time\" (#89). A subsequent live version, released as a single in October 1975, eventually reached No. 12 in early 1976, the first of six Top 20 songs for Kiss in the 1970s. \"Rock and Roll All Nite\" became Kiss's signature song and has served as the group's closing concert number in almost every concert since 1976. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-110",
+    "question": "who played kelly taylor's mom on 90210",
+    "answers": [
+      "Ann Gillespie"
+    ],
+    "source_lines": {
+      "10": 1859,
+      "20": 1859
+    },
+    "gold_document": {
+      "title": "Kelly Taylor (90210)",
+      "text": "Kelly's tenuous relationship with her mother Jackie (Ann Gillespie) continued in the series' first season, with tension arising due to Jackie's drunken negligence of Erin, a recurring character in the original series and a regular in the spin-off.  She also resumed her friendship with Brenda Walsh. However, their relationship was briefly strained by Kelly's and possibly Brenda's lingering feelings for former boyfriend Dylan McKay, as well as Brenda sleeping with Kelly's ex-boyfriend, Ryan Matthews, a teacher at West Beverly. Following Brenda's discovery that she could not have children, she and Kelly made amends once again.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-111",
+    "question": "who came up with popcorn at the movies",
+    "answers": [
+      "Glen W. Dickson"
+    ],
+    "source_lines": {
+      "10": 284,
+      "20": 284
+    },
+    "gold_document": {
+      "title": "Popcorn",
+      "text": "source of income for many struggling farmers, including the Redenbacher family, namesake of the famous popcorn brand. During World War II, sugar rations diminished candy production, and Americans compensated by eating three times as much popcorn as they had before. The snack was popular at theaters, much to the initial displeasure of many of the theater owners, who thought it distracted from the films. Their minds eventually changed, however, and in 1938 a Midwestern theater owner named Glen W. Dickson installed popcorn machines in the lobbies of his theaters.  The venture was a financial success, and the trend soon spread.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-112",
+    "question": "who spoke the words ich bin ein berliner",
+    "answers": [
+      "U.S. President John F. Kennedy"
+    ],
+    "source_lines": {
+      "10": 1832,
+      "20": 1832
+    },
+    "gold_document": {
+      "title": "Ich bin ein Berliner",
+      "text": "\"Ich bin ein Berliner\" (German pronunciation: [ˈʔɪç ˈbɪn ʔaɪn bɛɐ̯ˈliːnɐ], \"I am a Berliner\") is a quotation from a June 26, 1963, speech by U.S. President John F. Kennedy in West Berlin.  It is widely regarded as the best-known speech of the Cold War and the most famous anti-communist speech. Kennedy aimed to underline the support of the United States for West Germany 22 months after Soviet-supported East Germany erected the Berlin Wall to prevent mass emigration to the West. The message was aimed as much at the Soviets as it was at Berliners and was a clear statement of",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-113",
+    "question": "when did bihar bifurcate from bengal and some parts of chota nagpur merged into bengal",
+    "answers": [
+      "1912"
+    ],
+    "source_lines": {
+      "10": 638,
+      "20": 638
+    },
+    "gold_document": {
+      "title": "Chota Nagpur Division",
+      "text": "Chota Nagpur Division became part of the new province of Bihar and Orissa when it was created in 1912.  In 1936 the province was split into the separate provinces of Bihar and Orissa, and the princely states were placed under the authority of the Eastern States Agency.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-114",
+    "question": "where was the movie silver linings playbook filmed",
+    "answers": [
+      "Ridley Park",
+      "Lansdowne",
+      "just outside Philadelphia, Pennsylvania",
+      "Upper Darby"
+    ],
+    "source_lines": {
+      "10": 819,
+      "20": 819
+    },
+    "gold_document": {
+      "title": "Silver Linings Playbook",
+      "text": "The locations are Upper Darby, Ridley Park, and Lansdowne small communities just outside Philadelphia, Pennsylvania. Although not mentioned by name in the film, Ridley Park is credited at the end, and a police officer can be seen wearing the initials \"RPPD\" on his collar.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-115",
+    "question": "when does the next season of wynonna earp start",
+    "answers": [
+      "2018",
+      "January 15, 2018"
+    ],
+    "source_lines": {
+      "10": 1929,
+      "20": 1929
+    },
+    "gold_document": {
+      "title": "Wynonna Earp (TV series)",
+      "text": "On July 22, 2017, David Ozer, president of IDW Entertainment, announced at the show's San Diego Comic-Con panel that the series had been renewed for a third season with the premiere scheduled for 2018.  Space announced on the same day that it had ordered 12 episodes for a third season, together with Syfy. Andras credited Wynonna Earp's passionate fan base (nicknamed \"Earpers\") with gaining the renewal.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-116",
+    "question": "who plays colin on young and the restless",
+    "answers": [
+      "Tristan Rogers"
+    ],
+    "source_lines": {
+      "10": 1471,
+      "20": 1471
+    },
+    "gold_document": {
+      "title": "Tristan Rogers",
+      "text": "Tristan Rogers (born 3 June 1946) is an Australian-American actor.  He is best known for playing Robert Scorpio on the ABC soap opera General Hospital and for voicing Jake in Walt Disney's The Rescuers Down Under. He is currently starring as Colin Atkinson on the CBS soap opera The Young and the Restless.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-117",
+    "question": "when was the dome of the rock completed",
+    "answers": [
+      "691 CE",
+      "in 691 CE"
+    ],
+    "source_lines": {
+      "10": 711,
+      "20": 711
+    },
+    "gold_document": {
+      "title": "Dome of the Rock",
+      "text": "It was initially completed in 691 CE at the order of Umayyad Caliph Abd al-Malik during the Second Fitna, built on the site of the Roman temple of Jupiter Capitolinus, which had in turn been built on the site of the Second Jewish Temple, destroyed during the Roman Siege of Jerusalem in 70 CE.  The original dome collapsed in 1015 and was rebuilt in 1022–23. The Dome of the Rock is in its core one of the oldest extant works of Islamic architecture.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-118",
+    "question": "when do you get your white coat in pharmacy school",
+    "answers": [
+      "before the first year begins"
+    ],
+    "source_lines": {
+      "10": 2390,
+      "20": 2390
+    },
+    "gold_document": {
+      "title": "White coat ceremony",
+      "text": "The White Coat Ceremony (WCC) is a relatively new ritual in some medical (MD, DO), dental, optometry, audiology, chiropractic, dietetic, occupational therapy, physical therapy, podiatric, pharmacy, physician assistant, pathologists' assistant, nursing, naturopathic and veterinary schools that marks the student's transition from the study of preclinical to clinical health sciences. At some schools, where students begin meeting patients early in their education, the white coat ceremony is held before the first year begins.  It is an example of a matriculation.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-119",
+    "question": "what position did doug peterson play in the nfl",
+    "answers": [
+      "holder on placekicks",
+      "quarterback"
+    ],
+    "source_lines": {
+      "10": 159,
+      "20": 159
+    },
+    "gold_document": {
+      "title": "Doug Pederson",
+      "text": "1968) is an American football coach who is currently the head coach of the Philadelphia Eagles of the National Football League (NFL). He served as the offensive coordinator of the Kansas City Chiefs from 2013–2015. He spent most of his playing career as a member of the Green Bay Packers, serving as a backup quarterback to Brett Favre and holder on placekicks, and winning Super Bowl XXXI with the team over the New England Patriots. He was also a backup to Dan Marino as a member of the Miami Dolphins, and a starting quarterback for the Eagles and Cleveland Browns.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-120",
+    "question": "how many walker texas ranger seasons are there",
+    "answers": [
+      "Eight",
+      "8"
+    ],
+    "source_lines": {
+      "10": 1626,
+      "20": 1626
+    },
+    "gold_document": {
+      "title": "Walker, Texas Ranger",
+      "text": "Paul Haggis. It was inspired by the film Lone Wolf McQuade, with both this series and that film starring Chuck Norris as a member of the Texas Ranger Division. The show aired on CBS in the spring of 1993, with the first season consisting of three pilot episodes. Eight full seasons followed with new episodes airing from September 25, 1993, to May 19, 2001, and reruns continuing on CBS until July 28, 2001.  It has been broadcast in over 100 countries and has since spawned a 2005 made-for-television movie entitled Trial By Fire. The movie ended on a cliffhanger, which",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-121",
+    "question": "what is the meaning of gorakh dhanda in urdu",
+    "answers": [
+      "You are a Puzzle"
+    ],
+    "source_lines": {
+      "10": 363,
+      "20": 363
+    },
+    "gold_document": {
+      "title": "Naz Khialvi",
+      "text": "Naz Khialvi (1947 – 12 December 2010) was a Pakistani lyricist and radio broadcaster, who is mainly known for his Sufi verse Tum Ek Gorakh Dhanda Ho (You are a Puzzle), later sung by Nusrat Fateh Ali Khan, a legendary Qawwali singer, making both of them a household name.  He also hosted a radio programme, Sandhal Dharti at Faisalabad radio station for 27 years.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-122",
+    "question": "what does fancy dress mean in the uk",
+    "answers": [
+      "A costume",
+      "guests dress up in costumes",
+      "costumes"
+    ],
+    "source_lines": {
+      "10": 967,
+      "20": 967
+    },
+    "gold_document": {
+      "title": "Costume party",
+      "text": "A costume party (American English) or a fancy dress party (British English) is a type of party, common mainly in contemporary Western culture, where guests dress up in costumes.  Costumed Halloween parties are popular in the United States, Canada, Australia, and New Zealand.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-123",
+    "question": "who won the american league east in 2017",
+    "answers": [
+      "The Yankees",
+      "Houston Astros"
+    ],
+    "source_lines": {
+      "10": 2422,
+      "20": 2422
+    },
+    "gold_document": {
+      "title": "2017 American League Championship Series",
+      "text": "The 2017 American League Championship Series was a best-of-seven playoff pitting the Houston Astros against the New York Yankees for the American League pennant and the right to face the Los Angeles Dodgers in the 2017 World Series.  The Astros defeated the Yankees in 7 games after falling behind 3 games to 2. The home team won every game in the series.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-124",
+    "question": "who was the first coronated king of manipur at kangla",
+    "answers": [
+      "Pakhangba",
+      "Pamheiba"
+    ],
+    "source_lines": {
+      "10": 2230,
+      "20": 2230
+    },
+    "gold_document": {
+      "title": "Kangla Palace",
+      "text": "In ancient times, 'Kangla' was the royal palace since the reign of Pakhangba who ascended the throne in 33 AD, according to \"Cheitharol Kummaba\", the royal Chronicle of Manipur.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-125",
+    "question": "who won the mens figure skating in 2018 olympics",
+    "answers": [
+      "Yuzuru Hanyu",
+      "Javier Fernández",
+      "Shoma Uno"
+    ],
+    "source_lines": {
+      "10": 492,
+      "20": 492
+    },
+    "gold_document": {
+      "title": "Figure skating at the 2018 Winter Olympics – Men's singles",
+      "text": "With his victory at the 2018 Winter Olympics, Yuzuru Hanyu became the first male figure skater to win two consecutive gold medals after Dick Button, who did so in 1952.  Fellow countryman Shoma Uno won the silver medal, and Spain's Javier Fernández won the bronze medal. Fernández won Spain's first figure skating medal and fourth medal at the Winter Olympics.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-126",
+    "question": "which state is located in the centre of india",
+    "answers": [
+      "Chhattisgarh",
+      "Madhya Pradesh"
+    ],
+    "source_lines": {
+      "10": 720,
+      "20": 720
+    },
+    "gold_document": {
+      "title": "Central India",
+      "text": "Central India is a loosely defined region of India consisting of the states of Chhattisgarh and Madhya Pradesh. Indore, the commercial capital of Madhya Pradesh is the largest city in the region. Other major  cities include Bhopal and Raipur. The states share many linguistic and cultural characteristics with the  Northern Region including the predominance of Hindi.  The states of Madhya Pradesh and Chhattisgarh have been grouped along with the states of Uttar Pradesh and Uttarakhand as the Northern Zonal Council for cooperation. \n",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-127",
+    "question": "what parts make up the peripheral nervous system",
+    "answers": [
+      "autonomic nervous system",
+      "somatic nervous system"
+    ],
+    "source_lines": {
+      "10": 2647,
+      "20": 2647
+    },
+    "gold_document": {
+      "title": "Peripheral nervous system",
+      "text": "mechanical injuries. The peripheral nervous system is divided into the somatic nervous system and the autonomic nervous system. In the somatic nervous system, the cranial nerves are part of the PNS with the exception of the optic nerve (cranial nerve II), along with the retina. The second cranial nerve is not a true peripheral nerve but a tract of the diencephalon. Cranial nerve ganglia originated in the CNS. However, the remaining ten cranial nerve axons extend beyond the brain and are therefore considered part of the PNS. The autonomic nervous system is an involuntary control of smooth muscle and glands. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-128",
+    "question": "the rule of the three rightly guided caliphs was called",
+    "answers": [
+      "Rashidun",
+      "the Rashidun",
+      "The Rashidun Caliphs"
+    ],
+    "source_lines": {
+      "10": 1230,
+      "20": 1230
+    },
+    "gold_document": {
+      "title": "Rashidun",
+      "text": "The Rashidun Caliphs (Rightly Guided Caliphs; Arabic: الخلفاء الراشدون‎ al-Khulafāʾu ar-Rāshidūn), often simply called, collectively, \"the Rashidun\", is a term used in Sunni Islam to refer to the 30-year reign of the first four caliphs (successors) following the death of the Islamic prophet Muhammad, namely: Abu Bakr, Umar, Uthman ibn Affan, and Ali of the Rashidun Caliphate, the first caliphate.  The concept of \"Rightly Guided Caliphs\" originated with the later Abbasid Caliphate based in Baghdad. It is a reference to the Sunni imperative \"Hold firmly to my example (sunnah) and that of the Rightly Guided Caliphs\" (Ibn Majah, Abu Dawood).",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-129",
+    "question": "who has been chosen as the brand ambassador of the campaign 'beti bachao-beti padhao",
+    "answers": [
+      "Sakshi Malik"
+    ],
+    "source_lines": {
+      "10": 1554,
+      "20": 1554
+    },
+    "gold_document": {
+      "title": "Beti Bachao, Beti Padhao Yojana",
+      "text": "In 26 August 2016, Olympics 2016 bronze medallist Sakshi Malik was made brand ambassador for BBBP.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-130",
+    "question": "which river separates the bronx in new york city from manhattan island",
+    "answers": [
+      "Harlem River",
+      "the Harlem River"
+    ],
+    "source_lines": {
+      "10": 674,
+      "20": 674
+    },
+    "gold_document": {
+      "title": "The Bronx",
+      "text": "The Bronx (/brɒŋks/) is the northernmost of the five boroughs of New York City, in the U.S. state of New York. It is south of Westchester County; north and east of Manhattan, across the Harlem River; and north of Queens, across the East River.  Since 1914, the borough has had the same boundaries as Bronx County, the third-most densely populated county in the United States.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-131",
+    "question": "when was the last time ny rangers won stanley cup",
+    "answers": [
+      "1993–94"
+    ],
+    "source_lines": {
+      "10": 2404,
+      "20": 2404
+    },
+    "gold_document": {
+      "title": "New York Rangers",
+      "text": "The Rangers are one of three NHL franchises in the New York metropolitan area, along with the New Jersey Devils and New York Islanders. The club is also one of the oldest teams in the NHL, having joined in 1926 as an expansion franchise. They are part of the group of teams referred to as the Original Six, along with the Boston Bruins, Chicago Blackhawks, Detroit Red Wings, Montreal Canadiens and Toronto Maple Leafs. The Rangers were the first NHL franchise in the United States to win the Stanley Cup, which they have done four times, most recently in 1993–94.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-132",
+    "question": "who has won the most world series in baseball",
+    "answers": [
+      "the New York Yankees",
+      "New York Yankees"
+    ],
+    "source_lines": {
+      "10": 1308,
+      "20": 1308
+    },
+    "gold_document": {
+      "title": "World Series",
+      "text": "In the American League, the New York Yankees have played in 40 World Series and won 27, the Philadelphia/Kansas City/Oakland Athletics have played in 14 and won 9, and the Boston Red Sox have played in 12 and won 8, including the first World Series.  In the National League, the St. Louis Cardinals have appeared in 19 and won 11, the New York/San Francisco Giants have played in 20 and won 8, the Brooklyn/Los Angeles Dodgers have appeared in 19 and won 6, and the Cincinnati Reds have appeared in 9 and won 5.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-133",
+    "question": "who wrote lord have mercy on the working man",
+    "answers": [
+      "Kostas"
+    ],
+    "source_lines": {
+      "10": 116,
+      "20": 116
+    },
+    "gold_document": {
+      "title": "Lord Have Mercy on the Working Man",
+      "text": "\"Lord Have Mercy on the Working Man\" is a song written by Kostas and recorded by American country music singer Travis Tritt.  It was released in August 1992 as the first of five singles from his third studio album, T-R-O-U-B-L-E. The song became Tritt's tenth entry on the Billboard Hot Country Singles & Tracks (now Hot Country Songs) charts, where it peaked at number 5.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-134",
+    "question": "when were the winnie the pooh books written",
+    "answers": [
+      "1924",
+      "1926",
+      "1927",
+      "1928"
+    ],
+    "source_lines": {
+      "10": 1585,
+      "20": 1585
+    },
+    "gold_document": {
+      "title": "Winnie-the-Pooh",
+      "text": "The first collection of stories about the character was the book Winnie-the-Pooh (1926), and this was followed by The House at Pooh Corner (1928). Milne also included a poem about the bear in the children's verse book When We Were Very Young (1924) and many more in Now We Are Six (1927).  All four volumes were illustrated by E. H. Shepard.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-135",
+    "question": "who is the girl in the stone sour video say you'll haunt me",
+    "answers": [
+      "Joanna Moskawa"
+    ],
+    "source_lines": {
+      "10": 1048,
+      "20": 1048
+    },
+    "gold_document": {
+      "title": "Say You'll Haunt Me",
+      "text": "The video begins with a car (1972 Plymouth Barracuda) pulling into a creepy alleyway with Corey Taylor being pulled out of the trunk by his bandmates. He is then lead upstairs to be strapped into a chair and interrogated by a woman (Joanna Moskawa) who seems to have an aggression towards him.  As this is happening, ghostly images of the band perform in front of each member, the video also features these images solo inside an abandoned warehouse including Taylor. Taylor is then blindfolded and then a weird screen is brought out. Corey then walks into the room from the",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-136",
+    "question": "who plays alec ramsay in the black stallion",
+    "answers": [
+      "Kelly Reno"
+    ],
+    "source_lines": {
+      "10": 429,
+      "20": 429
+    },
+    "gold_document": {
+      "title": "Kelly Reno",
+      "text": "Kelly Reno (born June 19, 1966, in Pueblo, Colorado) is a former child actor who was cast at age 11 in the role of Alec Ramsey, the young boy who is marooned on a deserted island along with a horse, in The Black Stallion (based on the novel by Walter Farley).  The film was made in 1977.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-137",
+    "question": "who came up with the theory of relativity",
+    "answers": [
+      "Albert Einstein"
+    ],
+    "source_lines": {
+      "10": 1898,
+      "20": 1898
+    },
+    "gold_document": {
+      "title": "Theory of relativity",
+      "text": "The theory of relativity usually encompasses two interrelated theories by Albert Einstein: special relativity and general relativity.  Special relativity applies to elementary particles and their interactions, describing all their physical phenomena except gravity. General relativity explains the law of gravitation and its relation to other forces of nature. It applies to the cosmological and astrophysical realm, including astronomy.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-138",
+    "question": "when did australia 2 win the america's cup",
+    "answers": [
+      "1983"
+    ],
+    "source_lines": {
+      "10": 2071,
+      "20": 2071
+    },
+    "gold_document": {
+      "title": "1983 America's Cup",
+      "text": "The 1983 America's Cup was the occasion of the first winning challenge to the New York Yacht Club, which had successfully defended the cup over a period of 132 years.  An Australian syndicate representing the Royal Perth Yacht Club fielded the Australia II, skippered by John Bertrand, against defender Liberty, skippered by Dennis Conner. Australia II won the match races to win the America's Cup, ending the longest winning streak in sporting history and ending U.S. domination of the racing series.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-139",
+    "question": "when did the angel of the north get built",
+    "answers": [
+      "1998",
+      "1994"
+    ],
+    "source_lines": {
+      "10": 1263,
+      "20": 1263
+    },
+    "gold_document": {
+      "title": "Angel of the North",
+      "text": "Completed in 1998, it is a steel sculpture of an angel, 20 metres (66 ft) tall, with wings measuring 54 metres (177 ft) across.  The wings do not stand straight sideways, but are angled 3.5 degrees forward; Gormley did this to create \"a sense of embrace\". The angel like much of Gormley's other work is based on a cast of his body.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-140",
+    "question": "who wrote the book my country my life",
+    "answers": [
+      "L. K. Advani"
+    ],
+    "source_lines": {
+      "10": 576,
+      "20": 576
+    },
+    "gold_document": {
+      "title": "My Country My Life",
+      "text": "My Country My Life is an autobiographical book by L. K. Advani, an Indian politician who served as the Deputy Prime Minister of India from 2002 to 2004, and was the Leader of the Opposition in the 15th Lok Sabha.  The book was released on 19 March 2008 by Abdul Kalam, the eleventh President of India. The book has 1,040 pages and narrates autobiographical accounts and events in the life of Advani. It became the best seller book in the non-fiction category and Advani joined Archer as a bestseller author. The book website claims the book sold an excess of",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-141",
+    "question": "when did world war one begin and end",
+    "answers": [
+      "28 July 1914",
+      "11 November 1918"
+    ],
+    "source_lines": {
+      "10": 2357,
+      "20": 2357
+    },
+    "gold_document": {
+      "title": "World War I",
+      "text": "World War I (WWI or WW1), also known as the First World War, the Great War, or the War to End All Wars, was a global war originating in Europe that lasted from 28 July 1914 to 11 November 1918.  More than 70 million military personnel, including 60 million Europeans, were mobilised in one of the largest wars in history. Over nine million combatants and seven million civilians died as a result of the war (including the victims of a number of genocides), a casualty rate exacerbated by the belligerents' technological and industrial sophistication, and the tactical stalemate caused by",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-142",
+    "question": "who was the first english child born in north america",
+    "answers": [
+      "Virginia Dare"
+    ],
+    "source_lines": {
+      "10": 1372,
+      "20": 1372
+    },
+    "gold_document": {
+      "title": "Virginia Dare",
+      "text": "Virginia Dare (born August 18, 1587, date of death unknown) was the first English child born in a New World English overseas possession, and was named after the territory of Virginia, her birthplace.  Her parents were Ananias Dare and Eleanor White (also spelled Ellinor or Elyonor).",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-143",
+    "question": "what type of bridge is the charles bridge",
+    "answers": [
+      "a bow bridge",
+      "bow bridge",
+      "Stone"
+    ],
+    "source_lines": {
+      "10": 2193,
+      "20": 2193
+    },
+    "gold_document": {
+      "title": "Charles Bridge",
+      "text": "The bridge is 621 metres (2,037 ft) long and nearly 10 metres (33 ft) wide, following the example of the Stone Bridge in Regensburg, it was built as a bow bridge with 16 arches shielded by ice guards.  It is protected by three bridge towers, two of them on the Lesser Quarter side and the third one on the Old Town side. The Old Town Bridge Tower is often considered to be one of the most astonishing civil gothic-style buildings in the world. The bridge is decorated by a continuous alley of 30 statues and statuaries, most of them baroque-style,",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-144",
+    "question": "how many times have real madrid won the european cup.in paris",
+    "answers": [
+      "twelve"
+    ],
+    "source_lines": {
+      "10": 464,
+      "20": 464
+    },
+    "gold_document": {
+      "title": "Real Madrid C.F. in international football competitions",
+      "text": "Real Madrid had the most success in the European Cup, winning the trophy for a record twelve times.  Real was the winner of the inaugural edition of the European Cup and the only club to win the trophy five times in a row (the first five editions). The club has also won the UEFA Cup twice, in 1985 and 1986, the Super Cup four times, in 2002, 2014, 2016 and 2017, the Intercontinental Cup three times, in 1960, 1998 and 2002, and the FIFA Club World Cup three times, in 2014, 2016 and 2017. Real Madrid, with 24 trophies, is",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-145",
+    "question": "who sings every light in the house is on",
+    "answers": [
+      "Trace Adkins"
+    ],
+    "source_lines": {
+      "10": 398,
+      "20": 398
+    },
+    "gold_document": {
+      "title": "Every Light in the House",
+      "text": "\"Every Light in the House\" is a song written by Kent Robbins and recorded by American country music artist Trace Adkins.  It was released in August 1996 as the second single from his debut album Dreamin' Out Loud. It was his first Top 5 single on the Hot Country Singles & Tracks (now Hot Country Songs) chart, where it peaked at #3.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-146",
+    "question": "where was the first cell phone call made",
+    "answers": [
+      "April 3, 1973"
+    ],
+    "source_lines": {
+      "10": 1124,
+      "20": 1124
+    },
+    "gold_document": {
+      "title": "History of mobile phones",
+      "text": "Prior to 1973, mobile telephony was limited to phones installed in cars and other vehicles. Motorola was the first company to produce a handheld mobile phone. On April 3, 1973, Martin Cooper, a Motorola researcher and executive, made the first mobile telephone call from handheld subscriber equipment, placing a call to Dr. Joel S. Engel of Bell Labs, his rival.  The prototype handheld phone used by Dr. Cooper weighed 1.1 kg (2.42 lb) and measured 23 cm long, 13 cm deep and 4.45 cm wide. The prototype offered a talk time of just 30 minutes and took 10 hours to",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-147",
+    "question": "name of volcano that erupted in iceland in 2010",
+    "answers": [
+      "Eyjafjallajökull"
+    ],
+    "source_lines": {
+      "10": 1446,
+      "20": 1446
+    },
+    "gold_document": {
+      "title": "Eyjafjallajökull",
+      "text": "Eyjafjallajökull (Icelandic pronunciation [ˈeɪjaˌfjatlaˌjœːkʏtl̥] ( listen)), (English pronunciation: ei-ya-fyat-LA-yer-kitle), English Island Mountain Glacier, is one of the smaller ice caps of Iceland, north of Skógar and west of Mýrdalsjökull.  The ice cap covers the caldera of a volcano with a summit elevation of 1,651 metres (5,417 ft). The volcano has erupted relatively frequently since the last glacial period, most recently in 2010.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-148",
+    "question": "what is the oldest street in the philippines",
+    "answers": [
+      "Cebu City",
+      "Colon Street"
+    ],
+    "source_lines": {
+      "10": 894,
+      "20": 894
+    },
+    "gold_document": {
+      "title": "Colon Street",
+      "text": "Colon Street is a historical street in downtown Cebu City that is often called the oldest and the shortest national road in the Philippines.  It is named after Cristóbal Colón (Christopher Columbus). It traces its origins to the town plan by Miguel Lopez de Legazpi, the Spanish conquistador who arrived in the Philippines to establish a colony in 1565.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-149",
+    "question": "what were the two causes of the dust bowl",
+    "answers": [
+      "severe drought"
+    ],
+    "source_lines": {
+      "10": 1951,
+      "20": 1951
+    },
+    "gold_document": {
+      "title": "Dust Bowl",
+      "text": "The Dust Bowl, also known as the Dirty Thirties, was a period of severe dust storms that greatly damaged the ecology and agriculture of the American and Canadian prairies during the 1930s; severe drought and a failure to apply dryland farming methods to prevent wind erosion (the Aeolian processes) caused the phenomenon.  The drought came in three waves, 1934, 1936, and 1939–1940, but some regions of the high plains experienced drought conditions for as many as eight years. With insufficient understanding of the ecology of the plains, farmers had conducted extensive deep plowing of the virgin topsoil of the Great",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-150",
+    "question": "who played the girl in my two dads",
+    "answers": [
+      "Staci Keanan"
+    ],
+    "source_lines": {
+      "10": 2316,
+      "20": 2316
+    },
+    "gold_document": {
+      "title": "Staci Keanan",
+      "text": "Staci Keanan (born Anastasia Love Sagorsky on June 6, 1975) is a former American actress and attorney.  Keanan is best known for her roles in the television series My Two Dads (1987–1990) and Step by Step (1991–1998). She has also been credited as Stacy Keenan and Staci Love.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-151",
+    "question": "who become the ceo of it wipro company in 2016",
+    "answers": [
+      "Abid Ali Neemuchwala"
+    ],
+    "source_lines": {
+      "10": 558,
+      "20": 558
+    },
+    "gold_document": {
+      "title": "Wipro",
+      "text": "At the end of December 31, 2015, its employee strength was 170,664. Abid Ali Neemuchwala was appointed as Wipro's CEO after T. K. stepped down in early 2016.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-152",
+    "question": "where did they get the vibranium to make captain americas shield",
+    "answers": [
+      "Wakanda"
+    ],
+    "source_lines": {
+      "10": 2515,
+      "20": 2515
+    },
+    "gold_document": {
+      "title": "Captain America's shield",
+      "text": "While the origin and fate of the original shield were not described in the original comics from the 1940s, the shield's fate was revealed decades later in 2001 through a retconned story. According to the tale, King T'Chaka of the African nation Wakanda met Captain America in early 1941 and gave him a second sample of vibranium, an alien metal with unique vibration absorption properties and found only in Wakanda and the Savage Land.  The new Vibranium sample was used to make Captain America's circular shield and his triangular one was retired.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-153",
+    "question": "when was the problem of cfc's discovered",
+    "answers": [
+      "late 1970s",
+      "1974",
+      "1973",
+      "1970s"
+    ],
+    "source_lines": {
+      "10": 2463,
+      "20": 2463
+    },
+    "gold_document": {
+      "title": "Chlorofluorocarbon",
+      "text": "Since the late 1970s, the use of CFCs has been heavily regulated because of their destructive effects on the ozone layer. After the development of his electron capture detector, James Lovelock was the first to detect the widespread presence of CFCs in the air, finding a mole fraction of 60 ppt of CFC-11 over Ireland. In a self-funded research expedition ending in 1973, Lovelock went on to measure CFC-11 in both the Arctic and Antarctic, finding the presence of the gas in each of 50 air samples collected, and concluding that CFCs are not hazardous to the environment. The experiment did however provide the first useful data on the presence of CFCs in the atmosphere. The damage caused by CFCs was discovered by Sherry Rowland and Mario Molina who, after hearing a lecture on the subject of Lovelock's work, embarked on research resulting in the first publication suggesting the connection in 1974. ",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-154",
+    "question": "who is doing 2018 super bowl half time show",
+    "answers": [
+      "Justin Timberlake"
+    ],
+    "source_lines": {
+      "10": 563,
+      "20": 563
+    },
+    "gold_document": {
+      "title": "Super Bowl LII halftime show",
+      "text": "The Super Bowl LII Halftime Show (officially known as the Pepsi Super Bowl LII Halftime Show) took place on February 4, 2018 at U.S. Bank Stadium in Minneapolis, Minnesota, as part of Super Bowl LII. Justin Timberlake was the featured performer, as confirmed by the National Football League (NFL) on October 22, 2017.  It was televised nationally by NBC.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-155",
+    "question": "who sang you'll be a woman soon in pulp fiction",
+    "answers": [
+      "rock band Urge Overkill",
+      "Urge Overkill"
+    ],
+    "source_lines": {
+      "10": 951,
+      "20": 951
+    },
+    "gold_document": {
+      "title": "Girl, You'll Be a Woman Soon",
+      "text": "\"Girl, You'll Be a Woman Soon\" is a song written by American musician Neil Diamond, whose recording of it on Bang Records reached number 10 on the US pop singles chart in 1967. The song enjoyed a second life when it appeared on the 1994 Pulp Fiction soundtrack, performed by rock band Urge Overkill.  Other versions have been recorded by Cliff Richard (1968), Jackie Edwards (1968), the Biddu Orchestra (1978), and 16 Volt (1998).",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-156",
+    "question": "what do you call a person who officiates a wedding",
+    "answers": [
+      "vow master",
+      "solemniser",
+      "marriage officiant",
+      "\"vow master\""
+    ],
+    "source_lines": {
+      "10": 1872,
+      "20": 1872
+    },
+    "gold_document": {
+      "title": "Marriage officiant",
+      "text": "A marriage officiant, solemniser, or \"vow master\" is a person who officiates at a wedding ceremony.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-157",
+    "question": "when did toyota start making cars in the us",
+    "answers": [
+      "by the early 1980s",
+      "1984"
+    ],
+    "source_lines": {
+      "10": 1761,
+      "20": 1761
+    },
+    "gold_document": {
+      "title": "Toyota",
+      "text": "Toyota has a large presence in the United States with six major assembly plants in Huntsville, Alabama, Georgetown, Kentucky, Princeton, Indiana, San Antonio, Texas, Buffalo, West Virginia, and Blue Springs, Mississippi. Toyota had a joint-venture operation with General Motors at New United Motor Manufacturing Inc. in Fremont, California, which began in 1984 and ended in 2009.  It still has a joint venture with Subaru at Subaru of Indiana Automotive, Inc. in Lafayette, Indiana, which started in 2006. In these assembly plants, the Camry and the Tundra are manufactured, among others.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-158",
+    "question": "when does the new mlp movie come out",
+    "answers": [
+      "September 24, 2017",
+      "October 6, 2017",
+      "October 6, 2017"
+    ],
+    "source_lines": {
+      "10": 2606,
+      "20": 2606
+    },
+    "gold_document": {
+      "title": "My Little Pony: The Movie (2017 film)",
+      "text": "The film was produced by Allspark Pictures and DHX Media, using traditional animation created with Toon Boom Harmony. It premiered in New York City on September 24, 2017, and was released on October 6, 2017 in the United States and Canada through Lionsgate.  The film received mixed reviews from critics and has grossed over $52 million worldwide.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-159",
+    "question": "when was the first election held in india",
+    "answers": [
+      "1951–52"
+    ],
+    "source_lines": {
+      "10": 2085,
+      "20": 2085
+    },
+    "gold_document": {
+      "title": "Indian general election, 1951–52",
+      "text": "The Indian general election of 1951–52 elected the first Lok Sabha since India became independent in August 1947.  Until this point, the Indian Constituent Assembly had served as an interim legislature. See the 'Durations' section below to find the time-range associated with these elections.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-160",
+    "question": "right to property according to the constitution of india is a",
+    "answers": [
+      "constitutional right"
+    ],
+    "source_lines": {
+      "10": 15,
+      "20": 15
+    },
+    "gold_document": {
+      "title": "Fundamental rights in India",
+      "text": "the constitution, which provided that \"no person shall be deprived of his property save by authority of law\". Thus if a legislature makes a law depriving a person of his property, there would be no obligation on the part of the State to pay anything as compensation. The aggrieved person shall have no right to move the court under Article 32. Thus, the right to property is no longer a fundamental right, though it is still a constitutional right.  If the government appears to have acted unfairly, the action can be challenged in a court of law by aggrieved citizens.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-161",
+    "question": "when did michael jordan return to the nba",
+    "answers": [
+      "2001",
+      "1995",
+      "March 1995",
+      "in March 1995"
+    ],
+    "source_lines": {
+      "10": 1501,
+      "20": 1501
+    },
+    "gold_document": {
+      "title": "Michael Jordan",
+      "text": "NBA championship with the Bulls, and followed that achievement with titles in 1992 and 1993, securing a \"three-peat\". Although Jordan abruptly retired from basketball before the beginning of the 1993–94 NBA season and started a new career playing minor league baseball, he returned to the Bulls in March 1995 and led them to three additional championships in 1996, 1997, and 1998, as well as a then-record 72 regular-season wins in the 1995–96 NBA season. Jordan retired for a second time in January 1999, but returned for two more NBA seasons from 2001 to 2003 as a member of the Wizards.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-162",
+    "question": "what does the msc in msc cruises stand for",
+    "answers": [
+      "Mediterranean Shipping Company S.A.",
+      "Mediterranean Shipping Company"
+    ],
+    "source_lines": {
+      "10": 1316,
+      "20": 1316
+    },
+    "gold_document": {
+      "title": "MSC Cruises",
+      "text": "MSC Cruises is a global cruise line that was founded in Italy, is registered in Switzerland, and has its headquarters in Geneva. MSC Cruises is the world's largest privately owned cruise company, employing 16,300 people worldwide and having offices in 45 countries as of July 2014. MSC Cruises (Italian: MSC Crociere S.p.A.) is part of the Mediterranean Shipping Company S.A. (MSC), the world's second biggest container shipping operator.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-163",
+    "question": "time of the state of the nation address",
+    "answers": [
+      "after 9pm ET"
+    ],
+    "source_lines": {
+      "10": 2120,
+      "20": 2120
+    },
+    "gold_document": {
+      "title": "State of the Union",
+      "text": "What began as a communication between president and Congress has become a communication between the president and the people of the United States. Since the advent of radio, and then television, the speech has been broadcast live on most networks, preempting scheduled programming. To reach the largest audience, the speech, once given during the day, is now typically given in the evening, after 9pm ET (UTC-5).",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-164",
+    "question": "who sang the theme song for the man with the golden gun",
+    "answers": [
+      "Lulu"
+    ],
+    "source_lines": {
+      "10": 526,
+      "20": 526
+    },
+    "gold_document": {
+      "title": "The Man with the Golden Gun (soundtrack)",
+      "text": "The theme tune was performed by Lulu, composed by John Barry, and the lyrics to the song were written by Don Black. Alice Cooper claims his song \"The Man With The Golden Gun\" was to be used by the film's producers until it was dropped for Lulu's song instead.  Cooper's song appears on his album Muscle of Love.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-165",
+    "question": "who does luke skywalker fall in love with",
+    "answers": [
+      "Mara Jade"
+    ],
+    "source_lines": {
+      "10": 961,
+      "20": 961
+    },
+    "gold_document": {
+      "title": "Luke Skywalker",
+      "text": "In the Hand of Thrawn Duology, Luke, now a Jedi Master, works again with Mara Jade, who has learned to better her Force knowledge since her training at Luke's Jedi Academy.  He falls in love with her and they eventually marry. Later, in Edge of Victory: Rebirth, they have a son whom they name Ben after Obi-Wan Kenobi's pseudonym Ben.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-166",
+    "question": "when did hollywood video go out of business",
+    "answers": [
+      "2005.",
+      "May 2010"
+    ],
+    "source_lines": {
+      "10": 1362,
+      "20": 1362
+    },
+    "gold_document": {
+      "title": "Hollywood Video",
+      "text": "Hollywood Video ceased operations in May 2010, when Movie Gallery, its parent company, declared Chapter 7 bankruptcy.  Its last US store closed its doors on July 31, 2010, whereas the last one in Canada closed on August 8 of that year.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-167",
+    "question": "when was the last time giants won superbowl",
+    "answers": [
+      "2011"
+    ],
+    "source_lines": {
+      "10": 2508,
+      "20": 2508
+    },
+    "gold_document": {
+      "title": "New York Giants",
+      "text": "in 1925, and is the only one of that group still existing, as well as the league's longest-established team in the Northeastern United States. The team ranks third among all NFL franchises with eight NFL championship titles: four in the pre–Super Bowl era (1927, 1934, 1938, 1956) and four since the advent of the Super Bowl (Super Bowls XXI (1986), XXV (1990), XLII (2007), and XLVI (2011)), along with more championship appearances than any other team, with 19 overall appearances.  Their championship tally is surpassed only by the Green Bay Packers (13) and Chicago Bears (9). Throughout their history, the",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-168",
+    "question": "dark parables return of the salt princess release date",
+    "answers": [
+      "September 2017"
+    ],
+    "source_lines": {
+      "10": 995,
+      "20": 995
+    },
+    "gold_document": {
+      "title": "Dark Parables",
+      "text": "The 14th game of this series. The BETA game was released in September 2017.  This episode will be developed by Blue Tea Games who return to the series since 2014.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-169",
+    "question": "what is the name of the compound p4010",
+    "answers": [
+      "Phosphorus pentoxide"
+    ],
+    "source_lines": {
+      "10": 380,
+      "20": 380
+    },
+    "gold_document": {
+      "title": "Phosphorus pentoxide",
+      "text": "Phosphorus pentoxide is a chemical compound with molecular formula P4O10 (with its common name derived from its empirical formula, P2O5).  This white crystalline solid is the anhydride of phosphoric acid. It is a powerful desiccant and dehydrating agent.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-170",
+    "question": "who owns the rights to rocky and bullwinkle",
+    "answers": [
+      "Universal Pictures"
+    ],
+    "source_lines": {
+      "10": 2564,
+      "20": 2564
+    },
+    "gold_document": {
+      "title": "The Adventures of Rocky and Bullwinkle and Friends (TV series)",
+      "text": "Show remained in syndicated reruns and was still available for local television stations through The Program Exchange as late as 2016; WBBZ-TV, for instance, aired the show in a strip to counterprogram 10 PM newscasts in the Buffalo, New York market during the summer 2013 season. The underlying rights are now owned by Universal Pictures, which holds the library of predecessor companies DreamWorks Animation and Classic Media, and who in turn with copyright holder Ward Productions forms the joint venture Bullwinkle Studios, which manages the Rocky and Bullwinkle properties; Universal's purchase of Classic Media coincided with The Program Exchange's shutdown.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-171",
+    "question": "who's flag is red white and green",
+    "answers": [
+      "Hungary"
+    ],
+    "source_lines": {
+      "10": 2526,
+      "20": 2526
+    },
+    "gold_document": {
+      "title": "Flag of Hungary",
+      "text": "The flag of Hungary (Hungarian: Magyarország zászlaja) is a horizontal tricolour of red, white and green. In this exact form, it has been the official flag of Hungary since May 23, 1957.  The flag's form originates from national republican movements of the 18th and 19th centuries, while its colours are from the Middle Ages. The current Hungarian tricolour flag is the same as the republican movement flag of the United Kingdom (used since 1816).",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-172",
+    "question": "who was suite judy blue eyes written about",
+    "answers": [
+      "singer/songwriter Judy Collins",
+      "Judy Collins"
+    ],
+    "source_lines": {
+      "10": 2276,
+      "20": 2276
+    },
+    "gold_document": {
+      "title": "Suite: Judy Blue Eyes",
+      "text": "The title \"Suite: Judy Blue Eyes\" (a play on words for \"Sweet Judy Blue Eyes\") refers to Stephen Stills' former girlfriend, singer/songwriter Judy Collins, and the lyrics to most of the suite's sections consist of his thoughts about her and their imminent breakup.  Collins is known for her piercing blue eyes. During a July 15, 2007 interview for the National Public Radio program Just Roll Tape, Stills revealed that Collins was present in the studio when the demo tapes were recorded. Collins had advised Stills \"not to stay [at the studio] all night.\" Stills later commented that \"the breakup was",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-173",
+    "question": "to transplant a nucleus from one cell to another cell a scientist would use",
+    "answers": [
+      "somatic cell nuclear transfer"
+    ],
+    "source_lines": {
+      "10": 2314,
+      "20": 2314
+    },
+    "gold_document": {
+      "title": "Somatic cell nuclear transfer",
+      "text": "In genetics and developmental biology, somatic cell nuclear transfer (SCNT) is a laboratory strategy for creating a viable embryo from a body cell and an egg cell.  The technique consists of taking an enucleated oocyte (egg cell) and implanting a donor nucleus from a somatic (body) cell. It is used in both therapeutic and reproductive cloning. Dolly the Sheep became famous for being the first successful case of the reproductive cloning of a mammal. \"Therapeutic cloning\" refers to the potential use of SCNT in regenerative medicine; this approach has been championed as an answer to the many issues concerning embryonic",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-174",
+    "question": "who plays the grandmother in game of thrones",
+    "answers": [
+      "Rigg"
+    ],
+    "source_lines": {
+      "10": 751,
+      "20": 751
+    },
+    "gold_document": {
+      "title": "Diana Rigg",
+      "text": "The same year, Rigg secured a recurring role in the third season of the HBO series Game of Thrones, portraying Lady Olenna Tyrell, a witty and sarcastic political mastermind popularly known as the Queen of Thorns, the grandmother of regular character Margaery Tyrell. Her performance was well received by critics and audiences alike, and earned her an Emmy nomination for Outstanding Guest Actress in a Drama Series for the 65th Primetime Emmy Awards in 2013. She reprised her role in season four of Game of Thrones, and in July 2014 received another Guest Actress Emmy nomination. In 2015 and 2016, she again reprised the role in seasons five and six in an expanded role from the books. The character was finally killed off in the seventh season, with Rigg's final performance receiving critical acclaim.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-175",
+    "question": "where did the book small steps take place",
+    "answers": [
+      "Austin, Texas"
+    ],
+    "source_lines": {
+      "10": 367,
+      "20": 367
+    },
+    "gold_document": {
+      "title": "Small Steps (novel)",
+      "text": "Two years after his release from Camp Green Lake, Theodore \"Armpit\" Johnson is living in Austin, Texas trying to build a stable lifestyle by digging deep holes and caring for his neighbor Ginny McDonald, a ten-year-old girl with cerebral palsy.  While working at the mayor's home, he is approached by Rex \"X-Ray\" Washburn, one of his friends from Camp Green Lake, who wants Armpit to loan him money for a ticket scalping scheme for an upcoming concert by teen pop star Kaira Deleon. Armpit agrees, and at first the scheme seems to go as planned.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-176",
+    "question": "who played anna in once upon a time",
+    "answers": [
+      "Elizabeth Dean Lail"
+    ],
+    "source_lines": {
+      "10": 2365,
+      "20": 2365
+    },
+    "gold_document": {
+      "title": "Elizabeth Lail",
+      "text": "Elizabeth Dean Lail (born March 25, 1992) is an American actress.  She is known for her role as Anna in the ABC adventure fantasy television series Once Upon a Time.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-177",
+    "question": "when does the champions league round of 16 start",
+    "answers": [
+      "13 February"
+    ],
+    "source_lines": {
+      "10": 1777,
+      "20": 1777
+    },
+    "gold_document": {
+      "title": "2017–18 UEFA Champions League knockout phase",
+      "text": "The 2017–18 UEFA Champions League knockout phase began on 13 February and will end on 26 May 2018 with the final at the NSC Olimpiyskiy Stadium in Kiev, Ukraine, to decide the champions of the 2017–18 UEFA Champions League.  A total of 16 teams compete in the knockout phase.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-178",
+    "question": "what causes cracked skin at the corners of your mouth",
+    "answers": [
+      "allergies",
+      "infection",
+      "irritation"
+    ],
+    "source_lines": {
+      "10": 124,
+      "20": 124
+    },
+    "gold_document": {
+      "title": "Angular cheilitis",
+      "text": "Angular cheilitis can be caused by infection, irritation, or allergies. Infections include by fungi such as Candida albicans and bacteria such as Staph. aureus. Irritants include poorly fitting dentures, licking the lips or drooling, mouth breathing resulting in a dry mouth, sun exposure, overclosure of the mouth, smoking, and minor trauma. Allergies may include substances like toothpaste, makeup, and food. Often a number of factors are involved. Other factors may include poor nutrition or poor immune function. Diagnosis may be helped by testing for infections and patch testing for allergies.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-179",
+    "question": "who missed the plane the day the music died",
+    "answers": [
+      "Tommy Allsup",
+      "Waylon Jennings"
+    ],
+    "source_lines": {
+      "10": 855,
+      "20": 855
+    },
+    "gold_document": {
+      "title": "The Day the Music Died",
+      "text": "At the time, Holly and his band, consisting of Waylon Jennings, Tommy Allsup, and Carl Bunch, were playing on the \"Winter Dance Party\" tour across the United States Midwest.  Rising artists Valens and Richardson had joined the tour, as well. The long journeys between venues on board the cold, uncomfortable tour buses adversely affected the performers, with cases of flu and even frostbite. After stopping at Clear Lake to perform, and frustrated by such conditions, Holly chose to charter a plane to reach their next venue in Moorhead, Minnesota. Richardson, who had the flu, swapped places with Jennings, taking his",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-180",
+    "question": "when was the suite life of zack and cody made",
+    "answers": [
+      "March 18, 2005",
+      "September 1, 2008",
+      "2005"
+    ],
+    "source_lines": {
+      "10": 2524,
+      "20": 2524
+    },
+    "gold_document": {
+      "title": "The Suite Life of Zack & Cody",
+      "text": "The Suite Life of Zack & Cody is an American sitcom created by Danny Kallis and Jim Geoghan. The series was first broadcast on Disney Channel on March 18, 2005, with 4 million viewers, making it the most successful premiere for Disney Channel in 2005.  It was one of their first five shows available on the iTunes Store. The series was nominated for an Emmy Award three times and was nominated for a Nickelodeon Kids' Choice Award three times. The show was also a long-standing staple of the now defunct ABC Kids Saturday morning block on ABC.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-181",
+    "question": "when was the last time that the eagles were at the super bowl",
+    "answers": [
+      "2017",
+      "2017 season"
+    ],
+    "source_lines": {
+      "10": 2043,
+      "20": 2043
+    },
+    "gold_document": {
+      "title": "2004 Philadelphia Eagles season",
+      "text": "led by Pro Bowlers Trotter, Brian Dawkins, Lito Sheppard, and Michael Lewis, they steamrolled opponents on the way to a 13–1 start to the season. After resting starters for the final two games, the 13–3 Eagles soared past the Minnesota Vikings and the Atlanta Falcons in the playoffs, earning a trip to Super Bowl XXXIX in Jacksonville against the defending champion New England Patriots. The game was hard fought, but the Eagles fell 24–21, ending their magical season one score short of the ultimate goal. This season was considered the franchise's most successful until their Super Bowl LII-winning 2017 season.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-182",
+    "question": "who were the judges on dancing on ice 2014",
+    "answers": [
+      "Jason Gardiner",
+      "Ashley Roberts",
+      "Robin Cousins",
+      "Karen Barber"
+    ],
+    "source_lines": {
+      "10": 2002,
+      "20": 2002
+    },
+    "gold_document": {
+      "title": "Dancing on Ice",
+      "text": "Phillip Schofield and Christine Bleakley returned to co-present. Dean, Torvill and Karen Barber returned to mentor the celebrities. Robin Cousins, Jason Gardiner, Barber and Ashley Roberts returned for their respective ninth, eighth, seventh and second series on The Ice Panel.  Cousins was absent for weeks 6 and 7 due to commentating the 2014 Winter Olympics, so former judge Nicky Slater returned in his place and Barber was temporary head judge.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-183",
+    "question": "who invented the submarine during the civil war",
+    "answers": [
+      "Horace Lawson Hunley"
+    ],
+    "source_lines": {
+      "10": 1523,
+      "20": 1523
+    },
+    "gold_document": {
+      "title": "H. L. Hunley (submarine)",
+      "text": "of America that played a small part in the American Civil War. Hunley demonstrated the advantages and the dangers of undersea warfare. She was the first combat submarine to sink a warship (USS Housatonic), although Hunley was not completely submerged and, following her successful attack, was lost along with her crew before she could return to base. The Confederacy lost 21 crewmen in three sinkings of Hunley during her short career. She was named for her inventor, Horace Lawson Hunley, shortly after she was taken into government service under the control of the Confederate States Army at Charleston, South Carolina.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-184",
+    "question": "sri lanka belongs to which part of asia",
+    "answers": [
+      "South Asia"
+    ],
+    "source_lines": {
+      "10": 1683,
+      "20": 1683
+    },
+    "gold_document": {
+      "title": "South Asia",
+      "text": "The current territories of Afghanistan, Bangladesh, Bhutan, Maldives, Nepal, India, Pakistan, and Sri Lanka form South Asia. The South Asian Association for Regional Cooperation (SAARC) is an economic cooperation organisation in the region which was established in 1985 and includes all eight nations comprising South Asia.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-185",
+    "question": "when did they stop making jello pudding pops",
+    "answers": [
+      "the 90s",
+      "around 2011"
+    ],
+    "source_lines": {
+      "10": 1113,
+      "20": 1113
+    },
+    "gold_document": {
+      "title": "Pudding Pop",
+      "text": "After being absent for a time, they were reintroduced to grocery stores under the Popsicle brand name. However, due to differences in texture to the original and different shape, popularity never reached its predecessors which resulted in them beginning to be pulled from stores around 2011.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-186",
+    "question": "where does a brisket come from on a cow",
+    "answers": [
+      "the breast or lower chest",
+      "breast or lower chest"
+    ],
+    "source_lines": {
+      "10": 2012,
+      "20": 2012
+    },
+    "gold_document": {
+      "title": "Brisket",
+      "text": "Brisket is a cut of meat from the breast or lower chest of beef or veal.  The beef brisket is one of the nine beef primal cuts, though the precise definition of the cut differs internationally. The brisket muscles include the superficial and deep pectorals. As cattle do not have collar bones, these muscles support about 60% of the body weight of standing/moving cattle. This requires a significant amount of connective tissue, so the resulting meat must be cooked correctly to tenderize the connective tissue.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-187",
+    "question": "how many episodes of greys anatomy season 14",
+    "answers": [
+      "24",
+      "24 episodes",
+      "21"
+    ],
+    "source_lines": {
+      "10": 1688,
+      "20": 1688
+    },
+    "gold_document": {
+      "title": "Grey's Anatomy (season 14)",
+      "text": "The fourteenth season of the American television medical drama Grey's Anatomy was ordered on February 10, 2017, by American Broadcasting Company (ABC), and premiered on September 28, 2017 with a special two-hour premiere. The season will consist of 24 episodes, with the season's seventh episode marking the 300th episode for the series overall.  The season is produced by ABC Studios, in association with Shondaland Production Company and The Mark Gordon Company; the showrunners being Krista Vernoff and William Harper.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-188",
+    "question": "what is the enrollment at university of miami",
+    "answers": [
+      "16,801",
+      "16,801 students"
+    ],
+    "source_lines": {
+      "10": 325,
+      "20": 325
+    },
+    "gold_document": {
+      "title": "University of Miami",
+      "text": "The University of Miami (informally referred to as UM, U of M, or The U) is a private, nonsectarian research university in Coral Gables, Florida, United States. As of 2016, the university enrolls 16,801 students in 12 separate colleges/schools, including the Leonard M. Miller School of Medicine in Miami's Health District, a law school on the main campus, and the Rosenstiel School of Marine and Atmospheric Science focused on the study of oceanography and atmospheric sciences on Virginia Key, with research facilities at the Richmond Facility in southern Miami-Dade County.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-189",
+    "question": "what was one reason south carolina gave for its decision to secede from the union",
+    "answers": [
+      "to preserve slavery"
+    ],
+    "source_lines": {
+      "10": 1040,
+      "20": 1040
+    },
+    "gold_document": {
+      "title": "South Carolina in the American Civil War",
+      "text": "Alfred P. Aldrich, a South Carolinian politician from Barnwell, stated that declaring secession would be necessary if a Republican candidate were to win the 1860 U.S. presidential election, stating that it was the only way for the state to preserve slavery and diminish the influence of the anti-slavery Republican Party, which, were its goals of abolition realized, would result in the \"destruction of the South\":",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-190",
+    "question": "how many dominoes do you need for mexican train",
+    "answers": [
+      "A double-twelve set"
+    ],
+    "source_lines": {
+      "10": 784,
+      "20": 784
+    },
+    "gold_document": {
+      "title": "Mexican Train",
+      "text": "A double-twelve set of dominoes is marketed as the standard for Mexican Train, and accommodates up to 8 players.  Other sets are commonly used as well. The following alternate sets are common, depending on the number of people playing:",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-191",
+    "question": "who sang one bad apple spoils the bunch",
+    "answers": [
+      "The Osmonds"
+    ],
+    "source_lines": {
+      "10": 2436,
+      "20": 2436
+    },
+    "gold_document": {
+      "title": "One Bad Apple",
+      "text": "\"One Bad Apple\" was a number-one hit single released by The Osmonds on November 14, 1970.  It debuted on the Billboard Hot 100 on January 2, 1971. It hit the top of the chart on February 13, 1971 and stayed there for five weeks. It also reached number six on the R&B chart. Billboard ranked it as the No. 4 song for 1971. Both \"One Bad Apple\" and the Donny Osmond-credited single \"Sweet and Innocent\" are on the 1970 album Osmonds. It was certified Gold by the RIAA on February 4, 1971.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-192",
+    "question": "who sings the skye boat song on outlander",
+    "answers": [
+      "Bear McCreary",
+      "Raya Yarbrough"
+    ],
+    "source_lines": {
+      "10": 1170,
+      "20": 1170
+    },
+    "gold_document": {
+      "title": "The Skye Boat Song",
+      "text": "Bear McCreary adapted the song as the opening titles of the 2014 TV series Outlander, sung by Raya Yarbrough, changing the text of Robert Louis Stevenson's poem Sing Me a Song of a Lad That Is Gone (1892) to fit the story.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-193",
+    "question": "what was the religion in persia before islam",
+    "answers": [
+      "the Zoroastrian religion",
+      "Zoroastrian"
+    ],
+    "source_lines": {
+      "10": 517,
+      "20": 517
+    },
+    "gold_document": {
+      "title": "Muslim conquest of Persia",
+      "text": "The Muslim conquest of Persia, also known as the Arab conquest of Iran,, led to the end of the Sasanian Empire in 651 and the eventual decline of the Zoroastrian religion in Persia.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-194",
+    "question": "the radiographic term used to describe the dense bone of the socket and septal crest is",
+    "answers": [
+      "lamina dura",
+      "alveolar process",
+      "the lamina dura"
+    ],
+    "source_lines": {
+      "10": 466,
+      "20": 466
+    },
+    "gold_document": {
+      "title": "Alveolar process",
+      "text": "The alveolar process contains a region of compact bone adjacent to the periodontal ligament (PDL), which is called the lamina dura when viewed on radiographs. It is this part which is attached to the cementum of the roots by the periodontal ligament. It is uniformly radiopaque (or lighter). Integrity of the lamina dura is important when studying radiographs for pathological lesions.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-195",
+    "question": "what was the initial effect of the transition from command to market economies in eastern europe",
+    "answers": [
+      "Inequality of opportunity"
+    ],
+    "source_lines": {
+      "10": 454,
+      "20": 454
+    },
+    "gold_document": {
+      "title": "Transition economy",
+      "text": "Inequality of opportunity was higher in the transition economies of Central and Eastern Europe and Central Asia than in some other developed economies in Western Europe (except France, where inequality of opportunity was relatively high).  The highest inequality of opportunity was found in the Balkans and Central Asia. In terms of legal regulations and access to education and health services, inequality of opportunity related to gender was low in Europe and Central Asia but medium to high in respect of labour practices, employment and entrepreneurship and in access to finance. In Central Asia women also experienced significant lack of access",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-196",
+    "question": "what is the official symbol of the carnival of quebec",
+    "answers": [
+      "Bonhomme Carnaval"
+    ],
+    "source_lines": {
+      "10": 103,
+      "20": 103
+    },
+    "gold_document": {
+      "title": "Quebec Winter Carnival",
+      "text": "The Quebec Winter Carnival or the Carnaval de Québec is a pre-Lenten festival held in Quebec City. After being held intermittently since 1894, the Carnaval de Québec has been celebrated annually since 1955. That year Bonhomme Carnaval, the mascot of the festival, made his first appearance.  Up to one million people attended the Carnaval de Québec in 2006 making it the largest winter festival in the world.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-197",
+    "question": "what type of legal system is used in the uk",
+    "answers": [
+      "Scots law",
+      "Northern Ireland law",
+      "English law"
+    ],
+    "source_lines": {
+      "10": 1826,
+      "20": 1826
+    },
+    "gold_document": {
+      "title": "Law of the United Kingdom",
+      "text": "The United Kingdom has three legal systems, each of which applies to a particular geographical area. English law applies in England and Wales, Northern Ireland law applies in Northern Ireland, and Scots law applies in Scotland.  While these three systems diverge in the more detailed rules, there are also substantive fields of law which apply across the United Kingdom.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-198",
+    "question": "what are the three fifty shades of grey books",
+    "answers": [
+      "Fifty Shades of Grey",
+      "Fifty Shades Darker",
+      "Fifty Shades Freed"
+    ],
+    "source_lines": {
+      "10": 825,
+      "20": 825
+    },
+    "gold_document": {
+      "title": "Fifty Shades (novel series)",
+      "text": "Fifty Shades is a series of erotic novels by E. L. James. Initially a trilogy consisting of Fifty Shades of Grey (2011), Fifty Shades Darker, and Fifty Shades Freed (2012), the series traces the deepening relationship between a college graduate, Anastasia Steele, and a young business magnate, Christian Grey.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-199",
+    "question": "how does the cash cab guy read the questions",
+    "answers": [
+      "walkie-talkie and earpiece"
+    ],
+    "source_lines": {
+      "10": 2429,
+      "20": 2429
+    },
+    "gold_document": {
+      "title": "Cash Cab (U.S. game show)",
+      "text": "A support van tails the Cash Cab, containing producers and a camera crew for the various street shots. The staff provide logistical information and questions by way of a walkie-talkie and earpiece worn by the host.  The Cash Cab is equipped with ten cameras: one on the host, three on the passengers, one pointing forward from the back window of the cab, and three (front, left and right) in the advertising shell on the roof of the cab showing the passing streetscape. The rear of the cab behind the seats contains ten recording decks and other production equipment.",
+      "hasanswer": true,
+      "isgold": true
+    }
+  },
+  {
+    "question_id": "nq-200",
+    "question": "where was the movie 500 days of summer filmed",
+    "answers": [
+      "Los Angeles"
+    ],
+    "source_lines": {
+      "10": 996,
+      "20": 996
+    },
+    "gold_document": {
+      "title": "500 Days of Summer",
+      "text": "David Ng of the Los Angeles Times describes architecture as a star of the film. Tom is seen reading Alain de Botton's The Architecture of Happiness. The film was originally set in San Francisco but was later moved to Los Angeles and the script rewritten to make better use of the location. Buildings used include the Los Angeles Music Center (which includes the Dorothy Chandler Pavilion) and the towers of California Plaza.  The older Fine Arts Building is featured in the film, in a scene where Tom shows it to Summer and mentions its designers, Walker and Eisen, two of",
+      "hasanswer": true,
+      "isgold": true
+    }
+  }
+]

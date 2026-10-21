@@ -1,0 +1,4 @@
+# Large experiment inputs and model outputs are stored with Git LFS so a normal
+# GitHub push does not create an oversized ordinary Git blob.
+experiments/lost-in-the-middle/data/raw_responses_*.jsonl filter=lfs diff=lfs merge=lfs -text
+experiments/lost-in-the-middle/data/scenarios.jsonl filter=lfs diff=lfs merge=lfs -text

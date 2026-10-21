@@ -1,0 +1,42 @@
+字段	含义、来源及缺失说明
+question_id	基础题 ID；200 道独立题，不把重复场景当新题
+scenario_id	题目、资料数、位置、策略构成的场景 ID
+run_id	模型与场景构成的唯一运行 ID
+task_type	document_qa 主实验或 closedbook_control 无资料对照
+model	实际请求的 API 模型 ID；原始 response.model 可核对
+document_count	给模型的资料篇数；对照为 0
+gold_position	支持文段在资料中的 1-based 序号；对照为 null
+position_label	front/middle/back；对照为 none
+prompt_id	ZZY 原始提示词策略 ID
+prompt_text	实际用户输入全文；无答案标记元数据泄漏
+prompt_sha256	实际输入 UTF-8 字节 SHA-256
+question	原始英文问题；保留源题拼写
+answers	官方接受答案列表；作为评分标签，不送给模型
+timestamp	记录保存时间，ISO 8601，Asia/Shanghai (+08:00)
+status	ok 或 api_error；接口成功不等于答题成功
+http_status	最后一次接口 HTTP 状态；网络错误可能为 null
+latency_s	最后一次请求耗时，秒；不包含退避等待
+attempt_count	实际请求尝试次数；重试不是新的独立场景
+attempts	每次尝试的起止时间、HTTP 状态、耗时或错误
+request	实际 API 请求体，含 messages、temperature、max_tokens；不含授权头
+response	成功时的完整 API JSON；失败为 null
+text	模型可见回答原文
+reasoning_text	服务方独立推理字段；未提供时 null，不可推断模型没有内部推理
+extracted_answer	按最终标记或简短单行规则提取；无法提取为 null；标记后为空会记录空串
+final_marker_present	是否出现 FINAL ANSWER:；出现不等于格式正确
+exact_match	规范化最终答案严格匹配；失败请求为 null；可能受回答格式影响
+answer_substring	任一规范化官方答案是否出现在全文；可能因错误解释提及正确词而假阳性
+needs_review	两种评分不一致、无法提取、或截断；是复核标记，不等于答错
+finish_reason	服务方返回的结束原因；未提供时 null
+truncated	finish_reason=length；保留这类记录，不删除
+input_tokens	usage.prompt_tokens；未提供时空值
+output_tokens	usage.completion_tokens；未提供时空值；不是字符数
+total_tokens	usage.total_tokens；未提供时空值
+output_words	Python str.split() 得到的空白分隔词数，供长度探索
+output_characters	可见原始回答 Unicode 字符数
+messages.role	实际 user 或 assistant；不虚构工具/纠错消息
+messages.turn_id	本次均为单轮，值为 1
+messages.tool_call	本次没有外部工具调用，null
+strategy_scope	主要比较、格式压力、答案预算压力或翻译复核；不混合报告为单一成功率
+collector_version	新采集记录为 scale200-v1；继承首轮为空，可由原始 manifest 定位
+workers_per_model	扩展阶段为 3；首轮未提供，历史配置为 1

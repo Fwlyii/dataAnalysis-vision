@@ -1,0 +1,7 @@
+# Live experiment staging files are kept locally while the collector runs.
+ccfa-workfiles/
+
+# Local Python and editor artifacts.
+__pycache__/
+*.pyc
+.run.lock

@@ -1,0 +1,96 @@
+[
+  {
+    "requested_model": "Qwen/Qwen2.5-7B-Instruct",
+    "status": 200,
+    "elapsed_s": 0.292,
+    "rate_limit_headers": {},
+    "request": {
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with exactly OK."
+        }
+      ],
+      "temperature": 0,
+      "max_tokens": 16
+    },
+    "response": {
+      "id": "01a15a1767486a6eafc964a6f30715c6",
+      "object": "chat.completion",
+      "created": 1792512845,
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "OK"
+          },
+          "finish_reason": "stop",
+          "logprobs": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 34,
+        "completion_tokens": 1,
+        "total_tokens": 35,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 34
+      },
+      "system_fingerprint": ""
+    }
+  },
+  {
+    "requested_model": "Qwen/Qwen3-8B",
+    "status": 200,
+    "elapsed_s": 0.498,
+    "rate_limit_headers": {},
+    "request": {
+      "model": "Qwen/Qwen3-8B",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with exactly OK."
+        }
+      ],
+      "temperature": 0,
+      "max_tokens": 16,
+      "enable_thinking": false
+    },
+    "response": {
+      "id": "01a15a1767160fc06dedf4986e3b605c",
+      "object": "chat.completion",
+      "created": 1792512845,
+      "model": "Qwen/Qwen3-8B",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "OK."
+          },
+          "finish_reason": "stop",
+          "logprobs": null
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 17,
+        "completion_tokens": 2,
+        "total_tokens": 19,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 17
+      },
+      "system_fingerprint": ""
+    }
+  }
+]

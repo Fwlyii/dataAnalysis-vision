@@ -1,0 +1,14 @@
+[
+  {
+    "documents": 10,
+    "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/10_total_documents/nq-open-10_total_documents_gold_at_0.jsonl.gz",
+    "sha256": "192a05b27af2b09eec33ca0c94bb5cf82bcaf70d78b3bdff1258df34bf37aab9",
+    "bytes": 7801797
+  },
+  {
+    "documents": 20,
+    "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_0.jsonl.gz",
+    "sha256": "69a8dd87a45f07fb3ed9b804917a89db975cd6e488682fc838edca029cc3881f",
+    "bytes": 15151873
+  }
+]

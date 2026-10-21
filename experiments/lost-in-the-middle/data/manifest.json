@@ -1,0 +1,128 @@
+{
+  "created_at": "2026-10-21T00:26:33+08:00",
+  "branch": "fwl",
+  "base_main_commit": "d6dc8fe822863b5580493660dd7664e1525269e4",
+  "reference_zzy_commit": "4133f88dfe9a9604a2e33098feeb32e8147024b3",
+  "zzy_archive_sha256": "b921ae2e9597d458dbd0778f29806b17635adc81031012591718a10abc301165",
+  "benchmark": "Lost in the Middle / NQ-Open multi-document QA",
+  "upstream_commit": "29b8a6d042ce29abccee3db1a73171a107d7e6af",
+  "dataset_sources": [
+    {
+      "documents": 10,
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/10_total_documents/nq-open-10_total_documents_gold_at_0.jsonl.gz",
+      "sha256": "192a05b27af2b09eec33ca0c94bb5cf82bcaf70d78b3bdff1258df34bf37aab9",
+      "bytes": 7801797
+    },
+    {
+      "documents": 20,
+      "url": "https://raw.githubusercontent.com/nelson-liu/lost-in-the-middle/29b8a6d042ce29abccee3db1a73171a107d7e6af/qa_data/20_total_documents/nq-open-20_total_documents_gold_at_0.jsonl.gz",
+      "sha256": "69a8dd87a45f07fb3ed9b804917a89db975cd6e488682fc838edca029cc3881f",
+      "bytes": 15151873
+    }
+  ],
+  "sample_seed": 91,
+  "sampling": "preserve first 10 random pilot questions; seed-91 sample 190 from remaining sorted common questions",
+  "source_questions_per_setting": 2655,
+  "independent_questions": 200,
+  "models": [
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen3-8B"
+  ],
+  "strategies": {
+    "NoCoT": "Only give the final answer. Do not give any explanation.",
+    "DefaultCoT": "Think step by step before answering.",
+    "BeConcise": "Think step by step before answering, but be concise.",
+    "BulletPoints": "Only use bullet points. Do not use complete sentences.",
+    "OnlyNumbers": "Only use numbers or equations in your steps. Use as few words as possible.",
+    "NoSpaces": "Do not use any spaces or line breaks. For example, instead of 'since 20 + 4 = 24' respond with 'since20+4=24'.",
+    "NoProperGrammar": "Do not use proper grammar. Avoid using connecting words like 'and', 'since', 'but', or 'then', etc.",
+    "AbbreviateWords": "Abbreviate words as much as possible. Remove vowels. For example, you can replace 'concept' with 'cncpt'.",
+    "WordLimit(1)": "Only use 1 words for your answer.",
+    "WordLimit(5)": "Only use 5 words for your answer.",
+    "WordLimit(10)": "Only use 10 words for your answer.",
+    "WordLimit(15)": "Only use 15 words for your answer.",
+    "WordLimit(25)": "Only use 25 words for your answer.",
+    "WordLimit(50)": "Only use 50 words for your answer.",
+    "WordLimit(100)": "Only use 100 words for your answer.",
+    "CharLimit(10)": "Only use 10 letters for your answer.",
+    "CharLimit(50)": "Only use 50 letters for your answer.",
+    "CharLimit(100)": "Only use 100 letters for your answer.",
+    "CharLimit(500)": "Only use 500 letters for your answer.",
+    "TokenLimit(10)": "Only use 10 tokens for your answer.",
+    "TokenLimit(50)": "Only use 50 tokens for your answer.",
+    "TokenLimit(100)": "Only use 100 tokens for your answer.",
+    "TokenLimit(500)": "Only use 500 tokens for your answer.",
+    "StepLimit(1)": "List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 1 steps.",
+    "StepLimit(2)": "List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 2 steps.",
+    "StepLimit(5)": "List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 5 steps.",
+    "ChineseCoT": "Respond in Chinese.",
+    "ChineseCoT(10)": "Respond in Chinese, but use at most 10 characters.",
+    "ChineseCoT(50)": "Respond in Chinese, but use at most 50 characters.",
+    "ChineseCoT(100)": "Respond in Chinese, but use at most 100 characters.",
+    "ChineseCoT(500)": "Respond in Chinese, but use at most 500 characters."
+  },
+  "unified_output_suffix": "End your response with FINAL ANSWER: <short answer in English>.",
+  "document_counts": [
+    10,
+    20
+  ],
+  "positions_1based": {
+    "10": [
+      1,
+      5,
+      10
+    ],
+    "20": [
+      1,
+      10,
+      20
+    ]
+  },
+  "scenarios_per_model": 37400,
+  "main_calls": 74400,
+  "control_calls": 400,
+  "total_calls": 74800,
+  "temperature": 0,
+  "max_tokens": 800,
+  "qwen3_extra_body": {
+    "enable_thinking": false
+  },
+  "qwen25_extra_body": {},
+  "input_system_message": null,
+  "per_model_token_budget_per_minute": 40000,
+  "max_attempts": 6,
+  "workers_per_model": 3,
+  "primary_strategy_ids": [
+    "NoCoT",
+    "DefaultCoT",
+    "BeConcise",
+    "BulletPoints",
+    "WordLimit(25)",
+    "WordLimit(100)",
+    "TokenLimit(100)",
+    "StepLimit(2)"
+  ],
+  "inherited_pilot_records": 109,
+  "previous_manifest": "cache/pilot-manifest.json",
+  "operation_note": "Inherited pilot used 1 worker/model; extension uses 3 workers/model. Latencies are operational, not controlled model-speed evidence.",
+  "grading": [
+    "normalized exact match of extracted final answer (primary)",
+    "official-style normalized answer substring in entire response (secondary)"
+  ],
+  "adaptations": [
+    "200-question course experiment; not a full paper reproduction",
+    "reposition gold while retaining distractor order within each length",
+    "all 31 original ZZY instructions plus one shared final-answer suffix; stress and translation strategies need separate scoring",
+    "closed-book controls use NoCoT and no supplied documents"
+  ],
+  "credential_source": "SILICONFLOW_API_KEY env, else in-memory extraction from main PDF; never exported",
+  "python_version": "3.12.4 | packaged by conda-forge | (main, Jun 17 2024, 10:23:07) [GCC 12.3.0]",
+  "requests_version": "2.34.2",
+  "scenarios_sha256": "9b091d65bce9bbceb96d3cb53c5d4f24aced13e5333097123b813cd43faa4a0b",
+  "script_sha256_at_prepare": "faf82a2c55ba45e5a9e2fdae294f1311a61fa4785bffe30675b56d30b1b918d7",
+  "script_sha256_at_run": "3ab542cf490a2fa4099689c86edb455468853af57082eb816f68b145ee4c8c77",
+  "expansion_expected_finish_window_beijing": [
+    "2026-10-22T18:00:00+08:00",
+    "2026-10-23T12:00:00+08:00"
+  ]
+}
