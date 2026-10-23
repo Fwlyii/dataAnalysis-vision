@@ -1,0 +1,56 @@
+{
+  "data/benchmark_194_tasks.csv.gz": {
+    "sha256": "a08b507f3217703ea391977639510deec40fc96892fd334a0a6344e29e2881da",
+    "bytes": 3537784,
+    "uncompressed_sha256": "a64666885e808b821ebac57ef436e5be9672a4e1f840eb81e9a7264444dd8afd",
+    "uncompressed_bytes": 20834031
+  },
+  "data/raw_deepseek-flash.jsonl.gz": {
+    "sha256": "72ba8b08ad8755a402e4229f8c03a8404d4eb449f6af88e1cfbc04f48a55ec5b",
+    "bytes": 31349856,
+    "uncompressed_sha256": "fa4290d8925f0c6845e9ed09dd847dccdb5d25f7a49243c1d713e813411c22de",
+    "uncompressed_bytes": 210756993
+  },
+  "data/raw_qwen2.5-7b-instruct-cloud.jsonl.gz": {
+    "sha256": "a6820429eb8297e7e11f0779e96422f204b0d6a0df1a38b6b9d9a8ed436b94cd",
+    "bytes": 28259738,
+    "uncompressed_sha256": "fdd352428c6e05283666aa45a48aa0e99a019f77e4d0ab1889703fdf8547f6cd",
+    "uncompressed_bytes": 185643690
+  },
+  "data/raw_qwen3-8b-cloud.jsonl.gz": {
+    "sha256": "3a4e32eb6a81eec9d679dde956cd7c5d3d6c6328898c468e85293e37cdc4afa3",
+    "bytes": 29474149,
+    "uncompressed_sha256": "5b41acbb8ccf7d6a6cfb78e9613de3de9f4af62900b7c540dbcee742eda132da",
+    "uncompressed_bytes": 191587430
+  },
+  "derived/evaluation_deepseek-flash.jsonl.gz": {
+    "sha256": "2c0e86ec0c52a0947e7a91cc6d7387a6fa644d77668ab0c3210bac698b1956b8",
+    "bytes": 3964474,
+    "uncompressed_sha256": "5b303dc7f667639c40d12711662cf00ca27540b753ef8e5b1cbe5e61b7b7ac6a",
+    "uncompressed_bytes": 56887657
+  },
+  "derived/evaluation_qwen2.5-7b-instruct-cloud.jsonl.gz": {
+    "sha256": "fd9d123fb1b3bb76de75252b8c621b21d50362b15bb1fb5c395fcc9841dab604",
+    "bytes": 4273621,
+    "uncompressed_sha256": "5c497bb7ce7d9f3b198ec0a352d1c547c1af23129620f7e24392be7dce18b90d",
+    "uncompressed_bytes": 61892048
+  },
+  "derived/evaluation_qwen3-8b-cloud.jsonl.gz": {
+    "sha256": "dd235c62f92d66a0caf3e5744f46f687fc3ae99da49e2ad67a904639d7902cd5",
+    "bytes": 3296664,
+    "uncompressed_sha256": "bdadff864612da4eed0cae877109ce0eb71af7c218e9e7d67b044538f319e365",
+    "uncompressed_bytes": 45948103
+  },
+  "derived/scores.csv.gz": {
+    "sha256": "89a76aaca7d0a0ab58299022351b1d42878493376300415b0a69497e82375aa6",
+    "bytes": 1197743,
+    "uncompressed_sha256": "31cec910e318866045c4c6a4d7f34cd38ac4acfa7a4e18243e65a5b775634d5e",
+    "uncompressed_bytes": 15506936
+  },
+  "derived/task_prompt_units.csv.gz": {
+    "sha256": "721949f2bfb8f6abe60808597eab0c340f5f20f846bc4550f2dbb06ad1517736",
+    "bytes": 116152,
+    "uncompressed_sha256": "6f1ffa367f8eef7b3212a3f36acb9c2f6fe7416be731b61f482b5e2479627768",
+    "uncompressed_bytes": 1438028
+  }
+}

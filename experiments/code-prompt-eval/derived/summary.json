@@ -1,0 +1,32 @@
+{
+  "records": 90210,
+  "expected_records": 90210,
+  "record_coverage": 1.0,
+  "evaluated_records": 89745,
+  "environment_records_excluded": 465,
+  "not_evaluated_records": 0,
+  "functional_evaluation_coverage": 1.0,
+  "models_found": [
+    "deepseek-flash",
+    "qwen2.5-7b-instruct-cloud",
+    "qwen3-8b-cloud"
+  ],
+  "task_count": 194,
+  "prompt_count": 31,
+  "turns_found": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sampling_mode": "independent",
+  "pass_k_values": [
+    1,
+    3,
+    5
+  ],
+  "marginal_gain_threshold": 0.01,
+  "minimum_coverage": 0.95,
+  "notes": "pass_at_k.csv uses the unbiased estimator 1-C(n-c,k)/C(n,k). turn_success.csv additionally reports order-specific cumulative success across samples 1..t."
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "task_id": "62ece4982e6aefcf4aabbd63",
+    "function_name": "is_none_string",
+    "zero_shot_prompt": "Check if a string represents a None value. A None value is True if the type of value is string and the lowercase of val is equal to 'none', otherwise it is False",
+    "prompt": "Respond with a Python function in one code block. Check if a string represents a None value. A None value is True if the type of value is string and the lowercase of val is equal to 'none', otherwise it is False The function signature is: def is_none_string(val: any) -> bool:. The function does not use any libraries. ",
+    "packages": "",
+    "level": "self_contained"
+  },
+  {
+    "task_id": "62ece4982e6aefcf4aabbd5f",
+    "function_name": "paging",
+    "zero_shot_prompt": "Return every response with the length of a given maximum number of objects to be returned in one page). It should return a Generator object with WAPI response split page by page.",
+    "prompt": "Respond with a Python function in one code block. Return every response with the length of a given maximum number of objects to be returned in one page). It should return a Generator object with WAPI response split page by page. The function signature is: def paging(response, max_results):. The function does not use any libraries. ",
+    "packages": "",
+    "level": "self_contained"
+  },
+  {
+    "task_id": "62ece4982e6aefcf4aabbd61",
+    "function_name": "_dictsum",
+    "zero_shot_prompt": "Sum values with the same key in the dictionaries, and return a new dictionary.",
+    "prompt": "Respond with a Python function in one code block. Sum values with the same key in the dictionaries, and return a new dictionary. The function signature is: def _dictsum(dicts):. The function does not use any libraries. ",
+    "packages": "",
+    "level": "self_contained"
+  }
+]

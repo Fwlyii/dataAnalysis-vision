@@ -1,0 +1,30 @@
+file	field	meaning
+raw_*.jsonl.gz	task_id	CoderEval/CodePromptEval task identifier
+raw_*.jsonl.gz	combination_id	Adapted prompt-set version and prompt identifier
+raw_*.jsonl.gz	prompt	Complete request text sent to the model
+raw_*.jsonl.gz	profile	Local experiment profile name
+raw_*.jsonl.gz	model	Provider model identifier
+raw_*.jsonl.gz	turn_id	Independent sample index from 1 to 5; not a feedback turn
+raw_*.jsonl.gz	complete_response	Complete model response
+raw_*.jsonl.gz	generated_code	Python code extracted from the response code block
+raw_*.jsonl.gz	input_tokens	Provider-reported input tokens
+raw_*.jsonl.gz	output_tokens	Provider-reported output tokens
+raw_*.jsonl.gz	total_tokens	Provider-reported total tokens
+raw_*.jsonl.gz	latency_seconds	Wall-clock request latency
+raw_*.jsonl.gz	thinking_mode	Requested provider reasoning mode
+evaluation_*.jsonl.gz	passed	True/False for functional test; null when the environment is excluded
+evaluation_*.jsonl.gz	error_category	Direct evaluator category before analysis normalization
+evaluation_*.jsonl.gz	error_message	Captured failure or exclusion detail
+evaluation_*.jsonl.gz	evaluation_seconds	Wall-clock evaluation duration
+evaluation_*.jsonl.gz	sandboxed	Whether candidate execution used sandbox-exec
+evaluation_*.jsonl.gz	normalization	Target-function normalization version
+scores.csv.gz	analysis_model	Canonical model profile used in analysis
+scores.csv.gz	analysis_prompt_id	One of 31 adapted prompt strategies
+scores.csv.gz	analysis_turn_id	Independent sample index from 1 to 5
+scores.csv.gz	analysis_passed	Normalized functional result; blank means excluded environment
+scores.csv.gz	analysis_error_category	Normalized error category used in grouped analysis
+task_prompt_units.csv.gz	evaluated_samples	Number of evaluable independent samples for one model-task-prompt unit
+task_prompt_units.csv.gz	correct_samples	Number of functionally correct samples in the unit
+task_prompt_units.csv.gz	pass_at_1	Unbiased Pass@1 estimate for the unit
+task_prompt_units.csv.gz	pass_at_3	Unbiased Pass@3 estimate for the unit
+task_prompt_units.csv.gz	pass_at_5	Unbiased Pass@5 estimate for the unit

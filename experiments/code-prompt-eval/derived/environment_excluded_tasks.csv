@@ -1,0 +1,12 @@
+task_id,rule,observed_models,original_error_prefix
+62ece4992e6aefcf4aabbd7e,exclude task across all models,qwen3-8b-cloud,"Reference implementation failed: .                                                                        [100%]INTERNALERROR> Traceback (most recent call last):
+INTERNALERROR>   File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/witten---borgmatic_env/lib/python3.11/site-packages/coverage/sqldata.py"", line 1254, in _executemany
+INTERNALERROR>     return self.con.executemany(sql, data)
+INTERNALERROR>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+INTERNALERROR> sqlite3.OperationalError: attempt to write a readonly database
+INTERNALERROR>
+INTERNALERROR> During handling of the above exception, another exception occurred:
+INTERNALERROR>
+INTERNALERROR> Traceback (most recent call last):
+INTERNALERROR>   File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/witten---borgmatic_env/lib/python3.11/site-packages/_pytest/main.py"", line 269, in wrap_session
+INTERNALERROR>    "

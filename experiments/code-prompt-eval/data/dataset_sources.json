@@ -1,0 +1,16 @@
+{
+  "code_prompt_eval": {
+    "repository": "https://github.com/icetlab/CodePromptEval",
+    "paper": "https://doi.org/10.1109/TSE.2025.3587794",
+    "paper_arxiv": "https://arxiv.org/abs/2412.20545",
+    "local_base_commit": "3c82de002f3a82e26c35c502c6bd04f412f9cbf5"
+  },
+  "coder_eval": {
+    "repository": "https://github.com/CoderEval/CoderEval",
+    "paper": "https://dezhi-ran.com/publication/icml23-ce/icml23-ce.pdf"
+  },
+  "compression_prompts": {
+    "paper": "https://arxiv.org/abs/2503.01141",
+    "title": "How Well do LLMs Compress Their Own Chain-of-Thought? A Token Complexity Approach"
+  }
+}

@@ -1,0 +1,641 @@
+task_id,project,level,function_name,file_path,status,runnable,target_definitions,direct_test_calls,static_warning,seconds,detail,question,technical_runnable,recommended,exclusion_type,exclusion_reason
+62ece4992e6aefcf4aabbd86,ansible-security/ansible_collections.ibm.qradar,plib_runnable,_dump_string,tests/unit/mock/yaml_helper.py,runnable,True,1,6,,0.914,Reference tests passed,"Given a python object, serialize it into a YAML stream.",true,true,,
+62ece4992e6aefcf4aabbd8b,awsteiner/o2sclpy,plib_runnable,force_string,o2sclpy/utils.py,reference_failed,False,1,5,,0.291,"
+==================================== ERRORS ====================================
+_____ ERROR collecting o2sclpy/audit_62ece4992e6aefcf4aabbd8b__rlh8mew.py ______
+ImportError while importing test module '/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd8b/awsteiner---o2sclpy/o2sclpy/audit_62ece4992e6aefcf4aabbd8b__rlh8mew.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/private/tmp/codeprompteval-pythons/cpython-3.7.17-macos-aarch64-none/lib/python3.7/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd8b/awsteiner---o2sclpy/o2sclpy/__init__.py:40: in <module>
+    from o2sclpy.hdf_add import *
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd8b/awsteiner---o2sclpy/o2sclpy/hdf_add.py:22: in <module>
+    import h5py
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/awsteiner---o2sclpy/awsteiner---o2sclpy_env/lib/python3.7/site-packages/h5py/__init__.py:25: in <module>
+    from . import _errors
+E   ImportError: dlopen(/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/awsteiner---o2sclpy/awsteiner---o2sclpy_env/lib/python3.7/site-packages/h5py/_errors.cpython-37m-darwin.so, 0x0002): Library not loaded: /opt/homebrew/opt/hdf5/lib/libhdf5.310.dylib
+E     Referenced from: <3BEA4EF0-B5F0-31F3-9C7C-F36B5E598A84> /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/awsteiner---o2sclpy/awsteiner---o2sclpy_env/lib/python3.7/site-packages/h5py/_errors.cpython-37m-darwin.so
+E     Reason: tried: '/opt/homebrew/opt/hdf5/lib/libhdf5.310.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/hdf5/lib/libhdf5.310.dylib' (no such file), '/opt/homebrew/opt/hdf5/lib/libhdf5.310.dylib' (no such file)
+=========================== short test summary info ============================
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd8b/awsteiner---o2sclpy/o2sclpy/audit_62ece4992e6aefcf4aabbd8b__rlh8mew.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.14s
+",Force decoding obj with 'utf-8' if it is a numpy.bytes or bytes. return the bytes object corresponding to obj in case it is a string using UTF-8 else return obj,false,false,reference_test_failed,1 error in 0.14s
+62b46740d2f69a53b466171a,bastikr/boolean,class_runnable,pretty,boolean/boolean.py,runnable,True,4,15,4 target definitions,0.037,Reference tests passed,"Return a pretty formatted representation of self. obj = f""'{self.obj}'"" if isinstance(self.obj, str) else repr(self.obj) return ("" "" * indent) + f""{self.__class__.__name__}({debug_details}{obj})""",true,true,,
+62b46746d2f69a53b4661722,bastikr/boolean,class_runnable,absorb,boolean/boolean.py,runnable,True,1,1,,0.031,Reference tests passed,"Given an `args` sequence of expressions, return a new list of expression applying absorption.",true,true,,
+62ece4982e6aefcf4aabbd76,bazaar-projects/docopt-ng,slib_runnable,match,docopt/__init__.py,runnable,True,1,7,,0.112,Reference tests passed,Check if the type of the given filename is 'doxyfile'. Return True if the type of the given filename in lower case is 'doxyfile'.,true,true,,
+62ece4982e6aefcf4aabbd66,burgerbecky/makeprojects,self_contained,was_processed,makeprojects/util.py,runnable,True,1,5,,0.016,Reference tests passed,"Check if a file or directory has already been processed. To prevent recursion, expand the path name to an absolution path call this function with a set that will store all the entries and the entry to test. If the entry is already in the set, report the issue and return ``True``. Otherwise, add the entry to the set and return ``False`` to allow the path to be processed.",true,false,semantic_mismatch,题目描述要求展开绝对路径，但官方测试期待保留原始字符串，题意与断言不一致
+62ece4982e6aefcf4aabbd71,burgerbecky/makeprojects,slib_runnable,regex_dict,makeprojects/util.py,runnable,True,1,3,,0.123,Reference tests passed,"Convert *.cpp keys to regex keys. Given a dict where the keys are all filenames with wildcards, convert only the keys into equivalent regexes and leave the values intact.",true,true,,
+62ece4992e6aefcf4aabbd80,burgerbecky/makeprojects,slib_runnable,remove_ending_os_sep,makeprojects/util.py,runnable,True,1,4,,0.106,Reference tests passed,"Iterate over a string list and remove trailing os seperator characters then return it. If input list is None, return []. Each string is tested if its length is greater than one and if the last character is the pathname seperator.",true,true,,
+62ece4992e6aefcf4aabbd83,burgerbecky/makeprojects,slib_runnable,run_command,makeprojects/core.py,runnable,True,1,4,,0.113,Reference tests passed,A list of command is given. Run the given command(s) with the given arguments use a subprocess. Return the running result (stdout and returncode),true,true,,
+62b8c517e0d34b282c18122e,champax/pysolbase,file_runnable,extostr,pysolbase/SolBase.py,reference_failed,False,1,5,,0.081,"e=e.cls:[Exception], e.bytes:[CrashException], e.cs=[in:crash#...projects/62b8c517e0d34b282c18122e/champax---pysolbase/pysolbase/audit_62b8c517e0d34b282c18122e_s33jzqcm.py@63 in:<module>#...projects/62b8c517e0d34b282c18122e/champax---pysolbase/pysolbase/audit_62b8c517e0d34b282c18122e_s33jzqcm.py@920 ]
+Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b8c517e0d34b282c18122e/champax---pysolbase/pysolbase/audit_62b8c517e0d34b282c18122e_s33jzqcm.py"", line 967, in <module>
+    raise Exception(""Result not True!!!"")
+Exception: Result not True!!!
+",Format the exception as a string,false,false,reference_test_failed,Exception: Result not True!!!
+62b8bbbfe0d34b282c181210,champax/pysolbase,file_runnable,append_text_to_file,pysolbase/FileUtility.py,runnable,True,1,1,,0.058,Reference tests passed,Writes the data in the text buffer to a file,true,true,,
+62b8bbbfe0d34b282c18120f,champax/pysolbase,file_runnable,file_to_textbuffer,pysolbase/FileUtility.py,runnable,True,1,1,,0.059,Reference tests passed,Load a file toward a text buffer,true,true,,
+62b8bbbce0d34b282c18120d,champax/pysolbase,file_runnable,is_file_exist,pysolbase/FileUtility.py,runnable,True,1,5,,0.058,Reference tests passed,Check whether file_name is an existing file.,true,true,,
+62b8b99de0d34b282c1811f8,champax/pysolbase,plib_runnable,_reset_logging,pysolbase/SolBase.py,runnable,True,1,2,,0.071,Reference tests passed,Reset the logging system,true,true,,
+62ece4982e6aefcf4aabbd70,cloudmesh/cloudmesh-common,slib_runnable,os_is_mac,cloudmesh/common/systeminfo.py,runnable,True,1,1,,0.436,Reference tests passed,Checks if the os is macOS.,true,true,,
+62ece4982e6aefcf4aabbd73,cloudmesh/cloudmesh-common,slib_runnable,split,cloudmesh/common/shlex.py,runnable,True,1,5,,0.38,Reference tests passed,"Split the input str under given platform, return the splitting result. If platform equals 'this', auto-detect current platform. If platform equals 1, use POSIX style. If platform equals 0, use Windows/CMD style.",true,true,,
+62ece4992e6aefcf4aabbd78,cloudmesh/cloudmesh-common,slib_runnable,is_local,cloudmesh/common/util.py,reference_failed,False,1,8,,0.413,"F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_is_local _________________________________
+
+    def test_is_local():
+        """"""Check the correctness of is_local
+        """"""
+>       assert is_local(' ') == False
+
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd78/cloudmesh---cloudmesh-common/cloudmesh/common/audit_62ece4992e6aefcf4aabbd78_nhdx3juw.py:23:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+host = ' '
+
+    def is_local(host):
+        """"""
+        Checks if the host is the localhost
+
+        :param host: The hostname or ip
+        :return: True if the host is the localhost
+        """"""
+        return host in [""127.0.0.1"",
+                        ""localhost"",
+                        socket.gethostname(),
+                        # just in case socket.gethostname() does not work  we also try the following:
+                        platform.node(),
+>                       socket.gethostbyaddr(socket.gethostname())[0]
+                        ]
+E       socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd78/cloudmesh---cloudmesh-common/cloudmesh/common/audit_62ece4992e6aefcf4aabbd78_nhdx3juw.py:16: gaierror
+=========================== short test summary info ============================
+FAILED ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd78/cloudmesh---cloudmesh-common/cloudmesh/common/audit_62ece4992e6aefcf4aabbd78_nhdx3juw.py::test_is_local
+1 failed in 0.25s
+Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/cloudmesh---cloudmesh-common/cloudmesh---cloudmesh-common_env/lib/python3.8/site-packages/cloudmesh-common-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/cloudmesh---cloudmesh-common/cloudmesh---cloudmesh-common_env/lib/python3.8/site-packages/cloudmesh-common-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+","Checks if the host is the localhost, the localhost include local IP, user name, local domain name, `localhost` and `127.0.0.1`",false,false,reference_test_failed,AttributeError: 'NoneType' object has no attribute 'loader'
+62ece4992e6aefcf4aabbd7a,cloudmesh/cloudmesh-common,slib_runnable,is_gitbash,cloudmesh/common/util.py,runnable,True,1,1,,0.382,Reference tests passed,Check whether the current program is run in a Windows gitbash terminal.,true,true,,
+62ece4992e6aefcf4aabbd7c,cloudmesh/cloudmesh-common,slib_runnable,oneline,cloudmesh/common/Shell.py,runnable,True,1,7,,0.381,Reference tests passed,Convert a script to one line command with the given seperator.,true,true,,
+62ece4982e6aefcf4aabbd75,commandline/flashbake,slib_runnable,addignored,src/flashbake/plugins/ignored.py,reference_failed,False,1,1,,0.132,"F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________________________ test_addignored ________________________________
+
+    def test_addignored():
+        """"""Check the correctness of addignored
+        """"""
+        # print(addignored("".""))
+>       assert addignored(""."") == "" ocfl/__pycache__/""
+
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4982e6aefcf4aabbd75/commandline---flashbake/src/flashbake/plugins/audit_62ece4982e6aefcf4aabbd75_k5amj_9p.py:22:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+ignored = '.'
+
+    def addignored(ignored):
+        ''' Use the git command to obtain the file names, turn it into a list, sort the list for only ignored files, return those files as a single string with each filename separated by a comma.'''
+        import os
+>       os.chdir(os.path.join(os.getcwd(), ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4982e6aefcf4aabbd75/zimeon---ocfl-py""))
+E       FileNotFoundError: [Errno 2] No such file or directory: '/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4982e6aefcf4aabbd75/zimeon---ocfl-py'
+
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4982e6aefcf4aabbd75/commandline---flashbake/src/flashbake/plugins/audit_62ece4982e6aefcf4aabbd75_k5amj_9p.py:7: FileNotFoundError
+=========================== short test summary info ============================
+FAILED ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4982e6aefcf4aabbd75/commandline---flashbake/src/flashbake/plugins/audit_62ece4982e6aefcf4aabbd75_k5amj_9p.py::test_addignored
+1 failed in 0.02s
+","Use the git command to obtain the file names. Turn the file names into a list, sort the list for only ignored files. Return those files as a single string with each filename separated by a comma.",false,false,reference_test_failed,1 failed in 0.02s
+62b43427903eeb48555d3ea5,cpburnz/python-sql-parameters,file_runnable,format,sqlparams/__init__.py,runnable,True,1,15,,0.036,Reference tests passed,Convert sql using self._converter.convert,true,true,,
+62b43428903eeb48555d3eaa,cpburnz/python-sql-parameters,project_runnable,formatmany,sqlparams/__init__.py,runnable,True,1,1,,0.031,Reference tests passed,Convert sql using self._converter.convert_many,true,true,,
+62b43425903eeb48555d3ea1,cpburnz/python-sql-parameters,class_runnable,_create_in_regex,sqlparams/__init__.py,missing_target_definition,False,0,0,,0.002,Reference or test template has no target function,Create the in-style parameter regular expression. Return the in-style parameter regular expression (:class:`re.Pattern`).,false,false,invalid_test_template,测试模板中找不到与任务同名的目标函数，无法可靠替换并自动评分
+62b43426903eeb48555d3ea2,cpburnz/python-sql-parameters,class_runnable,_create_converter,sqlparams/__init__.py,missing_target_definition,False,0,0,,0.002,Reference or test template has no target function,Create the parameter style converter. Return the parameter style converter (:class:`._converting._Converter`).,false,false,invalid_test_template,测试模板中找不到与任务同名的目标函数，无法可靠替换并自动评分
+62b87d24d292efb640a55670,eykd/prestoplot,file_runnable,get_versions,src/prestoplot/_version.py,runnable,True,1,1,,0.033,Reference tests passed,"Obtains the version information. If the version information cannot be obtained, the default value is returned.",true,true,,
+62b87d24d292efb640a5566f,eykd/prestoplot,file_runnable,render,src/prestoplot/_version.py,runnable,True,1,2,,0.031,Reference tests passed,"Input pieces and a style, render the pieces to the corresponding style.",true,true,,
+62b87d24d292efb640a5566d,eykd/prestoplot,self_contained,plus_or_dot,src/prestoplot/_version.py,runnable,True,1,6,,0.03,Reference tests passed,"Return ""."" If the closet-tag of the pieces contains ""+"", otherwise, return ""+"".",true,true,,
+62b87d23d292efb640a55668,eykd/prestoplot,file_runnable,get_config,src/prestoplot/_version.py,runnable,True,1,2,,0.032,Reference tests passed,Return a new VersioneerConfig() and set various attribute of it.,true,true,,
+62b87d23d292efb640a55667,eykd/prestoplot,self_contained,register_vcs_handler,src/prestoplot/_version.py,runnable,True,1,4,,0.03,Reference tests passed,Create decorator to mark a method as the handler of a object,true,true,,
+62ece4992e6aefcf4aabbd84,gopad/gopad-python,plib_runnable,is_ipv4,gopad/rest.py,reference_failed,False,1,6,,0.317,"(name[level:], package, level)
+/Users/ranimkhojah/Desktop/context_study/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/gopad---gopad-python/test/test_validation.py:18: in <module>
+    ???
+gopad/__init__.py:21: in <module>
+    from gopad.api.auth_api import AuthApi
+gopad/api/__init__.py:4: in <module>
+    from gopad.api.auth_api import AuthApi
+gopad/api/auth_api.py:16: in <module>
+    from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+E   ModuleNotFoundError: No module named 'pydantic'
+______ ERROR collecting gopad/audit_62ece4992e6aefcf4aabbd84_r19j2jgo.py _______
+ImportError while importing test module '/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/gopad/audit_62ece4992e6aefcf4aabbd84_r19j2jgo.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/private/tmp/codeprompteval-pythons/cpython-3.7.17-macos-aarch64-none/lib/python3.7/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/gopad/__init__.py:21: in <module>
+    from gopad.api.auth_api import AuthApi
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/gopad/api/__init__.py:4: in <module>
+    from gopad.api.auth_api import AuthApi
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/gopad/api/auth_api.py:16: in <module>
+    from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
+E   ModuleNotFoundError: No module named 'pydantic'
+=========================== short test summary info ============================
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_auth_api.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_auth_login.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_auth_token.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_auth_verify.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_notification.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_profile.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_profile_api.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_team.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_team_api.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_team_user_params.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_team_users.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_teams.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_user.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_user_api.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_user_auth.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_user_team.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_user_team_params.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_user_teams.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_users.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/test_validation.py
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd84/gopad---gopad-python/gopad/audit_62ece4992e6aefcf4aabbd84_r19j2jgo.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 21 errors during collection !!!!!!!!!!!!!!!!!!!
+21 errors in 0.21s
+",Check if a target IPv4 address or not.,false,false,reference_test_failed,21 errors in 0.21s
+62ece4982e6aefcf4aabbd72,ikus060/rdiffweb,slib_runnable,unquote,rdiffweb/core/librdiff.py,runnable,True,1,6,,0.143,Reference tests passed,Remove quote from the given name with regular expression then return it.,true,true,,
+62ece4982e6aefcf4aabbd5f,infobloxopen/infoblox-client,self_contained,paging,infoblox_client/utils.py,runnable,True,1,5,,0.031,Reference tests passed,Return every response with the length of a given maximum number of objects to be returned in one page). It should return a Generator object with WAPI response split page by page.,true,true,,
+6306292052e177c0ba469f09,jaywink/federation,file_runnable,identify_request,federation/protocols/diaspora/protocol.py,runnable,True,1,5,,0.331,Reference tests passed,"Check whether the request body loaded using JSON contains events. If yes, True is returned, otherwise, check whether the tag of the XML loaded from the request body is Magic_ENV_TAG, if yes, return True. If neither of the preceding conditions is met, return False.",true,true,,
+6306292152e177c0ba469f0d,jaywink/federation,plib_runnable,identify_request,federation/protocols/matrix/protocol.py,reference_failed,False,1,7,,0.071,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306292152e177c0ba469f0d/jaywink---federation/federation/protocols/matrix/audit_6306292152e177c0ba469f0d_9th7_vn6.py"", line 7, in <module>
+    from federation.entities.matrix.entities import MatrixEntityMixin
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306292152e177c0ba469f0d/jaywink---federation/federation/entities/matrix/entities.py"", line 13, in <module>
+    from federation.entities.base import Post, Profile
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306292152e177c0ba469f0d/jaywink---federation/federation/entities/base.py"", line 2, in <module>
+    from magic import from_file
+  File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/jaywink---federation/jaywink---federation_env/lib/python3.10/site-packages/magic/__init__.py"", line 209, in <module>
+    libmagic = loader.load_lib()
+  File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/jaywink---federation/jaywink---federation_env/lib/python3.10/site-packages/magic/loader.py"", line 49, in load_lib
+    raise ImportError('failed to find libmagic.  Check your installation')
+ImportError: failed to find libmagic.  Check your installation
+","Check whether the request body loaded using JSON contains events. If yes, True is returned. Otherwise, False is returned.",false,false,reference_test_failed,ImportError: failed to find libmagic.  Check your installation
+6306292252e177c0ba469f11,jaywink/federation,project_runnable,format_dt,federation/entities/diaspora/utils.py,runnable,True,1,1,,0.031,Reference tests passed,Format the time of dt and return the time using the ensure_timezone function.,true,true,,
+6306292352e177c0ba469f1d,jaywink/federation,file_runnable,find_tags,federation/utils/text.py,runnable,True,1,18,,0.054,Reference tests passed,"Find tags in text. Tries to ignore tags inside code blocks. Optionally, will also replace the tag word with the result of the replacer function called with the tag word. Return a set of tags and the original or replaced text.",true,true,,
+6306292352e177c0ba469f1e,jaywink/federation,plib_runnable,process_text_links,federation/utils/text.py,runnable,True,1,6,,0.053,Reference tests passed,"Process links in text, adding some attributes and linkifying textual links.",true,true,,
+6306292652e177c0ba469f34,jaywink/federation,file_runnable,fetch_content_type,federation/utils/network.py,reference_failed,False,1,3,,0.167,"fetch_content_type - HTTPSConnectionPool(host='www.csdn.net', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x108efc340>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')) when fetching url https://www.csdn.net/
+fetch_content_type - HTTPSConnectionPool(host='www.csdn.net', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x108efc100>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')) when fetching url https://www.csdn.net/
+Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306292652e177c0ba469f34/jaywink---federation/federation/utils/audit_6306292652e177c0ba469f34_he63mbbv.py"", line 264, in <module>
+    raise Exception(""Result not True!!!"")
+Exception: Result not True!!!
+",Set the head of the request through the URL and USER_AGENT.,false,false,reference_test_failed,Exception: Result not True!!!
+6306292a52e177c0ba469f41,jaywink/federation,file_runnable,test_tag,federation/utils/text.py,runnable,True,1,3,,0.047,Reference tests passed,"Checks whether each character in the ILLEGAL_TAG_CHARS belongs to a tag. If any character belongs to a tag, the value False is returned. Otherwise, the value True is returned.",true,true,,
+6306298b52e177c0ba469fdc,jaywink/federation,plib_runnable,xml_children_as_dict,federation/entities/diaspora/mappers.py,reference_failed,False,1,2,,0.053,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306298b52e177c0ba469fdc/jaywink---federation/federation/entities/diaspora/audit_6306298b52e177c0ba469fdc_pef3q7ov.py"", line 10, in <module>
+    from federation.entities.base import Comment, Follow, Post, Profile, Reaction, Retraction, Share
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306298b52e177c0ba469fdc/jaywink---federation/federation/entities/base.py"", line 2, in <module>
+    from magic import from_file
+  File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/jaywink---federation/jaywink---federation_env/lib/python3.10/site-packages/magic/__init__.py"", line 209, in <module>
+    libmagic = loader.load_lib()
+  File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/jaywink---federation/jaywink---federation_env/lib/python3.10/site-packages/magic/loader.py"", line 49, in load_lib
+    raise ImportError('failed to find libmagic.  Check your installation')
+ImportError: failed to find libmagic.  Check your installation
+","Turn the children of node <xml> into a dict, keyed by tag name.",false,false,reference_test_failed,ImportError: failed to find libmagic.  Check your installation
+6306299052e177c0ba469fe8,jaywink/federation,file_runnable,check_sender_and_entity_handle_match,federation/entities/diaspora/mappers.py,reference_failed,False,1,3,,0.053,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306299052e177c0ba469fe8/jaywink---federation/federation/entities/diaspora/audit_6306299052e177c0ba469fe8_rci2pgcp.py"", line 10, in <module>
+    from federation.entities.base import Comment, Follow, Post, Profile, Reaction, Retraction, Share
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306299052e177c0ba469fe8/jaywink---federation/federation/entities/base.py"", line 2, in <module>
+    from magic import from_file
+  File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/jaywink---federation/jaywink---federation_env/lib/python3.10/site-packages/magic/__init__.py"", line 209, in <module>
+    libmagic = loader.load_lib()
+  File ""/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/jaywink---federation/jaywink---federation_env/lib/python3.10/site-packages/magic/loader.py"", line 49, in load_lib
+    raise ImportError('failed to find libmagic.  Check your installation')
+ImportError: failed to find libmagic.  Check your installation
+","Check whether sender_handle is the same as entity_handle. If yes, return True. Otherwise, return False.",false,false,reference_test_failed,ImportError: failed to find libmagic.  Check your installation
+630629b952e177c0ba46a043,jaywink/federation,file_runnable,get_nodeinfo_well_known_document,federation/hostmeta/generators.py,runnable,True,1,1,,0.074,Reference tests passed,"Returns a formatted dictionary, including information such as url and document_path.",true,true,,
+630629d052e177c0ba46a0a1,jaywink/federation,project_runnable,verify_relayable_signature,federation/protocols/diaspora/signatures.py,runnable,True,1,2,,0.079,Reference tests passed,"Verify the signed XML elements to have confidence that the claimed
+author did actually generate this message.",true,true,,
+630629e052e177c0ba46a0c4,jaywink/federation,file_runnable,parse_diaspora_webfinger,federation/utils/diaspora.py,runnable,True,1,5,,0.189,Reference tests passed,"The webfinger is obtained by reading the document in JSON format, the value of hcard_url in the webfinger is the value of href in links in the document.",true,true,,
+630629e152e177c0ba46a0d1,jaywink/federation,file_runnable,try_retrieve_webfinger_document,federation/utils/network.py,runnable,True,1,2,,0.159,Reference tests passed,Try to retrieve an RFC7033 webfinger document. Does not raise if it fails.,true,true,,
+630629e152e177c0ba46a0d2,jaywink/federation,file_runnable,retrieve_and_parse_diaspora_webfinger,federation/utils/diaspora.py,runnable,True,1,4,,0.201,Reference tests passed,Retrieve and parse a remote Diaspora webfinger document. Return a dictionaty.,true,true,,
+630629e252e177c0ba46a0d6,jaywink/federation,plib_runnable,retrieve_diaspora_host_meta,federation/utils/diaspora.py,runnable,True,1,3,,0.191,Reference tests passed,Retrieve a remote Diaspora host-meta document. Return a ``XRD`` instance.,true,true,,
+630629e752e177c0ba46a0fb,jaywink/federation,file_runnable,send_document,federation/utils/network.py,runnable,True,1,5,,0.165,Reference tests passed,Send a response containing data through the POST method.,true,true,,
+62ece4992e6aefcf4aabbd82,kirankotari/shconfparser,slib_runnable,get_pattern,shconfparser/search.py,runnable,True,1,3,,0.145,Reference tests passed,Convert a string to a regex pattern object.,true,true,,
+6305f9991d275c6667163c50,MozillaSecurity/lithium,class_runnable,set_cut_chars,src/lithium/testcases.py,runnable,True,1,2,,0.126,Reference tests passed,Set the bytes used to delimit slice points.,true,true,,
+62ece4992e6aefcf4aabbd85,mwatts15/rdflib,plib_runnable,find_roots,rdflib/util.py,runnable,True,1,1,,0.19,Reference tests passed," Find the roots in some sort of transitive hierarchy. Then return a set with nodes. The function will return a set of all roots of the sub-class hierarchy, assume triple of the form (child, prop, parent), i.e. the direction of RDFS.subClassOf or SKOS.broader",true,true,,
+62e60f43d76274f8a4026e28,neo4j/neo4j-python-driver,plib_runnable,hydrate_time,src/neo4j/_codec/hydration/v1/temporal.py,runnable,True,1,2,,0.13,Reference tests passed,Convert nanoseconds to a time in fixed format.,true,true,,
+62e60f3bd76274f8a4026e10,neo4j/neo4j-python-driver,project_runnable,dehydrate_timedelta,src/neo4j/_codec/hydration/v1/temporal.py,runnable,True,1,2,,0.111,Reference tests passed,Use the value in timedelta to generate the Structure class.,true,true,,
+62e60f37d76274f8a4026dfd,neo4j/neo4j-python-driver,project_runnable,dehydrate_time,src/neo4j/_codec/hydration/v1/temporal.py,runnable,True,1,4,,0.112,Reference tests passed,Use ticks in the Time class to generate the Structure class.,true,true,,
+62e60f33d76274f8a4026de9,neo4j/neo4j-python-driver,project_runnable,dehydrate_point,src/neo4j/_codec/hydration/v1/spatial.py,runnable,True,1,6,,0.11,Reference tests passed,The structure class is generated based on the value length.,true,true,,
+62e60ed4d76274f8a4026da0,neo4j/neo4j-python-driver,class_runnable,keys,src/neo4j/_data.py,runnable,True,1,3,,0.109,Reference tests passed,Returns the __keys property of a class as a List,true,true,,
+62e60ecfd76274f8a4026d6a,neo4j/neo4j-python-driver,project_runnable,protocol_handlers,src/neo4j/_sync/io/_bolt.py,runnable,True,1,6,,0.114,Reference tests passed,Different forms of Bolt protocol handlers are returned based on the value of protocol_version.,true,true,,
+62e60e49d76274f8a4026d25,neo4j/neo4j-python-driver,self_contained,unit_of_work,src/neo4j/work/query.py,runnable,True,1,1,,0.026,Reference tests passed,Returns a decorator with metadata and timeout attributes.,true,true,,
+62e60e05d76274f8a4026cfd,neo4j/neo4j-python-driver,class_runnable,index,src/neo4j/_data.py,runnable,True,1,13,,0.108,Reference tests passed,Returns the key in the form of int.,true,true,,
+62e60da4d76274f8a4026cf1,neo4j/neo4j-python-driver,class_runnable,values,src/neo4j/_data.py,runnable,True,1,1,,0.109,Reference tests passed,Returns the key filtered by self.index in the form of a list.,true,true,,
+62e60b10d76274f8a4026ccd,neo4j/neo4j-python-driver,file_runnable,data,src/neo4j/_data.py,runnable,True,1,1,,0.109,Reference tests passed,Returns the keys processed by the transform method of the RecordExporter class.,true,true,,
+62e6087bd76274f8a4026bfa,neo4j/neo4j-python-driver,class_runnable,pop_u16,src/neo4j/_codec/packstream/v1/__init__.py,runnable,True,1,4,,0.123,Reference tests passed,Remove the last two elements in self.data and return,true,true,,
+62e6087ad76274f8a4026bf2,neo4j/neo4j-python-driver,project_runnable,discard,src/neo4j/_async/io/_bolt3.py,runnable,True,1,1,,0.113,Reference tests passed,"Appends a DISCARD message to the output queue given the number of records to discard, default = -1 (ALL), a query ID to discard for, default = -1 (last query), Hooks to dehydrate types (dict from type (class) to dehydration function). Dehydration functions receive the value and returns an object of type understood by packstream, and Hooks to hydrate types (mapping from type (class) to dehydration function). Dehydration functions receive the value of type understood by packstream and are free to return anything, and handler functions passed into the returned Response object",true,true,,
+62e60879d76274f8a4026bec,neo4j/neo4j-python-driver,project_runnable,begin,src/neo4j/_async/io/_bolt3.py,runnable,True,1,1,,0.112,Reference tests passed,"Appends a BEGIN message to the output queue given access mode for routing - ""READ"" or ""WRITE"" (default), and iterable of bookmark values after which this transaction should begin, and custom metadata dictionary to attach to the transaction, and timeout for transaction execution (seconds), and name of the database against which to begin the transaction, and the user to impersonate, and hooks to dehydrate types (dict from type (class) to dehydration function). Dehydration functions receive the value and returns an object of type understood by packstream, and hooks to hydrate types (mapping from type (class) to dehydration function). Dehydration functions receive the value of type understood by packstream and are free to return anything, and handler functions passed into the returned Response object",true,true,,
+62e60723d76274f8a4026b75,neo4j/neo4j-python-driver,self_contained,round_half_to_even,src/neo4j/time/_arithmetic.py,runnable,True,1,8,,0.027,Reference tests passed,Round a floating-point number,true,true,,
+62e60707d76274f8a4026b69,neo4j/neo4j-python-driver,file_runnable,point_type,src/neo4j/_spatial/__init__.py,runnable,True,1,4,,0.038,Reference tests passed,Dynamically Generating Point Class,true,true,,
+62e5dc9ed76274f8a4026b5b,neo4j/neo4j-python-driver,file_runnable,deprecated,src/neo4j/_meta.py,runnable,True,1,2,,0.052,Reference tests passed,Return a decorator function for deprecating functions and methods.,true,true,,
+62e60723d76274f8a4026b76,neo4j/neo4j-python-driver,file_runnable,from_ticks,src/neo4j/time/__init__.py,runnable,True,1,6,,0.158,Reference tests passed,Create a time from ticks (nanoseconds since midnight). It can raise ValueError if ticks is out of bounds (0 <= ticks < 86400000000000).,true,true,,
+62e60873d76274f8a4026bd8,neo4j/neo4j-python-driver,project_runnable,protocol_handlers,src/neo4j/_async/io/_bolt.py,runnable,True,1,6,,0.117,Reference tests passed,"Return a dictionary of available Bolt protocol handlers, keyed by version tuple. If an explicit protocol version is provided, the dictionary will contain either zero or one items, depending on whether that version is supported. If no protocol version is provided, all available versions will be returned. It can raise a TypeError if protocol version is not passed in a tuple.",true,true,,
+62e60e3bd76274f8a4026d1a,neo4j/neo4j-python-driver,self_contained,from_raw_values,src/neo4j/api.py,runnable,True,1,1,,0.107,Reference tests passed,Create a Bookmarks object from a list of raw bookmark string values.,true,true,,
+62ece4982e6aefcf4aabbd63,openstack/cinder,self_contained,is_none_string,cinder/api/api_utils.py,runnable,True,1,6,,0.024,Reference tests passed,"Check if a string represents a None value. A None value is True if the type of value is string and the lowercase of val is equal to 'none', otherwise it is False",true,true,,
+62ece4992e6aefcf4aabbd7f,openstack/cinder,slib_runnable,_parse_image_ref,cinder/image/glance.py,runnable,True,1,5,,0.18,Reference tests passed,"Parse an image href into composite parts then return its image_id, netloc, use_ssl. Can raise a ValueError when needed.",true,true,,
+62ece4982e6aefcf4aabbd69,openstack/neutron-lib,self_contained,_replace_register,neutron_lib/agent/common/utils.py,runnable,True,1,6,,0.025,Reference tests passed,Replace the value of flow_params[register_number] with flow_params[register_value] and delete flow_params[register_value].,true,true,,
+62ece4982e6aefcf4aabbd61,ossobv/planb,self_contained,_dictsum,contrib/planb-swiftsync.py,runnable,True,1,5,,0.016,Reference tests passed,"Sum values with the same key in the dictionaries, and return a new dictionary.",true,true,,
+62b8d27a48ba5a41d1c3f4c6,pexip/os-python-cachetools,slib_runnable,cached,cachetools/decorators.py,runnable,True,1,1,,0.026,Reference tests passed,Returns a decorator function that saves the results in the cache,true,true,,
+62b8d24048ba5a41d1c3f49f,pexip/os-python-cachetools,project_runnable,ttl_cache,cachetools/func.py,runnable,True,1,0,no direct target call found,0.029,Reference tests passed,Decorator to wrap a function with a memoizing callable that saves up to `maxsize` results based on a Least Recently Used (LRU) algorithm with a per-item time-to-live (TTL) value.,true,true,,
+62b8d23b48ba5a41d1c3f49a,pexip/os-python-cachetools,project_runnable,mru_cache,cachetools/func.py,runnable,True,1,0,no direct target call found,0.027,Reference tests passed,Decorator to wrap a function with a memoizing callable that saves up to `maxsize` results based on a Most Recently Used (MRU) algorithm.,true,true,,
+62b8d23948ba5a41d1c3f498,pexip/os-python-cachetools,project_runnable,lru_cache,cachetools/func.py,runnable,True,1,0,no direct target call found,0.027,Reference tests passed,Decorator to wrap a function with a memoizing callable that saves up to `maxsize` results based on a Least Recently Used (LRU) algorithm.,true,true,,
+62b8d23748ba5a41d1c3f496,pexip/os-python-cachetools,project_runnable,lfu_cache,cachetools/func.py,runnable,True,1,0,no direct target call found,0.027,Reference tests passed,Decorator to wrap a function with a memoizing callable that saves up to `maxsize` results based on a Least Frequently Used (LFU) algorithm.,true,true,,
+62b8d22f48ba5a41d1c3f488,pexip/os-python-cachetools,class_runnable,popitem,cachetools/fifo.py,runnable,True,1,3,,0.024,Reference tests passed,Remove the value corresponding to the first inserted key and returns the key and value in tuple format.,true,true,,
+62b8d22a48ba5a41d1c3f47e,pexip/os-python-cachetools,self_contained,setdefault,cachetools/cache.py,runnable,True,1,6,,0.024,Reference tests passed,"If a key exists in the class, the value corresponding to the key is returned. Otherwise, the value corresponding to the key is set to default.",true,true,,
+62b8d22948ba5a41d1c3f47c,pexip/os-python-cachetools,self_contained,get,cachetools/cache.py,runnable,True,1,6,,0.024,Reference tests passed,"If a key exists in the class, the value corresponding to the key is returned. Otherwise, default is returned.",true,true,,
+62b8d22548ba5a41d1c3f472,pexip/os-python-cachetools,project_runnable,cachedmethod,cachetools/decorators.py,runnable,True,1,2,,0.029,Reference tests passed,Returns a decorator function that can call a result in the cache.,true,true,,
+62b8d22a48ba5a41d1c3f47d,pexip/os-python-cachetools,class_runnable,pop,cachetools/cache.py,runnable,True,2,7,2 target definitions,0.025,Reference tests passed,"Remove specified key (k[,d]) and return the corresponding value (v). If key is not found, d is returned if given, otherwise KeyError is raised.",true,true,,
+62b8d23748ba5a41d1c3f497,pexip/os-python-cachetools,class_runnable,popitem,cachetools/lfu.py,runnable,True,1,3,,0.023,Reference tests passed,"Remove and return the (key, value) pair least frequently used.",true,true,,
+62b8d23a48ba5a41d1c3f499,pexip/os-python-cachetools,class_runnable,popitem,cachetools/lru.py,runnable,True,1,3,,0.023,Reference tests passed,"Remove and return the (key, value) pair least recently used.",true,true,,
+62b8d23c48ba5a41d1c3f49b,pexip/os-python-cachetools,class_runnable,popitem,cachetools/mru.py,runnable,True,1,3,,0.023,Reference tests passed,"Remove and return the (key, value) pair most recently used.",true,true,,
+62b8d23e48ba5a41d1c3f49e,pexip/os-python-cachetools,class_runnable,popitem,cachetools/rr.py,runnable,True,1,3,,0.024,Reference tests passed,"Find, remove and return a random (key, value) pair via __choice in the class.",true,true,,
+62b8a4a4755ee91dce50a3d2,pexip/os-python-dateutil,self_contained,_fromutc,dateutil/tz/_common.py,runnable,True,1,2,,0.034,Reference tests passed,"Given a timezone datetime in a given timezone, calculates a timezone datetime in a new timezone.",true,true,,
+62b8982f755ee91dce50a241,pexip/os-python-dateutil,class_runnable,normalized,dateutil/relativedelta.py,runnable,True,1,15,,0.031,Reference tests passed,Normalize all units of time to integers.,true,true,,
+62b89640755ee91dce50a114,pexip/os-python-dateutil,plib_runnable,tzname_in_python2,dateutil/tz/_common.py,runnable,True,1,0,no direct target call found,0.032,Reference tests passed,Change unicode output into bytestrings in Python 2,true,true,,
+62b8966c755ee91dce50a154,pexip/os-python-dateutil,class_runnable,isoparse,dateutil/parser/isoparser.py,runnable,True,1,1,,0.035,Reference tests passed,"Parse an ISO-8601 datetime string into a :class:`datetime.datetime`. An ISO-8601 datetime string consists of a date portion, followed optionally by a time portion - the date and time portions are separated by a single character separator, which is ``T`` in the official standard. Incomplete date formats (such as ``YYYY-MM``) may *not* be combined with a time portion. Supported date formats are: Common: - ``YYYY`` - ``YYYY-MM`` or ``YYYYMM`` - ``YYYY-MM-DD`` or ``YYYYMMDD`` Uncommon: - ``YYYY-Www`` or ``YYYYWww`` - ISO week (day defaults to 0) - ``YYYY-Www-D`` or ``YYYYWwwD`` - ISO week and day The ISO week and day numbering follows the same logic as the function `datetime.date.isocalendar`. Supported time formats are: - ``hh`` - ``hh:mm`` or ``hhmm`` - ``hh:mm:ss`` or ``hhmmss`` - ``hh:mm:ss.ssssss`` (Up to 6 sub-second digits). Midnight is a special case for `hh`, as the standard supports both 00:00 and 24:00 as a representation. The decimal separator can be either a dot or a comma. Note that Support for fractional components other than seconds is part of the ISO-8601 standard, but does not have to be implemented in this parser. Supported time zone offset formats are:- `Z` (UTC) - `HH:MM` - `HHMM` - `HH` Offsets will be represented as :class:`dateutil.tz.tzoffset` objects, with the exception of UTC, which will be represented as :class:`dateutil.tz.tzutc`. Time zone offsets equivalent to UTC (such nas `+00:00`) will also be represented as :class:`dateutil.tz.tzutc`. Unspecified components default to their lowest value.",true,true,,
+62b896de755ee91dce50a183,pexip/os-python-dateutil,project_runnable,parse,dateutil/parser/_parser.py,runnable,True,3,5,3 target definitions,0.046,Reference tests passed,"Parse the date/time string into a :class:`datetime.datetime` object. Can be optionally given a default datetime object, if this datetime object is not ``None``, elements specified in time string replace elements in the default object. Can also be optionally given the option to ignore time zones in parsed strings, then a naive :class:`datetime.datetime` object is returned. Can be optionally given additional time zone names / aliases which may be present in the string. This argument maps time zone names (and optionally offsets from those time zones) to time zones. This parameter can be a dictionary with timezone aliases mapping time zone names to time zones or a function taking two parameters (``tzname`` and ``tzoffset``) and returning a time zone. The timezones to which the names are mapped can be an integer offset from UTC in seconds or a :class:`tzinfo` object. This parameter is ignored if the option to ignore the time zones is set. Return a :class:`datetime.datetime` object or, if the ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the first element being a :class:`datetime.datetime` object, the second a tuple containing the fuzzy tokens. Raise a ParserError for invalid or unknown string format, if the provided time zone is not in a valid format, or if an invalid date would be created. Raise a TypeError for non-string or character stream input. Raise an OverflowError if the parsed date exceeds the largest valid C integer on your system.",true,true,,
+62b8a4a4755ee91dce50a3d3,pexip/os-python-dateutil,class_runnable,fromutc,dateutil/tz/_common.py,runnable,True,2,1,2 target definitions,0.042,Reference tests passed,"Given a timezone-aware datetime in a given timezone, calculates a timezone-aware datetime in a new timezone. Since this is the one time that we *know* we have an unambiguous datetime object, we take this opportunity to determine whether the datetime is ambiguous and in a ""fold"" state (e.g. if it's the first occurrence, chronologically, of the ambiguous datetime).",true,true,,
+62b8a7b2755ee91dce50a4a7,pexip/os-python-dateutil,self_contained,default_tzinfo,dateutil/utils.py,runnable,True,1,1,,0.026,Reference tests passed,"Sets the time zone parameter (`datetime.tzinfo` subclass instance) on naive datetimes only. This is useful for example when you are provided a datetime that may have either an implicit or explicit time zone, such as when parsing a time zone string. Return an aware :class:`datetime.datetime`.",true,true,,
+62b8b59feb7e40a82d2d1291,pexip/os-zope,self_contained,_getTargetClass,src/zope/interface/tests/test_declarations.py,reference_failed,False,15,17,15 target definitions,0.075,"Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/pexip---os-zope/pexip---os-zope_env/lib/python3.8/site-packages/zope.interface-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/pexip---os-zope/pexip---os-zope_env/lib/python3.8/site-packages/zope.interface-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b8b59feb7e40a82d2d1291/pexip---os-zope/src/zope/interface/tests/audit_62b8b59feb7e40a82d2d1291_obxkxffe.py"", line 22, in <module>
+    import zope.interface.declarations
+ModuleNotFoundError: No module named 'zope.interface'
+","Define this to return the implementation in use, without the 'Py' or 'Fallback' suffix.",false,false,reference_test_failed,ModuleNotFoundError: No module named 'zope.interface'
+62b8b590eb7e40a82d2d1275,pexip/os-zope,self_contained,_legacy_mergeOrderings,src/zope/interface/ro.py,runnable,True,1,2,,0.041,Reference tests passed,Combine multiple lists in the sequence of occurrence into a list with no duplicate elements.,true,true,,
+62b8b58deb7e40a82d2d1269,pexip/os-zope,file_runnable,directlyProvidedBy,src/zope/interface/declarations.py,runnable,True,1,4,,0.121,Reference tests passed,Return the interfaces directly provided by the given object. The value returned is an `~zope.interface.interfaces.IDeclaration`.,true,true,,
+62b8b559eb7e40a82d2d11f8,pexip/os-zope,self_contained,minimalBases,src/zope/interface/advice.py,runnable,True,1,4,,0.038,Reference tests passed,Returns all classes without subclasses as a list.,true,true,,
+62b8b4b9eb7e40a82d2d1134,pexip/os-zope,class_runnable,namesAndDescriptions,src/zope/interface/interface.py,reference_failed,False,1,5,,0.045,"Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/pexip---os-zope/pexip---os-zope_env/lib/python3.8/site-packages/zope.interface-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/pexip---os-zope/pexip---os-zope_env/lib/python3.8/site-packages/zope.interface-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b8b4b9eb7e40a82d2d1134/pexip---os-zope/src/zope/interface/audit_62b8b4b9eb7e40a82d2d1134_ub00if_4.py"", line 23, in <module>
+    from zope.interface._compat import _use_c_impl
+ModuleNotFoundError: No module named 'zope.interface'
+",Returns the name and description of the current class attribute.,false,false,reference_test_failed,ModuleNotFoundError: No module named 'zope.interface'
+62b8b416eb7e40a82d2d1129,pexip/os-zope,class_runnable,names,src/zope/interface/interface.py,runnable,True,1,6,,0.112,Reference tests passed,Return the attribute names of current class.,true,true,,
+62b8b3d6eb7e40a82d2d111c,pexip/os-zope,file_runnable,_normalizeargs,src/zope/interface/declarations.py,runnable,True,1,10,,0.11,Reference tests passed,"Normalize declaration arguments. Normalization arguments might contain Declarions, tuples, or single
+interfaces. Anything but individial interfaces or implements specs will be expanded.",true,true,,
+62b8b3d5eb7e40a82d2d1110,pexip/os-zope,file_runnable,_c_optimizations_available,src/zope/interface/_compat.py,reference_failed,False,1,2,,0.038,"Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/pexip---os-zope/pexip---os-zope_env/lib/python3.8/site-packages/zope.interface-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+Error processing line 1 of /Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/pexip---os-zope/pexip---os-zope_env/lib/python3.8/site-packages/zope.interface-nspkg.pth:
+
+  Traceback (most recent call last):
+    File ""/private/tmp/codeprompteval-pythons/cpython-3.8.20-macos-aarch64-none/lib/python3.8/site.py"", line 177, in addpackage
+      exec(line)
+    File ""<string>"", line 1, in <module>
+    File ""<frozen importlib._bootstrap>"", line 553, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b8b3d5eb7e40a82d2d1110/pexip---os-zope/src/zope/interface/audit_62b8b3d5eb7e40a82d2d1110_wfi8y_or.py"", line 186, in <module>
+    raise Exception(""Result not True!!!"")
+Exception: Result not True!!!
+","If available, return the C optimization module, otherwise a false value.",false,false,reference_test_failed,Exception: Result not True!!!
+62b8b3d4eb7e40a82d2d110f,pexip/os-zope,file_runnable,_should_attempt_c_optimizations,src/zope/interface/_compat.py,runnable,True,1,2,,0.037,Reference tests passed,Return a true value if we use the C optimizations.,true,true,,
+62b8b3d4eb7e40a82d2d110e,pexip/os-zope,slib_runnable,_c_optimizations_ignored,src/zope/interface/_compat.py,runnable,True,1,2,,0.037,Reference tests passed,"Return True if get ""PURE_PYTHON"" environ is not none and not 0, else return False",true,true,,
+62b8b3d4eb7e40a82d2d110d,pexip/os-zope,slib_runnable,_c_optimizations_required,src/zope/interface/_compat.py,runnable,True,1,3,,0.038,Reference tests passed,Return a true value if the C optimizations are required.,true,true,,
+62b8b4baeb7e40a82d2d1136,pexip/os-zope,file_runnable,_verify,src/zope/interface/verify.py,runnable,True,1,2,,0.108,Reference tests passed,"Verify that *candidate* might correctly provide *iface*. This involves: - Making sure the candidate claims that it provides the interface using ``iface.providedBy`` (unless *tentative* is `True`, in which case this step is skipped). This means that the candidate's class declares that it `implements <zope.interface.implementer>` the interface, or the candidate itself declares that it `provides <zope.interface.provider>` the interface - Making sure the candidate defines all the necessary methods - Making sure the methods have the correct signature (to the extent possible) - Making sure the candidate defines all the necessary attributes. Return a true value if everything that could be checked passed. Raise a zope.interface.Invalid if any of the previous conditions does not hold. If multiple methods or attributes are invalid, all such errors are collected and reported. As a special case, if only one such error is present, it is raised.",true,true,,
+62b8b4baeb7e40a82d2d1137,pexip/os-zope,file_runnable,verifyObject,src/zope/interface/verify.py,runnable,True,1,1,,0.108,Reference tests passed,"Verify that *candidate* might correctly provide *iface*. This involves: - Making sure the candidate claims that it provides the
+  interface using ``iface.providedBy`` (unless *tentative* is `True`,
+  in which case this step is skipped). This means that the candidate's class declares that it `implements <zope.interface.implementer>` the interface, or the candidate itself declares that it `provides <zope.interface.provider>` the interface - Making sure the candidate defines all the necessary methods - Making sure the methods have the correct signature (to the extent possible) - Making sure the candidate defines all the necessary attributes. Return a true value if everything that could be checked passed. Raise a zope.interface.Invalid If any of the previous conditions does not hold. If multiple methods or attributes are invalid, all such errors are collected and reported. As a special case, if only one such error is present, it is raised.",true,true,,
+62b8b4c1eb7e40a82d2d1139,pexip/os-zope,file_runnable,verifyClass,src/zope/interface/verify.py,runnable,True,1,1,,0.109,Reference tests passed,Verify that the *candidate* might correctly provide *iface*.,true,true,,
+62b8b559eb7e40a82d2d11f6,pexip/os-zope,file_runnable,determineMetaclass,src/zope/interface/advice.py,runnable,True,1,5,,0.038,Reference tests passed,Determine metaclass from 1+ bases and optional explicit __metaclass__,true,true,,
+62e4fc3c85ea98643089041e,pre-commit/pre-commit,self_contained,_inline_r_setup,pre_commit/languages/r.py,runnable,True,1,5,,0.061,Reference tests passed,"Some behaviour of R cannot be configured via env variables, but can only be configured via R options once R has started. These are set here.",true,true,,
+62e4fbda85ea986430890405,pre-commit/pre-commit,project_runnable,xargs,pre_commit/xargs.py,runnable,True,1,3,,0.04,Reference tests passed,Simplified Implementation of Xargs in Linux,true,true,,
+62e4fbda85ea986430890403,pre-commit/pre-commit,file_runnable,_shuffled,pre_commit/languages/helpers.py,runnable,True,1,2,,0.056,Reference tests passed,Shuffle a given seq with the given FIXED_RANDOM_SEED,true,true,,
+62e4fb6585ea98643089032b,pre-commit/pre-commit,plib_runnable,parse_version,pre_commit/util.py,runnable,True,1,3,,0.031,Reference tests passed,Converts a string concatenated by dot to a tuple consisting of integers.,true,true,,
+62e4fb4d85ea9864308902e7,pre-commit/pre-commit,file_runnable,normalize_cmd,pre_commit/parse_shebang.py,reference_failed,False,1,4,,0.024,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62e4fb4d85ea9864308902e7/pre-commit---pre-commit/pre_commit/audit_62e4fb4d85ea9864308902e7_cqjhgwoi.py"", line 103, in <module>
+    raise Exception(""Result not True!!!"")
+Exception: Result not True!!!
+",Complement the full path to exe and return it in its original form,false,false,reference_test_failed,Exception: Result not True!!!
+62b86aa3b4d922cb0e688d36,rak-n-rok/Krake,file_runnable,_validate_labels,krake/krake/data/core.py,runnable,True,1,1,,0.09,Reference tests passed,Check that keys and values in the given labels by validate_key() and validate_value().,true,true,,
+62b86a9eb4d922cb0e688d25,rak-n-rok/Krake,file_runnable,_get_resource_name_regex,krake/krake/data/core.py,runnable,True,1,2,,0.083,Reference tests passed,Return the regular expressions that are used to validate the name of the Krake resources,true,true,,
+62b86a4fb4d922cb0e688cf8,rak-n-rok/Krake,file_runnable,validate_value,krake/krake/data/core.py,runnable,True,1,1,,0.1,Reference tests passed,Validate the given value against the corresponding regular expression.,true,true,,
+62b86a4fb4d922cb0e688cf7,rak-n-rok/Krake,file_runnable,validate_key,krake/krake/data/core.py,runnable,True,1,1,,0.083,Reference tests passed,Validate the given key against the corresponding regular expression.,true,true,,
+62b86a01b4d922cb0e688ccc,rak-n-rok/Krake,file_runnable,generate_default_observer_schema_dict,krake/krake/controller/kubernetes/hooks.py,runnable,True,1,12,,0.791,Reference tests passed,The values corresponding to different keys in the new dict are generated based on the value type (such as dict and list) in the manifest_dict file. Then new dictionary is returned.,true,true,,
+62b869ebb4d922cb0e688cc6,rak-n-rok/Krake,file_runnable,update_last_applied_manifest_list_from_resp,krake/krake/controller/kubernetes/hooks.py,runnable,True,1,5,,0.316,Reference tests passed,"Together with :func:``update_last_applied_manifest_dict_from_resp``, this function is called recursively to update a partial ``last_applied_manifest`` from a partial response from the Kubernetes API. This function go through all observed fields, and initialized their value in last_applied_manifest if they are not yet present",true,true,,
+62b869eab4d922cb0e688cc5,rak-n-rok/Krake,file_runnable,update_last_applied_manifest_dict_from_resp,krake/krake/controller/kubernetes/hooks.py,runnable,True,1,7,,0.32,Reference tests passed,"Together with :func:``update_last_applied_manifest_list_from_resp``, this function is called recursively to update a partial ``last_applied_manifest`` from a partial response from the Kubernetes API. It raises a KeyError if the observed field is not present in the Kubernetes response. This function go through all observed fields, and initialized their value in last_applied_manifest if they are not yet present",true,true,,
+62b869eab4d922cb0e688cbf,rak-n-rok/Krake,file_runnable,generate_default_observer_schema,krake/krake/controller/kubernetes/hooks.py,reference_failed,False,1,1,,0.318,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b869eab4d922cb0e688cbf/rak-n-rok---Krake/krake/krake/controller/kubernetes/audit_62b869eab4d922cb0e688cbf_1o31oxwc.py"", line 2341, in <module>
+    from factories.kubernetes import (
+ModuleNotFoundError: No module named 'factories.kubernetes'
+",Generate the default observer schema for each Kubernetes resource present in ``spec.manifest`` for which a custom observer schema hasn't been specified.,false,false,reference_test_failed,ModuleNotFoundError: No module named 'factories.kubernetes'
+62b86707b4d922cb0e688c2a,rak-n-rok/Krake,class_runnable,on,krake/krake/controller/kubernetes/hooks.py,runnable,True,1,20,,0.318,Reference tests passed,"Return a decorator function to add a new handler to the ""hook"" in the registry in the class.",true,true,,
+62b86729b4d922cb0e688c2f,rak-n-rok/Krake,self_contained,base_config,krake/tests/conftest.py,runnable,True,1,2,,0.019,Reference tests passed,"Creates a configuration with some simple parameters, the key parameters contains ""tls"", ""authentication"", ""authorization"", ""etcd"", ""docs"", and ""log"".",true,true,,
+6306091073426c38ae68acac,redhat-openstack/infrared,file_runnable,dict_insert,infrared/core/utils/dict_utils.py,runnable,True,1,7,,0.039,Reference tests passed,"insert a value of a nested key into a dictionary to insert value for a nested key, all ancestor keys should be given as method's arguments.",true,true,,
+6306091a73426c38ae68acc8,redhat-openstack/infrared,plib_runnable,list_of_file_names,tests/test_complex_types.py,runnable,True,1,1,,0.273,Reference tests passed,Create and return a new IniType complex type via cli.ListOfFileNames().,true,true,,
+6306091b73426c38ae68acd7,redhat-openstack/infrared,class_runnable,ansible_config_manager,infrared/core/services/__init__.py,runnable,True,1,2,,0.204,Reference tests passed,Gets the ansible config manager via ServiceName.ANSIBLE_CONFIG_MANAGER in cls._get_service().,true,true,,
+6306091b73426c38ae68acd9,redhat-openstack/infrared,class_runnable,workspace_manager,infrared/core/services/__init__.py,runnable,True,1,1,,0.207,Reference tests passed,Gets the workspace manager via ServiceName.WORKSPACE_MANAGER in cls._get_service().,true,true,,
+6306091b73426c38ae68acda,redhat-openstack/infrared,file_runnable,plugins_manager,infrared/core/services/__init__.py,runnable,True,1,1,,0.206,Reference tests passed,Gets the plugin manager via ServiceName.PLUGINS_MANAGER in cls._get_service().,true,true,,
+6306091c73426c38ae68acdc,redhat-openstack/infrared,class_runnable,validate_from_content,infrared/core/utils/validators.py,runnable,True,4,2,4 target definitions,0.09,Reference tests passed,validates that spec (YAML) content has all required fields. Then return dictionary with data loaded from a spec (YAML) file. Raise an IRValidatorException when mandatory data is missing in spec file.,true,true,,
+6306091c73426c38ae68acdd,redhat-openstack/infrared,class_runnable,validate_from_file,infrared/core/utils/validators.py,runnable,True,1,1,,0.09,Reference tests passed,Loads & validates that a YAML file has all required fields. Then return a dictionary with data loaded from a YAML file. Raise IRValidatorException when mandatory data is missing in file.,true,true,,
+6306091d73426c38ae68ace5,redhat-openstack/infrared,class_runnable,_include_groups,infrared/core/inspector/helper.py,runnable,True,1,4,,0.039,Reference tests passed,Resolves the include dict directive in the spec files.,true,true,,
+6306092973426c38ae68ad01,redhat-openstack/infrared,class_runnable,get_deprecated_args,infrared/core/inspector/inspector.py,runnable,True,1,3,,0.223,Reference tests passed,Returning dict with options which deprecate others. options from self.spec_helper.iterate_option_specs().,true,true,,
+6306092c73426c38ae68ad02,redhat-openstack/infrared,file_runnable,validate_arg_deprecation,infrared/core/inspector/inspector.py,runnable,True,1,2,,0.222,Reference tests passed,Validates and prints the deprecated arguments given the dictionary of arguments from cli and the dictionary of arguments from files.,true,true,,
+6306092d73426c38ae68ad04,redhat-openstack/infrared,class_runnable,get_parser_option_specs,infrared/core/inspector/helper.py,runnable,True,1,7,,0.221,Reference tests passed,Gets all the options for the specified command and returns the list of all command options.,true,true,,
+6306092d73426c38ae68ad05,redhat-openstack/infrared,class_runnable,get_option_spec,infrared/core/inspector/helper.py,runnable,True,1,4,,0.223,Reference tests passed,Gets the specification for the specified option name. Get options of the given command name with self.get_parser_option_specs().,true,true,,
+6306092d73426c38ae68ad06,redhat-openstack/infrared,class_runnable,get_silent_args,infrared/core/inspector/inspector.py,runnable,True,1,4,,0.222,Reference tests passed,Return a list of silenced argument given the arguments.,true,true,,
+6306092d73426c38ae68ad07,redhat-openstack/infrared,class_runnable,validate_requires_args,infrared/core/inspector/inspector.py,runnable,True,1,4,,0.223,Reference tests passed,Check if all the required arguments have been provided.,true,true,,
+6306092d73426c38ae68ad08,redhat-openstack/infrared,project_runnable,_get_conditionally_required_args,infrared/core/inspector/inspector.py,runnable,True,1,3,,0.224,Reference tests passed,Return a list of arguments with ``required_when`` condition matched in a list.,true,true,,
+6306092e73426c38ae68ad09,redhat-openstack/infrared,class_runnable,validate_length_args,infrared/core/inspector/inspector.py,runnable,True,1,4,,0.223,Reference tests passed,Check if value of the given arguments is not longer than length specified.,true,true,,
+6306092e73426c38ae68ad0a,redhat-openstack/infrared,class_runnable,validate_choices_args,infrared/core/inspector/inspector.py,runnable,True,1,5,,0.22,Reference tests passed,Check if value of the given arguments is one of the available choices.,true,true,,
+6306092e73426c38ae68ad0b,redhat-openstack/infrared,class_runnable,validate_min_max_args,infrared/core/inspector/inspector.py,runnable,True,1,4,,0.223,Reference tests passed,Check if value of the given arguments is between minimum and maximum values.,true,true,,
+6306092e73426c38ae68ad0d,redhat-openstack/infrared,class_runnable,create_complex_argumet_type,infrared/core/inspector/inspector.py,runnable,True,1,3,,0.222,Reference tests passed,"Returns the corresponding function in COMPLEX_TYPES based on type name and returns the result obtained by complex_action after option_name,(self.vars, self.defaults, self.plugin_path), subcommand, spec_option) is input.",true,true,,
+6306092e73426c38ae68ad0f,redhat-openstack/infrared,file_runnable,get_nested_custom_and_control_args,infrared/core/inspector/inspector.py,runnable,True,1,10,,0.22,Reference tests passed,"Split input arguments to control nested and custom. Controls arguments: control the IR behavior. These arguments will not be put into the spec yml file. Nested arguments: are used by the Ansible playbooks and will be put into the spec yml file. Custom arguments: Custom ansible variables to be used instead of the normal nested usage. Return a tuple of two flat dicts (control_args, nested_args).",true,true,,
+6306092e73426c38ae68ad11,redhat-openstack/infrared,project_runnable,merge_extra_vars,infrared/core/settings.py,reference_failed,False,1,1,,0.039,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306092e73426c38ae68ad11/redhat-openstack---infrared/infrared/core/audit_6306092e73426c38ae68ad11_aw_4p7es.py"", line 96, in <module>
+    VarsDictManager.merge_extra_vars(input1,[""@some_var_file.yml""])
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306092e73426c38ae68ad11/redhat-openstack---infrared/infrared/core/audit_6306092e73426c38ae68ad11_aw_4p7es.py"", line 63, in merge_extra_vars
+    with open(extra_var[1:]) as f_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'some_var_file.yml'
+",Extend ``vars_dict`` with ``extra-vars` given a dictionary to merge extra-vars into and a list of extra-vars.,false,false,reference_test_failed,FileNotFoundError: [Errno 2] No such file or directory: 'some_var_file.yml'
+6306092f73426c38ae68ad13,redhat-openstack/infrared,file_runnable,ansible_playbook,infrared/core/execute.py,runnable,True,1,1,,0.222,Reference tests passed,"Wraps the 'ansible-playbook' CLI given an Infrared Workspace object represents the active workspace, and an InfraredPlugin object of the current plugin, and the playbook to invoke
+:param verbose: Ansible verbosity level, and a dictionary of extra vars. Passed to Ansible as extra-vars, and given a dictionary of ansible-playbook arguments to plumb down directly to Ansible.",true,true,,
+6306093273426c38ae68ad15,redhat-openstack/infrared,project_runnable,_run_playbook,infrared/core/execute.py,reference_failed,False,1,2,,0.222,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/6306093273426c38ae68ad15/redhat-openstack---infrared/infrared/core/audit_6306093273426c38ae68ad15_6tjvz6am.py"", line 326, in <module>
+    raise Exception(""Result not True!!!"")
+Exception: Result not True!!!
+","Runs ansible cli with vars dict that will be passed as Ansible extra-vars. You are given the list of command line arguments, an Infrared Workspace object represents the active workspace, and an InfraredPlugin object of the current plugin. Then return the ansible results.",false,false,reference_test_failed,Exception: Result not True!!!
+63060ada73426c38ae68ad31,redhat-openstack/infrared,class_runnable,_convert_non_cli_args,infrared/core/inspector/inspector.py,runnable,True,1,3,,0.223,Reference tests passed,Casts arguments to correct types by modifying values_dict param. By default all the values are strings.,true,true,,
+63060b1a73426c38ae68ad3e,redhat-openstack/infrared,project_runnable,get_plugin_spec_flatten_dict,tests/test_plugins.py,runnable,True,1,12,,0.25,Reference tests passed,Use YAML to read various information in a given plugin directory and return the information in dictionary form.,true,true,,
+63060b1b73426c38ae68ad42,redhat-openstack/infrared,class_runnable,inject_config,infrared/core/services/ansible_config.py,runnable,True,1,2,,0.083,Reference tests passed,"If the ANSIBLE_CONFIG property does not exist in os.environ, set it to self.ansible_config_path.",true,true,,
+63060b1b73426c38ae68ad43,redhat-openstack/infrared,project_runnable,extend_cli,infrared/main.py,runnable,True,3,0,3 target definitions; no direct target call found,0.272,Reference tests passed,Adds the spec cli options to to the main entry point given the subparser object to extend.,true,true,,
+62ece4992e6aefcf4aabbd7d,rougier/matplotlib,slib_runnable,subprocess_run_helper,lib/matplotlib/testing/__init__.py,runnable,True,1,1,,0.575,Reference tests passed,Run a function (must be in a module that is importable) in a sub-process then return a CompletedProcess instance.,true,true,,
+62ece4982e6aefcf4aabbd67,santoshphilip/eppy,self_contained,vertex3tuple,eppy/geometry/surface.py,runnable,True,1,4,,0.022,Reference tests passed,"Get 3 points for each vertex of the polygon. This will include the vertex and the 2 points on both sides of the vertex. If the subscript is out of bounds, take the value of index as 0. Then, return a list where the elements of vertices represented by tuple.",true,false,semantic_mismatch,题目对首个顶点的前驱边界描述易导向索引 0，但官方实现/测试使用 Python 索引 -1，语义有歧义
+62b463153879012d19481498,scieloorg/packtools,slib_runnable,files_list,packtools/file_utils.py,runnable,True,1,3,,0.03,Reference tests passed,Return the files in given path.,true,true,,
+62b463153879012d1948149a,scieloorg/packtools,file_runnable,_group_files_by_xml_filename,packtools/sps/models/packages.py,runnable,True,1,3,,0.137,Reference tests passed,Groups files by xmls and returns data in dict format.,true,true,,
+62b463153879012d1948149b,scieloorg/packtools,slib_runnable,match_file_by_prefix,packtools/sps/models/packages.py,runnable,True,1,2,,0.113,Reference tests passed,"Given a filepath, return true if the basename of the filepath is startswith the given prefix plus ""-"" or the given prefix plus "".""",true,true,,
+62b463153879012d1948149c,scieloorg/packtools,file_runnable,select_filenames_by_prefix,packtools/sps/models/packages.py,runnable,True,1,1,,0.114,Reference tests passed,"For each file in files, return all files that match the given prefix",true,true,,
+62b463153879012d1948149d,scieloorg/packtools,file_runnable,_explore_folder,packtools/sps/models/packages.py,runnable,True,1,2,,0.114,Reference tests passed,Groups files in the given group by using _group_files_by_xml_filename.,true,true,,
+62b463153879012d1948149f,scieloorg/packtools,file_runnable,_eval_file,packtools/sps/models/packages.py,runnable,True,1,9,,0.113,Reference tests passed,"Identify the type of the given file. Return None if the file do not match the given prefix or the type of the file is xml. Return dict with the key of component_id, file_path if the type of the file is ""pdf"", return dict with the key of component_id, file_path, ftype, file_path if the type of the file is not ""pdf"".",true,true,,
+62b463153879012d194814a1,scieloorg/packtools,class_runnable,add_rendition,packtools/sps/models/packages.py,runnable,True,1,1,,0.112,Reference tests passed,"Assign the filepath invoke by filepath() in the class to ""lang"" in _renditions in the class.",true,true,,
+62b463163879012d194814a2,scieloorg/packtools,class_runnable,add_asset,packtools/sps/models/packages.py,runnable,True,1,1,,0.113,Reference tests passed,"Assign the filepath invoke by filepath() in the class to ""basename"" in _assets in the class.",true,true,,
+62b463163879012d194814a4,scieloorg/packtools,file_runnable,_explore_zipfile,packtools/sps/models/packages.py,runnable,True,1,3,,0.114,Reference tests passed,Groups the given zip path by using _group_files_by_xml_filename.,true,true,,
+62b463163879012d194814a6,scieloorg/packtools,slib_runnable,files_list_from_zipfile,packtools/file_utils.py,reference_failed,False,1,1,,0.027,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b463163879012d194814a6/scieloorg---packtools/packtools/audit_62b463163879012d194814a6_0nx2sjeu.py"", line 205, in <module>
+    if str(files_list_from_zipfile(os.path.join(os.getcwd(),""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b463163879012d194814a6/scieloorg---packtools/HumanEval.zip"")))!=""['HumanEval/', 'HumanEval/CodeGen_on_HumanEval.jsonl', 'HumanEval/Pangu-Coder_on_HumanEval.jsonl', 'HumanEval/Pangu-FT_on_HumanEval.jsonl', 'HumanEval/WenwangCoder_on_HumanEval.jsonl']"":
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b463163879012d194814a6/scieloorg---packtools/packtools/audit_62b463163879012d194814a6_0nx2sjeu.py"", line 76, in files_list_from_zipfile
+    with ZipFile(  prefix + zip_path) as zf:
+  File ""/private/tmp/codeprompteval-pythons/cpython-3.9.25-macos-aarch64-none/lib/python3.9/zipfile.py"", line 1266, in __init__
+    self.fp = io.open(file, filemode)
+FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b463163879012d194814a6/scieloorg---packtools/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b463163879012d194814a6/scieloorg---packtools/HumanEval.zip'
+",Return the files in the given zip path.,false,false,reference_test_failed,FileNotFoundError: [Errno 2] No such file or directory: '/private/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b463163879012d194814a6/scieloorg---packtools/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b463163879012d194814a6/scieloorg---packtools/HumanEval.zip'
+62b4631b3879012d194814dd,scieloorg/packtools,slib_runnable,fix_namespace_prefix_w,packtools/sps/utils/xml_utils.py,runnable,True,1,2,,0.111,Reference tests passed,"Replace ""w:st="" in content with ""w-st="".",true,true,,
+62b463283879012d1948153d,scieloorg/packtools,self_contained,match_pubdate,packtools/sps/utils/xml_utils.py,runnable,True,1,0,no direct target call found,0.109,Reference tests passed,"For the given node, returns the first match in the pubdate_xpaths list.",true,true,,
+62b463303879012d19481579,scieloorg/packtools,plib_runnable,_extract_number_and_supplment_from_issue_element,packtools/sps/models/front_articlemeta_issue.py,runnable,True,1,29,,0.113,Reference tests passed,Return the possible values of number and sup from the contents of issue.,true,true,,
+62ece4992e6aefcf4aabbd87,scrolltech/apphelpers,plib_runnable,build_app_logger,apphelpers/loggers.py,reference_failed,False,1,1,,0.177,"F                                                                        [100%]
+=================================== FAILURES ===================================
+____________________________ test_build_app_logger _____________________________
+
+    def test_build_app_logger():
+        """"""Check the correctness of build_app_logger
+        """"""
+
+>       app_logger = build_app_logger()
+
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd87/scrolltech---apphelpers/apphelpers/audit_62ece4992e6aefcf4aabbd87_mfzdzfss.py:30:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd87/scrolltech---apphelpers/apphelpers/audit_62ece4992e6aefcf4aabbd87_mfzdzfss.py:16: in build_app_logger
+    handler = RotatingFileHandler(logpath, maxBytes=maxBytes, backupCount=100)
+/private/tmp/codeprompteval-pythons/cpython-3.7.17-macos-aarch64-none/lib/python3.7/logging/handlers.py:148: in __init__
+    BaseRotatingHandler.__init__(self, filename, mode, encoding, delay)
+/private/tmp/codeprompteval-pythons/cpython-3.7.17-macos-aarch64-none/lib/python3.7/logging/handlers.py:55: in __init__
+    logging.FileHandler.__init__(self, filename, mode, encoding, delay)
+/private/tmp/codeprompteval-pythons/cpython-3.7.17-macos-aarch64-none/lib/python3.7/logging/__init__.py:1087: in __init__
+    StreamHandler.__init__(self, self._open())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <[AttributeError(""'RotatingFileHandler' object has no attribute 'level'"") raised in repr()] RotatingFileHandler object at 0x108684208>
+
+    def _open(self):
+        """"""
+        Open the current base file with the (original) mode and encoding.
+        Return the resulting stream.
+        """"""
+>       return open(self.baseFilename, self.mode, encoding=self.encoding)
+E       PermissionError: [Errno 1] Operation not permitted: '/private/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd87/scrolltech---apphelpers/logs/app.log'
+
+/private/tmp/codeprompteval-pythons/cpython-3.7.17-macos-aarch64-none/lib/python3.7/logging/__init__.py:1116: PermissionError
+=========================== short test summary info ============================
+FAILED ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd87/scrolltech---apphelpers/apphelpers/audit_62ece4992e6aefcf4aabbd87_mfzdzfss.py::test_build_app_logger
+1 failed in 0.05s
+",Builds a general purpose application logger. Useful mainly for debugging. Return an instantiated logger object.,false,false,reference_test_failed,1 failed in 0.05s
+62ece4982e6aefcf4aabbd62,SEED-platform/py-seed,self_contained,_replace_url_args,pyseed/apibase.py,runnable,True,1,7,,0.023,Reference tests passed,"Replace the value in url with the value in url_args. If url_args has a value, iterate over the keys and values from url_args, replace the keys of the first parameter with values, then return the modified url",true,true,,
+62ece4982e6aefcf4aabbd6a,sipwise/repoapi,self_contained,replace_dots,release_dashboard/templatetags/rd_extras.py,runnable,True,1,4,,0.014,Reference tests passed,Replaces all values of '.' to arg from the given string then return it.,true,true,,
+62ece4982e6aefcf4aabbd68,skorokithakis/shortuuid,self_contained,int_to_string,shortuuid/main.py,runnable,True,1,7,,0.017,Reference tests passed,"Convert a number (short uuid) to a string, using the given alphabet. The number represents a short uuid. The output has the most significant digit first.",true,true,,
+62ece4982e6aefcf4aabbd6d,skorokithakis/shortuuid,self_contained,string_to_int,shortuuid/main.py,runnable,True,1,6,,0.016,Reference tests passed,"Convert a string to a number, using the given alphabet. Return the corresponding number of the given string using the given transition rule.",true,true,,
+62ece4992e6aefcf4aabbd89,ufo-kit/concert,plib_runnable,gaussian,concert/tests/unit/devices/test_monochromator.py,runnable,True,1,5,,0.347,Reference tests passed,Calculate Gaussian centered with u is 0.2 and sigma is 0.1.,true,true,,
+62b4567ed7d32e5b55cc83d9,witten/atticmatic,file_runnable,deep_merge_nodes,borgmatic/config/load.py,runnable,True,1,6,,0.043,Reference tests passed,"Merge any node values corresponding to duplicate keys and return the result. If there are colliding keys with non-MappingNode values, the last of the values remains.",true,true,,
+62b4567ad7d32e5b55cc83af,witten/atticmatic,file_runnable,parse_arguments,borgmatic/commands/generate_config.py,runnable,True,1,5,,0.124,Reference tests passed,"Given command-line arguments with which this script was invoked, parse the arguments and return  them as an ArgumentParser instance",true,true,,
+62b45679d7d32e5b55cc83a9,witten/atticmatic,self_contained,parser_flags,borgmatic/commands/completion.py,runnable,True,1,4,,0.028,Reference tests passed,"Given an argparse.ArgumentParser instance, return its argument flags in a space-separated string.",true,true,,
+62b45665d7d32e5b55cc8365,witten/atticmatic,file_runnable,parse_arguments,borgmatic/commands/arguments.py,runnable,True,1,15,,0.093,Reference tests passed,Parses parameters and returns them as dict maps,true,true,,
+62b45665d7d32e5b55cc8364,witten/atticmatic,file_runnable,parse_subparser_arguments,borgmatic/commands/arguments.py,runnable,True,1,8,,0.075,Reference tests passed,"Given a sequence of arguments and a dict from subparser name to argparse.ArgumentParser instance, give each requested action's subparser a shot at parsing all arguments. This allows common arguments like ""--repository"" to be shared across multiple subparsers. Return the result as a tuple of (a dict mapping from subparser name to a parsed namespace of arguments, a list of remaining arguments not claimed by any subparser).",true,true,,
+62b45665d7d32e5b55cc8363,witten/atticmatic,file_runnable,make_parsers,borgmatic/commands/arguments.py,runnable,True,1,2,,0.033,Reference tests passed,Build a parser and its subparsers and return them as a tuple.,true,true,,
+62b438ba66fea644fe22cca2,witten/borgmatic,file_runnable,deep_merge_nodes,borgmatic/config/load.py,runnable,True,1,3,,0.052,Reference tests passed,"merge any node values corresponding to duplicate keys and return the result. If there are colliding keys with non-MappingNode values, the last of the values remains.",true,true,,
+62b438b666fea644fe22cc78,witten/borgmatic,file_runnable,parse_arguments,borgmatic/commands/generate_config.py,reference_failed,False,1,2,,0.04,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b438b666fea644fe22cc78/witten---borgmatic/borgmatic/commands/audit_62b438b666fea644fe22cc78_8c82qkub.py"", line 12, in <module>
+    from borgmatic.config import generate, validate
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b438b666fea644fe22cc78/witten---borgmatic/borgmatic/config/generate.py"", line 8, in <module>
+    from config import load, normalize
+ModuleNotFoundError: No module named 'config'
+","Given command-line arguments with which this script was invoked, parse the arguments and return  them as an ArgumentParser instance",false,false,reference_test_failed,ModuleNotFoundError: No module named 'config'
+62b438b666fea644fe22cc72,witten/borgmatic,self_contained,parser_flags,borgmatic/commands/completion.py,runnable,True,1,4,,0.097,Reference tests passed,"Given an argparse.ArgumentParser instance, return its argument flags in a space-separated string.",true,true,,
+62b438b566fea644fe22cc70,witten/borgmatic,file_runnable,bash_completion,borgmatic/commands/completion.py,runnable,True,1,1,,0.094,Reference tests passed,Produce the borgmatic command by introspecting borgmatic's command-line argument parsers.,true,true,,
+62b438a266fea644fe22cc2e,witten/borgmatic,file_runnable,parse_arguments,borgmatic/commands/arguments.py,reference_failed,False,1,1,,0.038,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b438a266fea644fe22cc2e/witten---borgmatic/borgmatic/commands/audit_62b438a266fea644fe22cc2e_y9d52jua.py"", line 721, in <module>
+    raise Exception(""Result not True!!!"")
+Exception: Result not True!!!
+","Given command-line arguments with which this script was invoked, parse the arguments and return them as a dict mapping from subparser name (or ""global"") to an argparse.Namespace instance.",false,false,reference_test_failed,Exception: Result not True!!!
+62b438a266fea644fe22cc2d,witten/borgmatic,file_runnable,parse_subparser_arguments,borgmatic/commands/arguments.py,runnable,True,1,2,,0.035,Reference tests passed,"Given a sequence of arguments and a dict from subparser name to argparse.ArgumentParser instance, give each requested action's subparser a shot at parsing all arguments. This allows common arguments like ""--repository"" to be shared across multiple subparsers. Return the result as a tuple of (a dict mapping from subparser name to a parsed namespace of arguments, a list of remaining arguments not claimed by any subparser).",true,true,,
+62b438a266fea644fe22cc2c,witten/borgmatic,file_runnable,make_parsers,borgmatic/commands/arguments.py,reference_failed,False,1,2,,0.04,"Traceback (most recent call last):
+  File ""/var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62b438a266fea644fe22cc2c/witten---borgmatic/borgmatic/commands/audit_62b438a266fea644fe22cc2c_eads1as9.py"", line 1343, in <module>
+    raise Exception(""Result not True!!!"")
+Exception: Result not True!!!
+",Build a top-level parser and its subparsers and return them as a tuple.,false,false,reference_test_failed,Exception: Result not True!!!
+62ece4982e6aefcf4aabbd65,witten/borgmatic,self_contained,parser_flags,borgmatic/commands/completion.py,runnable,True,1,7,,0.028,Reference tests passed,"Given an argparse.ArgumentParser instance, return its argument flags in a space-separated string.",true,true,,
+62ece4982e6aefcf4aabbd77,witten/borgmatic,slib_runnable,parse_frequency,borgmatic/borg/check.py,runnable,True,1,6,,0.27,Reference tests passed,"Given a frequency string with a number and a unit of time, return a corresponding datetime.timedelta instance. If the frequency is None or ""always"", return None. Raise ValueError if the given frequency cannot be parsed.",true,true,,
+62ece4992e6aefcf4aabbd79,witten/borgmatic,slib_runnable,make_find_paths,borgmatic/borg/list.py,runnable,True,1,5,,0.234,Reference tests passed,"Given a sequence of path, transform all path into glob patterns. Pass through existing patterns untouched. Return a tuple of transformed path",true,true,,
+62ece4992e6aefcf4aabbd7b,witten/borgmatic,slib_runnable,write_configuration,borgmatic/config/generate.py,reference_failed,False,1,4,,0.308,"/override_test_62ece4992e6aefcf4aabbd7e_011100.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_011101.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_011110.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_011111.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100000.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100001.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100010.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100011.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100100.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100101.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100110.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_100111.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101000.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101001.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101010.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101011.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101100.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101101.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101110.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/override_test_62ece4992e6aefcf4aabbd7e_101111.py      12     12     0%   1-38
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/config/validate.py                                           73     73     0%   1-207
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/execute.py                                                  104    104     0%   1-340
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/logger.py                                                    85     85     0%   1-225
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/signals.py                                                   16     16     0%   1-34
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/verbosity.py                                                 10     10     0%   1-18
+borgmatic/config/audit_62ece4992e6aefcf4aabbd7b_z92iqnt8.py                                                                                                                         19      8    58%   11, 24-27, 34-36, 40
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                                             6261   6250     1%
+
+2 files skipped due to complete coverage.
+
+=========================== short test summary info ============================
+FAILED ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd7b/witten---borgmatic/borgmatic/config/audit_62ece4992e6aefcf4aabbd7b_z92iqnt8.py::test_write_configuration
+1 failed in 0.16s
+","Given a rendered config YAML, write it out to target file. But if the file already exists and overwrite is False, abort before writing anything. If the file does not exist, create it. Write to the file otherwise. Return None.",false,false,reference_test_failed,1 failed in 0.16s
+62ece4992e6aefcf4aabbd7e,witten/borgmatic,slib_runnable,_resolve_string,borgmatic/config/override.py,runnable,True,1,1,,0.295,Reference tests passed,"Get the value from environment given a matcher containing a name and an optional default value in its group dict. If the variable is not defined in environment and no default value is provided, an Error is raised.",true,true,,
+62ece4992e6aefcf4aabbd8a,witten/borgmatic,plib_runnable,load_configurations,borgmatic/commands/borgmatic.py,reference_failed,False,1,1,,1.228," 0%   1-95
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_011110.py      39     39     0%   1-99
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_011111.py      36     36     0%   1-99
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100000.py      29     29     0%   1-89
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100001.py      27     27     0%   1-90
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100010.py      30     30     0%   1-88
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100011.py      27     27     0%   1-90
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100100.py      30     30     0%   1-90
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100101.py      27     27     0%   1-89
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100110.py      28     28     0%   1-91
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_100111.py      27     27     0%   1-90
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101000.py      31     31     0%   1-98
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101001.py      28     28     0%   1-94
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101010.py      30     30     0%   1-94
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101011.py      28     28     0%   1-96
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101100.py      28     28     0%   1-91
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101101.py      27     27     0%   1-90
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101110.py      28     28     0%   1-91
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/generate_config_test_62b438b666fea644fe22cc78_101111.py      28     28     0%   1-91
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/commands/validate_config.py                                            7      7     0%   1-17
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/execute.py                                                           104    104     0%   1-340
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/logger.py                                                             85     85     0%   1-225
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/signals.py                                                            16     16     0%   1-34
+/Users/zhongyutong/CodePromptEval/benchmarks/CoderEval/CoderEval/home/travis/builds/repos/witten---borgmatic/borgmatic/verbosity.py                                                          10     10     0%   1-18
+borgmatic/commands/audit_62ece4992e6aefcf4aabbd8a_wkzyucqe.py                                                                                                                                18     15    17%   7-64
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                                                                                                                     36368  36365     1%
+
+7 files skipped due to complete coverage.
+
+=========================== short test summary info ============================
+ERROR ../../../../../../../../../../var/folders/77/z4jy32y155n2w719j_y89xpr0000gn/T/codeprompteval-benchmark-audit/projects/62ece4992e6aefcf4aabbd8a/witten---borgmatic/borgmatic/commands/audit_62ece4992e6aefcf4aabbd8a_wkzyucqe.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 1.08s
+","Given a sequence of configuration filenames, load and validate each configuration file. If the configuration file cannot be read due to insufficient permissions or error parsing configuration file, the error log will be recorded. Otherwise, return the results as a tuple of: dict of configuration filename to corresponding parsed configuration, and sequence of logging.LogRecord instances containing any parse errors.",false,false,reference_test_failed,1 error in 1.08s
+62b87b989a0c4fa8b80b35ee,ynikitenko/lena,class_runnable,reset,lena/structures/histogram.py,runnable,True,1,1,,0.047,Reference tests passed,"Current context is reset to an empty dict, bins of the class are reinitialized with the *initial_value* or with *make_bins()*.",true,true,,
+62b87b859a0c4fa8b80b35d7,ynikitenko/lena,class_runnable,to_csv,lena/structures/graph.py,runnable,True,1,4,,0.042,Reference tests passed,"Convert graph's points to CSV. header, if not ``None``, is the first string of the output
+(new line is added automatically). Since a graph can be multidimensional, for each point first its coordinate is converted to string (separated by a separator), then each part of its value. To convert :class:`Graph` to CSV inside a Lena sequence, use :class:`lena.output.ToCSV`.",true,true,,
+62b87b839a0c4fa8b80b35cb,ynikitenko/lena,class_runnable,_get_err_indices,lena/structures/graph.py,runnable,True,1,6,,0.042,Reference tests passed,Find all error indexes corresponding to coord_name.,true,true,,
+62b87b7e9a0c4fa8b80b35bc,ynikitenko/lena,class_runnable,_update_context,lena/structures/graph.py,runnable,True,1,1,,0.042,Reference tests passed,"Update context with the properties of this graph.
+
+context.error is appended with indices of errors.
+Example subcontext for a graph with fields ""E,t,error_E_low"":
+{""error"": {""x_low"": {""index"": 2}}}. Note that error names are called ""x"", ""y"" and ""z""
+(this corresponds to first three coordinates,
+if they are present), which allows to simplify plotting. Existing values are not removed from context.value and its subcontexts. Called on ""destruction"" of the graph. By destruction we mean conversion to another structure (like text) in the flow. The graph object is not really destroyed in this process.",true,true,,
+62b87b4f9a0c4fa8b80b3580,ynikitenko/lena,file_runnable,integral,lena/structures/hist_functions.py,runnable,True,1,1,,0.043,Reference tests passed,Calculate the area of the overall graph.,true,true,,
+62b87b199a0c4fa8b80b354e,ynikitenko/lena,file_runnable,is_fill_request_seq,lena/core/check_sequence_type.py,runnable,True,1,5,,0.041,Reference tests passed,Check whether seq can be converted to FillRequestSeq and bool is returned.,true,true,,
+62b87b099a0c4fa8b80b3538,ynikitenko/lena,self_contained,is_fill_request_el,lena/core/check_sequence_type.py,runnable,True,1,1,,0.036,Reference tests passed,Check whether the obj class has the fill and request attributes.,true,true,,
+62b87af99a0c4fa8b80b3524,ynikitenko/lena,self_contained,is_run_el,lena/core/check_sequence_type.py,runnable,True,1,0,no direct target call found,0.036,Reference tests passed,Check whether the obj class has the run method.,true,true,,
+62b87af69a0c4fa8b80b351a,ynikitenko/lena,self_contained,is_fill_compute_el,lena/core/check_sequence_type.py,runnable,True,1,5,,0.036,Reference tests passed,Check whether the obj class has the fill and compute methods.,true,true,,
+62b87af19a0c4fa8b80b34f7,ynikitenko/lena,file_runnable,difference,lena/context/functions.py,runnable,True,1,11,,0.025,Reference tests passed,Return a dictionary with items from d1 not contained in d2.,true,true,,
+62b87af09a0c4fa8b80b34f1,ynikitenko/lena,class_runnable,fill,lena/structures/histogram.py,runnable,True,1,1,,0.041,Reference tests passed,Fill histogram at coordinate with the given weight. Coordinates outside the histogram edges are ignored.,true,true,,
+62b87b199a0c4fa8b80b354c,ynikitenko/lena,plib_runnable,_get_seq_with_type,lena/core/split.py,runnable,True,1,6,,0.038,Reference tests passed,"Return a (sequence, type) pair. Sequence is derived from *seq* (or is *seq*, if that is of a sequence type).",true,true,,
+62b87b4f9a0c4fa8b80b3581,ynikitenko/lena,class_runnable,scale,lena/structures/histogram.py,runnable,True,1,3,,0.041,Reference tests passed,"Compute or set scale (integral of the histogram). If *other* is ``None``, return scale of this histogram. If its scale was not computed before, it is computed and stored for subsequent use (unless explicitly asked to *recompute*). Note that after changing (filling) the histogram one must explicitly recompute the scale if it was computed before. If a float *other* is provided, rescale self to *other*. Histograms with scale equal to zero can't be rescaled. It can raise a `.LenaValueError` if one tries to do that.",true,true,,
+62b87b519a0c4fa8b80b3583,ynikitenko/lena,class_runnable,scale,lena/structures/graph.py,runnable,True,1,4,,0.039,Reference tests passed,"Get or set the scale of the graph. if the graph has *x* and *y* coordinates, then *y* will be rescaled, and for a 3-dimensional graph *z* will be rescaled. If *other* is ``None``, return the scale of this graph. If a numeric *other* is provided, rescale to that value. If the graph has unknown or zero scale, rescaling that will raise  a `~.LenaValueError`. To get meaningful results, graph's fields are used. Only the last coordinate is rescaled. All errors are rescaled together with their coordinate.",true,true,,
+62b87b869a0c4fa8b80b35e1,ynikitenko/lena,project_runnable,hist_to_graph,lena/structures/hist_functions.py,runnable,True,1,3,,0.044,Reference tests passed,"Convert a :class:`.histogram` to a :class:`.graph` given a function to set the value of a graph's point, then return the resulting graph. By default, the variable that holds the function (that sets the value of a graph's point) is bin content. The variable of the function accepts a single value (bin content) without context. This option could be used to create graph's error bars. For example, to create a graph with errors from a histogram where bins contain a named tuple with fields *mean*, *mean_error* and a context one could use variable_of_function = lambda bin_: (bin_.mean, bin_.mean_error). You are also given what the coordinate of a graph point created from a histogram bin will be (""left"" (default), ""right"" or ""middle""). You are also given a set of field names of the graph. Their number must be the same as the dimension of the result. For a *make_value* above they would be
+*(""x"", ""y_mean"", ""y_mean_error"")*. If the graph's scale (unknown by default) is ``True``, it uses the histogram scale. The histogram must contain only numeric bins (without context) or *variable_of_function* must remove context when creating a numeric graph.",true,true,,
+62b45df05108cfac7f2109ce,zimeon/ocfl-py,class_runnable,validate,ocfl/validator.py,runnable,True,1,5,,0.243,Reference tests passed,"Returns True if OCFL object at path or pyfs root, False otherwise.",true,true,,
+62b45df15108cfac7f2109dc,zimeon/ocfl-py,class_runnable,status_str,ocfl/validation_logger.py,runnable,True,1,2,,0.027,Reference tests passed,"Return a string with visiting the sorted self.messages list, each visit add prefix and the element in the sorted self.messages list.",true,true,,
+62b45df15108cfac7f2109dd,zimeon/ocfl-py,class_runnable,status_str,ocfl/validator.py,runnable,True,1,3,,0.164,Reference tests passed,"Return string representation with self.log.status_str, with optional prefix.",true,true,,
+62b45e135108cfac7f2109f4,zimeon/ocfl-py,self_contained,is_valid,ocfl/dispositor.py,runnable,True,1,2,,0.03,Reference tests passed,"Return True if identifier is valid. In this base implementation, always return True.",true,true,,
+62b45e145108cfac7f210a07,zimeon/ocfl-py,class_runnable,validate,ocfl/inventory_validator.py,runnable,True,1,13,,0.167,Reference tests passed,"Validate a given inventory. If extract_spec_version is True then will look at the type value to determine the specification version. In the case that there is no type value or it isn't valid, then other tests will be based on the version given in self.spec_version.",true,true,,
+62b45e145108cfac7f210a09,zimeon/ocfl-py,class_runnable,check_digests_present_and_used,ocfl/inventory_validator.py,runnable,True,1,4,,0.168,Reference tests passed,Check all digests in manifest that are needed are present and used. Return error() in the class.,true,true,,
+62b45e165108cfac7f210a16,zimeon/ocfl-py,file_runnable,validate_as_prior_version,ocfl/inventory_validator.py,runnable,True,1,4,,0.165,Reference tests passed,Check that prior is a valid prior version of the current inventory object. The input variable prior is also expected to be an InventoryValidator object and both self and prior inventories are assumed to have been checked for internal consistency. Return error() in the class.,true,true,,
+62b45e165108cfac7f210a17,zimeon/ocfl-py,self_contained,get_logical_path_map,ocfl/inventory_validator.py,runnable,True,1,3,,0.165,Reference tests passed,Returns the file paths of the states in the inventory in the dict type.,true,true,,
+62b45e175108cfac7f210a19,zimeon/ocfl-py,class_runnable,validate_fixity,ocfl/inventory_validator.py,runnable,True,1,10,,0.165,Reference tests passed,Validate fixity block in inventory. Check the structure of the fixity block and makes sure that only files listed in the manifest are referenced. Return error() in the class.,true,true,,
+62b45e945108cfac7f210a4a,zimeon/ocfl-py,class_runnable,validate_hierarchy,ocfl/store.py,runnable,True,1,1,,0.652,Reference tests passed,Validate storage root hierarchy. Returns the number of objects checked and number of objects checked that were found to be valid.,true,true,,
+62b45e515108cfac7f210a3c,zimeon/ocfl-py,file_runnable,initialize,ocfl/store.py,runnable,True,1,2,,0.311,Reference tests passed,Create and initialize a new OCFL storage root.,true,true,,
+62b45e2eb89c9fd354170232,zimeon/ocfl-py,file_runnable,next_version,ocfl/object_utils.py,runnable,True,1,12,,0.161,Reference tests passed,Given next version identifier following existing pattern,true,true,,
+62b45e23e0d4551b0392c90a,zimeon/ocfl-py,class_runnable,validate_version_inventories,ocfl/validator.py,runnable,True,1,2,,0.178,Reference tests passed,"Each version SHOULD have an inventory up to that point. Also keep a record of any content digests different from those in the root inventory so that we can also check them when validating the content. version_dirs is an array of version directory names and is assumed to be in version sequence (1, 2, 3...).",true,true,,
+62b45e21e0d4551b0392c8ed,zimeon/ocfl-py,plib_runnable,find_path_type,ocfl/object_utils.py,runnable,True,1,7,,0.163,Reference tests passed,Return a string indicating the type of thing at the given path,true,true,,

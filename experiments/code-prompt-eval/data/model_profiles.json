@@ -1,0 +1,80 @@
+{
+  "deepseek-flash": {
+    "model": "deepseek-flash",
+    "base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "max_tokens_parameter": "max_tokens",
+    "top_p": 1,
+    "reasoning_effort": "none",
+    "require_non_thinking": true,
+    "extra_body": {
+      "thinking": {
+        "type": "disabled"
+      }
+    }
+  },
+  "qwen3-8b-local": {
+    "model": "qwen3:8b",
+    "base_url": "http://localhost:11434/v1",
+    "api_key_env": "OLLAMA_API_KEY",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "max_tokens_parameter": "max_tokens",
+    "top_p": 1,
+    "reasoning_effort": "none",
+    "require_non_thinking": true,
+    "extra_body": {
+      "think": false
+    }
+  },
+  "qwen3-8b-cloud": {
+    "model": "Qwen/Qwen3-8B",
+    "base_url": "https://api.siliconflow.cn/v1",
+    "api_key_env": "SILICONFLOW_API_KEY",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "max_tokens_parameter": "max_tokens",
+    "top_p": 1,
+    "thinking_mode": "disabled",
+    "require_non_thinking": true,
+    "extra_body": {
+      "enable_thinking": false
+    }
+  },
+  "qwen2.5-7b-instruct-local": {
+    "model": "qwen2.5:7b-instruct",
+    "base_url": "http://localhost:11434/v1",
+    "api_key_env": "OLLAMA_API_KEY",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "max_tokens_parameter": "max_tokens",
+    "top_p": 1,
+    "reasoning_effort": "none",
+    "require_non_thinking": true,
+    "extra_body": {
+      "think": false
+    }
+  },
+  "qwen2.5-7b-instruct-cloud": {
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "base_url": "https://api.siliconflow.cn/v1",
+    "api_key_env": "SILICONFLOW_API_KEY",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "max_tokens_parameter": "max_tokens",
+    "top_p": 1,
+    "thinking_mode": "not-supported",
+    "require_non_thinking": true
+  },
+  "custom-compatible": {
+    "model": "replace-with-model-name",
+    "base_url": "https://replace-with-provider.example/v1",
+    "api_key_env": "CUSTOM_API_KEY",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "max_tokens_parameter": "max_tokens",
+    "top_p": 1
+  }
+}

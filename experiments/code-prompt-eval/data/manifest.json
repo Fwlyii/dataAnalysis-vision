@@ -1,0 +1,69 @@
+{
+  "experiment_id": "code-prompt-eval-194x31x5x3",
+  "collection_dates_beijing": [
+    "2026-10-22",
+    "2026-10-23"
+  ],
+  "benchmark": {
+    "name": "CodePromptEval Python subset based on CoderEval",
+    "source_repository": "https://github.com/icetlab/CodePromptEval",
+    "source_commit": "3c82de002f3a82e26c35c502c6bd04f412f9cbf5",
+    "original_tasks": 221,
+    "technically_runnable_tasks": 196,
+    "recommended_tasks": 194,
+    "original_prompt_combinations_per_task": 32
+  },
+  "design": {
+    "tasks": 194,
+    "prompts": 31,
+    "independent_samples_per_condition": 5,
+    "models": 3,
+    "records_per_model": 30070,
+    "total_records": 90210,
+    "sampling_mode": "independent single-turn",
+    "base_context": "signature-packages",
+    "prompt_version": "code-v1",
+    "temperature": 0.2,
+    "top_p": 1.0,
+    "max_tokens": 2048,
+    "thinking_mode": "disabled"
+  },
+  "models": [
+    {
+      "profile": "deepseek-flash",
+      "model_id": "deepseek-flash",
+      "provider": "DeepSeek official API"
+    },
+    {
+      "profile": "qwen2.5-7b-instruct-cloud",
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "provider": "SiliconFlow"
+    },
+    {
+      "profile": "qwen3-8b-cloud",
+      "model_id": "Qwen/Qwen3-8B",
+      "provider": "SiliconFlow"
+    }
+  ],
+  "evaluation": {
+    "version": "target-function-ast-v2",
+    "reference_preflight": true,
+    "candidate_execution": "macOS sandbox-exec",
+    "network": "denied",
+    "writes": "temporary directory only",
+    "top_level_imports_and_helpers": "moved into target function before insertion",
+    "signature_annotations_and_decorators": "inherited from the reference test template",
+    "environment_failures": "excluded from model-performance denominators",
+    "legacy_evaluation": "not included; it misparsed indented methods and treated ordinary imports as model failures"
+  },
+  "analysis": {
+    "pass_k": [1, 3, 5],
+    "pass_k_estimator": "1-C(n-c,k)/C(n,k)",
+    "bootstrap_cluster": "task_id",
+    "bootstrap_draws": 5000,
+    "bootstrap_seed": 91,
+    "multiple_comparison_adjustment": false
+  },
+  "delivery_branch": "zyt",
+  "delivery_base_commit": "52f53ec042b33fed828ac9a50b9d99720ac3df50"
+}

@@ -1,0 +1,126 @@
+{
+  "NoCoT": {
+    "original": "Only give the final answer. Do not give any explanation.",
+    "code": "Do not provide any reasoning or explanation before the code."
+  },
+  "DefaultCoT": {
+    "original": "Think step by step before answering.",
+    "code": "Think step by step and write the reasoning before the code."
+  },
+  "BeConcise": {
+    "original": "Think step by step before answering, but be concise.",
+    "code": "Think step by step, but keep the reasoning before the code concise."
+  },
+  "BulletPoints": {
+    "original": "Only use bullet points. Do not use complete sentences.",
+    "code": "If you provide reasoning before the code, use only bullet points and do not use complete sentences."
+  },
+  "OnlyNumbers": {
+    "original": "Only use numbers or equations in your steps. Use as few words as possible.",
+    "code": "If you provide reasoning before the code, use only numbers, mathematical symbols, or equations; otherwise omit the reasoning."
+  },
+  "NoSpaces": {
+    "original": "Do not use any spaces or line breaks. For example, instead of 'since 20 + 4 = 24' respond with 'since20+4=24'.",
+    "code": "In any reasoning before the code, do not use spaces or line breaks. This restriction does not apply to the code."
+  },
+  "NoProperGrammar": {
+    "original": "Do not use proper grammar. Avoid using connecting words like 'and', 'since', 'but', or 'then', etc.",
+    "code": "In any reasoning before the code, avoid proper grammar and connecting words such as 'and', 'since', 'but', or 'then'."
+  },
+  "AbbreviateWords": {
+    "original": "Abbreviate words as much as possible. Remove vowels. For example, you can replace 'concept' with 'cncpt'.",
+    "code": "In any reasoning before the code, abbreviate words as much as possible and remove vowels where possible."
+  },
+  "WordLimit(1)": {
+    "original": "Only use 1 words for your answer.",
+    "code": "If you provide reasoning before the code, use at most 1 word. The code does not count toward this limit."
+  },
+  "WordLimit(5)": {
+    "original": "Only use 5 words for your answer.",
+    "code": "If you provide reasoning before the code, use at most 5 words. The code does not count toward this limit."
+  },
+  "WordLimit(10)": {
+    "original": "Only use 10 words for your answer.",
+    "code": "If you provide reasoning before the code, use at most 10 words. The code does not count toward this limit."
+  },
+  "WordLimit(15)": {
+    "original": "Only use 15 words for your answer.",
+    "code": "If you provide reasoning before the code, use at most 15 words. The code does not count toward this limit."
+  },
+  "WordLimit(25)": {
+    "original": "Only use 25 words for your answer.",
+    "code": "If you provide reasoning before the code, use at most 25 words. The code does not count toward this limit."
+  },
+  "WordLimit(50)": {
+    "original": "Only use 50 words for your answer.",
+    "code": "If you provide reasoning before the code, use at most 50 words. The code does not count toward this limit."
+  },
+  "WordLimit(100)": {
+    "original": "Only use 100 words for your answer.",
+    "code": "If you provide reasoning before the code, use at most 100 words. The code does not count toward this limit."
+  },
+  "CharLimit(10)": {
+    "original": "Only use 10 letters for your answer.",
+    "code": "If you provide reasoning before the code, use at most 10 characters. The code does not count toward this limit."
+  },
+  "CharLimit(50)": {
+    "original": "Only use 50 letters for your answer.",
+    "code": "If you provide reasoning before the code, use at most 50 characters. The code does not count toward this limit."
+  },
+  "CharLimit(100)": {
+    "original": "Only use 100 letters for your answer.",
+    "code": "If you provide reasoning before the code, use at most 100 characters. The code does not count toward this limit."
+  },
+  "CharLimit(500)": {
+    "original": "Only use 500 letters for your answer.",
+    "code": "If you provide reasoning before the code, use at most 500 characters. The code does not count toward this limit."
+  },
+  "TokenLimit(10)": {
+    "original": "Only use 10 tokens for your answer.",
+    "code": "If you provide reasoning before the code, use at most 10 tokens. The code does not count toward this limit."
+  },
+  "TokenLimit(50)": {
+    "original": "Only use 50 tokens for your answer.",
+    "code": "If you provide reasoning before the code, use at most 50 tokens. The code does not count toward this limit."
+  },
+  "TokenLimit(100)": {
+    "original": "Only use 100 tokens for your answer.",
+    "code": "If you provide reasoning before the code, use at most 100 tokens. The code does not count toward this limit."
+  },
+  "TokenLimit(500)": {
+    "original": "Only use 500 tokens for your answer.",
+    "code": "If you provide reasoning before the code, use at most 500 tokens. The code does not count toward this limit."
+  },
+  "StepLimit(1)": {
+    "original": "List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 1 steps.",
+    "code": "Write the reasoning before the code as numbered steps and use at most 1 step."
+  },
+  "StepLimit(2)": {
+    "original": "List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 2 steps.",
+    "code": "Write the reasoning before the code as numbered steps and use at most 2 steps."
+  },
+  "StepLimit(5)": {
+    "original": "List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 5 steps.",
+    "code": "Write the reasoning before the code as numbered steps and use at most 5 steps."
+  },
+  "ChineseCoT": {
+    "original": "Respond in Chinese.",
+    "code": "Write any reasoning before the code in Chinese."
+  },
+  "ChineseCoT(10)": {
+    "original": "Respond in Chinese, but use at most 10 characters.",
+    "code": "Write any reasoning before the code in Chinese and use at most 10 Chinese characters. The code does not count toward this limit."
+  },
+  "ChineseCoT(50)": {
+    "original": "Respond in Chinese, but use at most 50 characters.",
+    "code": "Write any reasoning before the code in Chinese and use at most 50 Chinese characters. The code does not count toward this limit."
+  },
+  "ChineseCoT(100)": {
+    "original": "Respond in Chinese, but use at most 100 characters.",
+    "code": "Write any reasoning before the code in Chinese and use at most 100 Chinese characters. The code does not count toward this limit."
+  },
+  "ChineseCoT(500)": {
+    "original": "Respond in Chinese, but use at most 500 characters.",
+    "code": "Write any reasoning before the code in Chinese and use at most 500 Chinese characters. The code does not count toward this limit."
+  }
+}
