@@ -1,0 +1,470 @@
+{
+  "source": "experiments/lost-in-the-middle/derived/scores.csv",
+  "n_rows": 74800,
+  "n_cols": 21,
+  "columns": {
+    "question_id": {
+      "type": "text",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0
+    },
+    "scenario_id": {
+      "type": "text",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0
+    },
+    "model": {
+      "type": "categorical",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "Qwen/Qwen2.5-7B-Instruct",
+          37400
+        ],
+        [
+          "Qwen/Qwen3-8B",
+          37400
+        ]
+      ],
+      "min_group_n": 37400,
+      "max_group_n": 37400,
+      "small_groups_flag": false
+    },
+    "prompt_id": {
+      "type": "text",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0
+    },
+    "document_count": {
+      "type": "ordinal",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 3,
+      "categories": [
+        [
+          "20",
+          37200
+        ],
+        [
+          "10",
+          37200
+        ],
+        [
+          "0",
+          400
+        ]
+      ],
+      "min_group_n": 400,
+      "max_group_n": 37200,
+      "small_groups_flag": false
+    },
+    "position_label": {
+      "type": "categorical",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 4,
+      "categories": [
+        [
+          "middle",
+          24800
+        ],
+        [
+          "front",
+          24800
+        ],
+        [
+          "back",
+          24800
+        ],
+        [
+          "none",
+          400
+        ]
+      ],
+      "min_group_n": 400,
+      "max_group_n": 24800,
+      "small_groups_flag": false
+    },
+    "task_type": {
+      "type": "categorical",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "document_qa",
+          74400
+        ],
+        [
+          "closedbook_control",
+          400
+        ]
+      ],
+      "min_group_n": 400,
+      "max_group_n": 74400,
+      "small_groups_flag": false
+    },
+    "timestamp": {
+      "type": "datetime",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "min": "2026-10-21 00:17:23+08:00",
+      "max": "2026-10-22 20:21:16+08:00"
+    },
+    "latency_s": {
+      "type": "continuous",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "mean": 3.568382006684492,
+      "median": 1.9412,
+      "sd": 6.1375395496542,
+      "min": 0.1689,
+      "max": 119.6781,
+      "skewness": 6.673068598294941,
+      "skew_label": "highly skewed",
+      "n_outliers_iqr": 6228,
+      "outlier_lo": -2.5265375000000003,
+      "outlier_hi": 7.206362500000001,
+      "needs_log_axis": "True"
+    },
+    "paper_firstline": {
+      "type": "boolean",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "1.0",
+          43622
+        ],
+        [
+          "0.0",
+          31178
+        ]
+      ],
+      "min_group_n": 31178,
+      "max_group_n": 43622,
+      "small_groups_flag": false
+    },
+    "full_response_contains": {
+      "type": "boolean",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "1.0",
+          48312
+        ],
+        [
+          "0.0",
+          26488
+        ]
+      ],
+      "min_group_n": 26488,
+      "max_group_n": 48312,
+      "small_groups_flag": false
+    },
+    "strict_final_em": {
+      "type": "boolean",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "0",
+          46566
+        ],
+        [
+          "1",
+          28234
+        ]
+      ],
+      "min_group_n": 28234,
+      "max_group_n": 46566,
+      "small_groups_flag": false
+    },
+    "final_contains": {
+      "type": "boolean",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "1.0",
+          42150
+        ],
+        [
+          "0.0",
+          32650
+        ]
+      ],
+      "min_group_n": 32650,
+      "max_group_n": 42150,
+      "small_groups_flag": false
+    },
+    "repaired_empty_marker": {
+      "type": "boolean",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "False",
+          73328
+        ],
+        [
+          "True",
+          1472
+        ]
+      ],
+      "min_group_n": 1472,
+      "max_group_n": 73328,
+      "small_groups_flag": false
+    },
+    "extracted_answer": {
+      "type": "text",
+      "n_total": 74800,
+      "n_null": 1141,
+      "missing_rate": 0.015254010695187165
+    },
+    "answers": {
+      "type": "text",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0
+    },
+    "truncated": {
+      "type": "boolean",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "False",
+          73726
+        ],
+        [
+          "True",
+          1074
+        ]
+      ],
+      "min_group_n": 1074,
+      "max_group_n": 73726,
+      "small_groups_flag": false
+    },
+    "needs_review": {
+      "type": "boolean",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 2,
+      "categories": [
+        [
+          "False",
+          54018
+        ],
+        [
+          "True",
+          20782
+        ]
+      ],
+      "min_group_n": 20782,
+      "max_group_n": 54018,
+      "small_groups_flag": false
+    },
+    "input_tokens": {
+      "type": "continuous",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "mean": 2348.4032887700537,
+      "median": 1970.0,
+      "sd": 803.3052287625418,
+      "min": 63.0,
+      "max": 3894.0,
+      "skewness": -0.014556969166676995,
+      "skew_label": "approximately symmetric",
+      "n_outliers_iqr": 0,
+      "outlier_lo": -729.5,
+      "outlier_hi": 5418.5,
+      "needs_log_axis": "False"
+    },
+    "output_tokens": {
+      "type": "continuous",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "mean": 69.55233957219251,
+      "median": 41.0,
+      "sd": 103.54395747169308,
+      "min": 1.0,
+      "max": 800.0,
+      "skewness": 5.359532051066298,
+      "skew_label": "highly skewed",
+      "n_outliers_iqr": 4908,
+      "outlier_lo": -58.5,
+      "outlier_hi": 161.5,
+      "needs_log_axis": "True"
+    },
+    "scope": {
+      "type": "categorical",
+      "n_total": 74800,
+      "n_null": 0,
+      "missing_rate": 0.0,
+      "n": 74800,
+      "n_unique": 4,
+      "categories": [
+        [
+          "main_comparison",
+          46000
+        ],
+        [
+          "translation_needs_review",
+          12000
+        ],
+        [
+          "answer_budget_stress",
+          9600
+        ],
+        [
+          "format_stress",
+          7200
+        ]
+      ],
+      "min_group_n": 7200,
+      "max_group_n": 46000,
+      "small_groups_flag": false
+    }
+  },
+  "correlation": {
+    "columns": [
+      "latency_s",
+      "input_tokens",
+      "output_tokens"
+    ],
+    "matrix": {
+      "latency_s": {
+        "latency_s": 1.0,
+        "input_tokens": 0.047,
+        "output_tokens": 0.69
+      },
+      "input_tokens": {
+        "latency_s": 0.047,
+        "input_tokens": 1.0,
+        "output_tokens": 0.034
+      },
+      "output_tokens": {
+        "latency_s": 0.69,
+        "input_tokens": 0.034,
+        "output_tokens": 1.0
+      }
+    },
+    "pairs_sorted": [
+      {
+        "a": "latency_s",
+        "b": "output_tokens",
+        "r": 0.6904490574596039,
+        "magnitude": "strong"
+      },
+      {
+        "a": "latency_s",
+        "b": "input_tokens",
+        "r": 0.046810281056197896,
+        "magnitude": "negligible"
+      },
+      {
+        "a": "input_tokens",
+        "b": "output_tokens",
+        "r": 0.034477561993071525,
+        "magnitude": "negligible"
+      }
+    ]
+  },
+  "group_summary": {
+    "by": [
+      "model",
+      "scope"
+    ],
+    "n_groups": 8,
+    "min_n_per_group": 3600,
+    "max_n_per_group": 23000,
+    "median_n_per_group": 5400,
+    "small_groups_flag": false,
+    "tiny_groups_flag": false,
+    "per_group_counts": [
+      [
+        "('Qwen/Qwen2.5-7B-Instruct', 'answer_budget_stress')",
+        4800
+      ],
+      [
+        "('Qwen/Qwen2.5-7B-Instruct', 'format_stress')",
+        3600
+      ],
+      [
+        "('Qwen/Qwen2.5-7B-Instruct', 'main_comparison')",
+        23000
+      ],
+      [
+        "('Qwen/Qwen2.5-7B-Instruct', 'translation_needs_review')",
+        6000
+      ],
+      [
+        "('Qwen/Qwen3-8B', 'answer_budget_stress')",
+        4800
+      ],
+      [
+        "('Qwen/Qwen3-8B', 'format_stress')",
+        3600
+      ],
+      [
+        "('Qwen/Qwen3-8B', 'main_comparison')",
+        23000
+      ],
+      [
+        "('Qwen/Qwen3-8B', 'translation_needs_review')",
+        6000
+      ]
+    ]
+  },
+  "warnings": [],
+  "suggestions": [
+    "时间序列存在：用折线图 (timestamp 作 x 轴，latency_s/input_tokens 作 y 轴) + 误差带",
+    "分类 vs 连续，样本量充足 → 箱线图 / 小提琴图，或带误差棒的柱状图（误差棒说明 SD/SEM/CI）",
+    "≥3 个连续变量 → 相关性热力图（['latency_s', 'input_tokens', 'output_tokens']）或 pairplot 散点矩阵",
+    "分类维度组合数 = 24576（model, document_count, position_label, task_type, paper_firstline, full_response_contains, strict_final_em, final_contains, repaired_empty_marker, truncated, needs_review, scope 全交叉），**一张图塞不下**——建议按某一维拆成多面板，或选择子集。",
+    "latency_s 跨数个量级（0.169 ~ 120）→ 用对数 y 轴",
+    "output_tokens 跨数个量级（1 ~ 800）→ 用对数 y 轴"
+  ]
+}

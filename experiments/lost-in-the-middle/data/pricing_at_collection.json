@@ -1,0 +1,23 @@
+{
+  "source": "https://www.siliconflow.cn/pricing",
+  "models": {
+    "Qwen/Qwen3-8B": {
+      "modelId": "17885302824",
+      "modelName": "Qwen/Qwen3-8B",
+      "contextLen": 131072,
+      "price": "0",
+      "inputPrice": "0",
+      "status": "normal",
+      "pricing": "$3c2"
+    },
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "modelId": "17885302573",
+      "modelName": "Qwen/Qwen2.5-7B-Instruct",
+      "contextLen": 32768,
+      "price": "0",
+      "inputPrice": "0",
+      "status": "normal",
+      "pricing": "$630"
+    }
+  }
+}

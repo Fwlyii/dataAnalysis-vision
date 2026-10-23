@@ -19,7 +19,7 @@
 | 无资料对照 | 200 × NoCoT × 2 = 400 次 |
 | 总计划量 | 74,800 次正式回答 |
 
-位置干预只移动唯一 gold 文段，保留干扰资料的顺序。模型不会看到 `isgold`、检索分数或标准答案，只看到资料标题、正文、问题和 prompt 要求。完整场景输入在 [`data/scenarios.jsonl`](../data/scenarios.jsonl)，题目答案表在 [`data/questions.json`](../data/questions.json)。
+位置干预只移动唯一 gold 文段，保留干扰资料的顺序。模型不会看到 `isgold`、检索分数或标准答案，只看到资料标题、正文、问题和 prompt 要求。完整场景输入在 [`data/scenarios.jsonl.gz`](../data/scenarios.jsonl.gz)，题目答案表在 [`data/questions.json`](../data/questions.json)。
 
 ## 三个真实测试题目示例
 
@@ -52,4 +52,4 @@ Accepted answers: international units; United States customary units
 
 ## 可交付的数据
 
-`data/questions.json` 保存 200 道抽样题、官方答案和支持文段元数据；`data/scenarios.jsonl` 保存所有 74,800 个计划场景的输入哈希和 prompt 文本；`data/raw_responses_20261021T231742+0800.jsonl` 保存截至快照时已经收到的模型原始响应。每条响应带有 `question_id`、`scenario_id`、模型、策略、资料数量、gold 位置、时间、延迟、输入哈希和 API 返回内容。
+`data/questions.json` 保存 200 道抽样题、官方答案和支持文段元数据；`data/scenarios.jsonl.gz` 保存 37,400 个场景定义（37,200 个主实验设置 + 200 个无资料对照），两模型共调用 74,800 次；`data/raw_responses.jsonl.gz` 保存完整 74,800 条原始响应。每条响应带有 `question_id`、`scenario_id`、模型、策略、资料数量、gold 位置、时间、延迟、输入哈希和 API 返回内容。全部 374 个分组均已各采集 200 条，详见 `derived/coverage.csv`。

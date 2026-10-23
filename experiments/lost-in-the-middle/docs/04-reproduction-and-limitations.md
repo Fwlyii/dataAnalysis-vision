@@ -1,40 +1,47 @@
-# 4. 复现口径、运行方式和限制
+# 4. 离线复现与限制
 
-## 论文口径
-
-原论文 [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/html/2307.03172v3) 通过控制资料长度和相关资料位置，观察到相关信息位于开头或结尾时通常更容易被使用，中间位置表现下降。官方评分实现取回答首行，再执行规范化答案子串匹配。本项目把官方评分文件固定保存为 [`src/official_metrics.py`](../src/official_metrics.py) 和 [`src/official_evaluate_qa.py`](../src/official_evaluate_qa.py)。
-
-本项目不是原论文的逐项复刻：模型换成两个免费 Qwen 模型，抽取 200 道题，只使用 10/20 篇资料，并加入 31 种输出策略和统一 `FINAL ANSWER` 格式。因此结论应写成“在课程规模数据上检验论文现象”，不能写成复现论文的具体数值。
-
-## 数据快照校验
-
-[`data/SNAPSHOT.json`](../data/SNAPSHOT.json) 记录了原始日志快照的字节数和 SHA-256：
-
-```text
-file: data/raw_responses_20261021T231742+0800.jsonl
-bytes: 462947202
-sha256: 84f174b75fbd3bd093595f58060a284ee99d22a04d17540b760f459381a7cb8b
-```
-
-快照是 append-only 原始日志在完整 JSON 行边界上的前缀。采集器继续写入的暂存目录是 `ccfa-workfiles/experiments/lost-middle-pilot/`，没有纳入提交，以免把运行锁、PID 和正在变化的日志混入交付版本。
-
-## 分析和绘图
-
-当前阶段性评分已经随快照提交。重新生成图表：
+## 一键顺序重算（从仓库根目录执行）
 
 ```bash
-cd experiments/lost-in-the-middle
-python src/plot_results.py \
-  --input derived/interim_analysis_20261021T231742.json \
-  --out figures
+git lfs install
+git lfs pull
+python -m pip install -r experiments/lost-in-the-middle/requirements.txt
+python experiments/lost-in-the-middle/src/verify_delivery.py
+python experiments/lost-in-the-middle/src/analyze.py
+python experiments/lost-in-the-middle/src/plot_results.py
 ```
 
-若要重跑原始快照的评分，需要在 `src/interim_analysis_reference.py` 中把根目录指向本目录，并准备 `numpy`、`pandas` 和官方评分依赖；实际运行时应先复制最终的 `raw_responses.jsonl`，再用快照字节数锁定输入。API key 不写入仓库。
+命令只读取随仓库保存的输入与原始响应，重算评分和图表，不调用 API、不需要 key，也不依赖 `ccfa-workfiles/` 或其本地依赖缓存。读取 gzip，无需先解压。默认目录由脚本位置确定，从任何工作目录调用都可；可用 `--input`/`--out` 指定其他位置。要保留已提交分析时间，可用 `analyze.py --out /tmp/litm-reanalysis`，然后向绘图脚本传入该目录的 `analysis.json` 和 `scores.csv`。
 
-## 结论措辞
+预计需数分钟，完整回答解压约 891 MB；分析会构建数据表，请预留数 GB 内存。`snapshot_at` 是分析时间，重算会变化；采集时间不变，分组率和固定种子的 bootstrap 结果应一致。
 
-推荐报告使用以下表述：
+## 文件校验
 
-> 在当前阶段性快照中，两个模型都显示出证据位置效应，前置证据相对于中间证据的优势尤其明显；后置证据相对于中间证据的优势尚未在两个模型上稳定出现。因此实验部分复现了“中间位置更容易退化、开头位置更有利”的核心方向，但尚不足以宣称完整复现论文的对称 U 形曲线。
+`data/CHECKSUMS.json` 同时保存压缩文件与解压内容的哈希和字节数。完整回答的解压 SHA-256 是：
 
-最终采集结束后，应重新生成评分、配对置信区间和三位置完整样本图，再替换“阶段性”表述。不得为了得到 U 形而删掉失败响应、改变题目或调整评分规则。
+```text
+5a08b420d18823e22b22bac3dc4ea8db873f441c24f9849267a6a3847fd8d75e
+```
+
+`verify_delivery.py` 校验压缩/解压哈希、JSON 行、输入 prompt 哈希、唯一键、全部分组覆盖、标准答案、模型和最终评分行数。`package_final.py --source <原采集目录>` 用于维护者重新打包已结束采集，会重新生成 data 中的最终文件、覆盖表和样例文档；队友日常使用无需运行。
+
+## 来源与历史源码
+
+论文：[Lost in the Middle](https://arxiv.org/abs/2307.03172)。数据和评分来自 [官方仓库](https://github.com/nelson-liu/lost-in-the-middle) 的固定提交 `29b8a6d042ce29abccee3db1a73171a107d7e6af`；原始文件地址/哈希在 `data/dataset_sources.json`。`src/official_metrics.py`、`src/official_evaluate_qa.py`、`src/qa.prompt` 是当次核对保存的上游文件，归原作者所有；`official_evaluate_qa.py` 是上游参考入口，其导入/依赖沿用原仓库，日常复算请使用 `analyze.py`。
+
+`src/experiment.py` 原样保存历史采集实现以便审核评分辅助函数、参数和请求流程。它的运行目录、缓存和 Git 历史依赖属于原采集环境，**不是交付目录的采集启动入口**；`analyze.py` 仅导入其中无副作用的评分函数。此次提供的是已有响应的离线复现，不保证第三方现在重调服务得到逐字相同输出；temperature=0 也不能消除服务端版本与调度差异。
+
+## 统计与语义限制
+
+1. 200 道题是独立统计单位；位置和 31 提示词产生配对观测。95% 区间按题聚类，未做多重比较校正。
+2. 只测试两个模型、10/20 篇资料、三个位置；不能推断其他模型、更长上下文或所有位置，也不能复制原论文所有数值。
+3. 策略原文加统一 `FINAL ANSWER` 后缀，是任务适配；格式要求可能与简短、列表、中文要求竞争。
+4. Qwen3 `enable_thinking=false`；DefaultCoT 只改变可见文字要求，不代表服务端思考模式。
+5. 首行、严格最终、最终包含、全文包含各有偏差。尤其中文与压缩拼写还需要单独评分，原始标准答案未擅自改动。
+6. 长度比较使用不同官方干扰资料集合；输出长度与准确率散点是关联而非因果。
+7. 扩展前 109 条来自初期单 worker，之后为每模型 3 workers；耗时含平台状态变化，不能作受控速度基准。
+8. 日志包含重试与截断，成功只指最终接口成功；待复核队列仍需人工处理。
+
+## 版本替换记录
+
+提交 `7f4c7ca` 中保留的是 38,912 条阶段性快照。本次以 gzip 完整数据、`derived/analysis.json` 和六组最终图替换旧快照、旧进度表、旧图及只能在临时目录运行的分析参考文件。旧版可从 Git 历史恢复；本机原始采集目录没有删除。此前“74,800 个场景定义”的表述已修正为“37,400 个场景定义，两个模型共 74,800 次调用”。

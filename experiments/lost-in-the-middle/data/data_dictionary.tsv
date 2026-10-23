@@ -40,3 +40,9 @@ messages.tool_call	本次没有外部工具调用，null
 strategy_scope	主要比较、格式压力、答案预算压力或翻译复核；不混合报告为单一成功率
 collector_version	新采集记录为 scale200-v1；继承首轮为空，可由原始 manifest 定位
 workers_per_model	扩展阶段为 3；首轮未提供，历史配置为 1
+paper_firstline	最终离线评分：官方 best_subspan_em，只检查回答首行
+strict_final_em	最终离线评分：恢复空标记后短单行答案，再按官方 normalize_answer 严格匹配
+final_contains	最终离线评分：仅在提取到的最终答案片段中做官方包含匹配
+full_response_contains	最终离线评分：全文官方包含匹配，与首行口径不同
+repaired_empty_marker	是否按固定的单行且不超过 30 词规则恢复空 FINAL ANSWER 前的短答案；原文不改
+scope	最终离线评分中的策略分层；对应采集表 strategy_scope

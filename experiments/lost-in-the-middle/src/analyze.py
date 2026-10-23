@@ -3,6 +3,7 @@
 import argparse
 import datetime as dt
 import hashlib
+import gzip
 import importlib.util
 import json
 from pathlib import Path
@@ -13,7 +14,6 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'cache' / 'analysis-deps'))
 TZ = dt.timezone(dt.timedelta(hours=8))
 CORE = ['NoCoT', 'DefaultCoT', 'BeConcise', 'BulletPoints', 'WordLimit(25)',
         'WordLimit(100)', 'TokenLimit(100)', 'StepLimit(2)']
@@ -59,15 +59,15 @@ def clustered_difference(pairs, first, second):
             'cluster_bootstrap_95ci_pp': [float(low * 100), float(high * 100)]}
 
 
-def analyze(snapshot_bytes=None):
-    path = ROOT / 'raw_responses.jsonl'
-    size = snapshot_bytes or path.stat().st_size
-    with path.open('rb') as handle:
-        raw = handle.read(size)
+def analyze(path, output):
+    output.mkdir(parents=True, exist_ok=True)
+    opener = gzip.open if path.suffix == '.gz' else open
+    with opener(path, 'rb') as handle:
+        raw = handle.read()
     if not raw.endswith(b'\n'):
-        raw = raw[:raw.rfind(b'\n') + 1]
-    official = load_module('official_metrics', ROOT / 'cache' / 'official-metrics.py')
-    collector = load_module('collector_helpers', ROOT / 'source' / 'experiment.py')
+        raise ValueError('Raw data must end at a complete JSON line')
+    official = load_module('official_metrics', ROOT / 'src' / 'official_metrics.py')
+    collector = load_module('collector_helpers', ROOT / 'src' / 'experiment.py')
     rows = []
     for line in raw.splitlines():
         record = json.loads(line)
@@ -109,7 +109,7 @@ def analyze(snapshot_bytes=None):
               'last_record_at': str(data.timestamp.max()),
               'analysis_dependencies': {'numpy': np.__version__, 'pandas': pd.__version__},
               'snapshot_raw_prefix_bytes': len(raw), 'snapshot_raw_prefix_sha256': hashlib.sha256(raw).hexdigest(),
-              'source': 'raw_responses.jsonl', 'records': len(data),
+              'source': path.name, 'records': len(data),
               'by_model': data.groupby('model').size().to_dict(),
               'distinct_questions_by_model': data.groupby('model').question_id.nunique().to_dict(),
               'main_records': len(main), 'controls': len(data) - len(main),
@@ -183,8 +183,11 @@ def analyze(snapshot_bytes=None):
         'full_positive_strict_final_negative': int(((g.full_response_contains == 1) & (g.strict_final_em == 0)).sum())}
         for model, g in main[main.scope == 'main_comparison'].groupby('model')]
     result = jsonable(result)
-    (ROOT / 'interim-analysis.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
-    data.drop(columns=['text']).to_csv(ROOT / 'interim-analysis-records.csv', index=False, encoding='utf-8-sig')
+    (output / 'analysis.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    data.drop(columns=['text']).to_csv(output / 'scores.csv', index=False, encoding='utf-8-sig', lineterminator='\n')
+    for key in ['position_rates', 'paired_positions', 'complete_triples', 'length_pairs',
+                'prompt_pairs', 'model_pairs', 'strategies', 'truncation_by_strategy', 'control_rates']:
+        pd.json_normalize(result[key]).to_csv(output / (key + '.csv'), index=False, lineterminator='\n')
     show = {k: result[k] for k in ['snapshot_at', 'records', 'by_model', 'distinct_questions_by_model',
                                   'controls', 'truncated', 'repaired_empty_final_marker', 'control_rates', 'prompt_pairs', 'length_pairs']}
     show['NoCoT_position_rates'] = [r for r in result['position_rates'] if r['scope'] == 'NoCoT']
@@ -196,6 +199,7 @@ def analyze(snapshot_bytes=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--snapshot-bytes', type=int)
+    parser.add_argument('--input', type=Path, default=ROOT / 'data' / 'raw_responses.jsonl.gz')
+    parser.add_argument('--out', type=Path, default=ROOT / 'derived')
     args = parser.parse_args()
-    analyze(args.snapshot_bytes)
+    analyze(args.input, args.out)

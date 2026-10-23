@@ -1,0 +1,46 @@
+{
+  "state": "completed",
+  "pid": 372964,
+  "started_at": "2026-10-21T00:28:37+08:00",
+  "updated_at": "2026-10-22T20:21:16+08:00",
+  "total": 74800,
+  "completed": 74800,
+  "api_ok": 74800,
+  "by_model": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "completed": 37400,
+      "expected": 37400,
+      "api_ok": 37400,
+      "new_this_session": 37330,
+      "calls_per_minute": 14.43,
+      "estimated_remaining_input_tokens": 0,
+      "input_budget_time_floor_s": 0,
+      "estimated_remaining_s": 0,
+      "estimated_finish": "2026-10-22T20:21:16+08:00"
+    },
+    "Qwen/Qwen3-8B": {
+      "completed": 37400,
+      "expected": 37400,
+      "api_ok": 37400,
+      "new_this_session": 37361,
+      "calls_per_minute": 14.27,
+      "estimated_remaining_input_tokens": 0,
+      "input_budget_time_floor_s": 0,
+      "estimated_remaining_s": 0,
+      "estimated_finish": "2026-10-22T20:21:16+08:00"
+    }
+  },
+  "workers_per_model": 3,
+  "token_budget_per_model_per_minute": 40000,
+  "elapsed_s": 157958.3,
+  "stop_reason": "",
+  "estimated_remaining_s": 0,
+  "estimated_finish": "2026-10-22T20:21:16+08:00",
+  "estimate_note": "Per-model recent 15-minute throughput; unstable during first 5 minutes and after rate-limit events.",
+  "latest": {
+    "model": "Qwen/Qwen3-8B",
+    "scenario_id": "nq-057-d20-front-WordLimit(5)",
+    "status": "ok",
+    "latency_s": 1.0618
+  }
+}

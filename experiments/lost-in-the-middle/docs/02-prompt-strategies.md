@@ -62,3 +62,5 @@ Answer:
 ```
 
 资料段落使用官方 `qa.prompt` 的 `Document [i](Title: ...)` 格式，唯一 gold 文段分别放在第 1/5/10 或第 1/10/20 个位置。所有策略使用 `temperature=0` 和 `max_tokens=800`；Qwen3 使用 `enable_thinking=false`，因此 `DefaultCoT` 只表示可见 prompt 要求，不表示开启服务端隐藏思考模式。
+
+31 种策略现已全部完成：每策略、每模型均有 1,200 条主实验回答。`TokenLimit` 是文本软约束，不是 API 的硬上限；所有策略的 API 上限统一为 800。完整覆盖见 [`derived/coverage.csv`](../derived/coverage.csv)，三道题的三种示例策略在两个模型上的完整输出见 [`05-output-examples.md`](05-output-examples.md)。

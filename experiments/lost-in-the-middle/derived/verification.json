@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-10-23T12:56:48+08:00",
+  "finished_at": "2026-10-22T20:21:16+08:00",
+  "state": "completed",
+  "records": 74800,
+  "models": {
+    "Qwen/Qwen2.5-7B-Instruct": 37400,
+    "Qwen/Qwen3-8B": 37400
+  },
+  "statuses": {
+    "ok": 74800
+  },
+  "scenario_definitions": 37400,
+  "groups": 374,
+  "records_per_group": 200,
+  "checks": [
+    "unique model/scenario keys",
+    "full planned coverage",
+    "request/scenario SHA-256 agreement",
+    "response model IDs",
+    "official answer labels unchanged",
+    "credential pattern scan"
+  ]
+}

@@ -1,62 +1,68 @@
-# 3. 阶段性结果、模型输出和图表
+# 3. 最终结果、输出与作业分析要求
 
-## 采集状态
+## 完成范围
 
-截至快照时间 **2026-10-21 23:17:42（北京时间）**，原始日志有 38,912 条成功 API 响应：Qwen2.5 为 19,937 条，Qwen3 为 18,975 条；两个模型都覆盖 200 道基础题。另有 215 条无资料对照、566 条达到输出上限的截断响应和 786 条空 `FINAL ANSWER` 标记恢复记录。成功表示接口返回，不表示回答正确。
+全部 74,800 条回答已采集：每模型 37,400 条，包含 37,200 条主实验和 200 条无资料对照。完整覆盖 200 道题 × 31 策略 × 两种资料数量 × 三个位置。结束时间为北京时间 2026-10-22 20:21:16。最终自动评分基于全部原始记录，非旧版 38,912 条快照；人工语义复核尚未全部完成。
 
-阶段性评分表在 [`derived/interim_analysis_20261021T231742.json`](../derived/interim_analysis_20261021T231742.json) 和 [`derived/interim_analysis_records_20261021T231742.csv`](../derived/interim_analysis_records_20261021T231742.csv)。
+## 与 Lost in the Middle 的比较
 
-## 位置效应
+原论文报告相关信息在开头或结尾时通常较好、中间较差的现象。本实验使用相同数据来源和位置干预思路，但更换模型并加入输出策略。下面汇总 19 种英文主比较策略；格式压力、极短预算和中文组均另存，未删除。
 
-使用论文官方口径：取模型回答首行，再用官方 `best_subspan_em` 做规范化答案包含匹配；位置比较固定 `question_id`、模型、策略和资料数量，并按题目聚类 bootstrap 计算探索性 95% 区间。19 个英文主比较策略合并 10/20 篇资料后：
+| 模型 | 前 | 中 | 后 |
+|---|---:|---:|---:|
+| Qwen2.5 | 58.11% | 54.62% | 56.09% |
+| Qwen3 | 67.84% | 60.70% | 59.46% |
 
-| 模型 | 前 − 中 | 后 − 中 | 解释 |
-|---|---:|---:|---|
-| Qwen2.5-7B | +3.24 个百分点，CI [0.62, 5.95] | +1.78 个百分点，CI [-0.66, 4.31] | 前置优势较清楚，后置优势不稳定。 |
-| Qwen3-8B | +8.51 个百分点，CI [5.79, 11.40] | −1.85 个百分点，CI [-4.11, 0.26] | 前置优势明显，当前没有后置优势证据。 |
+指标为论文官方首行答案包含率。每位置、每模型 7,600 条；固定同题、同策略、同资料数进行配对后：
 
-所以当前可以支持“证据位置影响读取，放在开头通常更有利”的结论；还不能说两个模型都形成论文中的完整前后双峰 U 形曲线。论文和本实验的关系、统计限制和完整复现命令见 [`04-reproduction-and-limitations.md`](04-reproduction-and-limitations.md)。
+| 模型 | 比较 | 差值（百分点） | 95% 聚类 bootstrap CI |
+|---|---|---:|---|
+| Qwen2.5 | 前 − 中 | +3.49 | [0.80, 6.26] |
+| Qwen2.5 | 后 − 中 | +1.47 | [-0.62, 3.71] |
+| Qwen3 | 前 − 中 | +7.14 | [4.71, 9.72] |
+| Qwen3 | 后 − 中 | -1.24 | [-3.07, 0.61] |
 
-## 可直接使用的图表
+每比较 7,600 对、200 道独立题；重采样 5,000 次，种子 91，未做多重比较校正。
 
-![Position accuracy](../figures/position_accuracy_interim.png)
+可支持的结论是：**两个模型在主比较策略平均下都有前置证据优势；没有在两个模型上稳定出现末尾优势，因此部分复现位置效应，未稳定复现完整 U 形。** Qwen2.5 的轻微回升不能单凭曲线外形认定为可靠 U 形。
 
-![Strategy accuracy](../figures/strategy_accuracy_interim.png)
+提示词之间也不完全一致。仅 NoCoT、10 篇资料时，Qwen2.5 前/中/后为 62.5%/64.0%/64.0%，没有中间低谷。应同时报告 NoCoT、最初 core8 和 english19 的分层结果，不能只选看起来符合论文的一组。
 
-![Output tokens and accuracy](../figures/output_tokens_accuracy_interim.png)
+## 一维、二维观察 1：输出长度与答题效果
 
-这些图都是阶段性快照；图脚本在 [`src/plot_results.py`](../src/plot_results.py)，可以对最终 JSON 重新生成。
+| 模型 | NoCoT 平均输出 token | DefaultCoT 平均输出 token |
+|---|---:|---:|
+| Qwen2.5 | 21.94 | 92.53 |
+| Qwen3 | 46.77 | 146.37 |
 
-## 模型输出示例
+CoT 确实让模型写得更多，但不意味着一定更准。以最终答案包含评分衡量，CoT 相对 NoCoT：Qwen2.5 高 2.92 pp，95% CI [-0.58, 6.50]；Qwen3 高 0.92 pp，CI [-1.58, 3.42]。区间均跨 0，尚无稳定增益证据。图 04 的每个点是策略/模型的平均值，不能把这种组间关联当成“多生成一个 token 就能提高多少准确率”的因果关系。
 
-题目为 `sequel to a christmas story it runs in the family`，官方答案为 `My Summer Story`，条件是 20 篇资料、gold 位于中间。
+## 一维、二维观察 2：资料增多与干扰
 
-Qwen2.5 的 `NoCoT` 输出：
+汇总 english19，10 篇相对 20 篇的首行准确率：Qwen2.5 高 2.26 pp，CI [0.22, 4.28]；Qwen3 高 1.74 pp，CI [0.29, 3.28]。在这些设置中，资料增多伴随轻度下降。两种长度用各自官方干扰资料，不能把差别完全归因于 token 数。NoCoT 分层下，Qwen3 只差 0.67 pp，CI [-2.33, 3.67]，说明长度效应也依赖策略。
 
-```text
-My Summer Story FINAL ANSWER:
-```
+## 多变量观察 1：模型 × 资料数量 × 证据位置 × 准确率
 
-Qwen2.5 的 `DefaultCoT` 能找到支持文段，最后输出：
+图 01 用横轴表示位置、纵轴表示官方首行准确率，颜色和点形表示模型，两个面板区分 10/20 篇资料。这个编码能直接看出：前置优势在两模型上强弱不同，长度变化也不对所有位置产生同等影响。底表 `position_rates.csv` 还提供 NoCoT 和 core8 分层，避免只报告汇总结果。
 
-```text
-FINAL ANSWER: My Summer Story
-```
+## 多变量观察 2：提示词 × 模型 × 证据位置 × 资料数量
 
-Qwen3 的 `NoCoT` 输出：
+图 05 用行表示 19 个英文策略、列表示前中后、颜色表示最终答案包含率，四个面板区分两模型和两种资料数量。每格 200 条，色标统一 0–100%。可以比较同一策略的三个位置，也能比较同一位置下不同策略的差异；这些是描述性格均值，不能看到深色就宣布某策略普遍最佳，仍需配对比较和不确定性。
 
-```text
-The sequel to *A Christmas Story* is *My Summer Story*. FINAL ANSWER: My Summer Story.
-```
+## 异常与评分局限
 
-Qwen3 的 `DefaultCoT` 出现实体关系混淆：
+- 全部回答中有 **1,074 条**达到 800 token 输出上限而截断，约 1.44%；保留并标记，不删除。
+- Qwen3 的 NoProperGrammar 有 **424/1,200 条截断（35.33%）**，Qwen2.5 同组为 **0/1,200**。Qwen3 同组平均输出 358.33 tokens，Qwen2.5 为 31.40，表现出明显的模型与策略交互。图 06 保留全部 31 策略作为对照；这不能单独证明内部生成机制。
+- 严格最终答案 EM 下，CoT 相对 NoCoT 分别下降 7.00 pp 和 5.42 pp；包含评分却没有同样的下降，说明格式、冗长输出、实体别名和关系错误会改变自动评判。不能把严格评分下降直接写成“推理能力变差”。
+- 首行评分可能惩罚以“我先分步分析”开头的 CoT；全文/最终包含评分可能接受含正确实体但关系错误的句子。图 02 并列展示三种评分下的位置差，提醒结论依赖指标。
+- 中文 5 策略、格式压力 3 策略、极短预算 4 策略全部保留自动结果，但需要额外别名、格式或人工复核。不能把英文匹配结果当作这些组的语义准确率。
 
-```text
-FINAL ANSWER: It Runs in the Family is a sequel to My Summer Story, which is a sequel to A Christmas Story.
-```
+## 真实模型输出
 
-这说明更长的解释不必然带来正确的最终答案。全部首题输出预览见 [`data/model_output_preview.txt`](../data/model_output_preview.txt)，逐条原始 API 响应见 [`data/raw_responses_20261021T231742+0800.jsonl`](../data/raw_responses_20261021T231742+0800.jsonl)。
+三道题 × NoCoT / DefaultCoT / WordLimit(25) × 两模型的 18 条完整输出见 [`05-output-examples.md`](05-output-examples.md)，按固定题目选择，包含错误回答。首题还提供全部 31 策略 × 两模型的预览：[`data/model_output_preview.txt`](../data/model_output_preview.txt)。
 
-## 异常和局限
+首题官方答案是 `My Summer Story`。Qwen3 NoCoT 最终给出 `My Summer Story`；DefaultCoT 却给出“`It Runs in the Family is a sequel to My Summer Story, which is a sequel to A Christmas Story.`”，含正确词但关系混淆。这是解释评分差异的直观案例，不代表整体错误率。
 
-Qwen3 的 `NoProperGrammar` 组出现 89/256 条截断，而 Qwen2.5 同组为 0/280；这可以作为 prompt 策略和模型交互的异常现象，但不能单凭截断数据推断机制。题目只有 200 道，31 个策略和位置变化是同题配对观测，不能把全部调用当成独立样本。中文、缩写、去空格和极短预算策略还需要专门评分规则。
+## 文件与图表
+
+完整评分在 [`derived/analysis.json`](../derived/analysis.json) 和 [`derived/scores.csv`](../derived/scores.csv)，分组表和配对表位于同一目录。六组图、PNG/SVG/PDF 和每图 CSV 说明见 [`figures/README.md`](../figures/README.md)。本章给出两条低维、两条多变量和至少一条异常分析，均可追溯到数据；本实验没有多轮对话，不能虚构轮次、用户纠正次数或跨三种任务的完成率。
