@@ -1,0 +1,13 @@
+{
+  "batch_id": "legacy-full-recheck",
+  "synthetic": false,
+  "complete": true,
+  "figures": [
+    {
+      "id": "legacy-mini-full-final",
+      "file": "01-mini-full-final.svg",
+      "title": "旧 Mini 与完整保留测试终稿对照",
+      "data_file": "legacy-vs-strong-summary.csv"
+    }
+  ]
+}

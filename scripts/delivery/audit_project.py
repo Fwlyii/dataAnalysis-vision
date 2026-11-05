@@ -7,7 +7,7 @@ from pathlib import Path
 import ast,csv,gzip,hashlib,io,json,re,zipfile
 from datetime import datetime, timezone
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'project.json').is_file())
-SKIP={'build','submission','runtime','dist','__pycache__','node_modules','.git','.impeccable'}
+SKIP={'build','submission','runtime','dist','__pycache__','node_modules','artifacts','.git','.impeccable'}
 KEY=re.compile(rb'(?:sk-[A-Za-z0-9_-]{24,}|gh[pousr]_[A-Za-z0-9]{30,}|AKIA[A-Z0-9]{16})')
 ALIAS=re.compile(r'(?i)(?<![a-z])(?:zzy|fwl|zyt)(?![a-z])')
 TEXT={'.py','.js','.mjs','.json','.md','.txt','.csv','.tsv','.html','.css','.sh','.command','.srt','.svg','.prompt'}

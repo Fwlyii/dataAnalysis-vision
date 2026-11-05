@@ -1,0 +1,28 @@
+<svg width="1339" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1339 540">
+<rect width="1339" height="540" x="0" y="0" fill="none"></rect>
+<path d="M9 0C566 0 566 0 1123 0L1123 135.9C566 135.9 566 135.9 9 135.9Z" transform="translate(95 30)" fill="#d6ba97" fill-opacity="0.22" class="zr0-cls-0"></path>
+<path d="M9 135.9C566 135.9 566 198.5738 1123 198.5738L1123 252.9338C566 252.9338 566 190.26 9 190.26Z" transform="translate(95 30)" fill="#d6ba97" fill-opacity="0.22" class="zr0-cls-0"></path>
+<path d="M9 217.26C566 217.26 566 135.9 1123 135.9L1123 171.5738C566 171.5738 566 252.9337 9 252.9337Z" transform="translate(95 30)" fill="#8fae82" fill-opacity="0.22" class="zr0-cls-1"></path>
+<path d="M9 252.9337C566 252.9337 566 252.9338 1123 252.9338L1123 480C566 480 566 480 9 480Z" transform="translate(95 30)" fill="#8fae82" fill-opacity="0.22" class="zr0-cls-1"></path>
+<path d="M0 0l9 0l0 190.26l-9 0Z" transform="translate(95 30)" fill="#d6ba97" class="zr0-cls-0"></path>
+<path d="M0 217.26l9 0l0 262.74l-9 0Z" transform="translate(95 30)" fill="#8fae82" class="zr0-cls-1"></path>
+<path d="M1123 0l9 0l0 171.5738l-9 0Z" transform="translate(95 30)" fill="#d6ba97" class="zr0-cls-0"></path>
+<path d="M1123 198.5738l9 0l0 281.4263l-9 0Z" transform="translate(95 30)" fill="#8fae82" class="zr0-cls-1"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(109 125.13)" fill="#526174">首行未命中</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(109 378.63)" fill="#526174">首行命中</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(1232 115.7869)" fill="#526174">最终答案未命中</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(1232 369.2869)" fill="#526174">最终答案命中</text>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+cursor:pointer;
+fill:rgba(235,204,166,1);
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+fill:rgba(157,191,143,1);
+}
+
+]]>
+
+</style>
+</svg>

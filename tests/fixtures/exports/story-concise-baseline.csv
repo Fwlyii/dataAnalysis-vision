@@ -1,0 +1,4 @@
+﻿"Prompt","Score_pct","Mean_tokens"
+"NoCoT","22","6.465"
+"DefaultCoT","91.5","236.735"
+"BeConcise","92","185.845"

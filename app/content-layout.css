@@ -1,0 +1,413 @@
+/* Reader-first content layouts. Scientific drawing modules and SVG rules are untouched. */
+.deck-panel:not(#gateway)>.panel-inner{max-width:1440px;padding:58px 46px 48px}
+.deck-panel:not(#gateway) .section-index{font-size:13px;line-height:1.5;letter-spacing:.12em;margin-bottom:16px}
+.deck-panel:not(#gateway) .panel-header{align-items:start;gap:28px;margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid #d7d2c8}
+.deck-panel:not(#gateway) .panel-header h2{font-size:clamp(38px,3.6vw,52px);line-height:1.16;letter-spacing:-.04em}
+.deck-panel:not(#gateway) .panel-aside{font-size:16px;line-height:1.65;max-width:310px;padding-top:36px;color:#59645f}
+.research-actions{top:16px;right:22px}.research-home{min-height:40px}.research-home-caption{font-size:12px}
+
+/* A composed upper hero and three full-width explanatory modules replace the tiny bullet row. */
+#question{overflow-y:auto;background-image:radial-gradient(ellipse at 82% 0%,#173d50,#071e30 72%)}
+#question .question-inner{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);grid-template-rows:auto auto auto auto minmax(276px,1fr);column-gap:40px;align-content:start;height:min(100svh,1000px);min-height:820px;padding:64px 48px 42px}
+#question .question-copy{display:contents}
+#question .section-index{grid-column:1/-1;grid-row:1;margin-bottom:28px;color:#e5b08b}
+#question h1{grid-column:1;grid-row:2;font-size:clamp(48px,4.8vw,70px);line-height:1.08;letter-spacing:-.055em;margin:0;max-width:780px}
+#question .question-lead{grid-column:1;grid-row:3;margin-top:22px;max-width:34ch;font-size:20px;line-height:1.65;color:#bbd0dc}
+#question .question-scale{grid-column:1;grid-row:4;display:flex;align-items:center;gap:22px;margin-top:24px;padding-top:22px;border-top:1px solid #a8c7d737}
+#question .question-scale strong{font-size:49px;white-space:nowrap;letter-spacing:-.045em}
+#question .question-scale span{font-size:16px;line-height:1.6;max-width:235px;color:#b9d1df}
+#question .question-art{right:0;top:0;width:48%;height:59%;object-fit:cover;object-position:20% center;opacity:.42;mask-image:linear-gradient(#000 65%,transparent);pointer-events:none}
+#question .question-points{grid-column:1/-1;grid-row:5;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:none;margin-top:40px;counter-reset:dimension}
+#question .question-points li{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:start;justify-content:center;min-height:276px;padding:24px 26px;border:1px solid #8eb7cc48;border-radius:16px;background:linear-gradient(145deg,#31566b45,#0b2b3e85 70%);box-shadow:inset 0 1px 0 #c3e3ed0a,0 12px 30px #000f1b18;overflow:hidden;counter-increment:dimension}
+#question .question-points li::before{content:"0" counter(dimension);position:absolute;right:26px;top:23px;color:#e3af8b;font:14px/1.4 Geist,Arial,sans-serif;letter-spacing:.12em}
+#question .question-points li::after{content:"";position:absolute;inset:0;z-index:-1;background:repeating-radial-gradient(ellipse at 125% 10%,transparent 0,transparent 27px,#b0d9e32e 28px,transparent 29px);opacity:.55;mask-image:linear-gradient(transparent,#000 35%,transparent)}
+#question .question-points li:nth-child(2)::after{background-position:35% 40%;transform:rotate(-12deg)}
+#question .question-points li:nth-child(3)::after{background-position:90% 70%;transform:rotate(12deg)}
+#question .question-points .point-icon{position:relative;display:grid;width:72px;height:72px;flex:0 0 72px;margin:0 0 28px;border:1px solid #dfa17c9c;background:#071e304d;color:#e6b18e;box-shadow:0 0 0 9px #b1d4e007}
+#question .question-points .point-icon svg{width:31px;height:31px;stroke-width:1.1}
+#question .question-points li>div{position:relative;gap:8px}
+#question .question-points strong{font:400 32px/1.2 var(--serif);letter-spacing:-.025em}
+#question .question-points li>div>span{font-size:18px;line-height:1.55;color:#bbd0dc}
+#question .question-points li>div>.dimension-note{font-size:16px;line-height:1.65;margin-top:10px;max-width:34ch;color:#9fbdcd}
+
+/* Collection: principles become a readable top row, with a separate experiment and cohort zone. */
+#collection .collection-layout{display:grid;grid-template-columns:1fr;gap:28px}
+#collection .design-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:0}
+#collection .design-points li{padding:22px;border:1px solid #ded8cc;border-radius:14px;background:#fffdf8;gap:15px;align-items:center;min-height:116px}
+#collection .design-points .point-icon{width:42px;height:42px;flex-basis:42px;background:#f8efe6}
+#collection .design-points strong{font-size:18px;font-weight:500;line-height:1.4}
+#collection .design-points li>div>span{max-width:none;font-size:16px;line-height:1.55;margin-top:5px}
+#collection .experiment-flow{grid-template-columns:1fr 36px 1.2fr 36px 1fr;padding:0;margin:0 0 24px;gap:12px}
+#collection .experiment-flow .flow-node{padding:22px 24px;border:1px solid #ddd5c8;background:#ece7dc;border-radius:14px;min-height:124px}
+#collection .experiment-flow .flow-node.focus{background:#f9ede4;border-color:#bd846661}
+#collection .flow-node>span{font-size:14px;line-height:1.4;color:#535f57}
+#collection .flow-node strong{font-size:25px;line-height:1.25}
+#collection .flow-node.focus>span{font-size:37px;color:#a34f36;margin-bottom:5px}
+#collection .experiment-flow>i{font-size:22px;color:#8b7563}
+#collection .task-ledger{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+#collection .task-row{position:relative;display:flex;flex-direction:column;align-items:start;gap:10px;padding:24px;border:1px solid #ddd6ca;border-radius:14px;background:#fffdf8;min-height:190px}
+#collection .task-row>span{font:13px/1 Geist,Arial,sans-serif;color:#8d7968}
+#collection .task-row h3{font-size:19px;line-height:1.4;order:1}
+#collection .task-row p{font-size:15px;line-height:1.6;order:2}
+#collection .task-row>strong{position:absolute;top:20px;right:22px;font-size:37px;letter-spacing:-.04em}
+#collection .task-row h3{margin-top:30px}
+#collection .special-studies{gap:20px;margin:24px 0}
+#collection .special-studies>div{padding:20px 22px;border-left:3px solid #c7a58a;background:#ebe6db;border-radius:0 10px 10px 0;column-gap:15px}
+#collection .special-studies strong{font-size:17px;line-height:1.45}
+#collection .special-studies>div>span:last-child{font-size:15px;line-height:1.5;margin-top:4px}
+
+/* Pipeline: a proper code specimen beside a legible, numbered process. */
+#cleaning .cleaning-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}
+#cleaning .schema-block{grid-column:1;grid-row:1/3}
+#cleaning .schema-block{padding:26px;border:1px solid #ded7cb;border-radius:16px;background:#fffdf8}
+#cleaning .schema-label{font-size:13px;line-height:1.5;gap:14px;margin-bottom:18px}
+#cleaning .schema-preview{font-size:14px;line-height:1.8;padding:24px;margin:0 0 20px;border-radius:12px;min-height:340px;white-space:pre-wrap;overflow-wrap:anywhere;overflow:visible}
+#cleaning .cleaning-proof{display:contents}
+#cleaning .cleaning-steps{grid-column:2;grid-row:1;list-style:none;padding:24px 26px 4px;margin:0;border:1px solid #ded7cb;background:#fffdf8;border-radius:16px}
+#cleaning .cleaning-steps li{padding-left:48px;padding-bottom:24px}
+#cleaning .cleaning-steps li::before{font:14px/32px Geist,Arial,sans-serif;top:0;width:32px;height:32px;text-align:center;border:1px solid #c39b7f73;border-radius:50%;background:#f7eee4}
+#cleaning .cleaning-steps li:not(:last-child)::after{content:"";position:absolute;left:16px;top:39px;bottom:7px;width:1px;background:#d9d0c4}
+#cleaning .cleaning-steps strong{font-size:18px;line-height:1.45}
+#cleaning .cleaning-steps li>span{font-size:16px;line-height:1.55;margin-top:5px}
+#cleaning .quality-ledger{grid-column:2;grid-row:2;padding:20px 24px;gap:20px;background:#eae4d8;border:0;border-radius:14px;margin:0}
+#cleaning .quality-ledger dt{font-size:14px;line-height:1.5}
+#cleaning .quality-ledger dd{font-size:38px;line-height:1.25;margin-top:8px}
+#cleaning .cleaning-points{grid-column:1/-1;grid-row:3;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:22px 24px;background:#eae4d8;border-radius:14px}
+#cleaning .cleaning-points strong{font-size:17px;line-height:1.4}
+#cleaning .cleaning-points li>div>span{font-size:15px;line-height:1.55}
+#cleaning .cleaning-points .point-icon{width:36px;height:36px;flex-basis:36px}
+
+/* Shared reading controls are sized individually, so chart text never inherits a new font. */
+.deck-panel:not(#gateway) .inline-details{border:1px solid #dcd5c9;border-radius:10px;background:#ffffff50;padding:0 18px}
+.deck-panel:not(#gateway) .inline-details summary{font-size:15px;line-height:1.6;padding:14px 0;min-height:48px}
+.deck-panel:not(#gateway) .inline-details p{font-size:16px;line-height:1.65;margin-bottom:14px}
+.deck-panel:not(#gateway) .inline-details>div{max-height:none;overflow:visible}
+.deck-panel:not(#gateway) .landscape-controls{display:flex;align-items:center;gap:18px 26px;padding:20px 22px;border:1px solid #ded7cb;border-radius:14px;background:#fffdf8;margin-bottom:20px}
+.deck-panel:not(#gateway) .control-block{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.deck-panel:not(#gateway) .control-label{font-size:13px;line-height:1.5;color:#5c665f}
+.deck-panel:not(#gateway) :is(.task-switch,.choice-switch,.segmented){border-radius:10px;gap:4px}
+.deck-panel:not(#gateway) :is(.task-switch,.choice-switch,.segmented) button{font-size:15px;line-height:1.4;min-height:42px;padding:10px 15px;border-radius:8px}
+.deck-panel:not(#gateway) .model-switch{flex-wrap:wrap;gap:7px}
+.deck-panel:not(#gateway) .model-switch button{min-height:42px;padding:9px 13px;border-radius:10px}
+.deck-panel:not(#gateway) .model-switch button span{font-size:15px;line-height:1.4}
+.deck-panel:not(#gateway) .landscape-foot{margin-top:16px;gap:24px;font-size:15px;line-height:1.65;align-items:start}
+.deck-panel:not(#gateway) .landscape-foot p{max-width:75ch}
+.deck-panel:not(#gateway) .landscape-foot{padding:16px 20px;background:#ebe5d9;border-radius:10px}
+.deck-panel:not(#gateway) .scroll-hint{font-size:14px;line-height:1.6}
+
+/* Preserve upstream scientific viewport widths while restructuring the reading UI. */
+#landscape.deck-panel>.landscape-inner,#findings.deck-panel>.findings-inner{max-width:1500px}
+
+/* Findings: a clear chapter strip, readable evidence introduction and controls. */
+#findings .panel-header{margin-bottom:20px;padding-bottom:18px}
+#findings .panel-header.findings-heading h2{font-size:36px;line-height:1.18}
+#findings .finding-nav{gap:8px;padding:7px;border:1px solid #ddd5c8;border-radius:13px;background:#e9e3d8}
+#findings .finding-nav button{white-space:normal;align-items:center;gap:10px;font-size:15px;line-height:1.4;min-height:50px;padding:11px 14px;border-radius:9px}
+#findings .finding-nav button>span{font-size:13px;color:#535f57}
+#findings .finding-nav button::after{display:none}
+#findings .finding-nav button[aria-current]{background:#fffdf8;box-shadow:0 2px 6px #372d1c0a}
+#findings .finding-stage{padding-top:26px}
+#findings .finding-intro{grid-template-columns:minmax(0,1fr) minmax(250px,.42fr);gap:32px;align-items:start;margin-bottom:24px}
+#findings .finding-kicker{font-size:13px;line-height:1.5;margin-bottom:10px}
+#findings .finding-intro h3{font-size:clamp(32px,2.9vw,42px);line-height:1.16;max-width:850px}
+#findings .evidence-line{font-size:17px;line-height:1.65;border-left:2px solid #c9a087;padding-left:20px;margin:0}
+#findings .figure-toolbar{gap:14px 20px;margin-bottom:12px}
+#findings .figure-heading h4{font-size:19px;line-height:1.5}
+#findings .figure-heading p{font-size:14px;line-height:1.6}
+#findings .figure-controls{gap:16px;padding:12px 0;border-top:1px solid #ded7cb}
+#findings .export-menu summary{font-size:15px;min-height:44px;padding:10px 14px;border:1px solid #d8cdbd;border-radius:9px;background:#fffdf8}
+#findings .export-options{top:49px;min-width:175px}
+#findings .export-options button{font-size:15px;min-height:44px}
+#findings :is(.control-note,.interval-control,.point-readout,.figure-caption){font-size:14px;line-height:1.65}
+#findings .point-control{font-size:15px;line-height:1.6;margin-top:16px;gap:16px}
+#findings .point-control input[type=range]{min-height:32px}
+#findings .evidence-section>summary{padding:20px 0;gap:24px}
+#findings .evidence-section>summary strong{font-size:24px;line-height:1.3}
+#findings .evidence-section>summary span{font-size:14px;line-height:1.5}
+#findings .drawer-note{font-size:15px;line-height:1.65}
+#findings .data-scroll{font-size:14px;line-height:1.6}
+#findings .support-section summary{font-size:16px;line-height:1.6;min-height:48px;padding:14px 0}
+#findings .support-section p{font-size:16px;line-height:1.7}
+#findings .example-body .question{font-size:20px;line-height:1.55}
+#findings .example-body .question small{font-size:14px;line-height:1.6;margin-top:8px}
+#findings .answer header strong{font-size:16px;line-height:1.5}
+#findings .answer-meta{font-size:14px;line-height:1.5}
+#findings .prompt-text{font-size:15px;line-height:1.65}
+#findings .answer-content{font-size:16px;line-height:1.75}
+#findings .answer-content.code{font-size:14px;line-height:1.7}
+#findings .answer summary{font-size:15px;line-height:1.6;min-height:44px}
+#findings .example-explanation{font-size:16px;line-height:1.7}
+#findings .position-answer>span,#findings .position-answer small{font-size:14px;line-height:1.6}
+#findings .data-scroll th,#findings .data-scroll td{font-size:14px;line-height:1.6;padding:12px}
+
+/* Library and publication: architectural heading/filter/figure/caption zones. */
+.research-topbar .research-nav button{font-size:14px;padding:10px 4px;min-height:44px}
+.research-topbar .story-home{font-size:14px;line-height:1.4}
+#stage{padding:32px 3.5vw 40px;gap:22px}
+#stage .research-heading{gap:24px;align-items:start;padding-bottom:20px;border-bottom:1px solid #ddd6c9}
+#stage .research-heading>div:first-child{flex:1;min-width:0}
+#stage .research-heading .publication-actions{flex:0 0 auto;max-width:100%}
+#stage h1{font-size:clamp(30px,2.7vw,40px);line-height:1.3;letter-spacing:-.03em}
+#stage .research-heading p{font-size:16px;line-height:1.65;margin-top:10px;max-width:78ch}
+#stage :is(.publication-actions,.code-source-actions){gap:16px;flex-wrap:wrap}
+#stage .text-action{font-size:14px;line-height:1.5;min-height:42px;padding:9px 13px;border:1px solid #d8cebf;border-radius:8px;background:#fffdf8}
+#stage .explore-controls{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:start;gap:18px;padding:20px 22px;border:1px solid #ded7cb;background:#fffdf8;border-radius:14px}
+#stage .explore-controls label{display:grid;gap:8px;align-items:start;min-width:0;font-size:14px;line-height:1.5;color:#5c665f}
+#stage .explore-controls select{width:100%;max-width:none;min-width:0;min-height:44px;font-size:15px;line-height:1.4;padding:9px 30px 9px 11px;border-radius:8px;border:1px solid #d9d0c3;background-color:#f9f6ef}
+#stage .research-toolbar{flex-wrap:wrap;justify-content:start;gap:16px 24px;padding:16px 20px;border:1px solid #ded7cb;background:#fffdf8;border-radius:12px}
+#stage .model-tabs{gap:10px 14px;flex-wrap:wrap}
+#stage .model-tabs button{font-size:15px;line-height:1.4;min-height:42px;padding:8px 10px;border-radius:8px;background:#eee9df;color:#545d58}
+#stage .model-tabs button[aria-current=page],#stage .model-tabs button[aria-pressed=true]{background:#e6d4c5;color:#6e341d}
+#stage .research-toolbar>span{font-size:14px;line-height:1.5}
+#stage .research-toolbar label,#stage .code-study-toolbar label{font-size:14px;line-height:1.5}
+#stage .research-toolbar select{font-size:15px;min-height:42px;padding:8px 28px 8px 10px}
+#stage .code-view-nav{gap:12px;padding:7px;border:1px solid #ded7cb;border-radius:12px;background:#e9e3d8}
+#stage .code-view-nav button{font-size:15px;line-height:1.5;min-height:44px;padding:10px 18px;border-radius:8px}
+#stage .code-view-nav button[aria-current=page]{background:#fffdf8;text-decoration:none}
+#stage .metric-grid{gap:18px;padding-bottom:0;border:0}
+#stage .metric-card{padding:20px 22px;border:1px solid #ddd5c8;border-radius:12px;background:#fffdf8}
+#stage .subheader{font-size:14px;line-height:1.5}
+#stage .metric-value{font-size:32px;line-height:1.3}
+#stage .metric-detail{font-size:14px;line-height:1.6;margin-top:6px}
+#stage .card-header{padding-bottom:14px;align-items:center}
+#stage .card-title{font-size:18px;line-height:1.5}
+#stage :is(.figure-note,.figure-legend,.header-legend,.research-foot,.publication-scroll-hint){font-size:14px;line-height:1.65}
+#stage .figure-legend{gap:12px 24px;padding:3px 0}
+#stage .research-caption{padding:22px 24px;border:1px solid #ded7cb;border-radius:12px;background:#ebe5d9;font-size:15px;line-height:1.7}
+#stage .research-caption h2{font-size:23px;line-height:1.4;margin-bottom:12px}
+#stage .research-caption p{font-size:16px;line-height:1.7}
+#stage .research-caption strong{font-size:18px;line-height:1.5}
+#stage .research-caption .caption-index{font-size:14px;line-height:1.5;color:#833c27}
+#stage .code-playback{font-size:15px;gap:16px;flex-wrap:wrap;min-height:52px}
+#stage .code-playback button{min-height:42px;padding:8px 12px;border:1px solid #d8cebf;border-radius:8px;background:#fffdf8}
+#stage .code-gesture-note{font-size:14px;line-height:1.6}
+#stage .code-sample-values{font-size:15px;line-height:1.6}
+#stage .efficiency-views{gap:10px;flex-wrap:wrap}
+#stage .efficiency-views button{font-size:15px;line-height:1.5;padding:10px 14px;min-height:44px;border-radius:8px;background:#eee8dd}
+#stage .efficiency-views button[aria-pressed=true]{background:#e7d7c9;box-shadow:none;color:#71391e}
+#stage .efficiency-finding{padding:24px;background:#ebe5d9;border:1px solid #dcd3c4;border-radius:12px}
+#stage .efficiency-finding p{font-size:22px;line-height:1.55;margin-bottom:12px}
+#stage .efficiency-finding>span{font-size:16px;line-height:1.7}
+#stage .analysis-type,#stage .scene-context,#stage .scene-context .context-divider{font-size:14px;line-height:1.6}
+#stage .metric-value small{font-size:14px}
+#stage .research-caption small{font-size:15px;line-height:1.7}
+.chapter-nav{min-height:62px;padding:7px 20px;gap:10px}
+.chapter-nav button{color:#545d58;font-size:17px;line-height:1.4;min-height:44px;padding:10px 16px;border-radius:9px}
+.chapter-nav button[aria-current=page]{background:#e7d7c9;color:#71391e}
+.inspector #inspector-title{font-size:27px;line-height:1.3}
+.inspector :is(.subline,.tiny-note,.facts,.timeline-item p,.record-actions){font-size:15px;line-height:1.65}
+.inspector .plain-button{font-size:14px;min-height:44px}
+.inspector .table-wrap{font-size:14px;line-height:1.6}
+
+@media(min-width:1051px) and (max-height:800px){
+ #question .question-inner{padding-top:42px;padding-bottom:30px;min-height:760px;align-content:start}
+ #question .section-index{margin-bottom:20px}#question h1{font-size:60px}
+ #question .question-lead{margin-top:16px}#question .question-scale{margin-top:20px;padding-top:18px}
+ #question .question-scale strong{font-size:44px}#question .question-points{margin-top:28px}
+ #question .question-points li{min-height:228px;padding-top:16px}#question .question-points .point-icon{margin-bottom:24px}
+ .deck-panel:not(#gateway)>.panel-inner{padding-top:48px}
+}
+@media(max-width:1100px){
+ .deck-panel:not(#gateway)>.panel-inner{padding-left:30px;padding-right:30px}
+ #question .question-inner{padding-left:30px;padding-right:30px;column-gap:24px}
+ #question h1{font-size:54px}#question .question-points{gap:16px}#question .question-points li{padding:22px}
+ #question .question-points strong{font-size:25px}#question .question-points li>div>span{font-size:16px}
+ #collection .design-points{gap:14px}#collection .design-points li{padding:18px;align-items:start;gap:12px}
+ #collection .design-points strong{font-size:17px}#collection .task-ledger{gap:14px}
+ #collection .task-row{padding:20px}#collection .task-row>strong{font-size:32px;right:18px}
+ #collection .task-row h3{font-size:18px;margin-top:30px}
+ #cleaning .schema-block{padding:20px}#cleaning .cleaning-layout{gap:20px}
+ #findings .finding-nav button{padding:10px;gap:7px;font-size:14px}
+ #stage .explore-controls{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .research-topbar .research-nav{gap:12px}
+}
+@media(max-width:800px){
+ .deck-panel:not(#gateway) .panel-header{display:block;margin-bottom:24px;padding-bottom:20px}
+ .deck-panel:not(#gateway) .panel-aside{text-align:left;max-width:65ch;padding-top:14px;font-size:16px}
+ #question .question-inner{grid-template-columns:minmax(0,1.5fr) minmax(0,.5fr)}
+ #question h1{grid-column:1/-1;max-width:590px;font-size:52px}
+ #question .question-lead,#question .question-scale{grid-column:1/-1;max-width:590px}
+ #question .question-art{width:58%;height:55%;opacity:.2}
+ #question .question-points{gap:14px;margin-top:30px}#question .question-points li{padding:20px;min-height:248px}
+ #question .question-points strong{font-size:24px}#question .question-points li::before{right:18px;top:20px}
+ #question .question-points .point-icon{width:56px;height:56px;margin-bottom:28px}
+ #collection .design-points{grid-template-columns:1fr}
+ #collection .design-points li{min-height:96px;align-items:center}
+ #collection .design-points li>div>span{font-size:16px}
+ #collection .task-ledger{grid-template-columns:1fr}
+ #collection .task-row{min-height:145px;padding:22px}#collection .task-row h3{margin-top:12px}
+ #collection .task-row>strong{font-size:40px;top:22px;right:24px}
+ #collection .special-studies{grid-template-columns:1fr}
+ #cleaning .cleaning-layout{grid-template-columns:1fr}
+ #cleaning :is(.schema-block,.cleaning-steps,.quality-ledger,.cleaning-points){grid-column:1/-1;grid-row:auto}
+ #cleaning .cleaning-points{grid-template-columns:1fr}
+ .deck-panel:not(#gateway) .landscape-controls{align-items:stretch;padding:18px;gap:18px}
+ .deck-panel:not(#gateway) .control-block{flex-basis:100%}
+ .deck-panel:not(#gateway) .landscape-foot{flex-direction:column;gap:12px}
+ #findings .finding-intro{grid-template-columns:1fr;gap:18px}
+ #findings .finding-nav{display:flex;overflow:auto;gap:8px}
+ #findings .finding-nav button{flex:0 0 auto;min-width:145px;white-space:nowrap;font-size:15px}
+ #findings .finding-intro h3{font-size:36px}#findings .evidence-line{font-size:17px;max-width:70ch}
+ #stage .research-heading{flex-wrap:wrap}
+ #stage .publication-actions{width:100%}
+ #stage .metric-card{padding:18px}
+ #stage .metric-value{font-size:28px}
+ .research-topbar .research-nav{display:flex;overflow:auto;gap:12px;justify-content:start;height:52px}
+ .research-topbar .research-nav button{font-size:14px;white-space:nowrap;min-width:max-content;padding:10px 8px}
+}
+@media(max-width:600px){
+ .deck-panel:not(#gateway)>.panel-inner{padding:64px 22px 30px}
+ .deck-panel:not(#gateway) .panel-header h2{font-size:35px;line-height:1.18}
+ .deck-panel:not(#gateway) .section-index{font-size:12px;margin-bottom:15px}
+ #question .question-inner{display:grid;grid-template-columns:1fr;grid-template-rows:repeat(5,auto);height:auto;min-height:100svh;padding:64px 22px 30px;align-content:start}
+ #question .section-index{margin-bottom:24px}#question h1{font-size:clamp(36px,10.5vw,46px);line-height:1.1}
+ #question .question-lead{font-size:18px;line-height:1.6;margin-top:20px;max-width:32ch}
+ #question .question-scale{gap:18px;align-items:start;margin-top:24px;padding-top:20px}
+ #question .question-scale strong{font-size:38px;line-height:1.2}#question .question-scale span{font-size:15px;line-height:1.55;max-width:165px}
+ #question .question-points{grid-template-columns:1fr;gap:14px;margin-top:30px}
+ #question .question-points li{display:flex;flex-direction:row;justify-content:start;align-items:center;gap:19px;padding:25px 20px;min-height:146px}
+ #question .question-points .point-icon{width:52px;height:52px;flex-basis:52px;margin:0}
+ #question .question-points .point-icon svg{width:28px;height:28px}
+ #question .question-points li>div{gap:8px;padding-top:5px}
+ #question .question-points strong{font-size:25px}#question .question-points li>div>span{font-size:16px;line-height:1.55}
+ #question .question-points li::before{font-size:11px;top:12px;right:17px}
+ #question .question-art{top:60px;height:400px;width:100%;opacity:.12}
+ #collection .experiment-flow{grid-template-columns:1fr;gap:10px;margin-bottom:20px}
+ #collection .experiment-flow .flow-node{padding:20px 22px;min-height:94px}
+ #collection .experiment-flow>i{transform:rotate(90deg);line-height:1;height:20px}
+ #collection .flow-node strong{font-size:24px}
+ #collection .task-row h3{max-width:78%;font-size:18px}
+ #collection .task-row>strong{font-size:34px}#collection .task-row p{font-size:15px}
+ #collection .special-studies>div{padding:18px;column-gap:12px}
+ #cleaning .schema-block{padding:18px}#cleaning .schema-label{font-size:12px;flex-wrap:wrap;gap:6px}
+ #cleaning .schema-preview{font-size:14px;line-height:1.8;padding:20px;min-height:0}
+ #cleaning .cleaning-steps{padding:22px 20px 0}#cleaning .cleaning-steps strong{font-size:18px}
+ #cleaning .cleaning-steps li>span{font-size:16px}#cleaning .quality-ledger{padding:20px;gap:16px}
+ #cleaning .quality-ledger dd{font-size:30px}#cleaning .quality-ledger dt{font-size:13px}
+ #findings .panel-header.findings-heading h2{font-size:32px}
+ #findings .finding-intro h3{font-size:32px;line-height:1.18}
+ #findings .figure-heading h4{font-size:18px}#findings .figure-heading p{font-size:14px}
+ #findings .evidence-section>summary{flex-wrap:wrap;gap:8px}
+ #findings .evidence-section>summary strong{font-size:22px}
+ .deck-panel:not(#gateway) :is(.task-switch,.choice-switch,.segmented) button{font-size:14px;padding:10px 12px;min-height:44px}
+ .deck-panel:not(#gateway) .task-switch{flex-wrap:wrap;border-radius:10px}
+ .deck-panel:not(#gateway) .model-switch button span{font-size:14px}
+ .deck-panel:not(#gateway) .model-switch button{min-height:44px;padding:9px 10px}
+ #stage{padding:26px 16px 32px;gap:20px}
+ #stage h1{font-size:29px;line-height:1.35}
+ #stage .research-heading{padding-bottom:18px;gap:14px}
+ #stage .research-heading p{font-size:16px;line-height:1.6}
+ #stage .explore-controls{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 14px;padding:18px 16px}
+ #stage .explore-controls label{font-size:14px}
+ #stage .explore-controls select{font-size:14px;min-height:44px;padding-left:9px;padding-right:23px}
+ #stage .explore-controls>label:last-child:nth-child(odd){grid-column:1/-1;max-width:none}
+ #stage .research-toolbar{padding:16px;gap:14px}
+ #stage .model-tabs{gap:8px}
+ #stage .model-tabs button{font-size:14px;min-height:44px}
+ #stage .research-toolbar select{font-size:14px;max-width:100%}
+ #stage .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ #stage .metric-card{padding:18px}
+ #stage .metric-card .card-body>div{grid-template-columns:1fr;gap:6px}
+ #stage .metric-card:last-child:nth-child(odd){grid-column:1/-1}
+ #stage .metric-card:last-child:nth-child(odd) .card-body>div{grid-template-columns:1fr auto}
+ #stage .metric-value{font-size:29px}
+ #stage .code-view-nav{gap:6px;max-width:100%}
+ #stage .code-view-nav button{font-size:14px;padding:10px 14px}
+ #stage .research-caption{padding:20px}
+ #stage .research-caption p{font-size:16px}
+ #stage .research-caption h2{font-size:22px}
+ #stage .figure-note{gap:10px;font-size:14px}
+ .research-topbar .story-home{font-size:13px}
+ .research-topbar .brand strong{font-size:27px}
+ .research-topbar .research-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 8px;height:auto;overflow:visible;padding-bottom:6px}
+ .research-topbar .research-nav button{min-width:0;white-space:normal;font-size:14px;line-height:1.4;min-height:48px;padding:8px 4px;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){#question .question-points li{transition:none}}
+/* Full-HD/QHD recording is the primary presentation target for this iteration. */
+@media(min-width:1800px){
+ .deck-panel:not(#gateway)>.panel-inner{max-width:1680px;padding:76px 64px 56px}
+ .deck-panel:not(#gateway) .section-index{font-size:15px;line-height:1.5;margin-bottom:20px}
+ .deck-panel:not(#gateway) .panel-header{padding-bottom:28px;margin-bottom:32px}
+ .deck-panel:not(#gateway) .panel-header h2{font-size:56px;line-height:1.15}
+ .deck-panel:not(#gateway) .panel-aside{font-size:19px;line-height:1.6;max-width:370px;padding-top:40px}
+ .research-actions{top:24px;right:30px}.research-home{padding:10px 15px;min-height:46px}.research-home-mark{font-size:22px}.research-home-caption{font-size:14px}
+ #question .question-inner{max-width:1680px;height:min(100svh,1120px);min-height:940px;padding:76px 64px 56px;grid-template-rows:auto auto auto auto minmax(320px,1fr)}
+ #question h1{font-size:78px;max-width:940px}
+ #question .question-lead{font-size:24px;max-width:35ch;margin-top:26px}
+ #question .question-scale{gap:28px;margin-top:28px;padding-top:26px}
+ #question .question-scale strong{font-size:60px}#question .question-scale span{font-size:19px;max-width:290px}
+ #question .question-points{gap:26px;margin-top:44px}
+ #question .question-points li{padding:30px 32px;min-height:320px}
+ #question .question-points .point-icon{width:82px;height:82px;flex-basis:82px;margin-bottom:34px}
+ #question .question-points .point-icon svg{width:37px;height:37px}
+ #question .question-points strong{font-size:38px}#question .question-points li>div>span{font-size:21px;line-height:1.55}
+ #question .question-points li>div>.dimension-note{font-size:18px;line-height:1.65;margin-top:12px}
+ #question .question-points li::before{font-size:16px;top:28px;right:30px}
+ #collection .design-points strong{font-size:22px}#collection .design-points li>div>span{font-size:18px;line-height:1.6}
+ #collection .design-points li{min-height:130px;padding:24px;gap:18px}
+ #collection .design-points .point-icon{width:48px;height:48px;flex-basis:48px}
+ #collection .experiment-flow .flow-node{padding:24px 28px;min-height:140px}
+ #collection .flow-node>span{font-size:16px}#collection .flow-node strong{font-size:29px}
+ #collection .flow-node.focus>span{font-size:44px}
+ #collection .task-row{min-height:210px;padding:28px}
+ #collection .task-row h3{font-size:22px}#collection .task-row p{font-size:18px}
+ #collection .task-row>strong{font-size:44px;top:24px;right:26px}
+ #collection .special-studies strong{font-size:20px}#collection .special-studies>div>span:last-child{font-size:17px}
+ #cleaning .schema-preview{font-size:16px;line-height:1.8;padding:28px}
+ #cleaning .schema-label{font-size:15px}
+ #cleaning .cleaning-steps{padding:28px 30px 8px}
+ #cleaning .cleaning-steps strong{font-size:21px}#cleaning .cleaning-steps li>span{font-size:18px;line-height:1.6}
+ #cleaning .cleaning-steps li{padding-bottom:28px}
+ #cleaning .quality-ledger dt{font-size:16px}#cleaning .quality-ledger dd{font-size:46px}
+ #cleaning .cleaning-points strong{font-size:20px}#cleaning .cleaning-points li>div>span{font-size:17px}
+ .deck-panel:not(#gateway) .inline-details summary{font-size:17px;min-height:52px}
+ .deck-panel:not(#gateway) .inline-details p{font-size:18px;line-height:1.7}
+ .deck-panel:not(#gateway) .control-label{font-size:15px}
+ .deck-panel:not(#gateway) :is(.task-switch,.choice-switch,.segmented) button{font-size:17px;min-height:48px}
+ .deck-panel:not(#gateway) .model-switch button{min-height:48px;padding:11px 16px}
+ .deck-panel:not(#gateway) .model-switch button span{font-size:17px}
+ #landscape .overview-plot{max-width:1408px;margin-inline:auto}
+ #landscape .landscape-foot{max-width:1408px;margin:20px auto 0;font-size:17px}
+ #findings .panel-header.findings-heading h2{font-size:42px}
+ #findings .finding-nav button{font-size:17px;min-height:56px}
+ #findings .finding-nav button>span{font-size:15px}
+ #findings .finding-intro h3{font-size:48px}
+ #findings .evidence-line{font-size:20px;line-height:1.65}
+ #findings .figure-heading h4{font-size:22px}#findings .figure-heading p{font-size:16px}
+ #findings :is(.figure-caption,.control-note,.point-readout,.interval-control){font-size:16px}
+ #findings .point-control{font-size:17px}
+ #findings .export-menu summary{font-size:17px;min-height:48px}
+ #findings .evidence-section>summary strong{font-size:27px}#findings .evidence-section>summary span{font-size:16px}
+ #findings .answer-content,#findings .example-explanation,#findings .support-section p{font-size:18px;line-height:1.75}
+ #stage h1{font-size:46px;line-height:1.3}
+ #stage .research-heading p{font-size:19px;line-height:1.65}
+ #stage .text-action{font-size:16px;min-height:48px}
+ #stage .explore-controls{padding:24px 26px;gap:22px}
+ #stage .explore-controls label{font-size:16px}#stage .explore-controls select{font-size:17px;min-height:48px}
+ #stage .research-toolbar{padding:20px 24px;gap:20px 28px}
+ #stage .model-tabs button{font-size:17px;min-height:48px}
+ #stage .research-toolbar label,#stage .code-study-toolbar label{font-size:16px}
+ #stage .research-toolbar select{font-size:17px;min-height:48px}
+ #stage .code-view-nav button{font-size:17px;min-height:48px}
+ #stage .code-playback,#stage .code-sample-values{font-size:17px}
+ #stage .efficiency-views button{font-size:17px;min-height:48px}
+ #stage .efficiency-finding p{font-size:25px}#stage .efficiency-finding>span{font-size:18px}
+ #stage .metric-card{padding:26px 28px}#stage .metric-value{font-size:40px}
+ #stage .metric-detail,#stage .subheader{font-size:17px}
+ #stage :is(.figure-note,.figure-legend,.header-legend,.research-foot){font-size:16px}
+ #stage .card-title{font-size:21px}
+ #stage .research-caption p{font-size:19px}#stage .research-caption h2{font-size:26px}
+ .research-topbar .research-nav button{font-size:16px}.research-topbar .story-home{font-size:15px}
+}
+
+/* Research record drawers are part of the desktop reading experience. */
+@media(min-width:1100px){
+ .inspector{width:min(720px,94vw);padding:48px 36px;font-size:16px}
+ .inspector :is(p,.subline,.tiny-note,.fact,.facts,.record-actions,.timeline-item p){font-size:16px;line-height:1.7}
+ .inspector :is(table,th,td,.plain-button,.text-action,.metric-pair span){font-size:16px;line-height:1.6}
+ .inspector h3{font-size:20px;line-height:1.5;margin:28px 0 14px}
+ .inspector :is(th,td){padding:12px 9px}
+ .inspector .fact{padding:12px 0}
+ .inspector .close{width:44px;height:44px;right:16px;top:8px}
+ .inspector :is(.text-action,.plain-button){min-height:44px}
+}

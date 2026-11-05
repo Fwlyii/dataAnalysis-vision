@@ -1,0 +1,71 @@
+<svg width="1339" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1339 540">
+<rect width="1339" height="540" x="0" y="0" fill="none"></rect>
+<path d="M669.5 231.525L627.7724 261.8419L643.7109 310.8956L695.2891 310.8956L711.2276 261.8419L669.5 231.525L669.5 275.4ZM669.5 143.775L544.3172 234.7256L592.1328 381.8869L746.8672 381.8869L794.6828 234.7256L669.5 143.775L669.5 187.65L752.9552 248.2838L721.0782 346.3912L617.9218 346.3912L586.0448 248.2838L669.5 187.65Z" fill="#fff" class="zr0-cls-0"></path>
+<path d="M669.5 187.65L586.0448 248.2838L617.9218 346.3912L721.0782 346.3912L752.9552 248.2838L669.5 187.65L669.5 231.525L711.2276 261.8419L695.2891 310.8956L643.7109 310.8956L627.7724 261.8419L669.5 231.525ZM669.5 99.9L502.5896 221.1675L566.3437 417.3825L772.6563 417.3825L836.4104 221.1675L669.5 99.9L669.5 143.775L794.6828 234.7256L746.8672 381.8869L592.1328 381.8869L544.3172 234.7256L669.5 143.775Z" fill="#fafcf7" class="zr0-cls-0"></path>
+<path d="M669.5 275.4M669.5 231.525L627.7724 261.8419L643.7109 310.8956L695.2891 310.8956L711.2276 261.8419L669.5 231.525M669.5 187.65L586.0448 248.2838L617.9218 346.3912L721.0782 346.3912L752.9552 248.2838L669.5 187.65M669.5 143.775L544.3172 234.7256L592.1328 381.8869L746.8672 381.8869L794.6828 234.7256L669.5 143.775M669.5 99.9L502.5896 221.1675L566.3437 417.3825L772.6563 417.3825L836.4104 221.1675L669.5 99.9" fill="none" stroke="#e6ecdf" class="zr0-cls-0"></path>
+<path d="M669.5 275.4L669.5 99.9" fill="none" stroke="#e1e9d8" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" y="-6.0000457763671875" transform="translate(669.5 84.9)" fill="#8b95a3">GSM8K 评分</text>
+<path d="M669.5 275.4L502.5896 221.1675" fill="none" stroke="#e1e9d8" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" transform="translate(488.3237 216.5323)" fill="#8b95a3">MATH500 评分</text>
+<path d="M669.5 275.4L566.3437 417.3825" fill="none" stroke="#e1e9d8" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" transform="translate(557.5269 429.5177)" fill="#8b95a3">MMLU-Pro 评分</text>
+<path d="M669.5 275.4L772.6563 417.3825" fill="none" stroke="#e1e9d8" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(781.4731 429.5177)" fill="#8b95a3">输出完整率</text>
+<path d="M669.5 275.4L836.4104 221.1675" fill="none" stroke="#e1e9d8" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(850.6763 216.5323)" fill="#8b95a3">提取可用率</text>
+<polyline points="669.5 104.3 542.6 234.2 582.8 394.7 760.3 400.3 816.4 227.7 669.5 104.3" fill="none" stroke="#3978b6" stroke-width="1.6" stroke-linejoin="round" class="zr0-cls-1"></polyline>
+<polygon points="669.5 104.3 542.6 234.2 582.8 394.7 760.3 400.3 816.4 227.7 669.5 104.3" fill="#3978b6" fill-opacity="0.055" class="zr0-cls-2"></polygon>
+<polyline points="669.5 103.4 555.2 238.3 590.1 384.7 755.1 393.2 808.3 230.3 669.5 103.4" fill="none" stroke="#c87b47" stroke-width="1.6" stroke-linejoin="round" class="zr0-cls-1"></polyline>
+<polygon points="669.5 103.4 555.2 238.3 590.1 384.7 755.1 393.2 808.3 230.3 669.5 103.4" fill="#c87b47" fill-opacity="0.055" class="zr0-cls-3"></polygon>
+<polyline points="669.5 114.8 556 238.5 603.5 366.3 760.4 400.6 815 228.1 669.5 114.8" fill="none" stroke="#8958b4" stroke-width="1.6" stroke-linejoin="round" class="zr0-cls-1"></polyline>
+<polygon points="669.5 114.8 556 238.5 603.5 366.3 760.4 400.6 815 228.1 669.5 114.8" fill="#8958b4" fill-opacity="0.055" class="zr0-cls-4"></polygon>
+<polyline points="669.5 116.6 572.7 243.9 604 365.6 751.5 388.3 797.2 233.9 669.5 116.6" fill="none" stroke="#2c8d83" stroke-width="1.6" stroke-linejoin="round" class="zr0-cls-1"></polyline>
+<polygon points="669.5 116.6 572.7 243.9 604 365.6 751.5 388.3 797.2 233.9 669.5 116.6" fill="#2c8d83" fill-opacity="0.055" class="zr0-cls-5"></polygon>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,669.5,104.2875)" fill="#3978b6" class="zr0-cls-2"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,542.6481,234.1833)" fill="#3978b6" class="zr0-cls-2"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,582.8487,394.6653)" fill="#3978b6" class="zr0-cls-2"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,760.2776,400.3446)" fill="#3978b6" class="zr0-cls-2"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,816.3812,227.6754)" fill="#3978b6" class="zr0-cls-2"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,669.5,103.41)" fill="#c87b47" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,555.1664,238.2507)" fill="#c87b47" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,590.0696,384.7265)" fill="#c87b47" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,755.1197,393.2455)" fill="#c87b47" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,808.3138,230.2967)" fill="#c87b47" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,669.5,114.8175)" fill="#8958b4" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,556.0009,238.5219)" fill="#8958b4" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,603.48,366.2688)" fill="#8958b4" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,760.4495,400.5812)" fill="#8958b4" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,814.9902,228.1274)" fill="#8958b4" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,669.5,116.5725)" fill="#2c8d83" class="zr0-cls-5"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,572.692,243.9452)" fill="#2c8d83" class="zr0-cls-5"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,603.9957,365.5589)" fill="#2c8d83" class="zr0-cls-5"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,751.5093,388.2761)" fill="#2c8d83" class="zr0-cls-5"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2,0,0,2,797.1865,233.9122)" fill="#2c8d83" class="zr0-cls-5"></path>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+pointer-events:none;
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+fill:rgba(62,132,200,1);
+}
+.zr0-cls-3:hover {
+cursor:pointer;
+fill:rgba(220,135,78,1);
+}
+.zr0-cls-4:hover {
+cursor:pointer;
+fill:rgba(150,96,198,1);
+}
+.zr0-cls-5:hover {
+cursor:pointer;
+fill:rgba(48,155,144,1);
+}
+
+]]>
+
+</style>
+</svg>

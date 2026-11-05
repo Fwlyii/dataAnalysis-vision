@@ -1,0 +1,119 @@
+{
+  "baseline": "926c936a3571153eb855571b9ab7768e65c1c1f0",
+  "productionFingerprints": 455,
+  "suites": [
+    {
+      "suite": "site-checks",
+      "checks": 467,
+      "passed": 467
+    },
+    {
+      "suite": "interaction-checks",
+      "checks": 987,
+      "passed": 987
+    },
+    {
+      "suite": "layout-review",
+      "checks": 201,
+      "passed": 201
+    },
+    {
+      "suite": "preservation",
+      "checks": 1110,
+      "passed": 1110
+    },
+    {
+      "suite": "master-alignment",
+      "checks": 65,
+      "passed": 65
+    },
+    {
+      "suite": "home-interactions",
+      "checks": 49,
+      "passed": 49
+    },
+    {
+      "suite": "library-interactions",
+      "checks": 39,
+      "passed": 39
+    },
+    {
+      "suite": "gateway-checks",
+      "checks": 123,
+      "passed": 123
+    },
+    {
+      "suite": "optical-checks",
+      "checks": 23,
+      "passed": 23
+    },
+    {
+      "suite": "resilience",
+      "checks": 11,
+      "passed": 11
+    },
+    {
+      "suite": "intro-checks",
+      "checks": 86,
+      "passed": 86
+    },
+    {
+      "suite": "planet-checks",
+      "checks": 19,
+      "passed": 19
+    },
+    {
+      "suite": "chart-render-preservation",
+      "checks": 184,
+      "passed": 184
+    },
+    {
+      "suite": "export-checks",
+      "checks": 31,
+      "passed": 31
+    },
+    {
+      "suite": "nav-access-checks",
+      "checks": 25,
+      "passed": 25
+    },
+    {
+      "suite": "early-paint-checks",
+      "checks": 12,
+      "passed": 12
+    },
+    {
+      "suite": "desktop-recording-checks",
+      "checks": 18,
+      "passed": 18
+    },
+    {
+      "suite": "showcase-checks",
+      "checks": 12,
+      "passed": 12
+    },
+    {
+      "suite": "lifecycle-checks",
+      "checks": 6,
+      "passed": 6
+    },
+    {
+      "suite": "gallery-checks",
+      "checks": 9,
+      "passed": 9
+    }
+  ],
+  "checks": 3477,
+  "passed": 3477,
+  "scienceStates": 184,
+  "actualGraphs": 188,
+  "introProfiles": 6,
+  "performanceProfiles": 8,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "frames": 1470,
+    "captureSeconds": 61.03567600250244,
+    "bytes": 7635665
+  }
+}

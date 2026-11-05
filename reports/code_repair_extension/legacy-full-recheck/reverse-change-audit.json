@@ -1,0 +1,167 @@
+{
+  "count": 4,
+  "all_original_failures": "TimeoutException",
+  "source_evaluations_lfs_oid": "e631e424c7152ff97fe44b908da8494210dea016b177b89b1dd666c4113c9df2",
+  "original_worker_sha256": "6817c3509830c8ddb520ebbacac4477829e7f02a4bf7f2d8ac1c4429ea1948fe",
+  "rows": [
+    {
+      "record_id": "Qwen/Qwen2.5-7B-Instruct|HumanEval/15|pass_fail|4",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "task_id": "HumanEval/15",
+      "arm": "pass_fail",
+      "round": 4,
+      "code_sha256": "a80174afc16ad7aa99cefb37d8d247c525fc7b4e1a5660f80beab9631d9c4698",
+      "old_failure_type": "TimeoutException",
+      "old_hidden_case_index": 6,
+      "new_hidden_case_index": 96,
+      "same_input_preserved": true,
+      "same_oracle_output": true,
+      "old_reference_seconds": 0.1253608749830164,
+      "new_reference_seconds": 0.13974016599968309,
+      "old_case_timeout_seconds": 2.507217499660328,
+      "new_case_timeout_seconds": 2.7948033199936617,
+      "old_worker_current_runtime_repeat_results": [
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 1.0709
+        },
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 1.0105
+        }
+      ],
+      "full_recheck_passed": true,
+      "diagnosis": "historical_timeout_not_reproduced_with_original_worker_and_oracle",
+      "interpretation": "Both current-runtime reruns passed with the original worker, original Mini inputs, original oracle and original timeout formula. Historical timing failure is real but not reproduced; reference-budget differences alone are not established as its cause. No extraction, syntax or semantic-oracle change for this reversal.",
+      "reference_budget_changed": true
+    },
+    {
+      "record_id": "Qwen/Qwen3-8B|HumanEval/83|resample|4",
+      "model": "Qwen/Qwen3-8B",
+      "task_id": "HumanEval/83",
+      "arm": "resample",
+      "round": 4,
+      "code_sha256": "21ad2cecfe15dd87b492ca30fd3ecb0bc775e60eb33fb670ca1c4389b8086a02",
+      "old_failure_type": "TimeoutException",
+      "old_hidden_case_index": 2,
+      "new_hidden_case_index": 46,
+      "same_input_preserved": true,
+      "same_oracle_output": true,
+      "old_reference_seconds": 0.5157524999813177,
+      "new_reference_seconds": 0.3492164999988745,
+      "old_case_timeout_seconds": 10.315049999626353,
+      "new_case_timeout_seconds": 6.98432999997749,
+      "old_worker_current_runtime_repeat_results": [
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 1.331
+        },
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 1.4988
+        }
+      ],
+      "full_recheck_passed": true,
+      "diagnosis": "historical_timeout_not_reproduced_with_original_worker_and_oracle",
+      "interpretation": "Both current-runtime reruns passed with the original worker, original Mini inputs, original oracle and original timeout formula. Historical timing failure is real but not reproduced; reference-budget differences alone are not established as its cause. No extraction, syntax or semantic-oracle change for this reversal.",
+      "reference_budget_changed": true
+    },
+    {
+      "record_id": "Qwen/Qwen2.5-7B-Instruct|HumanEval/147|self_review|1",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "task_id": "HumanEval/147",
+      "arm": "self_review",
+      "round": 1,
+      "code_sha256": "f7b33fb491dedab01316837b89fa2118db1cf3a855bcd99ec48d893e510341ff",
+      "old_failure_type": "TimeoutException",
+      "old_hidden_case_index": 4,
+      "new_hidden_case_index": 95,
+      "same_input_preserved": true,
+      "same_oracle_output": true,
+      "old_reference_seconds": 1.0791991371661425e-05,
+      "new_reference_seconds": 1.1624993931036443e-05,
+      "old_case_timeout_seconds": 1.0,
+      "new_case_timeout_seconds": 1.0,
+      "old_worker_current_runtime_repeat_results": [
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 0.4045
+        },
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 0.3567
+        }
+      ],
+      "full_recheck_passed": true,
+      "diagnosis": "historical_timeout_not_reproduced_with_original_worker_and_oracle",
+      "interpretation": "Both current-runtime reruns passed with the original worker, original Mini inputs, original oracle and original timeout formula. Historical timing failure is real but not reproduced; reference-budget differences alone are not established as its cause. No extraction, syntax or semantic-oracle change for this reversal.",
+      "reference_budget_changed": false
+    },
+    {
+      "record_id": "Qwen/Qwen2.5-7B-Instruct|HumanEval/147|self_review|4",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "task_id": "HumanEval/147",
+      "arm": "self_review",
+      "round": 4,
+      "code_sha256": "f7b33fb491dedab01316837b89fa2118db1cf3a855bcd99ec48d893e510341ff",
+      "old_failure_type": "TimeoutException",
+      "old_hidden_case_index": 4,
+      "new_hidden_case_index": 95,
+      "same_input_preserved": true,
+      "same_oracle_output": true,
+      "old_reference_seconds": 1.0791991371661425e-05,
+      "new_reference_seconds": 1.1624993931036443e-05,
+      "old_case_timeout_seconds": 1.0,
+      "new_case_timeout_seconds": 1.0,
+      "old_worker_current_runtime_repeat_results": [
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 0.3915
+        },
+        {
+          "full_pass": true,
+          "public_pass": true,
+          "hidden_pass": true,
+          "hidden_failure_type": null,
+          "evaluation_seconds": 0.4016
+        }
+      ],
+      "full_recheck_passed": true,
+      "diagnosis": "historical_timeout_not_reproduced_with_original_worker_and_oracle",
+      "interpretation": "Both current-runtime reruns passed with the original worker, original Mini inputs, original oracle and original timeout formula. Historical timing failure is real but not reproduced; reference-budget differences alone are not established as its cause. No extraction, syntax or semantic-oracle change for this reversal.",
+      "reference_budget_changed": false
+    }
+  ],
+  "hidden_answers_in_export": false,
+  "current_reruns_are_explanatory_not_replacements": true,
+  "qwen3_counterexample_vs_self_review_unaffected": true,
+  "strong_Qwen3_counterexample_success": 138,
+  "strong_Qwen3_self_review_success": 128,
+  "private_explanatory_rerun_log_sha256": "def34edef86b3bcd5d61a56b543e0eda22bba686ad6256e8455725b29af78791",
+  "original_oracle_lfs_sha256": {
+    "HumanEval/15": "e1c70e68305a2bbf0a1fcece192623661eb0ebc94697f2a3e08677fb2194db3d",
+    "HumanEval/83": "0acc83288db9479c367cf7d834f85af6c91e00d0d3e7641e8fc4020427fa18c9",
+    "HumanEval/147": "01464770a8a801b5e6cead280428be6258f552483215ddf638f04ffc824f0925"
+  }
+}

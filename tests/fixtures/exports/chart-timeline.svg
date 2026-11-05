@@ -1,0 +1,68 @@
+<svg width="1339" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1339 540">
+<rect width="1339" height="540" x="0" y="0" fill="none"></rect>
+<text dominant-baseline="central" text-anchor="start" style="font: 9px "Times New Roman", "Songti SC", serif" xml:space="preserve" y="4.500030517578125" transform="translate(75 5)" fill="#68788d">按匿名编号取前 12 个重试运行 · 蓝灰：成功，杏色：失败 / 状态未记录</text>
+<path d="M75.5 40L75.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M252.5 40L252.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M430.5 40L430.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M607.5 40L607.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M784.5 40L784.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M962.5 40L962.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M1139.5 40L1139.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M1317.5 40L1317.5 485" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(696 514)" fill="#68788d">距首次请求开始（秒）</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 62.25)" fill="#68788d">F009538</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 106.75)" fill="#68788d">F027420</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 151.25)" fill="#68788d">F036023</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 195.75)" fill="#68788d">F037168</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 240.25)" fill="#68788d">F050023</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 284.75)" fill="#68788d">F051276</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 329.25)" fill="#68788d">F063290</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 373.75)" fill="#68788d">F065662</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 418.25)" fill="#68788d">F069527</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(67 462.75)" fill="#68788d">F073403</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(75 493)" fill="#68788d">0</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(252.4286 493)" fill="#68788d">50</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(429.8571 493)" fill="#68788d">100</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(607.2857 493)" fill="#68788d">150</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(784.7143 493)" fill="#68788d">200</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(962.1429 493)" fill="#68788d">250</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(1139.5714 493)" fill="#68788d">300</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(1317 493)" fill="#68788d">350</text>
+<path d="M75 51.125l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M518.5714 51.125l283.8857 0l0 22.25l-283.8857 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 95.625l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M529.2171 95.625l17.7429 0l0 22.25l-17.7429 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 140.125l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M518.5714 140.125l10.6457 0l0 22.25l-10.6457 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 184.625l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M525.6686 184.625l7.0971 0l0 22.25l-7.0971 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 229.125l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M546.96 229.125l429.3771 0l0 22.25l-429.3771 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M1175.0571 229.125l7.0971 0l0 22.25l-7.0971 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 273.625l53.2286 0l0 22.25l-53.2286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M248.88 273.625l21.2914 0l0 22.25l-21.2914 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 318.125l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M518.5714 318.125l7.0971 0l0 22.25l-7.0971 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 362.625l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M525.6686 362.625l7.0971 0l0 22.25l-7.0971 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 407.125l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M522.12 407.125l3.5486 0l0 22.25l-3.5486 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<path d="M75 451.625l425.8286 0l0 22.25l-425.8286 0Z" fill="#dfaa72" class="zr0-cls-1"></path>
+<path d="M578.8971 451.625l10.6457 0l0 22.25l-10.6457 0Z" fill="#7c9dac" class="zr0-cls-2"></path>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+pointer-events:none;
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+fill:rgba(245,187,125,1);
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+fill:rgba(136,172,189,1);
+}
+
+]]>
+
+</style>
+</svg>

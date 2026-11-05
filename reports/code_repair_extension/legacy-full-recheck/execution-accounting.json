@@ -1,0 +1,16 @@
+{
+  "physical_candidates": 5576,
+  "independent_tasks": 164,
+  "models": 2,
+  "initial_programs_per_task_model": 1,
+  "unique_task_code_groups": 1410,
+  "exact_code_reuse_enabled": false,
+  "base_sandbox_executions": 5577,
+  "base_infrastructure_retries": 1,
+  "resource_overlay_candidate_executions": 2,
+  "resource_overlay_canonical_control_executions": 1,
+  "explanatory_original_worker_replays": 8,
+  "total_retrospective_executions_including_control_and_explanatory_replays": 5588,
+  "new_model_api_calls": 0,
+  "source_old_reports_modified": false
+}

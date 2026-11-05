@@ -1,0 +1,346 @@
+{
+  "examples": [
+    {
+      "category": "diagnostic_repair",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "task_id": "HumanEval/19",
+      "replicate": 2,
+      "arm": "diagnostic",
+      "before_round": 1,
+      "after_round": 2,
+      "record_ids": [
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/19|rep2|diagnostic|1",
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/19|rep2|diagnostic|2"
+      ],
+      "before_code": "from typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    \"\"\"\n    # Mapping of numberal words to their numeric values\n    numeral_map = {\n        'zero': 0,\n        'one': 1,\n        'two': 2,\n        'three': 3,\n        'four': 4,\n        'five': 5,\n        'six': 6,\n        'seven': 7,\n        'eight': 8,\n        'nine': 9\n    }\n    \n    # Split the input string into a list of numberal words\n    numberals = numbers.split()\n    \n    # Convert the list of numberal words to their numeric values, sort them, and convert back to numberal words\n    sorted_numberals = [numeral_map[numeral] for numeral in numberals]\n    sorted_numberals.sort()\n    sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]\n    \n    # Convert the sorted list of numeric values back to a space-delimited string\n    return ' '.join(sorted_numberals)\n\n\n# Test the function\nprint(sort_numbers('three one five'))  # Output: 'one three five'",
+      "after_code": "from typing import List\n\n\ndef sort_numbers(numbers: str) -> str:\n    \"\"\" Input is a space-delimited string of numberals from 'zero' to 'nine'.\n    Valid choices are 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight' and 'nine'.\n    Return the string with numbers sorted from smallest to largest\n    \"\"\"\n    # Mapping of numberal words to their numeric values\n    numeral_map = {\n        'zero': 0,\n        'one': 1,\n        'two': 2,\n        'three': 3,\n        'four': 4,\n        'five': 5,\n        'six': 6,\n        'seven': 7,\n        'eight': 8,\n        'nine': 9\n    }\n    \n    # Split the input string into a list of numberal words\n    numberals = numbers.split()\n    \n    # Convert the list of numberal words to their numeric values, sort them, and convert back to numberal words\n    sorted_numberals = [numeral_map[numeral] for numeral in numberals]\n    sorted_numberals.sort()\n    sorted_numberals = [list(numeral_map.keys())[list(numeral_map.values()).index(num)] for num in sorted_numberals]\n    \n    # Convert the sorted list of numeric values back to a space-delimited string\n    return ' '.join(sorted_numberals)\n\n\n# Test the function\nprint(sort_numbers('three one five'))  # Output: 'one three five'",
+      "diff": "--- before.py\n+++ after.py\n@@ -26,7 +26,7 @@\n     # Convert the list of numberal words to their numeric values, sort them, and convert back to numberal words\n     sorted_numberals = [numeral_map[numeral] for numeral in numberals]\n     sorted_numberals.sort()\n-    sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]\n+    sorted_numberals = [list(numeral_map.keys())[list(numeral_map.values()).index(num)] for num in sorted_numberals]\n     \n     # Convert the sorted list of numeric values back to a space-delimited string\n     return ' '.join(sorted_numberals)",
+      "actual_feedback": "Diagnostic test feedback:\n{\"diagnostic_status\": \"FAIL\", \"diagnostic\": {\"kind\": \"load\", \"stage\": \"load\", \"error_type\": \"KeyError\", \"error_message\": \"1\", \"line\": 29, \"column\": 29, \"source_line\": \"sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]\", \"candidate_traceback\": [{\"filename\": \"<candidate>\", \"function\": \"<module>\", \"line\": 36, \"column\": 7, \"source_line\": \"print(sort_numbers('three one five'))  # Output: 'one three five'\"}, {\"filename\": \"<candidate>\", \"function\": \"sort_numbers\", \"line\": 29, \"column\": 29, \"source_line\": \"    sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]\"}]}}\n\nReview your previous implementation against the original task. Correct any correctness issue you find; otherwise preserve the working implementation. Return the complete implementation in one Python code block, including required imports. Preserve the specified interface.",
+      "before_public": {
+        "passed": false,
+        "total_cases": 5,
+        "passed_cases": 0,
+        "failed_cases": 5,
+        "cases_checked": 0,
+        "unchecked_cases": 5,
+        "blocked_cases": 5,
+        "failures": [
+          {
+            "kind": "load",
+            "stage": "load",
+            "case_index": null,
+            "input": null,
+            "expected": null,
+            "actual": null,
+            "error_type": "KeyError",
+            "error_message": "1",
+            "line": 29,
+            "column": 29,
+            "source_line": "sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]",
+            "candidate_traceback": [
+              {
+                "filename": "<candidate>",
+                "function": "<module>",
+                "line": 36,
+                "column": 7,
+                "source_line": "print(sort_numbers('three one five'))  # Output: 'one three five'"
+              },
+              {
+                "filename": "<candidate>",
+                "function": "sort_numbers",
+                "line": 29,
+                "column": 29,
+                "source_line": "    sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]"
+              }
+            ],
+            "location_convention": "1-based line and column"
+          }
+        ],
+        "first_failure": {
+          "kind": "load",
+          "stage": "load",
+          "case_index": null,
+          "input": null,
+          "expected": null,
+          "actual": null,
+          "error_type": "KeyError",
+          "error_message": "1",
+          "line": 29,
+          "column": 29,
+          "source_line": "sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]",
+          "candidate_traceback": [
+            {
+              "filename": "<candidate>",
+              "function": "<module>",
+              "line": 36,
+              "column": 7,
+              "source_line": "print(sort_numbers('three one five'))  # Output: 'one three five'"
+            },
+            {
+              "filename": "<candidate>",
+              "function": "sort_numbers",
+              "line": 29,
+              "column": 29,
+              "source_line": "    sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]"
+            }
+          ],
+          "location_convention": "1-based line and column"
+        },
+        "error_counts": {
+          "load": 5
+        },
+        "complete": true,
+        "scan_complete": false,
+        "outcome_known": true,
+        "early_stopped": false,
+        "load_failed": true
+      },
+      "after_public": {
+        "passed": true,
+        "total_cases": 5,
+        "passed_cases": 5,
+        "failed_cases": 0,
+        "cases_checked": 5,
+        "unchecked_cases": 0,
+        "blocked_cases": 0,
+        "failures": [],
+        "first_failure": null,
+        "error_counts": {},
+        "complete": true,
+        "scan_complete": true,
+        "outcome_known": true,
+        "early_stopped": false
+      },
+      "before_strong_pass": false,
+      "after_strong_pass": true,
+      "initial_strong_pass": false,
+      "final_strong_pass": true,
+      "selection_note": "Fixed-order illustrative trace. Repair/regression requires an adjacent observed strong-test transition; repair feedback is the original public projection. Not an estimate of typical effect."
+    },
+    {
+      "category": "semantic_repair",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "task_id": "HumanEval/54",
+      "replicate": 1,
+      "arm": "multi_counterexample",
+      "before_round": 0,
+      "after_round": 1,
+      "record_ids": [
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/54|rep1|seed|0",
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/54|rep1|multi_counterexample|1"
+      ],
+      "before_code": "def same_chars(s0: str, s1: str) -> bool:\n    \"\"\"\n    Check if two words have the same characters.\n    \"\"\"\n    return sorted(s0) == sorted(s1)",
+      "after_code": "def same_chars(s0: str, s1: str) -> bool:\n    \"\"\"\n    Check if two words have the same characters.\n    \"\"\"\n    return set(s0) == set(s1)",
+      "diff": "--- before.py\n+++ after.py\n@@ -2,4 +2,4 @@\n     \"\"\"\n     Check if two words have the same characters.\n     \"\"\"\n-    return sorted(s0) == sorted(s1)\n+    return set(s0) == set(s1)",
+      "actual_feedback": "Diagnostic test feedback:\n{\"diagnostic_status\": \"FAIL\", \"failures\": [{\"case_index\": 0, \"input\": \"['eabcdzzzz', 'dddzzzzzzzddeddabc']\", \"expected\": \"True\", \"actual\": \"False\", \"error_type\": \"OutputMismatch\", \"error_message\": \"Returned output differs from the diagnostic oracle.\"}, {\"case_index\": 1, \"input\": \"['abcd', 'dddddddabc']\", \"expected\": \"True\", \"actual\": \"False\", \"error_type\": \"OutputMismatch\", \"error_message\": \"Returned output differs from the diagnostic oracle.\"}, {\"case_index\": 2, \"input\": \"['dddddddabc', 'abcd']\", \"expected\": \"True\", \"actual\": \"False\", \"error_type\": \"OutputMismatch\", \"error_message\": \"Returned output differs from the diagnostic oracle.\"}], \"test_summary\": {\"total_cases\": 7, \"passed_cases\": 4, \"failed_cases\": 3, \"cases_checked\": 7, \"blocked_cases\": 0, \"unchecked_cases\": 0}}\n\nReview your previous implementation against the original task. Correct any correctness issue you find; otherwise preserve the working implementation. Return the complete implementation in one Python code block, including required imports. Preserve the specified interface.",
+      "before_public": {
+        "passed": false,
+        "total_cases": 7,
+        "passed_cases": 4,
+        "failed_cases": 3,
+        "cases_checked": 7,
+        "unchecked_cases": 0,
+        "blocked_cases": 0,
+        "failures": [
+          {
+            "kind": "output_mismatch",
+            "stage": "compare",
+            "case_index": 0,
+            "input": "['eabcdzzzz', 'dddzzzzzzzddeddabc']",
+            "expected": "True",
+            "actual": "False",
+            "error_type": "OutputMismatch",
+            "error_message": "Returned output differs from the diagnostic oracle.",
+            "line": null,
+            "column": null,
+            "source_line": null,
+            "candidate_traceback": [],
+            "location_convention": "1-based line and column"
+          },
+          {
+            "kind": "output_mismatch",
+            "stage": "compare",
+            "case_index": 1,
+            "input": "['abcd', 'dddddddabc']",
+            "expected": "True",
+            "actual": "False",
+            "error_type": "OutputMismatch",
+            "error_message": "Returned output differs from the diagnostic oracle.",
+            "line": null,
+            "column": null,
+            "source_line": null,
+            "candidate_traceback": [],
+            "location_convention": "1-based line and column"
+          },
+          {
+            "kind": "output_mismatch",
+            "stage": "compare",
+            "case_index": 2,
+            "input": "['dddddddabc', 'abcd']",
+            "expected": "True",
+            "actual": "False",
+            "error_type": "OutputMismatch",
+            "error_message": "Returned output differs from the diagnostic oracle.",
+            "line": null,
+            "column": null,
+            "source_line": null,
+            "candidate_traceback": [],
+            "location_convention": "1-based line and column"
+          }
+        ],
+        "first_failure": {
+          "kind": "output_mismatch",
+          "stage": "compare",
+          "case_index": 0,
+          "input": "['eabcdzzzz', 'dddzzzzzzzddeddabc']",
+          "expected": "True",
+          "actual": "False",
+          "error_type": "OutputMismatch",
+          "error_message": "Returned output differs from the diagnostic oracle.",
+          "line": null,
+          "column": null,
+          "source_line": null,
+          "candidate_traceback": [],
+          "location_convention": "1-based line and column"
+        },
+        "error_counts": {
+          "output_mismatch": 3
+        },
+        "complete": true,
+        "scan_complete": true,
+        "outcome_known": true,
+        "early_stopped": false
+      },
+      "after_public": {
+        "passed": true,
+        "total_cases": 7,
+        "passed_cases": 7,
+        "failed_cases": 0,
+        "cases_checked": 7,
+        "unchecked_cases": 0,
+        "blocked_cases": 0,
+        "failures": [],
+        "first_failure": null,
+        "error_counts": {},
+        "complete": true,
+        "scan_complete": true,
+        "outcome_known": true,
+        "early_stopped": false
+      },
+      "before_strong_pass": false,
+      "after_strong_pass": true,
+      "initial_strong_pass": false,
+      "final_strong_pass": true,
+      "selection_note": "Fixed-order illustrative trace. Repair/regression requires an adjacent observed strong-test transition; repair feedback is the original public projection. Not an estimate of typical effect."
+    },
+    {
+      "category": "regression",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "task_id": "HumanEval/50",
+      "replicate": 0,
+      "arm": "self_review",
+      "before_round": 0,
+      "after_round": 1,
+      "record_ids": [
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/50|rep0|seed|0",
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/50|rep0|self_review|1"
+      ],
+      "before_code": "def encode_shift(s: str):\n    \"\"\"\n    returns encoded string by shifting every character by 5 in the alphabet.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) + 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n\n\ndef decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])",
+      "after_code": "def encode_shift(s: str):\n    \"\"\"\n    returns encoded string by shifting every character by 5 in the alphabet.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) - ord('a') + 5) % 26) + ord('a')) for ch in s if ch.isalpha()])\n\ndef decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) - ord('a') - 5) % 26) + ord('a')) for ch in s if ch.isalpha()])",
+      "diff": "--- before.py\n+++ after.py\n@@ -2,11 +2,10 @@\n     \"\"\"\n     returns encoded string by shifting every character by 5 in the alphabet.\n     \"\"\"\n-    return \"\".join([chr(((ord(ch) + 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n-\n+    return \"\".join([chr(((ord(ch) - ord('a') + 5) % 26) + ord('a')) for ch in s if ch.isalpha()])\n \n def decode_shift(s: str):\n     \"\"\"\n     takes as input string encoded with encode_shift function. Returns decoded string.\n     \"\"\"\n-    return \"\".join([chr(((ord(ch) - 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n+    return \"\".join([chr(((ord(ch) - ord('a') - 5) % 26) + ord('a')) for ch in s if ch.isalpha()])",
+      "actual_feedback": "Review your previous implementation against the original task. Correct any correctness issue you find; otherwise preserve the working implementation. Return the complete implementation in one Python code block, including required imports. Preserve the specified interface.",
+      "before_public": {
+        "passed": true,
+        "total_cases": 100,
+        "passed_cases": 100,
+        "failed_cases": 0,
+        "cases_checked": 100,
+        "unchecked_cases": 0,
+        "blocked_cases": 0,
+        "failures": [],
+        "first_failure": null,
+        "error_counts": {},
+        "complete": true,
+        "scan_complete": true,
+        "outcome_known": true,
+        "early_stopped": false
+      },
+      "after_public": {
+        "passed": true,
+        "total_cases": 100,
+        "passed_cases": 100,
+        "failed_cases": 0,
+        "cases_checked": 100,
+        "unchecked_cases": 0,
+        "blocked_cases": 0,
+        "failures": [],
+        "first_failure": null,
+        "error_counts": {},
+        "complete": true,
+        "scan_complete": true,
+        "outcome_known": true,
+        "early_stopped": false
+      },
+      "before_strong_pass": true,
+      "after_strong_pass": false,
+      "initial_strong_pass": true,
+      "final_strong_pass": false,
+      "selection_note": "Fixed-order illustrative trace. Repair/regression requires an adjacent observed strong-test transition; repair feedback is the original public projection. Not an estimate of typical effect."
+    },
+    {
+      "category": "diagnostic_hidden_gap",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "task_id": "HumanEval/22",
+      "replicate": 0,
+      "arm": "diagnostic",
+      "before_round": 3,
+      "after_round": 4,
+      "record_ids": [
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/22|rep0|diagnostic|3",
+        "Qwen/Qwen2.5-7B-Instruct|HumanEval/22|rep0|diagnostic|4"
+      ],
+      "before_code": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [value for value in values if isinstance(value, int)]",
+      "after_code": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n    return [value for value in values if isinstance(value, int)]",
+      "diff": "",
+      "actual_feedback": "Diagnostic test feedback:\n{\"diagnostic_status\": \"PASS\"}\n\nReview your previous implementation against the original task. Correct any correctness issue you find; otherwise preserve the working implementation. Return the complete implementation in one Python code block, including required imports. Preserve the specified interface.",
+      "before_public": {
+        "passed": true,
+        "total_cases": 3,
+        "passed_cases": 3,
+        "failed_cases": 0,
+        "cases_checked": 3,
+        "unchecked_cases": 0,
+        "blocked_cases": 0,
+        "failures": [],
+        "first_failure": null,
+        "error_counts": {},
+        "complete": true,
+        "scan_complete": true,
+        "outcome_known": true,
+        "early_stopped": false
+      },
+      "after_public": {
+        "passed": true,
+        "total_cases": 3,
+        "passed_cases": 3,
+        "failed_cases": 0,
+        "cases_checked": 3,
+        "unchecked_cases": 0,
+        "blocked_cases": 0,
+        "failures": [],
+        "first_failure": null,
+        "error_counts": {},
+        "complete": true,
+        "scan_complete": true,
+        "outcome_known": true,
+        "early_stopped": false
+      },
+      "before_strong_pass": false,
+      "after_strong_pass": false,
+      "initial_strong_pass": false,
+      "final_strong_pass": false,
+      "selection_note": "Fixed-order illustrative trace. Repair/regression requires an adjacent observed strong-test transition; repair feedback is the original public projection. Not an estimate of typical effect."
+    }
+  ],
+  "unavailable_categories": []
+}

@@ -1,0 +1,20 @@
+{
+  "files_sha256": {
+    "audit_reverse_changes.py": "0d1007ec478b93fe15f5a16b6978060ffb518fca70b619a5c9fc71b407bd2557",
+    "resource_policy.py": "371820c1e32711d69fe8727f121187c47d5f5af70ae457f6388be6135dd468dc",
+    "resolve_memory_unknown.py": "070c72081d6c38e6a155ec84546eb337dcb4a1b94a5c1357e3b1e8386bc61065",
+    "build_report.py": "6f9b0137eb38fa90bfcf6b5df5093ad3e669e97800ce41701826ced572071ad9",
+    "finish_report.py": "ab9edf129bea40e07f3cdbe5c3adb42006386d18fdb089d4141b0027db10a042"
+  },
+  "analysis_source_sha256": "e48f8496637de58032ffa978335682819b28712aed1e37af74bbe8df6e619f15",
+  "analyzer_source_sha256": "640dc7c866147424bc33b797e6b5e90fdbcf77313d3876c02f46ea51a447e138",
+  "reproduction_entrypoints_sha256": {
+    "experiments/code_repair_v2/analysis/resolve_legacy_resource.py": "070c72081d6c38e6a155ec84546eb337dcb4a1b94a5c1357e3b1e8386bc61065",
+    "experiments/code_repair_v2/analysis/audit_legacy_reversals.py": "f6a481923d51c7b9e61c4007f91cf1259765a8d6fcc35e08c702a2822b6fb0e2",
+    "experiments/code_repair_v2/analysis/redraw_legacy.py": "0dff6a609b79ae1966b9f88ae0fd229dc9baa92d24620094147fbbb902473509",
+    "experiments/code_repair_v2/analysis/build_legacy_report.py": "0478d0525c2b36e0731132d7ff1b8da7c19e2c38202e11b26fce846ecc89a421",
+    "experiments/code_repair_v2/analysis/finish_legacy_report.py": "ae3f6060af7bf7db13a6ef665c408620a26a036810c64dbd2b9ee174241f5cc2"
+  },
+  "aggregate_redraw_verified_byte_identical": true,
+  "aggregate_redraw_stdlib_python_verified": true
+}

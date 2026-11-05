@@ -1,0 +1,118 @@
+name: Deploy visualization to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Check chart-motion preview]
+    types: [completed]
+    branches: [codex/lens-chart-motion]
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out main for the existing homepage
+        uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - name: Check out the independent preview branch
+        uses: actions/checkout@v6
+        with:
+          ref: codex/lens-chart-motion
+          path: artifacts/preview-source
+
+      - name: Set up Node for browser checks
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tests/package-lock.json
+
+      - name: Install browser check dependencies
+        run: npm ci --prefix tests --ignore-scripts --no-audit --no-fund
+
+      - name: Install Chromium for current-page checks
+        run: npm run browser:install --prefix tests
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static visualization
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 scripts/system/build_web_app.py
+
+      - name: Verify whole-site visual coverage
+        run: python3 scripts/system/check_visual_coverage.py
+
+      - name: Test current pages in a real browser
+        run: python3 tests/run.py
+
+      - name: Verify fresh browser coverage
+        run: python3 scripts/system/check_visual_coverage.py --browser-report artifacts/qa/after/smoke.json
+
+      - name: Reuse browser dependencies for the preview checkout
+        run: ln -s "$GITHUB_WORKSPACE/tests/node_modules" artifacts/preview-source/tests/node_modules
+
+      - name: Build and check the preview source
+        working-directory: artifacts/preview-source
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: |
+          python3 scripts/system/build_web_app.py
+          python3 scripts/system/check_web_snapshot.py --skip-build
+          python3 scripts/system/check_visual_coverage.py
+
+      - name: Test the preview in a real browser
+        working-directory: artifacts/preview-source
+        run: python3 tests/run.py --skip-build --port 8849
+
+      - name: Verify fresh preview browser coverage
+        working-directory: artifacts/preview-source
+        run: python3 scripts/system/check_visual_coverage.py --browser-report artifacts/qa/after/smoke.json
+
+      - name: Assemble the homepage and isolated branch preview
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import datetime, json, shutil, subprocess
+          root=Path('app/dist')
+          source=Path('artifacts/preview-source')
+          preview=root/'preview/chart-motion'
+          shutil.copytree(source/'app/dist',preview)
+          timestamp=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          def stamp(folder, directory, ref):
+              sha=subprocess.check_output(['git','-C',str(directory),'rev-parse','HEAD'],text=True).strip()
+              (folder/'deployment.json').write_text(json.dumps({'source_ref':ref,'source_sha':sha,'published_at':timestamp},indent=2)+'\n')
+          stamp(root,Path('.'),'main')
+          stamp(preview,source,'codex/lens-chart-motion')
+          (root/'.nojekyll').touch()
+          PY
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: app/dist
+
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4

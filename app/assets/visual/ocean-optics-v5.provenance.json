@@ -1,0 +1,8 @@
+{
+  "asset": "ocean-optics-v5.png",
+  "kind": "image_gen edit",
+  "generated_at": "2026-11-05",
+  "source_reference": "用户提供的 知微_ImageGen深海光学玻璃风_v5_六张.zip / 01_研究问题_深海光学玻璃.png",
+  "prompt": "Use case: background-extraction.\nEdit target: the supplied 知微 deep sea optical glass webpage reference.\nCreate a clean background plate for the REAL website. Remove ALL typography, Chinese or English text, headings, navigation, numbers, diagrams, connector lines, cards, panels, tables, icons, buttons, borders and all user interface. Fill those removed areas seamlessly with the same dark deep ocean optical environment.\nPreserve the exact background world and art direction: almost black deep teal navy (#001e2c / #002735), subtle broad ocean caustics on left edge, thin sweeping refracted translucent glass light arcs in the upper right and far lower margins, tiny restrained warm gold optical glints at the upper right, a low cyan water reflection concentrated at the bottom center. The broad central 80% must be clean quiet dark negative space suitable for native scientific charts and high-contrast white text. No large obvious objects. Maintain sophisticated thick optical-glass light, photographic/3D render texture, not stars or outer space. Full-bleed landscape 16:10, no frame. No words, no symbols, no chart remnants, no ghost UI, no watermark.",
+  "purpose": "Clean decorative background only; all text and research charts are native HTML/SVG."
+}

@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-11-05T03:25:27.343559+00:00",
+  "scope": "HTTP scheduling only",
+  "collector_sha256": "5c2be4eec2fc88f0a28d68062dc765e55bfb4a388cfd11ab61f3e4b45f61bcf0",
+  "changes": [
+    "Retain max(reserved estimated input+max_tokens, actual usage) within the full 60-second window after success.",
+    "Release token reservation for explicit HTTP rejection; keep unknown transport reservation.",
+    "Qwen2.5 fixed conservative 200000 TPM; no success-triggered token budget growth.",
+    "Oversized request fails explicitly instead of waiting forever."
+  ],
+  "unchanged": [
+    "all frozen sources and configuration",
+    "six feedback definitions",
+    "164 tasks, two models, three repetitions, four revisions",
+    "saved response and evaluation rows"
+  ],
+  "selection": "Operational throughput only; no interim treatment effects inspected."
+}

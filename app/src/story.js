@@ -670,9 +670,10 @@
     if (lastRoute === location.href) return;
     lastRoute = location.href;
     hydrate();
-    const h = location.hash.slice(1).split("/")[0] || "question";
+    const h = location.hash.slice(1).split("/")[0] || "gateway";
     if (
       [
+        "gateway",
         "question",
         "collection",
         "cleaning",

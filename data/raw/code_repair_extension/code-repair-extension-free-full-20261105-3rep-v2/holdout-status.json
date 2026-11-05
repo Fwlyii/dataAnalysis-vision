@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-11-05T09:10:49+00:00",
+  "batch_id": "code-repair-extension-free-full-20261105-3rep-v2",
+  "config_sha256": "ed88d111c3336fdcd2850e9e50aa63e7beeb4957a34a9228833ce73731942f99",
+  "schema": "code-repair-holdout-status-v2",
+  "complete": true,
+  "source_responses": 24600,
+  "expected_responses": 24600,
+  "candidates_available": 24600,
+  "expected_holdouts": 24600,
+  "measurement_scope": "all_rounds",
+  "scheduler_concurrency": 4,
+  "expected_primary_holdouts": 6888,
+  "measured_primary_holdouts": 6888,
+  "measured": 24600,
+  "passed": 19641,
+  "failed": 4959,
+  "by_model": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "measured": 12300,
+      "passed": 9829,
+      "failed": 2471
+    },
+    "Qwen/Qwen3-8B": {
+      "measured": 12300,
+      "passed": 9812,
+      "failed": 2488
+    }
+  },
+  "active": 0,
+  "pending_available": 0,
+  "unknown_unresolved": 0,
+  "unknown_attempts": 0,
+  "incomplete_response_tail": false,
+  "stopped": false,
+  "fatal": null,
+  "api_calls": 0,
+  "seconds": 20990.851
+}

@@ -1,0 +1,14 @@
+{
+  "name": "lens-browser-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "python3 run.py",
+    "smoke": "node browser/smoke.mjs",
+    "browser:install": "playwright-core install --with-deps chromium"
+  },
+  "devDependencies": {
+    "playwright-core": "1.64.1",
+    "@axe-core/playwright": "4.14.0"
+  }
+}

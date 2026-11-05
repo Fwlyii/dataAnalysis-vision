@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T11:05:43Z",
+  "title": "Design System: 知微 · 深海光学玻璃 v5",
+  "extensions": {
+    "colorMeta": {
+      "marine-bg": {
+        "role": "neutral",
+        "displayName": "深海底色",
+        "tonalRamp": [
+          "oklch(15.00% 0.0484 234.51)",
+          "oklch(26.43% 0.0484 234.51)",
+          "oklch(37.86% 0.0484 234.51)",
+          "oklch(49.29% 0.0484 234.51)",
+          "oklch(60.71% 0.0484 234.51)",
+          "oklch(72.14% 0.0484 234.51)",
+          "oklch(83.57% 0.0484 234.51)",
+          "oklch(95.00% 0.0484 234.51)"
+        ]
+      },
+      "glass-panel": {
+        "role": "neutral",
+        "displayName": "深海玻璃面",
+        "tonalRamp": [
+          "oklch(15.00% 0.0466 229.45)",
+          "oklch(26.43% 0.0466 229.45)",
+          "oklch(37.86% 0.0466 229.45)",
+          "oklch(49.29% 0.0466 229.45)",
+          "oklch(60.71% 0.0466 229.45)",
+          "oklch(72.14% 0.0466 229.45)",
+          "oklch(83.57% 0.0466 229.45)",
+          "oklch(95.00% 0.0466 229.45)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "冰白正文",
+        "tonalRamp": [
+          "oklch(15.00% 0.0083 236.56)",
+          "oklch(26.43% 0.0083 236.56)",
+          "oklch(37.86% 0.0083 236.56)",
+          "oklch(49.29% 0.0083 236.56)",
+          "oklch(60.71% 0.0083 236.56)",
+          "oklch(72.14% 0.0083 236.56)",
+          "oklch(83.57% 0.0083 236.56)",
+          "oklch(95.00% 0.0083 236.56)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "海雾次级文字",
+        "tonalRamp": [
+          "oklch(15.00% 0.0351 227.49)",
+          "oklch(26.43% 0.0351 227.49)",
+          "oklch(37.86% 0.0351 227.49)",
+          "oklch(49.29% 0.0351 227.49)",
+          "oklch(60.71% 0.0351 227.49)",
+          "oklch(72.14% 0.0351 227.49)",
+          "oklch(83.57% 0.0351 227.49)",
+          "oklch(95.00% 0.0351 227.49)"
+        ]
+      },
+      "content-muted": {
+        "role": "neutral",
+        "displayName": "内容次级文字",
+        "tonalRamp": [
+          "oklch(15.00% 0.0360 223.91)",
+          "oklch(26.43% 0.0360 223.91)",
+          "oklch(37.86% 0.0360 223.91)",
+          "oklch(49.29% 0.0360 223.91)",
+          "oklch(60.71% 0.0360 223.91)",
+          "oklch(72.14% 0.0360 223.91)",
+          "oklch(83.57% 0.0360 223.91)",
+          "oklch(95.00% 0.0360 223.91)"
+        ]
+      },
+      "cyan": {
+        "role": "primary",
+        "displayName": "光学青",
+        "tonalRamp": [
+          "oklch(15.00% 0.1069 224.48)",
+          "oklch(26.43% 0.1069 224.48)",
+          "oklch(37.86% 0.1069 224.48)",
+          "oklch(49.29% 0.1069 224.48)",
+          "oklch(60.71% 0.1069 224.48)",
+          "oklch(72.14% 0.1069 224.48)",
+          "oklch(83.57% 0.1069 224.48)",
+          "oklch(95.00% 0.1069 224.48)"
+        ]
+      },
+      "teal": {
+        "role": "primary",
+        "displayName": "折射绿",
+        "tonalRamp": [
+          "oklch(15.00% 0.1023 179.16)",
+          "oklch(26.43% 0.1023 179.16)",
+          "oklch(37.86% 0.1023 179.16)",
+          "oklch(49.29% 0.1023 179.16)",
+          "oklch(60.71% 0.1023 179.16)",
+          "oklch(72.14% 0.1023 179.16)",
+          "oklch(83.57% 0.1023 179.16)",
+          "oklch(95.00% 0.1023 179.16)"
+        ]
+      },
+      "lavender": {
+        "role": "secondary",
+        "displayName": "透镜紫",
+        "tonalRamp": [
+          "oklch(15.00% 0.0846 299.11)",
+          "oklch(26.43% 0.0846 299.11)",
+          "oklch(37.86% 0.0846 299.11)",
+          "oklch(49.29% 0.0846 299.11)",
+          "oklch(60.71% 0.0846 299.11)",
+          "oklch(72.14% 0.0846 299.11)",
+          "oklch(83.57% 0.0846 299.11)",
+          "oklch(95.00% 0.0846 299.11)"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "微光金",
+        "tonalRamp": [
+          "oklch(15.00% 0.1024 84.14)",
+          "oklch(26.43% 0.1024 84.14)",
+          "oklch(37.86% 0.1024 84.14)",
+          "oklch(49.29% 0.1024 84.14)",
+          "oklch(60.71% 0.1024 84.14)",
+          "oklch(72.14% 0.1024 84.14)",
+          "oklch(83.57% 0.1024 84.14)",
+          "oklch(95.00% 0.1024 84.14)"
+        ]
+      },
+      "coral": {
+        "role": "secondary",
+        "displayName": "映射珊瑚",
+        "tonalRamp": [
+          "oklch(15.00% 0.1308 30.01)",
+          "oklch(26.43% 0.1308 30.01)",
+          "oklch(37.86% 0.1308 30.01)",
+          "oklch(49.29% 0.1308 30.01)",
+          "oklch(60.71% 0.1308 30.01)",
+          "oklch(72.14% 0.1308 30.01)",
+          "oklch(83.57% 0.1308 30.01)",
+          "oklch(95.00% 0.1308 30.01)"
+        ]
+      },
+      "glass-soft": {
+        "role": "neutral",
+        "displayName": "深海嵌入面",
+        "tonalRamp": [
+          "oklch(15.00% 0.0585 225.38)",
+          "oklch(26.43% 0.0585 225.38)",
+          "oklch(37.86% 0.0585 225.38)",
+          "oklch(49.29% 0.0585 225.38)",
+          "oklch(60.71% 0.0585 225.38)",
+          "oklch(72.14% 0.0585 225.38)",
+          "oklch(83.57% 0.0585 225.38)",
+          "oklch(95.00% 0.0585 225.38)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "海雾分隔线",
+        "tonalRamp": [
+          "oklch(15.00% 0.0459 227.38)",
+          "oklch(26.43% 0.0459 227.38)",
+          "oklch(37.86% 0.0459 227.38)",
+          "oklch(49.29% 0.0459 227.38)",
+          "oklch(60.71% 0.0459 227.38)",
+          "oklch(72.14% 0.0459 227.38)",
+          "oklch(83.57% 0.0459 227.38)",
+          "oklch(95.00% 0.0459 227.38)"
+        ]
+      },
+      "chart-grid": {
+        "role": "neutral",
+        "displayName": "科学图网格",
+        "tonalRamp": [
+          "oklch(15.00% 0.0459 226.22)",
+          "oklch(26.43% 0.0459 226.22)",
+          "oklch(37.86% 0.0459 226.22)",
+          "oklch(49.29% 0.0459 226.22)",
+          "oklch(60.71% 0.0459 226.22)",
+          "oklch(72.14% 0.0459 226.22)",
+          "oklch(83.57% 0.0459 226.22)",
+          "oklch(95.00% 0.0459 226.22)"
+        ]
+      },
+      "chart-teal": {
+        "role": "secondary",
+        "displayName": "科学图绿色",
+        "tonalRamp": [
+          "oklch(15.00% 0.1199 182.49)",
+          "oklch(26.43% 0.1199 182.49)",
+          "oklch(37.86% 0.1199 182.49)",
+          "oklch(49.29% 0.1199 182.49)",
+          "oklch(60.71% 0.1199 182.49)",
+          "oklch(72.14% 0.1199 182.49)",
+          "oklch(83.57% 0.1199 182.49)",
+          "oklch(95.00% 0.1199 182.49)"
+        ]
+      },
+      "chart-coral": {
+        "role": "secondary",
+        "displayName": "科学图珊瑚",
+        "tonalRamp": [
+          "oklch(15.00% 0.1313 33.26)",
+          "oklch(26.43% 0.1313 33.26)",
+          "oklch(37.86% 0.1313 33.26)",
+          "oklch(49.29% 0.1313 33.26)",
+          "oklch(60.71% 0.1313 33.26)",
+          "oklch(72.14% 0.1313 33.26)",
+          "oklch(83.57% 0.1313 33.26)",
+          "oklch(95.00% 0.1313 33.26)"
+        ]
+      },
+      "chart-blue": {
+        "role": "secondary",
+        "displayName": "科学图蓝色",
+        "tonalRamp": [
+          "oklch(15.00% 0.1104 236.35)",
+          "oklch(26.43% 0.1104 236.35)",
+          "oklch(37.86% 0.1104 236.35)",
+          "oklch(49.29% 0.1104 236.35)",
+          "oklch(60.71% 0.1104 236.35)",
+          "oklch(72.14% 0.1104 236.35)",
+          "oklch(83.57% 0.1104 236.35)",
+          "oklch(95.00% 0.1104 236.35)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "总研究问题",
+        "purpose": "中央真实 h1。"
+      },
+      "headline": {
+        "displayName": "章节标题",
+        "purpose": "非问题页主标题。"
+      },
+      "title": {
+        "displayName": "发现主题",
+        "purpose": "独立图册的主题标题；紧凑主线使用 compact-study-title。"
+      },
+      "body": {
+        "displayName": "阅读正文",
+        "purpose": "章节壳正文与统计解释。"
+      },
+      "content-body": {
+        "displayName": "原生内容构图",
+        "purpose": "问题、采集、清洗与总结。"
+      },
+      "label": {
+        "displayName": "章节导航",
+        "purpose": "五个顶部章节链接。"
+      },
+      "home-brand": {
+        "displayName": "知微品牌",
+        "purpose": "五气泡首页中央宋体品牌。"
+      },
+      "compact-study-title": {
+        "displayName": "紧凑任务标题",
+        "purpose": "数学／文档并列面板标题；手机为22px。"
+      },
+      "compact-plot": {
+        "displayName": "紧凑科学图",
+        "purpose": "数学／文档的原生SVG文字；坐标与图例为14px，数值为15px。"
+      },
+      "compact-code": {
+        "displayName": "真实案例代码",
+        "purpose": "完整保存diff与反馈摘录；桌面11.5px、1.45行高，640px以下11px、1.55行高。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "optical-main",
+        "value": "inset 0 1px 2px #f2ffffb0,inset 0 0 0 3px #9ddff533,inset 0 -2px 4px #40daff66,0 0 9px #5fd9ff33,0 14px 28px #000b1733",
+        "purpose": "主要科学图与原生概览的光学边缘。"
+      },
+      {
+        "name": "optical-content",
+        "value": "inset 0 1px 2px #f2ffffc7,inset 0 0 0 3px #9ddff52b,inset 0 -2px 5px rgba(var(--og-rgb),.5),0 0 10px rgba(var(--og-rgb),.23),0 12px 24px #00142355",
+        "purpose": "内容面板；--og-rgb 随 cyan/teal/purple/gold 主题变化。"
+      },
+      {
+        "name": "optical-inset",
+        "value": "inset 0 1px 2px #ccecf64d,inset 0 0 17px rgba(var(--og-rgb),.12)",
+        "purpose": "任务问题、回答和嵌入内容。"
+      },
+      {
+        "name": "active-nav",
+        "value": "0 -2px 12px #37ceff,0 1px 4px #88e8ff",
+        "purpose": "当前章节的下划线光晕。"
+      },
+      {
+        "name": "optical-compact-feedback",
+        "value": "inset 0 1px 2px #e4ffffa6,inset 0 0 0 2px #9ddff529,0 0 8px #5fd9ff22,0 12px 25px #00142340",
+        "purpose": "紧凑反馈端点图与真实案例的双层光学边缘。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "home-orb-scale",
+        "value": "scale .4s cubic-bezier(.16,1,.3,1)",
+        "purpose": "入口悬停与焦点为 1.045；减少动态时关闭缩放与过渡。"
+      },
+      {
+        "name": "home-orb-image",
+        "value": "filter .4s cubic-bezier(.16,1,.3,1)",
+        "purpose": "入口素材的饱和度与亮度变化。"
+      },
+      {
+        "name": "home-label",
+        "value": "color .3s",
+        "purpose": "入口文字变为对应气泡色。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "content-large",
+        "value": "1600px"
+      },
+      {
+        "name": "optical-compact",
+        "value": "1200px"
+      },
+      {
+        "name": "compact-study-stack",
+        "value": "1100px"
+      },
+      {
+        "name": "content-stack",
+        "value": "1000px"
+      },
+      {
+        "name": "figure-stack",
+        "value": "850px"
+      },
+      {
+        "name": "home-mobile",
+        "value": "699px"
+      },
+      {
+        "name": "content-mobile",
+        "value": "640px"
+      },
+      {
+        "name": "shell-mobile",
+        "value": "620px"
+      },
+      {
+        "name": "home-small",
+        "value": "359px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Five Chapter Navigation",
+      "kind": "nav",
+      "refersTo": "chapter-nav",
+      "description": "章节顶部仅五章；当前章有光学青下划线。",
+      "html": "<nav class=\"ds-chapter-nav\" aria-label=\"研究章节\"><a href=\"?chapter=question\" aria-current=\"page\">研究问题</a><a href=\"?chapter=collection\">采集设计</a><a href=\"?chapter=cleaning\">数据处理</a><a href=\"?chapter=findings\">核心发现</a><a href=\"?chapter=conclusion\">总结与反思</a></nav>",
+      "css": ".ds-chapter-nav{display:flex;justify-content:space-between;gap:16px;background:#001c2bd9;padding:0 20px;font-family:var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif);backdrop-filter:blur(18px);border-bottom:1px solid #8beaff}.ds-chapter-nav a{display:flex;align-items:center;justify-content:center;position:relative;min-height:52px;padding:0 16px;color:#f0f6fb;font-size:17px;font-weight:500;line-height:1.8;letter-spacing:.045em;text-decoration:none;white-space:nowrap}.ds-chapter-nav a:after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px}.ds-chapter-nav a[aria-current=page]{color:#76daff;text-shadow:0 0 14px #39c7ff55}.ds-chapter-nav a[aria-current=page]:after{background:linear-gradient(90deg,#76daff,#e8ffff,#76daff);box-shadow:0 -2px 12px #37ceff,0 1px 4px #88e8ff}.ds-chapter-nav a:hover{color:white}.ds-chapter-nav a:focus-visible{outline:3px solid #b4f5ff;outline-offset:5px}@media(max-width:620px){.ds-chapter-nav{gap:8px;padding:0 10px}.ds-chapter-nav a{min-height:48px;font-size:12px;padding:0;letter-spacing:0}}"
+    },
+    {
+      "name": "Optical Evidence Panel",
+      "kind": "card",
+      "refersTo": "optical-panel",
+      "description": "主要科学图与概览共用的双层光学边缘。",
+      "html": "<section class=\"ds-optical-panel\"><h3>让证据保持清楚</h3><p>原生文字、真实图表与完整条件。</p></section>",
+      "css": ".ds-optical-panel{--edge:var(--accent,#76daff);position:relative;isolation:isolate;padding:20px;color:var(--ink,#f5fbff);font-family:var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif);border:1px solid var(--edge);border-radius:17px;background:linear-gradient(140deg,rgba(83,192,235,.14),#042735e8 42%,#063343e8);box-shadow:inset 0 1px 2px #f2ffffb0,inset 0 0 0 3px #9ddff533,inset 0 -2px 4px #40daff66,0 0 9px #5fd9ff33,0 14px 28px #000b1733;overflow:hidden}.ds-optical-panel:before{content:'';position:absolute;pointer-events:none;inset:2px;border:1px solid #d0f4ff55;border-radius:14px;background:linear-gradient(137deg,transparent 82%,#def6ff0b 82.5%,transparent 91%)}.ds-optical-panel:after{content:'';position:absolute;pointer-events:none;left:8%;right:32%;top:0;height:2px;background:linear-gradient(90deg,transparent,#e9ffff,transparent);box-shadow:0 0 9px var(--edge)}.ds-optical-panel h3{font-size:23px;line-height:1.4;font-weight:600;margin:0}.ds-optical-panel p{font-size:16px;line-height:1.65;margin:12px 0 0}"
+    },
+    {
+      "name": "Question Inset",
+      "kind": "custom",
+      "description": "玻璃任务面板内部的问题与回答容器。",
+      "html": "<p class=\"ds-question-inset\"><span>研究问题</span>表达方式如何改变模型的回答？</p>",
+      "css": ".ds-question-inset{display:block;margin:0;padding:10px 12px;border:1px solid #a8e7f380;border-radius:9px;background:linear-gradient(135deg,rgba(83,192,235,.26),rgba(83,192,235,.08));box-shadow:inset 0 1px 2px #ccecf64d,inset 0 0 17px rgba(83,192,235,.12);color:var(--ink,#f5fbff);font-family:var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif);font-size:17px;font-weight:550;line-height:1.65}.ds-question-inset span{display:inline-block;color:#76daff;font-size:14px;border-left:3px solid #76daff;padding-left:7px;padding-right:8px;margin-right:4px;letter-spacing:.02em}"
+    },
+    {
+      "name": "Central Question Badge",
+      "kind": "chip",
+      "refersTo": "question-badge",
+      "description": "总问题上方的静态标签，不是按钮。",
+      "html": "<span class=\"ds-question-badge\">总研究问题</span>",
+      "css": ".ds-question-badge{display:inline-block;padding:3px 26px 5px;border:1px solid #9be8ff;border-radius:28px;background:linear-gradient(#25789c80,#062d4099);box-shadow:inset 0 1px 3px #d2f6ff99,0 0 13px #2dbdf32b;color:#f1faff;font-family:var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif);font-size:19px;font-weight:600;line-height:1.5}"
+    },
+    {
+      "name": "Overview Result Strip",
+      "kind": "custom",
+      "refersTo": "result-strip",
+      "description": "概览图下方直接可读的结论条。",
+      "html": "<p class=\"ds-result-strip\"><span>结果</span>输出增加，边际收益逐渐放缓</p>",
+      "css": ".ds-result-strip{margin:12px 15px 13px;padding:7px 13px;border:1px solid #76daff;background:linear-gradient(110deg,rgba(83,192,235,.27),rgba(83,192,235,.09));box-shadow:inset 0 0 9px rgba(83,192,235,.17);border-radius:7px;color:var(--ink,#f5fbff);font-family:var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif);font-size:15px;line-height:1.5}.ds-result-strip span{font-weight:600;color:#76daff;margin-right:15px;letter-spacing:.1em}"
+    },
+    {
+      "name": "Synonymous Source Field",
+      "kind": "custom",
+      "refersTo": "source-field",
+      "description": "标记同义异名字段；珊瑚色不表示数据错误。",
+      "html": "<code class=\"ds-field-context\">&quot;<mark class=\"ds-source-field\">completion_tokens</mark>&quot;: 185</code>",
+      "css": ".ds-field-context{display:block;padding:10px;color:#eaf6fc;background:#2c5e7452;border:1px solid #a4dce67d;border-radius:9px;font-family:SFMono-Regular,Consolas,'Liberation Mono',monospace;font-size:12px;line-height:1.95}.ds-source-field{color:#ff9584;background:#a75a5333;border-radius:4px;padding:0 2px;font-weight:600;line-height:1.6}"
+    },
+    {
+      "name": "Atlas Topic Select",
+      "kind": "input",
+      "refersTo": "atlas-select",
+      "description": "仅独立图册使用的原生主题筛选。",
+      "html": "<label class=\"ds-atlas-label\">图稿主题 <select class=\"ds-atlas-select\"><option>全部37张</option><option>输出预算</option><option>模型规模</option></select></label>",
+      "css": ".ds-atlas-label{display:flex;align-items:center;gap:14px;color:#b9e8f4;font-family:var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif);font-size:14px}.ds-atlas-select{background:#063344;color:var(--ink,#f5fbff);border:1px solid #aabcc9;padding:10px 34px 10px 12px;border-radius:5px;min-height:44px;max-width:100%;font:16px/1.8 var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif)}.ds-atlas-select:focus-visible{outline:3px solid #b4f5ff;outline-offset:5px}"
+    },
+    {
+      "name": "Atlas CSV Export",
+      "kind": "button",
+      "description": "独立图册中保留的文本式图稿导出；正文不使用。",
+      "html": "<button class=\"ds-atlas-export\" type=\"button\">数值CSV</button>",
+      "css": ".ds-atlas-export{font-family:var(--sans,ResearchGeist,'PingFang SC','Microsoft YaHei',sans-serif);font-size:13px;line-height:1.8;color:var(--teal,#7debdc);border:0;background:none;padding:8px 0;min-height:40px;cursor:pointer}.ds-atlas-export:focus-visible{outline:3px solid #b4f5ff;outline-offset:5px}"
+    },
+    {
+      "name": "Compact Study Panel",
+      "kind": "custom",
+      "refersTo": "compact-study-panel",
+      "description": "紧凑发现中的数学／文档面板；真实图形、数值与结论依次直接展示。",
+      "html": "<section class=\"ds-compact-study\"><header><h3>任务专项</h3><p>研究条件与实际来源</p></header><div class=\"ds-compact-study-content\">原生SVG图形与冻结统计</div><p class=\"ds-compact-study-conclusion\">在同一面板直接说明实测结论与适用范围。</p></section>",
+      "css": ".ds-compact-study{--edge:var(--accent,#76daff);min-width:0;padding:0 0 14px;color:var(--ink,#f5fbff);font-family:var(--sans,ResearchGeist,\"PingFang SC\",\"Microsoft YaHei\",sans-serif);border:1px solid var(--edge);border-radius:17px;background:linear-gradient(140deg,rgba(83,192,235,.14),#042735e8 42%,#063343e8);box-shadow:inset 0 1px 2px #f2ffffb0,inset 0 0 0 3px #9ddff533,inset 0 -2px 4px #40daff66,0 0 9px #5fd9ff33,0 14px 28px #000b1733}.ds-compact-study header{padding:15px 19px 12px;border-bottom:1px solid #8acbdf55;background:linear-gradient(180deg,rgba(83,192,235,.16),transparent)}.ds-compact-study h3{margin:0;font-size:25px;line-height:1.4;letter-spacing:.01em;font-weight:600}.ds-compact-study header p{margin:5px 0 0;color:#c3dce8;font-size:13px;line-height:1.7}.ds-compact-study-content{padding:20px;font-size:15px}.ds-compact-study-conclusion{margin:13px 18px 0;padding:8px 11px;border:1px solid var(--edge);border-radius:7px;background:rgba(83,192,235,.11);font-size:14px;line-height:1.7}@media(max-width:620px){.ds-compact-study header{padding:13px 14px 11px}.ds-compact-study h3{font-size:22px}.ds-compact-study header p{font-size:12px;line-height:1.8}.ds-compact-study-conclusion{margin:12px 13px 0;padding:8px 9px;font-size:13px}}"
+    },
+    {
+      "name": "Compact Saved Case",
+      "kind": "custom",
+      "refersTo": "compact-saved-case",
+      "description": "两例真实机制案例使用的玻璃框；明确标注反馈摘录、完整diff与测试前后结果。",
+      "html": "<article class=\"ds-compact-case\"><header><h4>真实修改案例</h4><p>模型 · 策略 · 匿名题目 · 相邻版本</p></header><section class=\"ds-compact-code\"><h5>实际反馈摘录 · 原字段原值</h5><pre><code>已保存反馈的明确标注摘录</code></pre></section><section class=\"ds-compact-code ds-compact-diff\"><h5>代码的实际变化 · 完整diff</h5><pre><code>完整保存的代码差异</code></pre></section><p class=\"ds-compact-outcome\">公开测试与完整强测分别展示前后结果。</p></article>",
+      "css": ".ds-compact-case{min-width:0;padding:14px;border:1px solid #76daff99;border-radius:13px;background:linear-gradient(145deg,#174354aa,#032b3beb 50%,#083646e6);box-shadow:inset 0 1px 2px #e4ffffa6,inset 0 0 0 2px #9ddff529,0 0 8px #5fd9ff22,0 12px 25px #00142340;color:var(--ink,#f5fbff);font-family:var(--sans,ResearchGeist,\"PingFang SC\",\"Microsoft YaHei\",sans-serif)}.ds-compact-case header{margin-bottom:12px}.ds-compact-case h4{margin:0;font-size:18px;line-height:1.4;font-weight:600}.ds-compact-case header p{margin:6px 0 0;font-size:11px;line-height:1.65;color:#b5d1de;overflow-wrap:anywhere}.ds-compact-code{overflow:hidden;border:1px solid #426a7a;border-top:2px solid #83ebd6;background:#002330;border-radius:7px;margin-top:10px}.ds-compact-code h5{margin:0;padding:7px 10px;font-size:11px;line-height:1.5;font-weight:500;color:#bedbe5;background:#12435488;border-bottom:1px solid #426a7a}.ds-compact-code pre{margin:0;padding:9px 10px;font:11.5px/1.45 SFMono-Regular,Consolas,\"Liberation Mono\",monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#e9f7fc;tab-size:4}.ds-compact-diff{border-top-color:#d6c3ff}.ds-compact-outcome{margin:12px 0 0;padding-top:10px;border-top:1px solid #426a7a;font-size:11px;line-height:1.65}@media(max-width:1000px){.ds-compact-case{padding:12px}}@media(max-width:640px){.ds-compact-code pre{font-size:11px;line-height:1.55}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "深海光学玻璃",
+    "overview": "以用户提供的六张 v5 参考图为视觉依据：深海背景、折射光弧、白色中文、带双层亮边的厚玻璃容器。玻璃边缘和局部高光具有明确的材质感，内部保持安静，供读者辨认原生文字、真实表格和科学图形。首页中央文字为“知微”。\n\n光学素材只承担环境与装饰。问题、提示词、来源字段、坐标、数值、置信区间和结论全部由 HTML、原生 SVG 或独立科学 SVG 呈现。系统不把研究内容烘焙进背景图。",
+    "keyCharacteristics": [
+      "深海底色与白色中文形成清楚的阅读层级。",
+      "青、绿、紫、金色玻璃边缘对应并列的研究内容。",
+      "双层边框、顶部亮线与内凹高光共同表达光学玻璃。",
+      "图形与文字直接展示，阅读路径不依赖展开或悬停。"
+    ],
+    "rules": [
+      {
+        "name": "The Scientific Palette Rule",
+        "body": "科学图使用生成器的 `chart-teal`、`chart-coral`、`chart-blue`、金、紫和 `chart-grid`。界面边缘色与图形系列色分别维护；改配色只改呈现层，不改系列顺序、数据或统计。",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "**Do** 保留深海底色、光学双边框和参考图中的局部边缘高光。",
+      "**Do** 使用原生文字与真实科学图呈现全部证据，维护局部滚动区域的名称与键盘焦点。",
+      "**Do** 将视觉配色、布局和可选转场与冻结统计、评分口径分别维护。",
+      "**Do** 在 1440px 与 390px 检查首屏、长文、图内文字和背景对比。"
+    ],
+    "donts": [
+      "**Don't** 将背景素材用于承载文字、界面或科研数据。",
+      "**Don't** 增加第六颗气泡、正文跳转 CTA、页底翻页或左右键跳章。",
+      "**Don't** 隐藏清洗步骤、实际提示词，或删除独立图册的完整44图与案例。",
+      "**Don't** 改写数值、坐标、分母、置信区间、任务评分或把未知模型规模填为零。",
+      "**Don't** 把两种接近的已知参数规模与另外两个未知规模解释为已建立 Scaling Law。"
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "tool": "image_gen.imagegen",
+  "model": "Built-in image generation tool; exact model version not exposed by tool",
+  "calls": [
+    {
+      "purpose": "Two art-direction candidates based on actual before screenshots; selected restrained optical atelier B",
+      "prompt": {
+        "path": "optimization/gateway-polish/design/directions-prompt.txt",
+        "sha256": "af5b6466493759f5d11566662b35d0f3c97b51c015e69bb235a9f69a0b841cae",
+        "bytes": 3069
+      },
+      "inputs": [
+        {
+          "path": "optimization/gateway-polish/before/gateway-desktop.png",
+          "sha256": "5d8fa4afd32650f8d6c9237915270730ef7755f7dd0d70997a6d9baa750ab2ed",
+          "bytes": 692274
+        },
+        {
+          "path": "optimization/gateway-polish/before/gateway-mobile.png",
+          "sha256": "2a85ffff0a6100bb8c4694664d84a1579a1c2032009054d6a6e144406185dd7a",
+          "bytes": 848852
+        }
+      ],
+      "output": {
+        "path": "optimization/gateway-polish/design/directions.png",
+        "sha256": "fd5a0078c70f3fcd12b1dc2f36151a9a96b1a2df790c0c6c4215bf322b2af4b5",
+        "bytes": 2085590
+      },
+      "adopted": [
+        "Understated optical stage",
+        "Different sphere sizes and gentle tints",
+        "Separate mobile touch layout"
+      ],
+      "rejected": [
+        "Generated fictitious people, landscapes and research charts",
+        "Rasterized text or clickable controls"
+      ]
+    },
+    {
+      "purpose": "Generate a standalone optical atmosphere with no UI, text, lens or research content",
+      "prompt": {
+        "path": "optimization/gateway-polish/design/background-prompt.txt",
+        "sha256": "782e5ec51ccd845bed6a16f75d955ee3173079ea560e3ee51569eb2fe8d2b93c",
+        "bytes": 1471
+      },
+      "inputs": [],
+      "output": {
+        "path": "optimization/gateway-polish/design/optical-atmosphere.png",
+        "sha256": "4004ac7d79a95042f44ecdf1532037e49117650fa1127949e7c65b2c89d88ca2",
+        "bytes": 1712503
+      },
+      "runtime": {
+        "path": "app/assets/visual/gateway-atmosphere.webp",
+        "sha256": "5700cbefad985179ef77a005a6746470503a83f7a9267d3861915580202c96a7",
+        "bytes": 31242
+      },
+      "conversion": "ffmpeg -i optical-atmosphere.png -c:v libwebp -quality 78 gateway-atmosphere.webp; format conversion only, no crop or visual edits"
+    },
+    {
+      "purpose": "Second review from actual implemented desktop/mobile/research screenshots",
+      "prompt": {
+        "path": "optimization/gateway-polish/design/feedback-prompt.txt",
+        "sha256": "5a3b9d22bae611feedb7ef3cfe4f361f2a1e1b37b79aee9ff46035d3574f877f",
+        "bytes": 1816
+      },
+      "inputs": [
+        {
+          "path": "optimization/gateway-polish/design/feedback-inputs/gateway-1440.png",
+          "sha256": "2c553566385205438fda6958d9aab40994971087cc2d801cdc8a65a06766f8eb",
+          "bytes": 1053799
+        },
+        {
+          "path": "optimization/gateway-polish/design/feedback-inputs/gateway-390.png",
+          "sha256": "8aa03df8e93fd4f877e8231892934b8c0584a09ed4d3259cf8795e1f40d80d1a",
+          "bytes": 315291
+        },
+        {
+          "path": "optimization/gateway-polish/design/feedback-inputs/collection-desktop.png",
+          "sha256": "ea376961033c838fadd386815bc2dee4ec3beac97f6d2d02ff5a75ff862fb7be",
+          "bytes": 84185
+        }
+      ],
+      "output": {
+        "path": "optimization/gateway-polish/design/feedback.png",
+        "sha256": "ebddbccbc154aef50165f9d78a69be7f600ead0e56c2e334e98f9c10066e8a38",
+        "bytes": 1739575
+      },
+      "adopted": [
+        "Lift the lower desktop entry to separate its labels from footer",
+        "Maintain native text and real scientific page content"
+      ],
+      "note": "Feedback input bytes archived before final browser captures replaced the working after screenshots."
+    }
+  ]
+}

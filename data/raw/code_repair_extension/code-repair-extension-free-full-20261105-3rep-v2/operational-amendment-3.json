@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-11-05T03:38:27.847007+00:00",
+  "scope": "Dispatch isolation and startup integrity checks only",
+  "collector_sha256": "895df629abd297ef7ac222cb9a289128e9c2026424d671a3c185fea881b55b30",
+  "changes": [
+    "Split the same128 dispatch slots evenly between the two models, preserving each model filtered deterministic block queue.",
+    "Restore Qwen2.5 conservative observed stable128000 reservation TPM after resume; no automatic token-budget growth.",
+    "Verify runtime and resource-policy hashes on startup; existing live source/runtime audit passed."
+  ],
+  "unchanged": [
+    "frozen sources/configuration",
+    "all prompts, histories, sampling, tasks, repeats, arms, rounds and record IDs",
+    "no new response requested for already saved record IDs"
+  ],
+  "selection": "No interim model treatment effects used to alter scheduling."
+}

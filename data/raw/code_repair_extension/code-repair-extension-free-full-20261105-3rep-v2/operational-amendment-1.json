@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-11-05T03:14:13.990249+00:00",
+  "reason": "Uniform resolution of reproducible candidate resource-limit violations; retain raw interrupted results and canonical control, no task exclusion. Added before arm-effect analysis. Frozen evaluator/config/protocol are unchanged.",
+  "scope": "All models, tasks, repeats, arms and public/holdout scopes",
+  "resource_policy_sha256": "371820c1e32711d69fe8727f121187c47d5f5af70ae457f6388be6135dd468dc",
+  "raw_diagnostics_preserved": "resource-audit.jsonl",
+  "pricing": "verified zero input and generation price only",
+  "dispatch_only_change": "Honor explicit TPM429 at200k Qwen2.5; one adjustment per rate window; no sampling or prompt changes"
+}

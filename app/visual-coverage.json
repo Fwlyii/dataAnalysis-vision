@@ -1,0 +1,8 @@
+{
+  "version": 14,
+  "baseline": "c3d648ac55bc63c7662c3bc8bd71355de8e5954b",
+  "acceptedSources": "tests/fixtures/accepted-release.json",
+  "scientificProtection": "tests/fixtures/research-protection.json",
+  "routeInventory": "tests/fixtures/routes.json",
+  "policy": "Preserve scientific data and current web source; run fresh browser smoke before Pages deployment. Generated screenshots, videos and test output are not committed."
+}

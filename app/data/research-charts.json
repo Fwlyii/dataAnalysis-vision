@@ -1,0 +1,3547 @@
+{
+  "schema": "zhiwei-research-atlas-v1",
+  "generated_at": "2026-11-05",
+  "palette": {
+    "paper": "#042735",
+    "ink": "#f5fbff",
+    "muted": "#b5d1de",
+    "grid": "#315361",
+    "teal": "#61e6d3",
+    "clay": "#ff967f",
+    "blue": "#76ccff",
+    "gold": "#f4cf84",
+    "violet": "#d6c3ff"
+  },
+  "chart_count": 37,
+  "topics": [
+    "budget",
+    "scale",
+    "concise",
+    "limits",
+    "language",
+    "position",
+    "feedback"
+  ],
+  "charts": [
+    {
+      "id": "budget-log-gsm8k",
+      "topic": "budget",
+      "title": "Token投入的边际收益：GSM8K",
+      "subtitle": "Qwen2.5 · WordLimit七档 · 200题/条件",
+      "source": "reports/story/log-fit-diagnostics.csv",
+      "description": "七档真实词数限制；SR = a + b·ln(Token)，样本内 R² = 0.939。",
+      "file": "assets/research/budget-log-gsm8k.svg",
+      "role": "main",
+      "filters": {
+        "model": "qwen",
+        "task": "gsm8k"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "WordLimit(1)",
+          "questions": 200.0,
+          "score_pct": 17.0,
+          "mean_tokens": 3.43,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "WordLimit(5)",
+          "questions": 200.0,
+          "score_pct": 18.5,
+          "mean_tokens": 6.995,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "WordLimit(10)",
+          "questions": 200.0,
+          "score_pct": 22.0,
+          "mean_tokens": 7.77,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.5
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "WordLimit(15)",
+          "questions": 200.0,
+          "score_pct": 38.5,
+          "mean_tokens": 17.36,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.5
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "WordLimit(25)",
+          "questions": 200.0,
+          "score_pct": 49.5,
+          "mean_tokens": 29.555,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.5
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "WordLimit(50)",
+          "questions": 200.0,
+          "score_pct": 62.5,
+          "mean_tokens": 45.38,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "WordLimit(100)",
+          "questions": 200.0,
+          "score_pct": 82.0,
+          "mean_tokens": 74.105,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        }
+      ]
+    },
+    {
+      "id": "budget-log-math500",
+      "topic": "budget",
+      "title": "Token投入的边际收益：MATH500",
+      "subtitle": "Qwen2.5 · WordLimit七档 · 200题/条件",
+      "source": "reports/story/log-fit-diagnostics.csv",
+      "description": "七档真实词数限制；SR = a + b·ln(Token)，样本内 R² = 0.878。",
+      "file": "assets/research/budget-log-math500.svg",
+      "role": "support",
+      "filters": {
+        "model": "qwen",
+        "task": "math500"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "qwen",
+          "task": "math500",
+          "prompt": "WordLimit(1)",
+          "questions": 200.0,
+          "score_pct": 23.0,
+          "mean_tokens": 3.71,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "prompt": "WordLimit(5)",
+          "questions": 200.0,
+          "score_pct": 29.5,
+          "mean_tokens": 7.46,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 2.0
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "prompt": "WordLimit(10)",
+          "questions": 200.0,
+          "score_pct": 31.5,
+          "mean_tokens": 8.215,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 2.0
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "prompt": "WordLimit(15)",
+          "questions": 200.0,
+          "score_pct": 32.5,
+          "mean_tokens": 19.73,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 1.5
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "prompt": "WordLimit(25)",
+          "questions": 200.0,
+          "score_pct": 34.0,
+          "mean_tokens": 32.155,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.5
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "prompt": "WordLimit(50)",
+          "questions": 200.0,
+          "score_pct": 47.0,
+          "mean_tokens": 55.65,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "prompt": "WordLimit(100)",
+          "questions": 200.0,
+          "score_pct": 56.99999999999999,
+          "mean_tokens": 116.41,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        }
+      ]
+    },
+    {
+      "id": "budget-log-mmlu",
+      "topic": "budget",
+      "title": "Token投入的边际收益：MMLU-Pro",
+      "subtitle": "Qwen2.5 · WordLimit七档 · 200题/条件",
+      "source": "reports/story/log-fit-diagnostics.csv",
+      "description": "七档真实词数限制；SR = a + b·ln(Token)，样本内 R² = 0.709。",
+      "file": "assets/research/budget-log-mmlu.svg",
+      "role": "support",
+      "filters": {
+        "model": "qwen",
+        "task": "mmlu"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "prompt": "WordLimit(1)",
+          "questions": 200.0,
+          "score_pct": 32.5,
+          "mean_tokens": 1.08,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "prompt": "WordLimit(5)",
+          "questions": 200.0,
+          "score_pct": 24.0,
+          "mean_tokens": 3.7,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 25.5
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "prompt": "WordLimit(10)",
+          "questions": 200.0,
+          "score_pct": 26.5,
+          "mean_tokens": 5.375,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 10.5
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "prompt": "WordLimit(15)",
+          "questions": 200.0,
+          "score_pct": 30.0,
+          "mean_tokens": 10.735,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 7.000000000000001
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "prompt": "WordLimit(25)",
+          "questions": 200.0,
+          "score_pct": 39.5,
+          "mean_tokens": 17.72,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 3.0
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "prompt": "WordLimit(50)",
+          "questions": 200.0,
+          "score_pct": 52.0,
+          "mean_tokens": 39.59,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 1.5
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "prompt": "WordLimit(100)",
+          "questions": 200.0,
+          "score_pct": 63.5,
+          "mean_tokens": 101.52,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        }
+      ]
+    },
+    {
+      "id": "budget-fit-comparison",
+      "topic": "budget",
+      "title": "对数关系并非所有条件都一样",
+      "subtitle": "模型 × 题库 · 相同WordLimit七档拟合",
+      "source": "reports/story/log-fit-diagnostics.csv",
+      "description": "颜色越深，样本内拟合度越高；R²不代表因果关系。",
+      "file": "assets/research/budget-fit-comparison.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "row": "DeepSeek Flash",
+          "column": "GSM8K",
+          "value": 66.88634307843826
+        },
+        {
+          "row": "DeepSeek Flash",
+          "column": "MATH500",
+          "value": 0.14077583246197012
+        },
+        {
+          "row": "DeepSeek Flash",
+          "column": "MMLU-Pro",
+          "value": 14.863962792822704
+        },
+        {
+          "row": "HY4 preview",
+          "column": "GSM8K",
+          "value": 13.019894897838235
+        },
+        {
+          "row": "HY4 preview",
+          "column": "MATH500",
+          "value": 57.04249335202519
+        },
+        {
+          "row": "HY4 preview",
+          "column": "MMLU-Pro",
+          "value": 0.20423224137654516
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "GSM8K",
+          "value": 93.92053399519477
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "MATH500",
+          "value": 87.76808406078612
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "MMLU-Pro",
+          "value": 70.85187846964945
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "GSM8K",
+          "value": 63.475853326214306
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "MATH500",
+          "value": 42.419809938619416
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "MMLU-Pro",
+          "value": 58.384380278923146
+        }
+      ]
+    },
+    {
+      "id": "budget-prompt-landscape",
+      "topic": "budget",
+      "title": "31种提示的完整评分全景",
+      "subtitle": "Qwen2.5 · 每个单元格200题 · 按题库分别评分",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "完整保留实际策略；每格对应真实条件，没有补造组合。",
+      "file": "assets/research/budget-prompt-landscape.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 985,
+      "data": [
+        {
+          "row": "单词缩写",
+          "column": "GSM8K",
+          "value": 37.5
+        },
+        {
+          "row": "单词缩写",
+          "column": "MATH500",
+          "value": 23.0
+        },
+        {
+          "row": "单词缩写",
+          "column": "MMLU-Pro",
+          "value": 30.5
+        },
+        {
+          "row": "简洁分步",
+          "column": "GSM8K",
+          "value": 92.0
+        },
+        {
+          "row": "简洁分步",
+          "column": "MATH500",
+          "value": 70.0
+        },
+        {
+          "row": "简洁分步",
+          "column": "MMLU-Pro",
+          "value": 65.5
+        },
+        {
+          "row": "项目符号",
+          "column": "GSM8K",
+          "value": 83.5
+        },
+        {
+          "row": "项目符号",
+          "column": "MATH500",
+          "value": 60.5
+        },
+        {
+          "row": "项目符号",
+          "column": "MMLU-Pro",
+          "value": 54.50000000000001
+        },
+        {
+          "row": "字母 10",
+          "column": "GSM8K",
+          "value": 19.5
+        },
+        {
+          "row": "字母 10",
+          "column": "MATH500",
+          "value": 30.5
+        },
+        {
+          "row": "字母 10",
+          "column": "MMLU-Pro",
+          "value": 31.0
+        },
+        {
+          "row": "字母 100",
+          "column": "GSM8K",
+          "value": 61.0
+        },
+        {
+          "row": "字母 100",
+          "column": "MATH500",
+          "value": 42.5
+        },
+        {
+          "row": "字母 100",
+          "column": "MMLU-Pro",
+          "value": 35.5
+        },
+        {
+          "row": "字母 50",
+          "column": "GSM8K",
+          "value": 39.5
+        },
+        {
+          "row": "字母 50",
+          "column": "MATH500",
+          "value": 34.5
+        },
+        {
+          "row": "字母 50",
+          "column": "MMLU-Pro",
+          "value": 32.0
+        },
+        {
+          "row": "字母 500",
+          "column": "GSM8K",
+          "value": 90.0
+        },
+        {
+          "row": "字母 500",
+          "column": "MATH500",
+          "value": 70.0
+        },
+        {
+          "row": "字母 500",
+          "column": "MMLU-Pro",
+          "value": 61.0
+        },
+        {
+          "row": "中文模板",
+          "column": "GSM8K",
+          "value": 87.0
+        },
+        {
+          "row": "中文模板",
+          "column": "MATH500",
+          "value": 70.5
+        },
+        {
+          "row": "中文模板",
+          "column": "MMLU-Pro",
+          "value": 65.0
+        },
+        {
+          "row": "中文限字 10",
+          "column": "GSM8K",
+          "value": 21.0
+        },
+        {
+          "row": "中文限字 10",
+          "column": "MATH500",
+          "value": 35.5
+        },
+        {
+          "row": "中文限字 10",
+          "column": "MMLU-Pro",
+          "value": 29.5
+        },
+        {
+          "row": "中文限字 100",
+          "column": "GSM8K",
+          "value": 33.0
+        },
+        {
+          "row": "中文限字 100",
+          "column": "MATH500",
+          "value": 37.0
+        },
+        {
+          "row": "中文限字 100",
+          "column": "MMLU-Pro",
+          "value": 27.0
+        },
+        {
+          "row": "中文限字 50",
+          "column": "GSM8K",
+          "value": 28.499999999999996
+        },
+        {
+          "row": "中文限字 50",
+          "column": "MATH500",
+          "value": 34.5
+        },
+        {
+          "row": "中文限字 50",
+          "column": "MMLU-Pro",
+          "value": 26.5
+        },
+        {
+          "row": "中文限字 500",
+          "column": "GSM8K",
+          "value": 78.0
+        },
+        {
+          "row": "中文限字 500",
+          "column": "MATH500",
+          "value": 65.0
+        },
+        {
+          "row": "中文限字 500",
+          "column": "MMLU-Pro",
+          "value": 63.0
+        },
+        {
+          "row": "分步回答",
+          "column": "GSM8K",
+          "value": 91.5
+        },
+        {
+          "row": "分步回答",
+          "column": "MATH500",
+          "value": 68.0
+        },
+        {
+          "row": "分步回答",
+          "column": "MMLU-Pro",
+          "value": 64.0
+        },
+        {
+          "row": "直接回答",
+          "column": "GSM8K",
+          "value": 22.0
+        },
+        {
+          "row": "直接回答",
+          "column": "MATH500",
+          "value": 34.0
+        },
+        {
+          "row": "直接回答",
+          "column": "MMLU-Pro",
+          "value": 32.0
+        },
+        {
+          "row": "简化语法",
+          "column": "GSM8K",
+          "value": 59.5
+        },
+        {
+          "row": "简化语法",
+          "column": "MATH500",
+          "value": 33.0
+        },
+        {
+          "row": "简化语法",
+          "column": "MMLU-Pro",
+          "value": 39.0
+        },
+        {
+          "row": "无空格",
+          "column": "GSM8K",
+          "value": 36.5
+        },
+        {
+          "row": "无空格",
+          "column": "MATH500",
+          "value": 26.5
+        },
+        {
+          "row": "无空格",
+          "column": "MMLU-Pro",
+          "value": 36.5
+        },
+        {
+          "row": "仅数字",
+          "column": "GSM8K",
+          "value": 70.0
+        },
+        {
+          "row": "仅数字",
+          "column": "MATH500",
+          "value": 60.5
+        },
+        {
+          "row": "仅数字",
+          "column": "MMLU-Pro",
+          "value": 52.0
+        },
+        {
+          "row": "步数 1",
+          "column": "GSM8K",
+          "value": 81.5
+        },
+        {
+          "row": "步数 1",
+          "column": "MATH500",
+          "value": 59.0
+        },
+        {
+          "row": "步数 1",
+          "column": "MMLU-Pro",
+          "value": 61.5
+        },
+        {
+          "row": "步数 2",
+          "column": "GSM8K",
+          "value": 84.5
+        },
+        {
+          "row": "步数 2",
+          "column": "MATH500",
+          "value": 64.5
+        },
+        {
+          "row": "步数 2",
+          "column": "MMLU-Pro",
+          "value": 62.5
+        },
+        {
+          "row": "步数 5",
+          "column": "GSM8K",
+          "value": 85.5
+        },
+        {
+          "row": "步数 5",
+          "column": "MATH500",
+          "value": 68.5
+        },
+        {
+          "row": "步数 5",
+          "column": "MMLU-Pro",
+          "value": 65.0
+        },
+        {
+          "row": "Token 10",
+          "column": "GSM8K",
+          "value": 34.5
+        },
+        {
+          "row": "Token 10",
+          "column": "MATH500",
+          "value": 34.5
+        },
+        {
+          "row": "Token 10",
+          "column": "MMLU-Pro",
+          "value": 31.5
+        },
+        {
+          "row": "Token 100",
+          "column": "GSM8K",
+          "value": 79.5
+        },
+        {
+          "row": "Token 100",
+          "column": "MATH500",
+          "value": 60.0
+        },
+        {
+          "row": "Token 100",
+          "column": "MMLU-Pro",
+          "value": 57.99999999999999
+        },
+        {
+          "row": "Token 50",
+          "column": "GSM8K",
+          "value": 79.5
+        },
+        {
+          "row": "Token 50",
+          "column": "MATH500",
+          "value": 51.0
+        },
+        {
+          "row": "Token 50",
+          "column": "MMLU-Pro",
+          "value": 49.0
+        },
+        {
+          "row": "Token 500",
+          "column": "GSM8K",
+          "value": 92.0
+        },
+        {
+          "row": "Token 500",
+          "column": "MATH500",
+          "value": 74.0
+        },
+        {
+          "row": "Token 500",
+          "column": "MMLU-Pro",
+          "value": 67.5
+        },
+        {
+          "row": "词数 1",
+          "column": "GSM8K",
+          "value": 17.0
+        },
+        {
+          "row": "词数 1",
+          "column": "MATH500",
+          "value": 23.0
+        },
+        {
+          "row": "词数 1",
+          "column": "MMLU-Pro",
+          "value": 32.5
+        },
+        {
+          "row": "词数 10",
+          "column": "GSM8K",
+          "value": 22.0
+        },
+        {
+          "row": "词数 10",
+          "column": "MATH500",
+          "value": 31.5
+        },
+        {
+          "row": "词数 10",
+          "column": "MMLU-Pro",
+          "value": 26.5
+        },
+        {
+          "row": "词数 100",
+          "column": "GSM8K",
+          "value": 82.0
+        },
+        {
+          "row": "词数 100",
+          "column": "MATH500",
+          "value": 56.99999999999999
+        },
+        {
+          "row": "词数 100",
+          "column": "MMLU-Pro",
+          "value": 63.5
+        },
+        {
+          "row": "词数 15",
+          "column": "GSM8K",
+          "value": 38.5
+        },
+        {
+          "row": "词数 15",
+          "column": "MATH500",
+          "value": 32.5
+        },
+        {
+          "row": "词数 15",
+          "column": "MMLU-Pro",
+          "value": 30.0
+        },
+        {
+          "row": "词数 25",
+          "column": "GSM8K",
+          "value": 49.5
+        },
+        {
+          "row": "词数 25",
+          "column": "MATH500",
+          "value": 34.0
+        },
+        {
+          "row": "词数 25",
+          "column": "MMLU-Pro",
+          "value": 39.5
+        },
+        {
+          "row": "词数 5",
+          "column": "GSM8K",
+          "value": 18.5
+        },
+        {
+          "row": "词数 5",
+          "column": "MATH500",
+          "value": 29.5
+        },
+        {
+          "row": "词数 5",
+          "column": "MMLU-Pro",
+          "value": 24.0
+        },
+        {
+          "row": "词数 50",
+          "column": "GSM8K",
+          "value": 62.5
+        },
+        {
+          "row": "词数 50",
+          "column": "MATH500",
+          "value": 47.0
+        },
+        {
+          "row": "词数 50",
+          "column": "MMLU-Pro",
+          "value": 52.0
+        }
+      ]
+    },
+    {
+      "id": "scale-known-parameters",
+      "topic": "scale",
+      "title": "模型规模与表现：先看已知参数的真实比较",
+      "subtitle": "DefaultCoT · 同题比较 · 参数量单位为十亿（B）",
+      "source": "app/data/summary.json; reasoning-all-prompt-profiles.csv",
+      "description": "当前仅7.61B与8.2B两个相近规模；代际、训练和任务差异同时存在。",
+      "file": "assets/research/scale-known-parameters.svg",
+      "role": "main",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "qwen",
+          "parameters_b": 7.61,
+          "task": "gsm8k",
+          "score_pct": 91.5,
+          "group": "GSM8K",
+          "label": "Qwen2.5 7B"
+        },
+        {
+          "model": "qwen",
+          "parameters_b": 7.61,
+          "task": "math500",
+          "score_pct": 68.0,
+          "group": "MATH500",
+          "label": "Qwen2.5 7B"
+        },
+        {
+          "model": "qwen",
+          "parameters_b": 7.61,
+          "task": "mmlu",
+          "score_pct": 64.0,
+          "group": "MMLU-Pro",
+          "label": "Qwen2.5 7B"
+        },
+        {
+          "model": "qwen3",
+          "parameters_b": 8.2,
+          "task": "gsm8k",
+          "score_pct": 90.5,
+          "group": "GSM8K",
+          "label": "Qwen3 8B"
+        },
+        {
+          "model": "qwen3",
+          "parameters_b": 8.2,
+          "task": "math500",
+          "score_pct": 57.99999999999999,
+          "group": "MATH500",
+          "label": "Qwen3 8B"
+        },
+        {
+          "model": "qwen3",
+          "parameters_b": 8.2,
+          "task": "mmlu",
+          "score_pct": 63.5,
+          "group": "MMLU-Pro",
+          "label": "Qwen3 8B"
+        }
+      ]
+    },
+    {
+      "id": "scale-models-gsm8k",
+      "topic": "scale",
+      "title": "模型差异需要放回任务：GSM8K",
+      "subtitle": "同一批200题 · 三种回答组织策略",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "同一任务、同一策略内比较；未知参数量的模型不进入参数拟合。",
+      "file": "assets/research/scale-models-gsm8k.svg",
+      "role": "support",
+      "filters": {
+        "task": "gsm8k"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "DeepSeek Flash",
+          "series": "直接回答",
+          "value": 96.0
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "分步回答",
+          "value": 97.5
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "简洁分步",
+          "value": 99.0
+        },
+        {
+          "category": "HY4 preview",
+          "series": "直接回答",
+          "value": 84.5
+        },
+        {
+          "category": "HY4 preview",
+          "series": "分步回答",
+          "value": 98.0
+        },
+        {
+          "category": "HY4 preview",
+          "series": "简洁分步",
+          "value": 98.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "直接回答",
+          "value": 22.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "分步回答",
+          "value": 91.5
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "简洁分步",
+          "value": 92.0
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "直接回答",
+          "value": 72.0
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "分步回答",
+          "value": 90.5
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "简洁分步",
+          "value": 89.5
+        }
+      ]
+    },
+    {
+      "id": "scale-models-math500",
+      "topic": "scale",
+      "title": "模型差异需要放回任务：MATH500",
+      "subtitle": "同一批200题 · 三种回答组织策略",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "同一任务、同一策略内比较；未知参数量的模型不进入参数拟合。",
+      "file": "assets/research/scale-models-math500.svg",
+      "role": "support",
+      "filters": {
+        "task": "math500"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "DeepSeek Flash",
+          "series": "直接回答",
+          "value": 83.5
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "分步回答",
+          "value": 76.0
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "简洁分步",
+          "value": 83.0
+        },
+        {
+          "category": "HY4 preview",
+          "series": "直接回答",
+          "value": 75.0
+        },
+        {
+          "category": "HY4 preview",
+          "series": "分步回答",
+          "value": 68.5
+        },
+        {
+          "category": "HY4 preview",
+          "series": "简洁分步",
+          "value": 73.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "直接回答",
+          "value": 34.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "分步回答",
+          "value": 68.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "简洁分步",
+          "value": 70.0
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "直接回答",
+          "value": 61.0
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "分步回答",
+          "value": 57.99999999999999
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "简洁分步",
+          "value": 69.5
+        }
+      ]
+    },
+    {
+      "id": "scale-models-mmlu",
+      "topic": "scale",
+      "title": "模型差异需要放回任务：MMLU-Pro",
+      "subtitle": "同一批200题 · 三种回答组织策略",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "同一任务、同一策略内比较；未知参数量的模型不进入参数拟合。",
+      "file": "assets/research/scale-models-mmlu.svg",
+      "role": "support",
+      "filters": {
+        "task": "mmlu"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "DeepSeek Flash",
+          "series": "直接回答",
+          "value": 82.0
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "分步回答",
+          "value": 84.0
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "简洁分步",
+          "value": 84.5
+        },
+        {
+          "category": "HY4 preview",
+          "series": "直接回答",
+          "value": 75.0
+        },
+        {
+          "category": "HY4 preview",
+          "series": "分步回答",
+          "value": 77.0
+        },
+        {
+          "category": "HY4 preview",
+          "series": "简洁分步",
+          "value": 80.5
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "直接回答",
+          "value": 32.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "分步回答",
+          "value": 64.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "简洁分步",
+          "value": 65.5
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "直接回答",
+          "value": 43.0
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "分步回答",
+          "value": 63.5
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "简洁分步",
+          "value": 69.5
+        }
+      ]
+    },
+    {
+      "id": "scale-performance-cost",
+      "topic": "scale",
+      "title": "更强表现与输出成本一起看",
+      "subtitle": "四模型 × 三题库 · DefaultCoT · 每点200题",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "颜色区分模型；悬停各点查看模型和题库；不混合任务总准确率。",
+      "file": "assets/research/scale-performance-cost.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "deepseek",
+          "task": "gsm8k",
+          "tokens": 166.825,
+          "score_pct": 97.5,
+          "group": "DeepSeek Flash",
+          "label": "GSM8K"
+        },
+        {
+          "model": "deepseek",
+          "task": "math500",
+          "tokens": 443.125,
+          "score_pct": 76.0,
+          "group": "DeepSeek Flash",
+          "label": "MATH500"
+        },
+        {
+          "model": "deepseek",
+          "task": "mmlu",
+          "tokens": 327.04,
+          "score_pct": 84.0,
+          "group": "DeepSeek Flash",
+          "label": "MMLU-Pro"
+        },
+        {
+          "model": "hy4",
+          "task": "gsm8k",
+          "tokens": 209.86,
+          "score_pct": 98.0,
+          "group": "HY4 preview",
+          "label": "GSM8K"
+        },
+        {
+          "model": "hy4",
+          "task": "math500",
+          "tokens": 497.335,
+          "score_pct": 68.5,
+          "group": "HY4 preview",
+          "label": "MATH500"
+        },
+        {
+          "model": "hy4",
+          "task": "mmlu",
+          "tokens": 459.09,
+          "score_pct": 77.0,
+          "group": "HY4 preview",
+          "label": "MMLU-Pro"
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "tokens": 236.735,
+          "score_pct": 91.5,
+          "group": "Qwen2.5 7B",
+          "label": "GSM8K"
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "tokens": 497.275,
+          "score_pct": 68.0,
+          "group": "Qwen2.5 7B",
+          "label": "MATH500"
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "tokens": 481.85,
+          "score_pct": 64.0,
+          "group": "Qwen2.5 7B",
+          "label": "MMLU-Pro"
+        },
+        {
+          "model": "qwen3",
+          "task": "gsm8k",
+          "tokens": 260.52,
+          "score_pct": 90.5,
+          "group": "Qwen3 8B",
+          "label": "GSM8K"
+        },
+        {
+          "model": "qwen3",
+          "task": "math500",
+          "tokens": 537.155,
+          "score_pct": 57.99999999999999,
+          "group": "Qwen3 8B",
+          "label": "MATH500"
+        },
+        {
+          "model": "qwen3",
+          "task": "mmlu",
+          "tokens": 570.325,
+          "score_pct": 63.5,
+          "group": "Qwen3 8B",
+          "label": "MMLU-Pro"
+        }
+      ]
+    },
+    {
+      "id": "concise-baseline",
+      "topic": "concise",
+      "title": "保留分步，压缩表达",
+      "subtitle": "同题三策略 · 分别展示质量与开销",
+      "source": "app/data/story-evidence.json",
+      "description": "简洁要求在保留较好表现的同时减少输出。",
+      "file": "assets/research/concise-baseline.svg",
+      "role": "main",
+      "filters": {
+        "model": "qwen",
+        "task": "gsm8k"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "NoCoT",
+          "questions": 200.0,
+          "score_pct": 22.0,
+          "mean_tokens": 6.465,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "DefaultCoT",
+          "questions": 200.0,
+          "score_pct": 91.5,
+          "mean_tokens": 236.735,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.5
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "prompt": "BeConcise",
+          "questions": 200.0,
+          "score_pct": 92.0,
+          "mean_tokens": 185.845,
+          "truncated_pct": 0.0,
+          "unresolved_pct": 0.0
+        }
+      ]
+    },
+    {
+      "id": "concise-cross-task",
+      "topic": "concise",
+      "title": "17组跨任务对照：输出都缩短",
+      "subtitle": "横轴为相对输出减少；纵轴为原任务得分差",
+      "source": "reports/story/concise-cross-task-points.csv",
+      "description": "17组全部缩短输出，15组得分点估计不降；不同任务保留各自指标。",
+      "file": "assets/research/concise-cross-task.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "deepseek",
+          "task": "gsm8k",
+          "saving": 43.66851491083471,
+          "delta": 1.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "DeepSeek Flash / GSM8K"
+        },
+        {
+          "model": "deepseek",
+          "task": "math500",
+          "saving": 22.510578279266568,
+          "delta": 7.000000000000001,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "DeepSeek Flash / MATH500"
+        },
+        {
+          "model": "deepseek",
+          "task": "mmlu",
+          "saving": 27.424779843444234,
+          "delta": 0.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "DeepSeek Flash / MMLU-Pro"
+        },
+        {
+          "model": "hy4",
+          "task": "gsm8k",
+          "saving": 25.736205089107035,
+          "delta": 0.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "HY4 preview / GSM8K"
+        },
+        {
+          "model": "hy4",
+          "task": "math500",
+          "saving": 11.376637477756436,
+          "delta": 4.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "HY4 preview / MATH500"
+        },
+        {
+          "model": "hy4",
+          "task": "mmlu",
+          "saving": 19.213008342590776,
+          "delta": 3.5000000000000004,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "HY4 preview / MMLU-Pro"
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "saving": 21.496610133693792,
+          "delta": 0.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen2.5 7B / GSM8K"
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "saving": 13.337690412749481,
+          "delta": 2.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen2.5 7B / MATH500"
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "saving": 16.97935042025527,
+          "delta": 1.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen2.5 7B / MMLU-Pro"
+        },
+        {
+          "model": "qwen3",
+          "task": "gsm8k",
+          "saving": 41.23099953938277,
+          "delta": -1.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen3 8B / GSM8K"
+        },
+        {
+          "model": "qwen3",
+          "task": "math500",
+          "saving": 20.946467965484818,
+          "delta": 11.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen3 8B / MATH500"
+        },
+        {
+          "model": "qwen3",
+          "task": "mmlu",
+          "saving": 33.53701836672074,
+          "delta": 6.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen3 8B / MMLU-Pro"
+        },
+        {
+          "model": "qwen",
+          "task": "Document QA",
+          "saving": 26.87759494924933,
+          "delta": 0.33333333333332993,
+          "direction": "Document QA",
+          "group": "文档问答",
+          "label": "Qwen2.5 7B / Document QA"
+        },
+        {
+          "model": "qwen3",
+          "task": "Document QA",
+          "saving": 43.991255038600805,
+          "delta": 1.2499999999999956,
+          "direction": "Document QA",
+          "group": "文档问答",
+          "label": "Qwen3 8B / Document QA"
+        },
+        {
+          "model": "deepseek",
+          "task": "Code",
+          "saving": 57.45797152685333,
+          "delta": 2.901554404145079,
+          "direction": "Code",
+          "group": "代码生成",
+          "label": "DeepSeek Flash / Code"
+        },
+        {
+          "model": "qwen",
+          "task": "Code",
+          "saving": 21.992393076146865,
+          "delta": -0.6217616580310892,
+          "direction": "Code",
+          "group": "代码生成",
+          "label": "Qwen2.5 7B / Code"
+        },
+        {
+          "model": "qwen3",
+          "task": "Code",
+          "saving": 39.017376063652144,
+          "delta": 1.5544041450777202,
+          "direction": "Code",
+          "group": "代码生成",
+          "label": "Qwen3 8B / Code"
+        }
+      ]
+    },
+    {
+      "id": "concise-savings",
+      "topic": "concise",
+      "title": "省下的输出有多大？",
+      "subtitle": "全部17个已保存模型×任务配对",
+      "source": "reports/story/concise-cross-task-points.csv",
+      "description": "BeConcise 相对 DefaultCoT；显示完整范围，不只挑选最大收益。",
+      "file": "assets/research/concise-savings.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 683,
+      "data": [
+        {
+          "model": "deepseek",
+          "task": "Code",
+          "saving": 57.45797152685333,
+          "delta": 2.901554404145079,
+          "direction": "Code",
+          "group": "代码生成",
+          "label": "DeepSeek Flash / Code"
+        },
+        {
+          "model": "qwen3",
+          "task": "Document QA",
+          "saving": 43.991255038600805,
+          "delta": 1.2499999999999956,
+          "direction": "Document QA",
+          "group": "文档问答",
+          "label": "Qwen3 8B / Document QA"
+        },
+        {
+          "model": "deepseek",
+          "task": "gsm8k",
+          "saving": 43.66851491083471,
+          "delta": 1.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "DeepSeek Flash / GSM8K"
+        },
+        {
+          "model": "qwen3",
+          "task": "gsm8k",
+          "saving": 41.23099953938277,
+          "delta": -1.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen3 8B / GSM8K"
+        },
+        {
+          "model": "qwen3",
+          "task": "Code",
+          "saving": 39.017376063652144,
+          "delta": 1.5544041450777202,
+          "direction": "Code",
+          "group": "代码生成",
+          "label": "Qwen3 8B / Code"
+        },
+        {
+          "model": "qwen3",
+          "task": "mmlu",
+          "saving": 33.53701836672074,
+          "delta": 6.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen3 8B / MMLU-Pro"
+        },
+        {
+          "model": "deepseek",
+          "task": "mmlu",
+          "saving": 27.424779843444234,
+          "delta": 0.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "DeepSeek Flash / MMLU-Pro"
+        },
+        {
+          "model": "qwen",
+          "task": "Document QA",
+          "saving": 26.87759494924933,
+          "delta": 0.33333333333332993,
+          "direction": "Document QA",
+          "group": "文档问答",
+          "label": "Qwen2.5 7B / Document QA"
+        },
+        {
+          "model": "hy4",
+          "task": "gsm8k",
+          "saving": 25.736205089107035,
+          "delta": 0.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "HY4 preview / GSM8K"
+        },
+        {
+          "model": "deepseek",
+          "task": "math500",
+          "saving": 22.510578279266568,
+          "delta": 7.000000000000001,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "DeepSeek Flash / MATH500"
+        },
+        {
+          "model": "qwen",
+          "task": "Code",
+          "saving": 21.992393076146865,
+          "delta": -0.6217616580310892,
+          "direction": "Code",
+          "group": "代码生成",
+          "label": "Qwen2.5 7B / Code"
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "saving": 21.496610133693792,
+          "delta": 0.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen2.5 7B / GSM8K"
+        },
+        {
+          "model": "qwen3",
+          "task": "math500",
+          "saving": 20.946467965484818,
+          "delta": 11.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen3 8B / MATH500"
+        },
+        {
+          "model": "hy4",
+          "task": "mmlu",
+          "saving": 19.213008342590776,
+          "delta": 3.5000000000000004,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "HY4 preview / MMLU-Pro"
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "saving": 16.97935042025527,
+          "delta": 1.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen2.5 7B / MMLU-Pro"
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "saving": 13.337690412749481,
+          "delta": 2.0,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "Qwen2.5 7B / MATH500"
+        },
+        {
+          "model": "hy4",
+          "task": "math500",
+          "saving": 11.376637477756436,
+          "delta": 4.5,
+          "direction": "Reasoning / MCQA",
+          "group": "数学/选择题",
+          "label": "HY4 preview / MATH500"
+        }
+      ]
+    },
+    {
+      "id": "concise-quality-matrix",
+      "topic": "concise",
+      "title": "简洁后的质量变化，逐条件保留",
+      "subtitle": "四模型 × 三题库 · 得分差（百分点）",
+      "source": "reports/story/concise-cross-task-points.csv",
+      "description": "绿色表示提高，陶土色表示下降；点估计不等于等效性证明。",
+      "file": "assets/research/concise-quality-matrix.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "row": "DeepSeek Flash",
+          "column": "GSM8K",
+          "value": 1.5
+        },
+        {
+          "row": "DeepSeek Flash",
+          "column": "MATH500",
+          "value": 7.000000000000001
+        },
+        {
+          "row": "DeepSeek Flash",
+          "column": "MMLU-Pro",
+          "value": 0.5
+        },
+        {
+          "row": "HY4 preview",
+          "column": "GSM8K",
+          "value": 0.0
+        },
+        {
+          "row": "HY4 preview",
+          "column": "MATH500",
+          "value": 4.5
+        },
+        {
+          "row": "HY4 preview",
+          "column": "MMLU-Pro",
+          "value": 3.5000000000000004
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "GSM8K",
+          "value": 0.5
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "MATH500",
+          "value": 2.0
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "MMLU-Pro",
+          "value": 1.5
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "GSM8K",
+          "value": -1.0
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "MATH500",
+          "value": 11.5
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "MMLU-Pro",
+          "value": 6.0
+        }
+      ]
+    },
+    {
+      "id": "concise-token-pairs",
+      "topic": "concise",
+      "title": "相同数学题，表达预算可以压缩",
+      "subtitle": "MATH500 · 四模型 · 默认与简洁分步",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "每个柱组使用同一批200题。",
+      "file": "assets/research/concise-token-pairs.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "DeepSeek Flash",
+          "series": "分步回答",
+          "value": 443.125
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "简洁分步",
+          "value": 343.375
+        },
+        {
+          "category": "HY4 preview",
+          "series": "分步回答",
+          "value": 497.335
+        },
+        {
+          "category": "HY4 preview",
+          "series": "简洁分步",
+          "value": 440.755
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "分步回答",
+          "value": 497.275
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "简洁分步",
+          "value": 430.95
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "分步回答",
+          "value": 537.155
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "简洁分步",
+          "value": 424.64
+        }
+      ]
+    },
+    {
+      "id": "limits-rebound-main",
+      "topic": "limits",
+      "title": "越严的限制，未必越短",
+      "subtitle": "DeepSeek Flash · MATH500 · CharLimit真实档位",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "词、字母与Token分别计量；提示限制是指令，非接口硬上限。",
+      "file": "assets/research/limits-rebound-main.svg",
+      "role": "main",
+      "filters": {
+        "model": "deepseek",
+        "task": "math500",
+        "family": "CharLimit"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "实际输出 Token",
+          "x": 10,
+          "y": 520.64
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 50,
+          "y": 206.01
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 100,
+          "y": 101.995
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 500,
+          "y": 211.805
+        }
+      ]
+    },
+    {
+      "id": "limits-word-qwen",
+      "topic": "limits",
+      "title": "越严的限制，未必越短",
+      "subtitle": "Qwen2.5 7B · GSM8K · WordLimit真实档位",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "词、字母与Token分别计量；提示限制是指令，非接口硬上限。",
+      "file": "assets/research/limits-word-qwen.svg",
+      "role": "support",
+      "filters": {
+        "model": "qwen",
+        "task": "gsm8k",
+        "family": "WordLimit"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "实际输出 Token",
+          "x": 1,
+          "y": 3.43
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 5,
+          "y": 6.995
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 10,
+          "y": 7.77
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 15,
+          "y": 17.36
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 25,
+          "y": 29.555
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 50,
+          "y": 45.38
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 100,
+          "y": 74.105
+        }
+      ]
+    },
+    {
+      "id": "limits-word-qwen3",
+      "topic": "limits",
+      "title": "越严的限制，未必越短",
+      "subtitle": "Qwen3 8B · MATH500 · WordLimit真实档位",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "词、字母与Token分别计量；提示限制是指令，非接口硬上限。",
+      "file": "assets/research/limits-word-qwen3.svg",
+      "role": "support",
+      "filters": {
+        "model": "qwen3",
+        "task": "math500",
+        "family": "WordLimit"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "实际输出 Token",
+          "x": 1,
+          "y": 309.24
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 5,
+          "y": 173.725
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 10,
+          "y": 124.19
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 15,
+          "y": 144.775
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 25,
+          "y": 146.91
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 50,
+          "y": 152.565
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 100,
+          "y": 216.39
+        }
+      ]
+    },
+    {
+      "id": "limits-token-qwen3",
+      "topic": "limits",
+      "title": "越严的限制，未必越短",
+      "subtitle": "Qwen3 8B · MATH500 · TokenLimit真实档位",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "词、字母与Token分别计量；提示限制是指令，非接口硬上限。",
+      "file": "assets/research/limits-token-qwen3.svg",
+      "role": "support",
+      "filters": {
+        "model": "qwen3",
+        "task": "math500",
+        "family": "TokenLimit"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "实际输出 Token",
+          "x": 10,
+          "y": 205.21
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 50,
+          "y": 262.785
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 100,
+          "y": 337.965
+        },
+        {
+          "series": "实际输出 Token",
+          "x": 500,
+          "y": 470.17
+        }
+      ]
+    },
+    {
+      "id": "limits-rebound-ratios",
+      "topic": "limits",
+      "title": "从100字母收紧到10字母：反弹在哪里？",
+      "subtitle": "四模型 × 三题库 · 实际输出倍数",
+      "source": "reports/prompt_variants/reasoning-all-prompt-profiles.csv",
+      "description": "大于1倍表示限制更严时，实际输出反而增加。",
+      "file": "assets/research/limits-rebound-ratios.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "label": "DeepSeek Flash / GSM8K",
+          "ratio": 6.8303526658866796,
+          "tokens_at_100_letters": 29.915,
+          "tokens_at_10_letters": 204.33
+        },
+        {
+          "label": "DeepSeek Flash / MATH500",
+          "ratio": 5.104563949213197,
+          "tokens_at_100_letters": 101.995,
+          "tokens_at_10_letters": 520.64
+        },
+        {
+          "label": "HY4 preview / GSM8K",
+          "ratio": 3.1210267895598243,
+          "tokens_at_100_letters": 58.045,
+          "tokens_at_10_letters": 181.16
+        },
+        {
+          "label": "HY4 preview / MATH500",
+          "ratio": 1.9591789220441582,
+          "tokens_at_100_letters": 257.71,
+          "tokens_at_10_letters": 504.9
+        },
+        {
+          "label": "DeepSeek Flash / MMLU-Pro",
+          "ratio": 1.5529145619634945,
+          "tokens_at_100_letters": 161.345,
+          "tokens_at_10_letters": 250.555
+        },
+        {
+          "label": "Qwen3 8B / MMLU-Pro",
+          "ratio": 1.5136452886800362,
+          "tokens_at_100_letters": 226.635,
+          "tokens_at_10_letters": 343.045
+        },
+        {
+          "label": "HY4 preview / MMLU-Pro",
+          "ratio": 1.4512422921646213,
+          "tokens_at_100_letters": 248.935,
+          "tokens_at_10_letters": 361.265
+        },
+        {
+          "label": "Qwen3 8B / MATH500",
+          "ratio": 1.3606547251389747,
+          "tokens_at_100_letters": 242.85,
+          "tokens_at_10_letters": 330.435
+        },
+        {
+          "label": "Qwen3 8B / GSM8K",
+          "ratio": 1.1274952104319882,
+          "tokens_at_100_letters": 80.905,
+          "tokens_at_10_letters": 91.22
+        },
+        {
+          "label": "Qwen2.5 7B / GSM8K",
+          "ratio": 0.17051298958195965,
+          "tokens_at_100_letters": 37.915,
+          "tokens_at_10_letters": 6.465
+        },
+        {
+          "label": "Qwen2.5 7B / MMLU-Pro",
+          "ratio": 0.16744827586206898,
+          "tokens_at_100_letters": 18.125,
+          "tokens_at_10_letters": 3.035
+        },
+        {
+          "label": "Qwen2.5 7B / MATH500",
+          "ratio": 0.12409143579479615,
+          "tokens_at_100_letters": 47.465,
+          "tokens_at_10_letters": 5.89
+        }
+      ]
+    },
+    {
+      "id": "language-math-score",
+      "topic": "language",
+      "title": "中文作答模板：三模型提分，一模型略降",
+      "subtitle": "MATH500 · 四模型 · 默认分步 vs 中文作答模板",
+      "source": "reports/story/chinese-template-comparison.csv",
+      "description": "题目保持英文；模板对照不等于测量内部思考语言。",
+      "file": "assets/research/language-math-score.svg",
+      "role": "main",
+      "filters": {
+        "task": "math500"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "DeepSeek Flash",
+          "series": "默认模板",
+          "value": 76.0
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "中文模板",
+          "value": 75.0
+        },
+        {
+          "category": "HY4 preview",
+          "series": "默认模板",
+          "value": 68.5
+        },
+        {
+          "category": "HY4 preview",
+          "series": "中文模板",
+          "value": 74.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "默认模板",
+          "value": 68.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "中文模板",
+          "value": 70.5
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "默认模板",
+          "value": 57.99999999999999
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "中文模板",
+          "value": 69.5
+        }
+      ]
+    },
+    {
+      "id": "language-math-tokens",
+      "topic": "language",
+      "title": "四个模型，都缩短了数学作答",
+      "subtitle": "MATH500 · 同题200题/条件",
+      "source": "reports/story/chinese-template-comparison.csv",
+      "description": "输出开销下降幅度在模型之间不同。",
+      "file": "assets/research/language-math-tokens.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "DeepSeek Flash",
+          "series": "默认模板",
+          "value": 443.125
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "中文模板",
+          "value": 423.655
+        },
+        {
+          "category": "HY4 preview",
+          "series": "默认模板",
+          "value": 497.335
+        },
+        {
+          "category": "HY4 preview",
+          "series": "中文模板",
+          "value": 400.225
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "默认模板",
+          "value": 497.275
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "中文模板",
+          "value": 331.815
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "默认模板",
+          "value": 537.155
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "中文模板",
+          "value": 432.16
+        }
+      ]
+    },
+    {
+      "id": "language-truncation",
+      "topic": "language",
+      "title": "更紧凑的表达与完成情况一起看",
+      "subtitle": "MATH500 · 输出达到上限的比例",
+      "source": "reports/story/chinese-template-comparison.csv",
+      "description": "截断率是观测特征；不能独立证明提分机制。",
+      "file": "assets/research/language-truncation.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "DeepSeek Flash",
+          "series": "默认模板",
+          "value": 23.5
+        },
+        {
+          "category": "DeepSeek Flash",
+          "series": "中文模板",
+          "value": 24.5
+        },
+        {
+          "category": "HY4 preview",
+          "series": "默认模板",
+          "value": 30.5
+        },
+        {
+          "category": "HY4 preview",
+          "series": "中文模板",
+          "value": 23.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "默认模板",
+          "value": 22.0
+        },
+        {
+          "category": "Qwen2.5 7B",
+          "series": "中文模板",
+          "value": 2.5
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "默认模板",
+          "value": 31.5
+        },
+        {
+          "category": "Qwen3 8B",
+          "series": "中文模板",
+          "value": 23.5
+        }
+      ]
+    },
+    {
+      "id": "language-task-boundary",
+      "topic": "language",
+      "title": "中文模板的收益有任务边界",
+      "subtitle": "四模型 × 三题库 · 中文减默认得分",
+      "source": "reports/story/chinese-template-comparison.csv",
+      "description": "MATH500的提分不能直接推广到GSM8K；所有对照保留。",
+      "file": "assets/research/language-task-boundary.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "row": "DeepSeek Flash",
+          "column": "GSM8K",
+          "value": -1.5000000000000013
+        },
+        {
+          "row": "DeepSeek Flash",
+          "column": "MATH500",
+          "value": -1.0000000000000009
+        },
+        {
+          "row": "DeepSeek Flash",
+          "column": "MMLU-Pro",
+          "value": 0.0
+        },
+        {
+          "row": "HY4 preview",
+          "column": "GSM8K",
+          "value": -3.0000000000000027
+        },
+        {
+          "row": "HY4 preview",
+          "column": "MATH500",
+          "value": 5.499999999999994
+        },
+        {
+          "row": "HY4 preview",
+          "column": "MMLU-Pro",
+          "value": 0.0
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "GSM8K",
+          "value": -4.5000000000000036
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "MATH500",
+          "value": 2.499999999999991
+        },
+        {
+          "row": "Qwen2.5 7B",
+          "column": "MMLU-Pro",
+          "value": 1.0000000000000009
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "GSM8K",
+          "value": -0.5000000000000004
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "MATH500",
+          "value": 11.5
+        },
+        {
+          "row": "Qwen3 8B",
+          "column": "MMLU-Pro",
+          "value": 9.999999999999998
+        }
+      ]
+    },
+    {
+      "id": "language-cost-quality",
+      "topic": "language",
+      "title": "语言模板的质量—开销折衷",
+      "subtitle": "每点为一个模型×题库的同题配对",
+      "source": "reports/story/chinese-template-comparison.csv",
+      "description": "右上表示既省输出又提分；右下保留省输出但评分下降的条件。",
+      "file": "assets/research/language-cost-quality.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "deepseek",
+          "task": "gsm8k",
+          "default_tokens": 166.825,
+          "chinese_tokens": 119.59,
+          "token_saving_pct": 28.314101603476693,
+          "default_score_pct": 97.5,
+          "chinese_score_pct": 96.0,
+          "score_difference_pp": -1.5000000000000013,
+          "default_truncation_pct": 0.5,
+          "chinese_truncation_pct": 0.0,
+          "group": "GSM8K",
+          "label": "DeepSeek Flash"
+        },
+        {
+          "model": "deepseek",
+          "task": "math500",
+          "default_tokens": 443.125,
+          "chinese_tokens": 423.655,
+          "token_saving_pct": 4.393794076163616,
+          "default_score_pct": 76.0,
+          "chinese_score_pct": 75.0,
+          "score_difference_pp": -1.0000000000000009,
+          "default_truncation_pct": 23.5,
+          "chinese_truncation_pct": 24.5,
+          "group": "MATH500",
+          "label": "DeepSeek Flash"
+        },
+        {
+          "model": "deepseek",
+          "task": "mmlu",
+          "default_tokens": 327.04,
+          "chinese_tokens": 271.81,
+          "token_saving_pct": 16.887842465753433,
+          "default_score_pct": 84.0,
+          "chinese_score_pct": 84.0,
+          "score_difference_pp": 0.0,
+          "default_truncation_pct": 12.0,
+          "chinese_truncation_pct": 10.0,
+          "group": "MMLU-Pro",
+          "label": "DeepSeek Flash"
+        },
+        {
+          "model": "hy4",
+          "task": "gsm8k",
+          "default_tokens": 209.86,
+          "chinese_tokens": 142.105,
+          "token_saving_pct": 32.28580958734395,
+          "default_score_pct": 98.0,
+          "chinese_score_pct": 95.0,
+          "score_difference_pp": -3.0000000000000027,
+          "default_truncation_pct": 0.0,
+          "chinese_truncation_pct": 0.5,
+          "group": "GSM8K",
+          "label": "HY4 preview"
+        },
+        {
+          "model": "hy4",
+          "task": "math500",
+          "default_tokens": 497.335,
+          "chinese_tokens": 400.225,
+          "token_saving_pct": 19.52607397428292,
+          "default_score_pct": 68.5,
+          "chinese_score_pct": 74.0,
+          "score_difference_pp": 5.499999999999994,
+          "default_truncation_pct": 30.5,
+          "chinese_truncation_pct": 23.0,
+          "group": "MATH500",
+          "label": "HY4 preview"
+        },
+        {
+          "model": "hy4",
+          "task": "mmlu",
+          "default_tokens": 459.09,
+          "chinese_tokens": 375.2,
+          "token_saving_pct": 18.273105491298004,
+          "default_score_pct": 77.0,
+          "chinese_score_pct": 77.0,
+          "score_difference_pp": 0.0,
+          "default_truncation_pct": 20.5,
+          "chinese_truncation_pct": 19.5,
+          "group": "MMLU-Pro",
+          "label": "HY4 preview"
+        },
+        {
+          "model": "qwen",
+          "task": "gsm8k",
+          "default_tokens": 236.735,
+          "chinese_tokens": 130.45,
+          "token_saving_pct": 44.896191944579385,
+          "default_score_pct": 91.5,
+          "chinese_score_pct": 87.0,
+          "score_difference_pp": -4.5000000000000036,
+          "default_truncation_pct": 0.0,
+          "chinese_truncation_pct": 0.0,
+          "group": "GSM8K",
+          "label": "Qwen2.5 7B"
+        },
+        {
+          "model": "qwen",
+          "task": "math500",
+          "default_tokens": 497.275,
+          "chinese_tokens": 331.815,
+          "token_saving_pct": 33.27333970137247,
+          "default_score_pct": 68.0,
+          "chinese_score_pct": 70.5,
+          "score_difference_pp": 2.499999999999991,
+          "default_truncation_pct": 22.0,
+          "chinese_truncation_pct": 2.5,
+          "group": "MATH500",
+          "label": "Qwen2.5 7B"
+        },
+        {
+          "model": "qwen",
+          "task": "mmlu",
+          "default_tokens": 481.85,
+          "chinese_tokens": 247.285,
+          "token_saving_pct": 48.68008716405521,
+          "default_score_pct": 64.0,
+          "chinese_score_pct": 65.0,
+          "score_difference_pp": 1.0000000000000009,
+          "default_truncation_pct": 13.5,
+          "chinese_truncation_pct": 2.0,
+          "group": "MMLU-Pro",
+          "label": "Qwen2.5 7B"
+        },
+        {
+          "model": "qwen3",
+          "task": "gsm8k",
+          "default_tokens": 260.52,
+          "chinese_tokens": 147.16,
+          "token_saving_pct": 43.5129740518962,
+          "default_score_pct": 90.5,
+          "chinese_score_pct": 90.0,
+          "score_difference_pp": -0.5000000000000004,
+          "default_truncation_pct": 0.5,
+          "chinese_truncation_pct": 0.0,
+          "group": "GSM8K",
+          "label": "Qwen3 8B"
+        },
+        {
+          "model": "qwen3",
+          "task": "math500",
+          "default_tokens": 537.155,
+          "chinese_tokens": 432.16,
+          "token_saving_pct": 19.546499613705535,
+          "default_score_pct": 57.99999999999999,
+          "chinese_score_pct": 69.5,
+          "score_difference_pp": 11.5,
+          "default_truncation_pct": 31.5,
+          "chinese_truncation_pct": 23.5,
+          "group": "MATH500",
+          "label": "Qwen3 8B"
+        },
+        {
+          "model": "qwen3",
+          "task": "mmlu",
+          "default_tokens": 570.325,
+          "chinese_tokens": 355.59,
+          "token_saving_pct": 37.651339148731,
+          "default_score_pct": 63.5,
+          "chinese_score_pct": 73.5,
+          "score_difference_pp": 9.999999999999998,
+          "default_truncation_pct": 29.5,
+          "chinese_truncation_pct": 12.5,
+          "group": "MMLU-Pro",
+          "label": "Qwen3 8B"
+        }
+      ]
+    },
+    {
+      "id": "position-nine-profile",
+      "topic": "position",
+      "title": "模型优势随证据位置改变",
+      "subtitle": "固定NoCoT · 20篇资料 · 200道相同问题 · 九个实测位置",
+      "source": "reports/document_positions/position-summary.csv",
+      "description": "误差线为按题配对的95%区间；线段仅连接实际观测位置。",
+      "file": "assets/research/position-nine-profile.svg",
+      "role": "main",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "Qwen2.5 7B",
+          "x": 1.0,
+          "y": 54.50000000000001,
+          "low": 47.5,
+          "high": 61.5
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 3.0,
+          "y": 52.5,
+          "low": 45.5,
+          "high": 59.5
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 5.0,
+          "y": 50.0,
+          "low": 43.0,
+          "high": 56.99999999999999
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 8.0,
+          "y": 52.0,
+          "low": 45.0,
+          "high": 59.0
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 10.0,
+          "y": 52.5,
+          "low": 45.5,
+          "high": 59.5
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 13.0,
+          "y": 50.5,
+          "low": 43.5,
+          "high": 57.49999999999999
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 15.0,
+          "y": 51.0,
+          "low": 44.0,
+          "high": 57.99999999999999
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 18.0,
+          "y": 51.0,
+          "low": 44.0,
+          "high": 57.99999999999999
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 20.0,
+          "y": 56.49999999999999,
+          "low": 49.5,
+          "high": 63.5
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 1.0,
+          "y": 71.0,
+          "low": 64.5,
+          "high": 77.0
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 3.0,
+          "y": 61.0,
+          "low": 54.0,
+          "high": 68.0
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 5.0,
+          "y": 61.0,
+          "low": 54.0,
+          "high": 67.51249999999982
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 8.0,
+          "y": 61.5,
+          "low": 54.50000000000001,
+          "high": 68.0
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 10.0,
+          "y": 61.5,
+          "low": 54.50000000000001,
+          "high": 68.0
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 13.0,
+          "y": 58.5,
+          "low": 51.5,
+          "high": 65.0
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 15.0,
+          "y": 58.5,
+          "low": 51.5,
+          "high": 65.5
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 18.0,
+          "y": 59.0,
+          "low": 52.0,
+          "high": 65.5
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 20.0,
+          "y": 59.0,
+          "low": 52.0,
+          "high": 65.5
+        }
+      ]
+    },
+    {
+      "id": "position-model-advantage",
+      "topic": "position",
+      "title": "首位领先16.5个百分点，末位只领先2.5",
+      "subtitle": "同题模型差值 · 九个实测位置",
+      "source": "reports/document_positions/paired-model-position-contrasts.csv",
+      "description": "区间保留同题的模型和位置配对；不把平均差异当单题保证。",
+      "file": "assets/research/position-model-advantage.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 1,
+          "y": 16.5,
+          "low": 10.0,
+          "high": 23.5
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 3,
+          "y": 8.5,
+          "low": 2.0,
+          "high": 15.0
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 5,
+          "y": 11.0,
+          "low": 4.5,
+          "high": 17.5
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 8,
+          "y": 9.5,
+          "low": 3.5000000000000004,
+          "high": 16.0
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 10,
+          "y": 9.0,
+          "low": 3.0,
+          "high": 15.0
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 13,
+          "y": 8.0,
+          "low": 1.5,
+          "high": 14.499999999999998
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 15,
+          "y": 7.5,
+          "low": 0.5,
+          "high": 14.000000000000002
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 18,
+          "y": 8.0,
+          "low": 1.0,
+          "high": 15.0
+        },
+        {
+          "series": "Qwen3 − Qwen2.5",
+          "x": 20,
+          "y": 2.5,
+          "low": -4.5,
+          "high": 9.0
+        }
+      ]
+    },
+    {
+      "id": "position-output-cost",
+      "topic": "position",
+      "title": "证据移动时，回答开销也可检查",
+      "subtitle": "NoCoT · 20篇资料 · 每位置200题",
+      "source": "reports/document_positions/position-summary.csv",
+      "description": "与命中率分开展示，避免双轴造成视觉误读。",
+      "file": "assets/research/position-output-cost.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "Qwen2.5 7B",
+          "x": 1.0,
+          "y": 20.405
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 3.0,
+          "y": 20.71
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 5.0,
+          "y": 20.77
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 8.0,
+          "y": 20.27
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 10.0,
+          "y": 19.57
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 13.0,
+          "y": 19.54
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 15.0,
+          "y": 20.57
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 18.0,
+          "y": 20.34
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 20.0,
+          "y": 19.445
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 1.0,
+          "y": 45.235
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 3.0,
+          "y": 49.215
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 5.0,
+          "y": 48.35
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 8.0,
+          "y": 52.685
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 10.0,
+          "y": 53.61
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 13.0,
+          "y": 49.985
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 15.0,
+          "y": 51.205
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 18.0,
+          "y": 56.545
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 20.0,
+          "y": 60.21
+        }
+      ]
+    },
+    {
+      "id": "position-scoring-sensitivity",
+      "topic": "position",
+      "title": "更换评分口径，现象如何变化？",
+      "subtitle": "模型 × 首/中/尾位置 × 四种保存评分",
+      "source": "reports/document_positions/position-summary.csv",
+      "description": "四口径分别保留，字符串命中率不等于新的人工语义判分。",
+      "file": "assets/research/position-scoring-sensitivity.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "row": "Qwen2.5 7B · 1",
+          "column": "首行包含",
+          "value": 61.0
+        },
+        {
+          "row": "Qwen2.5 7B · 1",
+          "column": "最终严格匹配",
+          "value": 43.5
+        },
+        {
+          "row": "Qwen2.5 7B · 1",
+          "column": "最终答案包含",
+          "value": 54.50000000000001
+        },
+        {
+          "row": "Qwen2.5 7B · 1",
+          "column": "全文包含",
+          "value": 61.5
+        },
+        {
+          "row": "Qwen2.5 7B · 10",
+          "column": "首行包含",
+          "value": 55.50000000000001
+        },
+        {
+          "row": "Qwen2.5 7B · 10",
+          "column": "最终严格匹配",
+          "value": 45.0
+        },
+        {
+          "row": "Qwen2.5 7B · 10",
+          "column": "最终答案包含",
+          "value": 52.5
+        },
+        {
+          "row": "Qwen2.5 7B · 10",
+          "column": "全文包含",
+          "value": 55.50000000000001
+        },
+        {
+          "row": "Qwen2.5 7B · 20",
+          "column": "首行包含",
+          "value": 59.0
+        },
+        {
+          "row": "Qwen2.5 7B · 20",
+          "column": "最终严格匹配",
+          "value": 47.5
+        },
+        {
+          "row": "Qwen2.5 7B · 20",
+          "column": "最终答案包含",
+          "value": 56.49999999999999
+        },
+        {
+          "row": "Qwen2.5 7B · 20",
+          "column": "全文包含",
+          "value": 59.0
+        },
+        {
+          "row": "Qwen3 8B · 1",
+          "column": "首行包含",
+          "value": 73.5
+        },
+        {
+          "row": "Qwen3 8B · 1",
+          "column": "最终严格匹配",
+          "value": 49.5
+        },
+        {
+          "row": "Qwen3 8B · 1",
+          "column": "最终答案包含",
+          "value": 71.0
+        },
+        {
+          "row": "Qwen3 8B · 1",
+          "column": "全文包含",
+          "value": 73.5
+        },
+        {
+          "row": "Qwen3 8B · 10",
+          "column": "首行包含",
+          "value": 65.5
+        },
+        {
+          "row": "Qwen3 8B · 10",
+          "column": "最终严格匹配",
+          "value": 38.5
+        },
+        {
+          "row": "Qwen3 8B · 10",
+          "column": "最终答案包含",
+          "value": 61.5
+        },
+        {
+          "row": "Qwen3 8B · 10",
+          "column": "全文包含",
+          "value": 65.5
+        },
+        {
+          "row": "Qwen3 8B · 20",
+          "column": "首行包含",
+          "value": 62.0
+        },
+        {
+          "row": "Qwen3 8B · 20",
+          "column": "最终严格匹配",
+          "value": 41.0
+        },
+        {
+          "row": "Qwen3 8B · 20",
+          "column": "最终答案包含",
+          "value": 59.0
+        },
+        {
+          "row": "Qwen3 8B · 20",
+          "column": "全文包含",
+          "value": 62.5
+        }
+      ]
+    },
+    {
+      "id": "feedback-rounds-qwen3",
+      "topic": "feedback",
+      "title": "反馈内容，决定修改轮次的收益",
+      "subtitle": "Qwen3 8B · 164题 · 初稿和四次修改",
+      "source": "reports/code_repair/full/curves.csv",
+      "description": "只连接五个实测版本；独立重采样组不接收历史与反馈。",
+      "file": "assets/research/feedback-rounds-qwen3.svg",
+      "role": "main",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "独立重采样",
+          "x": 0.0,
+          "y": 76.82926829268293
+        },
+        {
+          "series": "独立重采样",
+          "x": 1.0,
+          "y": 75.0
+        },
+        {
+          "series": "独立重采样",
+          "x": 2.0,
+          "y": 75.60975609756098
+        },
+        {
+          "series": "独立重采样",
+          "x": 3.0,
+          "y": 76.21951219512195
+        },
+        {
+          "series": "独立重采样",
+          "x": 4.0,
+          "y": 75.0
+        },
+        {
+          "series": "自行检查",
+          "x": 0.0,
+          "y": 76.82926829268293
+        },
+        {
+          "series": "自行检查",
+          "x": 1.0,
+          "y": 77.4390243902439
+        },
+        {
+          "series": "自行检查",
+          "x": 2.0,
+          "y": 78.04878048780488
+        },
+        {
+          "series": "自行检查",
+          "x": 3.0,
+          "y": 78.65853658536585
+        },
+        {
+          "series": "自行检查",
+          "x": 4.0,
+          "y": 78.65853658536585
+        },
+        {
+          "series": "仅通过状态",
+          "x": 0.0,
+          "y": 76.82926829268293
+        },
+        {
+          "series": "仅通过状态",
+          "x": 1.0,
+          "y": 78.65853658536585
+        },
+        {
+          "series": "仅通过状态",
+          "x": 2.0,
+          "y": 78.65853658536585
+        },
+        {
+          "series": "仅通过状态",
+          "x": 3.0,
+          "y": 78.65853658536585
+        },
+        {
+          "series": "仅通过状态",
+          "x": 4.0,
+          "y": 79.26829268292683
+        },
+        {
+          "series": "具体失败反例",
+          "x": 0.0,
+          "y": 76.82926829268293
+        },
+        {
+          "series": "具体失败反例",
+          "x": 1.0,
+          "y": 79.8780487804878
+        },
+        {
+          "series": "具体失败反例",
+          "x": 2.0,
+          "y": 82.92682926829268
+        },
+        {
+          "series": "具体失败反例",
+          "x": 3.0,
+          "y": 83.53658536585365
+        },
+        {
+          "series": "具体失败反例",
+          "x": 4.0,
+          "y": 85.97560975609755
+        }
+      ]
+    },
+    {
+      "id": "feedback-rounds-qwen",
+      "topic": "feedback",
+      "title": "反馈内容，决定修改轮次的收益",
+      "subtitle": "Qwen2.5 7B · 164题 · 初稿和四次修改",
+      "source": "reports/code_repair/full/curves.csv",
+      "description": "只连接五个实测版本；独立重采样组不接收历史与反馈。",
+      "file": "assets/research/feedback-rounds-qwen.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "独立重采样",
+          "x": 0.0,
+          "y": 80.48780487804879
+        },
+        {
+          "series": "独立重采样",
+          "x": 1.0,
+          "y": 78.65853658536585
+        },
+        {
+          "series": "独立重采样",
+          "x": 2.0,
+          "y": 77.4390243902439
+        },
+        {
+          "series": "独立重采样",
+          "x": 3.0,
+          "y": 78.04878048780488
+        },
+        {
+          "series": "独立重采样",
+          "x": 4.0,
+          "y": 78.04878048780488
+        },
+        {
+          "series": "自行检查",
+          "x": 0.0,
+          "y": 80.48780487804879
+        },
+        {
+          "series": "自行检查",
+          "x": 1.0,
+          "y": 78.04878048780488
+        },
+        {
+          "series": "自行检查",
+          "x": 2.0,
+          "y": 79.8780487804878
+        },
+        {
+          "series": "自行检查",
+          "x": 3.0,
+          "y": 79.8780487804878
+        },
+        {
+          "series": "自行检查",
+          "x": 4.0,
+          "y": 79.8780487804878
+        },
+        {
+          "series": "仅通过状态",
+          "x": 0.0,
+          "y": 80.48780487804879
+        },
+        {
+          "series": "仅通过状态",
+          "x": 1.0,
+          "y": 79.26829268292683
+        },
+        {
+          "series": "仅通过状态",
+          "x": 2.0,
+          "y": 79.8780487804878
+        },
+        {
+          "series": "仅通过状态",
+          "x": 3.0,
+          "y": 79.8780487804878
+        },
+        {
+          "series": "仅通过状态",
+          "x": 4.0,
+          "y": 79.26829268292683
+        },
+        {
+          "series": "具体失败反例",
+          "x": 0.0,
+          "y": 80.48780487804879
+        },
+        {
+          "series": "具体失败反例",
+          "x": 1.0,
+          "y": 80.48780487804879
+        },
+        {
+          "series": "具体失败反例",
+          "x": 2.0,
+          "y": 81.09756097560977
+        },
+        {
+          "series": "具体失败反例",
+          "x": 3.0,
+          "y": 81.09756097560977
+        },
+        {
+          "series": "具体失败反例",
+          "x": 4.0,
+          "y": 81.70731707317073
+        }
+      ]
+    },
+    {
+      "id": "feedback-cost-quality",
+      "topic": "feedback",
+      "title": "修复质量与累计调用成本一起比较",
+      "subtitle": "两个模型 × 四种方案 · 固定生成到第五版",
+      "source": "reports/code_repair/full/summary.csv",
+      "description": "完整历史会增加输入开销；同一模型内比较反馈方案。",
+      "file": "assets/research/feedback-cost-quality.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "model": "Qwen2.5-7B",
+          "arm": "resample",
+          "tokens": 2187.890243902439,
+          "rate": 78.04878048780488,
+          "group": "Qwen2.5 7B",
+          "label": "独立重采样"
+        },
+        {
+          "model": "Qwen2.5-7B",
+          "arm": "self_review",
+          "tokens": 5684.713414634146,
+          "rate": 79.8780487804878,
+          "group": "Qwen2.5 7B",
+          "label": "自行检查"
+        },
+        {
+          "model": "Qwen2.5-7B",
+          "arm": "pass_fail",
+          "tokens": 5775.969512195122,
+          "rate": 79.26829268292683,
+          "group": "Qwen2.5 7B",
+          "label": "仅通过状态"
+        },
+        {
+          "model": "Qwen2.5-7B",
+          "arm": "counterexample",
+          "tokens": 6008.207317073171,
+          "rate": 81.70731707317073,
+          "group": "Qwen2.5 7B",
+          "label": "具体失败反例"
+        },
+        {
+          "model": "Qwen3-8B",
+          "arm": "resample",
+          "tokens": 1827.1829268292684,
+          "rate": 75.0,
+          "group": "Qwen3 8B",
+          "label": "独立重采样"
+        },
+        {
+          "model": "Qwen3-8B",
+          "arm": "self_review",
+          "tokens": 4425.182926829269,
+          "rate": 78.65853658536585,
+          "group": "Qwen3 8B",
+          "label": "自行检查"
+        },
+        {
+          "model": "Qwen3-8B",
+          "arm": "pass_fail",
+          "tokens": 4557.304878048781,
+          "rate": 79.26829268292683,
+          "group": "Qwen3 8B",
+          "label": "仅通过状态"
+        },
+        {
+          "model": "Qwen3-8B",
+          "arm": "counterexample",
+          "tokens": 4880.298780487805,
+          "rate": 85.97560975609755,
+          "group": "Qwen3 8B",
+          "label": "具体失败反例"
+        }
+      ]
+    },
+    {
+      "id": "feedback-repair-regression",
+      "topic": "feedback",
+      "title": "修好了多少，又改坏了多少？",
+      "subtitle": "Qwen3 · 初稿到第五版的成功集合变化",
+      "source": "reports/code_repair/full/summary.csv",
+      "description": "数量分别统计；最终通过率同时受到修复和回退影响。",
+      "file": "assets/research/feedback-repair-regression.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "独立重采样",
+          "series": "初错后修好",
+          "value": 3.0
+        },
+        {
+          "category": "独立重采样",
+          "series": "初对后改坏",
+          "value": 6.0
+        },
+        {
+          "category": "自行检查",
+          "series": "初错后修好",
+          "value": 3.0
+        },
+        {
+          "category": "自行检查",
+          "series": "初对后改坏",
+          "value": 0.0
+        },
+        {
+          "category": "仅通过状态",
+          "series": "初错后修好",
+          "value": 4.0
+        },
+        {
+          "category": "仅通过状态",
+          "series": "初对后改坏",
+          "value": 0.0
+        },
+        {
+          "category": "具体失败反例",
+          "series": "初错后修好",
+          "value": 15.0
+        },
+        {
+          "category": "具体失败反例",
+          "series": "初对后改坏",
+          "value": 0.0
+        }
+      ]
+    },
+    {
+      "id": "feedback-stop-budget",
+      "topic": "feedback",
+      "title": "停止时机：真实轨迹回放可节省调用",
+      "subtitle": "Qwen3 · 固定五版 vs 首次诊断通过即保留",
+      "source": "reports/code_repair/full/summary.csv",
+      "description": "停止结果来自保存轨迹的回放；实验实际仍采满五版。",
+      "file": "assets/research/feedback-stop-budget.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "category": "独立重采样",
+          "series": "固定五版",
+          "value": 1827.1829268292684
+        },
+        {
+          "category": "独立重采样",
+          "series": "停止规则回放",
+          "value": 642.5487804878048
+        },
+        {
+          "category": "自行检查",
+          "series": "固定五版",
+          "value": 4425.182926829269
+        },
+        {
+          "category": "自行检查",
+          "series": "停止规则回放",
+          "value": 1207.2926829268292
+        },
+        {
+          "category": "仅通过状态",
+          "series": "固定五版",
+          "value": 4557.304878048781
+        },
+        {
+          "category": "仅通过状态",
+          "series": "停止规则回放",
+          "value": 1192.7987804878048
+        },
+        {
+          "category": "具体失败反例",
+          "series": "固定五版",
+          "value": 4880.298780487805
+        },
+        {
+          "category": "具体失败反例",
+          "series": "停止规则回放",
+          "value": 1334.0243902439024
+        }
+      ]
+    },
+    {
+      "id": "feedback-independent-sampling",
+      "topic": "feedback",
+      "title": "独立生成五次：覆盖收益逐渐减小",
+      "subtitle": "代码生成补充 · 193个有效题 · 三模型 · 31策略",
+      "source": "reports/code_generation/conditions.csv",
+      "description": "这是独立采样，不是模型收到执行反馈后的代码修复。",
+      "file": "assets/research/feedback-independent-sampling.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "series": "DeepSeek Flash",
+          "x": 1,
+          "y": 30.215610897543034
+        },
+        {
+          "series": "DeepSeek Flash",
+          "x": 2,
+          "y": 32.58565936820991
+        },
+        {
+          "series": "DeepSeek Flash",
+          "x": 3,
+          "y": 33.72722714357347
+        },
+        {
+          "series": "DeepSeek Flash",
+          "x": 4,
+          "y": 34.4509443423032
+        },
+        {
+          "series": "DeepSeek Flash",
+          "x": 5,
+          "y": 34.965736252716034
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 1,
+          "y": 22.590673575129536
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 2,
+          "y": 24.853752298178172
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 3,
+          "y": 26.03543372889854
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 4,
+          "y": 26.79257897375899
+        },
+        {
+          "series": "Qwen2.5 7B",
+          "x": 5,
+          "y": 27.34414173491559
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 1,
+          "y": 22.092595687782058
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 2,
+          "y": 24.880494735082724
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 3,
+          "y": 26.3563429717533
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 4,
+          "y": 27.32408490723717
+        },
+        {
+          "series": "Qwen3 8B",
+          "x": 5,
+          "y": 28.012702657529665
+        }
+      ]
+    },
+    {
+      "id": "feedback-code-errors",
+      "topic": "feedback",
+      "title": "代码失败类型：断言与运行问题有多大？",
+      "subtitle": "独立代码生成补充 · 三模型与31策略合计",
+      "source": "reports/code_generation/conditions.csv",
+      "description": "错误类型按源评测保存；环境排除记录单独保留，不填为模型失败。",
+      "file": "assets/research/feedback-code-errors.svg",
+      "role": "support",
+      "filters": {},
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "label": "断言失败",
+          "count": 27303.0,
+          "error_type": "assertion_failure"
+        },
+        {
+          "label": "属性错误",
+          "count": 12520.0,
+          "error_type": "attribute_error"
+        },
+        {
+          "label": "代码提取",
+          "count": 11897.0,
+          "error_type": "extraction_error"
+        },
+        {
+          "label": "类型错误",
+          "count": 6169.0,
+          "error_type": "type_error"
+        },
+        {
+          "label": "键错误",
+          "count": 2202.0,
+          "error_type": "key_error"
+        },
+        {
+          "label": "语法错误",
+          "count": 1530.0,
+          "error_type": "syntax_error"
+        },
+        {
+          "label": "依赖问题",
+          "count": 1157.0,
+          "error_type": "dependency_error"
+        },
+        {
+          "label": "取值错误",
+          "count": 1126.0,
+          "error_type": "value_error"
+        },
+        {
+          "label": "名称错误",
+          "count": 1091.0,
+          "error_type": "name_error"
+        },
+        {
+          "label": "运行异常",
+          "count": 864.0,
+          "error_type": "runtime_error"
+        },
+        {
+          "label": "文件问题",
+          "count": 656.0,
+          "error_type": "file_error"
+        },
+        {
+          "label": "超时",
+          "count": 554.0,
+          "error_type": "timeout"
+        },
+        {
+          "label": "索引错误",
+          "count": 239.0,
+          "error_type": "index_error"
+        },
+        {
+          "label": "资源问题",
+          "count": 31.0,
+          "error_type": "resource_error"
+        }
+      ]
+    },
+    {
+      "id": "feedback-real-code-case",
+      "topic": "feedback",
+      "title": "一个失败输入，暴露了错误的边界假设",
+      "subtitle": "Qwen3 · HumanEval/102 · 实际修改轨迹",
+      "source": "reports/code_repair/full/examples.md",
+      "description": "初稿额外交换端点；具体反例帮助定位与题目规格不符的处理。",
+      "file": "assets/research/feedback-real-code-case.svg",
+      "role": "support",
+      "filters": {
+        "model": "qwen3"
+      },
+      "width": 1000,
+      "height": 620,
+      "data": [
+        {
+          "stage": "initial",
+          "input_x": 13,
+          "input_y": 12,
+          "expected": -1,
+          "actual": 12
+        },
+        {
+          "stage": "revision_2",
+          "input_x": 13,
+          "input_y": 12,
+          "expected": -1,
+          "actual": -1
+        }
+      ]
+    }
+  ]
+}

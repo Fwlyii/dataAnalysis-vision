@@ -1,0 +1,54 @@
+/* The defense follows four continuous research boards; the full atlas keeps all44 originals. */
+body[data-chapter=findings] .research-layout{padding-top:23px;padding-bottom:36px}
+body[data-chapter=findings] .section-intro{margin-bottom:22px}
+body[data-chapter=findings] .section-intro h1{font-size:42px;line-height:1.35}
+body[data-chapter=findings] .section-intro>p{margin-top:7px;font-size:18px}
+body[data-chapter=findings]::before{background-image:linear-gradient(180deg,#001e2c00 65%,#001e2cbf 80%,#001e2cdd 100%),url('assets/visual/ocean-optics-v5.png')}
+.compact-findings{min-width:0}
+.compact-findings .findings-part{margin-top:0}
+.compact-findings .ocean-overview{margin:0}
+.compact-findings .ocean-card>header{padding-top:9px;padding-bottom:8px}
+.compact-findings .finding-group .ocean-result{margin-top:10px;margin-bottom:11px}
+.compact-findings .compact-task-part{margin-top:42px}
+.compact-findings .compact-part-heading{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 24px;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid #73cde080}
+.compact-findings .compact-part-heading h2{font-size:30px;line-height:1.4;color:#f5fbff}
+.compact-findings .compact-part-heading p{font-size:14px;color:#bad7e4;line-height:1.7}
+.compact-task-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.compact-task-panel{min-width:0;padding:0 0 14px}
+.compact-task-panel>header{padding:15px 19px 12px;border-bottom:1px solid #8acbdf55;background:linear-gradient(180deg,rgba(var(--glass-rgb),.16),transparent)}
+.compact-task-panel>header h3{font-size:25px;line-height:1.4;letter-spacing:.01em;color:#f5fbff}
+.compact-task-panel>header p{font-size:13px;line-height:1.7;color:#c3dce8;margin-top:5px;max-width:none}
+.compact-plot-region{overflow-x:auto;overscroll-behavior:contain;max-width:100%;scrollbar-width:thin;scrollbar-color:#5895a9 transparent}
+.compact-study-plot{display:block;width:100%;min-width:620px;height:auto;padding:10px 8px 0}
+.compact-study-plot text{font-family:var(--sans);font-size:15px;fill:#f5fbff;font-variant-numeric:tabular-nums}
+.compact-study-plot .compact-tick{font-size:14px;fill:#d2e5ed}
+.compact-study-plot .compact-legend{font-size:14px;fill:#dceff6}
+.compact-study-plot .compact-grid{stroke:#66869577;stroke-width:1}
+.compact-study-plot .compact-axis{stroke:#d1e9f4;stroke-width:1.2}
+.compact-study-plot .compact-value{font-size:15px;font-weight:600}
+.compact-token-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:12px;color:#bad7e4;padding:2px 20px 8px}
+.compact-token-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:0 18px;border:1px solid #6fadc055;border-radius:7px;background:#184b5a55;overflow:hidden}
+.compact-token-grid>div{min-width:0;text-align:center;padding:8px 5px;border-right:1px solid #79b5c34d}
+.compact-token-grid>div:last-child{border-right:0}
+.compact-token-grid span{display:block;color:#d8edf5;font-size:12px;line-height:1.5}
+.compact-token-grid strong{display:block;color:#83ebd6;font-size:21px;line-height:1.5;font-weight:500;font-variant-numeric:tabular-nums}
+.compact-position-deltas{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:2px 20px 0;padding:0 0 2px}
+.compact-position-deltas>div{min-width:0}
+.compact-position-deltas span{font-size:12px;line-height:1.5;color:#c1dce9}
+.compact-position-deltas strong{display:inline-block;margin-left:12px;font-size:25px;line-height:1.4;font-weight:500;color:#d6c3ff;font-variant-numeric:tabular-nums}
+.compact-position-deltas strong small{font-size:13px;font-weight:400}
+.compact-position-deltas p{font-size:12px;line-height:1.6;margin-top:2px;color:#c0d8e5}
+.compact-study-conclusion{margin:13px 18px 0;padding:8px 11px;border:1px solid var(--edge);border-radius:7px;background:rgba(var(--glass-rgb),.11);color:#f2fbff;font-size:14px;line-height:1.7;max-width:none}
+.compact-study-scope{margin:8px 20px 0;color:#b7d3df;font-size:12px;line-height:1.7;max-width:none}
+.compact-feedback-chapter{margin-top:42px;min-width:0}
+.compact-feedback-chapter .feedback-extension{margin-top:0}
+.compact-findings .feedback-compact .fex-compact-figure,.compact-findings .feedback-compact .fex-compact-case{border-color:#76daff99;box-shadow:inset 0 1px 2px #e4ffffa6,inset 0 0 0 2px #9ddff529,0 0 8px #5fd9ff22,0 12px 25px #00142340}
+.compact-findings .feedback-compact .fex-compact-figure{padding:3px;border-radius:13px}
+.compact-findings .feedback-compact .fex-compact-case{border-radius:13px;background:linear-gradient(145deg,#174354aa,#032b3beb 50%,#083646e6)}
+.compact-findings .feedback-compact .fex-compact-case:nth-child(2){border-color:#d6c3ff99}
+.atlas-feedback-host{margin-top:54px}
+.atlas-feedback-host .feedback-extension{margin-top:0}
+@media(min-width:1700px){.compact-findings{max-width:1440px;margin-inline:auto}.compact-task-panel>header h3{font-size:27px}}
+@media(max-width:1100px){.compact-task-grid{grid-template-columns:minmax(0,1fr);gap:22px}.compact-task-panel{max-width:none}.compact-study-plot{max-width:800px;margin-inline:auto}.compact-findings .compact-part-heading h2{font-size:28px}.compact-token-grid{max-width:760px;margin-inline:auto}.compact-token-heading,.compact-position-deltas,.compact-study-conclusion,.compact-study-scope{margin-left:18px;margin-right:18px}.compact-task-panel>header p{font-size:14px}.compact-token-grid strong{font-size:23px}.compact-position-deltas strong{font-size:27px}}
+@media(max-width:620px){body[data-chapter=findings] .research-layout{padding-top:23px;padding-bottom:30px}body[data-chapter=findings] .section-intro h1{font-size:30px}body[data-chapter=findings] .section-intro>p{font-size:15px}.compact-findings .compact-task-part{margin-top:30px}.compact-findings .compact-part-heading{display:block;margin-bottom:16px;padding-bottom:14px}.compact-findings .compact-part-heading h2{font-size:25px}.compact-findings .compact-part-heading p{font-size:13px;margin-top:7px}.compact-task-panel>header{padding:13px 14px 11px}.compact-task-panel>header h3{font-size:22px}.compact-task-panel>header p{font-size:12px;line-height:1.8}.compact-study-plot{padding:9px 5px 0}.compact-token-heading{display:block;padding:2px 0 8px;margin-inline:14px}.compact-token-heading>span+span{display:block;font-size:11px;margin-top:3px}.compact-token-grid{margin-inline:13px}.compact-token-grid>div{padding:8px 2px}.compact-token-grid span{font-size:10px}.compact-token-grid strong{font-size:19px}.compact-position-deltas{gap:10px;margin:5px 14px 0}.compact-position-deltas span{display:block;font-size:11px}.compact-position-deltas strong{margin:3px 0 0;font-size:25px}.compact-position-deltas p{font-size:11px}.compact-study-conclusion{margin:12px 13px 0;padding:8px 9px;font-size:13px}.compact-study-scope{margin:8px 15px 0;font-size:11px}.compact-feedback-chapter{margin-top:32px}}
+@media print{.compact-task-grid{grid-template-columns:1fr 1fr}.compact-task-panel{break-inside:avoid}.compact-plot-region{overflow:visible}.compact-study-plot{min-width:0}.compact-feedback-chapter{break-before:page}}

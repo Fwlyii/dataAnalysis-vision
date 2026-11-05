@@ -1,0 +1,48 @@
+{
+  "schema": "legacy-retrospective-resource-resolution-v1",
+  "base_records": 5576,
+  "base_known_results": 5575,
+  "resolution_overlay_records": 1,
+  "resolved_known_results": 5576,
+  "complete": true,
+  "model_api_calls": 0,
+  "original_scores_preserved": true,
+  "frozen_evaluator_unchanged": true,
+  "source_hashes_match_frozen_preflight": {
+    "experiments/code_repair_v2/src/dataset.py": "592a939325fc036b0191a377583ac40f84494a97f084770e4a0e4f258ce28f0e",
+    "experiments/code_repair_v2/src/evaluator.py": "1bf8369e9ca4ca9f1e7675dc3549b8731b2b4e93260852436e15fdb42239da60",
+    "experiments/code_repair_v2/src/worker.py": "8576934775d4006b042c9137ec0036fe1ffe57df540ff38d2c3f5c49a31de91e",
+    "experiments/code_repair_v2/src/protocol.py": "bb943458cfe849af09475979c056ef0a0b016b469038bfc60ebb824cea73097f",
+    "experiments/code_repair_v2/src/prepare.py": "73a78645731f0386da3b1eae251d064fa1acf5c637ebe7d510fd9d666beddeb1",
+    "experiments/code_repair/vendor/SOURCE.json": "5bcb06992fad315e60c6c8ac4eeae47197df1fbb47c5600867168cb9c5c7201c",
+    "experiments/code_repair/vendor/evalplus/eval/__init__.py": "905bef8d559bfd955780b670c93a76f5b7a4a09b2a521170ff67de15d389ff96",
+    "experiments/code_repair/vendor/evalplus/eval/_special_oracle.py": "92b126b907ee493121b55de06f6a34058b6e18adc8cf1c48737eedcd83f24cdd",
+    "experiments/code_repair/vendor/evalplus/eval/utils.py": "e902a544a631996ca91a45ee726f1147f6ae4611b2845d81d6a89c110fa03d79"
+  },
+  "policy_version": "repair-v2-resource-outcome-clarification-1",
+  "policy_sha256": "371820c1e32711d69fe8727f121187c47d5f5af70ae457f6388be6135dd468dc",
+  "files_sha256": {
+    "strong-evaluations.jsonl": "4d2d7c5e9a70ba2587f871148bfbe90dc34db71b478ff4d27461c6ab1d980467",
+    "strong-resolution-overlays.jsonl": "c09aa792ac672497e8a3b0ba1fc06c50aa965aeb5400af2d123ab7945f288aca",
+    "resource-audit.jsonl": "7474d2d4d2f65a4c4543b9a27bf1db9a5a908fc085d826f89743f7520fc66df5",
+    "resolve_memory_unknown.py": "070c72081d6c38e6a155ec84546eb337dcb4a1b94a5c1357e3b1e8386bc61065"
+  },
+  "resolutions": [
+    {
+      "record_id": "Qwen/Qwen2.5-7B-Instruct|HumanEval/108|resample|4",
+      "task_id": "HumanEval/108",
+      "candidate_code_sha256": "70f0c793b152262a3e8d6868ae4454f556325cb15ba5274bf2ce161697e29155",
+      "original_evaluation_sha256": "2ac10136febba677add04cb7a050d6648dc475656fda35ff58808dc1a832e756",
+      "audit_id": "e07d78f2-350c-4f56-bd99-794c0de848ca",
+      "decision": "confirmed_candidate_resource_violation",
+      "canonical_control_passed": true,
+      "candidate_memory_limit_reproduced": true,
+      "public_cases_checked": 0,
+      "public_failed_cases": 0,
+      "hidden_outcome_known": false,
+      "hidden_cases_checked": 0,
+      "joint_full_pass": false
+    }
+  ],
+  "interpretation": "A reproduced candidate memory violation settles task failure; unchecked cases remain unmeasured, with zero imputed failures. Canonical control passed under the exact same unchanged budget. No new feedback was sent to any model."
+}

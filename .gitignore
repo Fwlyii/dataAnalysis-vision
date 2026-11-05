@@ -13,6 +13,7 @@ node_modules/
 .ipynb_checkpoints/
 # Generated and independently reproducible work
 /build/
+/work/
 /app/dist/
 /app/runtime/
 *.tmp
@@ -21,3 +22,16 @@ node_modules/
 
 .collection.lock
 .run.lock
+
+# Generated browser output and optional manual recordings
+/artifacts/
+/.impeccable/review/
+/optimization/
+/submission/
+*.mp4
+*.mov
+*.webm
+*.m4a
+*.avi
+*.mkv
+*.wav

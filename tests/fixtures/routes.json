@@ -1,0 +1,788 @@
+{
+  "entryDocuments": [
+    "index.html",
+    "explore.html"
+  ],
+  "routeCount": 93,
+  "routes": [
+    {
+      "key": "deck-gateway",
+      "family": "deck",
+      "section": "gateway",
+      "url": "index.html?intro=0#gateway"
+    },
+    {
+      "key": "deck-question",
+      "family": "deck",
+      "section": "question",
+      "url": "index.html?intro=0#question"
+    },
+    {
+      "key": "deck-collection",
+      "family": "deck",
+      "section": "collection",
+      "url": "index.html?intro=0#collection"
+    },
+    {
+      "key": "deck-cleaning",
+      "family": "deck",
+      "section": "cleaning",
+      "url": "index.html?intro=0#cleaning"
+    },
+    {
+      "key": "landscape-reasoning-deepseek-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "deepseek",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=deepseek&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-reasoning-deepseek-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "deepseek",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=deepseek&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-reasoning-hy4-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "hy4",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=hy4&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-reasoning-hy4-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "hy4",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=hy4&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-reasoning-qwen-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "qwen",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-reasoning-qwen-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "qwen",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-reasoning-qwen3-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "qwen3",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen3&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-reasoning-qwen3-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "reasoning",
+      "model": "qwen3",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen3&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-document_qa-qwen-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "document_qa",
+      "model": "qwen",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-document_qa-qwen-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "document_qa",
+      "model": "qwen",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-document_qa-qwen3-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "document_qa",
+      "model": "qwen3",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen3&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-document_qa-qwen3-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "document_qa",
+      "model": "qwen3",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen3&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-code_generation-deepseek-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "code_generation",
+      "model": "deepseek",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=deepseek&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-code_generation-deepseek-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "code_generation",
+      "model": "deepseek",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=deepseek&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-code_generation-qwen-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "code_generation",
+      "model": "qwen",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-code_generation-qwen-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "code_generation",
+      "model": "qwen",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "landscape-code_generation-qwen3-curve",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "code_generation",
+      "model": "qwen3",
+      "view": "curve",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen3&overviewView=curve#landscape"
+    },
+    {
+      "key": "landscape-code_generation-qwen3-heatmap",
+      "family": "landscape",
+      "section": "landscape",
+      "direction": "code_generation",
+      "model": "qwen3",
+      "view": "heatmap",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen3&overviewView=heatmap#landscape"
+    },
+    {
+      "key": "story-concise-baseline",
+      "family": "story",
+      "section": "findings",
+      "finding": "concise",
+      "view": "baseline",
+      "url": "index.html?intro=0&finding=concise&view=baseline#findings"
+    },
+    {
+      "key": "story-concise-cross",
+      "family": "story",
+      "section": "findings",
+      "finding": "concise",
+      "view": "cross",
+      "url": "index.html?intro=0&finding=concise&view=cross#findings"
+    },
+    {
+      "key": "story-language-math500",
+      "family": "story",
+      "section": "findings",
+      "finding": "language",
+      "task": "math500",
+      "url": "index.html?intro=0&finding=language&task=math500#findings"
+    },
+    {
+      "key": "story-language-gsm8k",
+      "family": "story",
+      "section": "findings",
+      "finding": "language",
+      "task": "gsm8k",
+      "url": "index.html?intro=0&finding=language&task=gsm8k#findings"
+    },
+    {
+      "key": "story-language-mmlu",
+      "family": "story",
+      "section": "findings",
+      "finding": "language",
+      "task": "mmlu",
+      "url": "index.html?intro=0&finding=language&task=mmlu#findings"
+    },
+    {
+      "key": "story-limits-deepseek-math500-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "math500",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-math500-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "math500",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-math500-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "math500",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "gsm8k",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "gsm8k",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "gsm8k",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "mmlu",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "mmlu",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "deepseek",
+      "task": "mmlu",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-math500-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "math500",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-math500-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "math500",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-math500-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "math500",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "gsm8k",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "gsm8k",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "gsm8k",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-mmlu-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "mmlu",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-mmlu-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "mmlu",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-hy4-mmlu-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "hy4",
+      "task": "mmlu",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-math500-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "math500",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-math500-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "math500",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-math500-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "math500",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "gsm8k",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "gsm8k",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "gsm8k",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-mmlu-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "mmlu",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-mmlu-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "mmlu",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen-mmlu-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen",
+      "task": "mmlu",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-math500-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "math500",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-math500-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "math500",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-math500-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "math500",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "gsm8k",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "gsm8k",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "gsm8k",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-WordLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "mmlu",
+      "limit": "WordLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=WordLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-CharLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "mmlu",
+      "limit": "CharLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=CharLimit#findings"
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-TokenLimit",
+      "family": "story",
+      "section": "findings",
+      "finding": "limits",
+      "model": "qwen3",
+      "task": "mmlu",
+      "limit": "TokenLimit",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=TokenLimit#findings"
+    },
+    {
+      "key": "story-position",
+      "family": "story",
+      "section": "findings",
+      "finding": "position",
+      "url": "index.html?intro=0&finding=position#findings"
+    },
+    {
+      "key": "story-repair-qwen",
+      "family": "story",
+      "section": "findings",
+      "finding": "repair",
+      "model": "qwen",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen#findings"
+    },
+    {
+      "key": "story-repair-qwen3",
+      "family": "story",
+      "section": "findings",
+      "finding": "repair",
+      "model": "qwen3",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen3#findings"
+    },
+    {
+      "key": "efficiency",
+      "family": "publication",
+      "url": "explore.html#budget"
+    },
+    {
+      "key": "efficiency-prompts",
+      "family": "publication",
+      "url": "explore.html?view=prompts#budget"
+    },
+    {
+      "key": "position-matrix",
+      "family": "publication",
+      "url": "explore.html#position"
+    },
+    {
+      "key": "position-profile",
+      "family": "publication",
+      "url": "explore.html?figure=profile#position"
+    },
+    {
+      "key": "code-sampling",
+      "family": "code",
+      "url": "explore.html?codeView=sampling#code"
+    },
+    {
+      "key": "code-prompts",
+      "family": "code",
+      "url": "explore.html?codeView=prompts#code"
+    },
+    {
+      "key": "code-errors",
+      "family": "code",
+      "url": "explore.html?codeView=errors#code"
+    },
+    {
+      "key": "code-tokens",
+      "family": "code",
+      "url": "explore.html?codeView=tokens#code"
+    },
+    {
+      "key": "discovery-1",
+      "family": "discovery",
+      "url": "explore.html#case-1"
+    },
+    {
+      "key": "discovery-2",
+      "family": "discovery",
+      "url": "explore.html#case-2"
+    },
+    {
+      "key": "discovery-3",
+      "family": "discovery",
+      "url": "explore.html#case-3"
+    },
+    {
+      "key": "discovery-4",
+      "family": "discovery",
+      "url": "explore.html#case-4"
+    },
+    {
+      "key": "discovery-5",
+      "family": "discovery",
+      "url": "explore.html#case-5"
+    },
+    {
+      "key": "chart-model",
+      "label": "模型柱图",
+      "chart": "model",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=model#case-1"
+    },
+    {
+      "key": "chart-radar",
+      "label": "雷达图",
+      "chart": "radar",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=radar#case-1"
+    },
+    {
+      "key": "chart-heatmap",
+      "label": "策略热力图",
+      "chart": "heatmap",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=heatmap#case-1"
+    },
+    {
+      "key": "chart-bubble",
+      "label": "规模 / 开销气泡图",
+      "chart": "bubble",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=bubble#case-1"
+    },
+    {
+      "key": "chart-radial",
+      "label": "分组环形柱图",
+      "chart": "radial",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=radial#case-1"
+    },
+    {
+      "key": "chart-position",
+      "label": "资料位置曲线",
+      "chart": "position",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=position&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-box",
+      "label": "分组箱线图",
+      "chart": "box",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=box#case-1"
+    },
+    {
+      "key": "chart-parallel",
+      "label": "平行坐标图",
+      "chart": "parallel",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=parallel#case-1"
+    },
+    {
+      "key": "chart-distribution",
+      "label": "状态饼图与堆叠图",
+      "chart": "distribution",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=distribution#case-1"
+    },
+    {
+      "key": "chart-behavior",
+      "label": "输出形态与约束",
+      "chart": "behavior",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=behavior#case-1"
+    },
+    {
+      "key": "chart-timeline",
+      "label": "请求时间线",
+      "chart": "timeline",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=timeline&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-tree",
+      "label": "重试路径树",
+      "chart": "tree",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=tree&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-flow",
+      "label": "评分分歧流图",
+      "chart": "flow",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=flow&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-flow-empty",
+      "family": "library",
+      "chart": "flow",
+      "empty": true,
+      "url": "explore.html?mode=explore&chart=flow&dataset=reasoning#case-1"
+    }
+  ],
+  "viewports": [
+    1366,
+    1440,
+    1600,
+    1920,
+    2560
+  ]
+}

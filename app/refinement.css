@@ -1,0 +1,88 @@
+/* One presentation layer over the original Master. Scientific plot rules stay upstream. */
+@font-face{font-family:"Fraunces LENS";src:url("assets/fonts/Fraunces-Latin-400.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+.deck-panel.is-active{animation:none}
+:root{--serif:"Fraunces LENS",Georgia,"Times New Roman",serif;--paper:#f5f2eb;--ink:#202522;--accent:#a34f36;--intro-bg:#071e30;--intro-ink:#f4f1e9;--intro-ice:#f2dcc7;--intro-accent:#dfa17c;--intro-muted:#a9bdc9;--intro-font:Geist,"Helvetica Neue",Arial,sans-serif}
+::selection{background:#a34f3633}
+.wordmark{font-family:var(--serif);font-weight:400;letter-spacing:-.06em;display:flex;align-items:center}
+.wordmark .wordmark-logo{display:inline-flex;color:var(--intro-ink)}
+.wordmark-logo strong{font:inherit;color:inherit}
+.wordmark .lens-period{color:var(--intro-accent)}
+.topbar-actions{display:flex;align-items:center;gap:20px}
+.topbar-actions .mobile-library{display:block;font-size:12px;color:#c3d1d9}
+.intro-replay{display:grid;place-items:center;width:40px;height:40px;border:1px solid #d7e5ec30;border-radius:50%;color:#c3d1d9}
+.intro-replay:hover{border-color:var(--intro-accent);color:var(--intro-ink)}
+.intro-replay:disabled{opacity:.4;cursor:default}
+.question-inner{padding-top:56px}
+.question-copy{max-width:850px}
+.question-panel h1{font-size:clamp(62px,5.7vw,88px);line-height:1.04;letter-spacing:-.055em;font-optical-sizing:auto;margin-bottom:26px}
+.question-lead{font-size:17px;line-height:1.65;max-width:530px}
+.question-points{gap:36px;margin-top:38px;max-width:700px}
+.question-points li{min-width:0}
+.question-art{right:1%;width:58%;object-fit:contain;object-position:right center;opacity:.65}
+.question-scale strong{font-size:40px;letter-spacing:-.04em}
+.chapter-rail-nav button{border-radius:3px}
+.panel-header h2{font-size:clamp(36px,3.5vw,50px);line-height:1.12;letter-spacing:-.045em}
+.section-index{letter-spacing:.14em}
+.findings-heading h2{font-size:34px}
+.findings-heading{margin-bottom:14px}
+.finding-stage{padding-top:20px}
+.finding-intro{margin-bottom:18px;gap:32px}
+.finding-intro h3{font-size:clamp(30px,3.1vw,43px);line-height:1.12;letter-spacing:-.035em}
+.finding-kicker{margin-bottom:8px}
+.figure-heading h4{font-family:Geist,Arial,sans-serif;font-size:16px;font-weight:500;line-height:1.4}
+.figure-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 20px;align-items:end}
+.figure-heading{grid-column:1;grid-row:1;min-width:0}
+.figure-controls{grid-column:1/-1;grid-row:2}
+.figure-toolbar>.export-menu{grid-column:2;grid-row:1}
+.plot-scroll,.overview-plot{scrollbar-color:#b4aca0 transparent;scrollbar-width:thin}
+.scroll-hint{display:none;font:11px/1.5 Geist,Arial,sans-serif;color:var(--muted);margin:8px 0}
+.data-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+:root{--muted:#61675f;--faint:#656a62}
+.research-toolbar>span{color:#65606a}
+/* Library inherits the same chrome while retaining every original visualization. */
+.research-topbar{background:var(--intro-bg);color:var(--intro-ink);height:72px;border-bottom:1px solid #d7e5ec30;gap:22px;padding:0 32px}
+.research-topbar .brand,.research-topbar .brand:hover{color:var(--intro-ink)}
+.research-topbar .brand strong{font-family:var(--serif);font-size:29px;font-weight:400;letter-spacing:-.06em}
+.research-topbar .brand span{color:#a9bdc9;border-color:#d7e5ec30;font-size:10px}
+.research-topbar .research-nav{gap:26px}
+.research-topbar .research-nav button{color:#b7c7d0;line-height:1.4;transition:color .2s}
+.research-topbar .research-nav button:hover,.research-topbar .research-nav button[aria-current]{color:var(--intro-ink)}
+.research-topbar .research-nav button[aria-current]::after{background:var(--intro-accent)}
+.research-topbar .story-home{color:#c3d1d9;white-space:nowrap;font-size:12px}
+.research-topbar .fullscreen-button{filter:brightness(0) invert(1);opacity:.75;flex-shrink:0}
+#stage h1{font-family:Geist,"PingFang SC","Microsoft YaHei",sans-serif;font-weight:600;font-size:28px;letter-spacing:-.035em;line-height:1.35}
+.research-heading{align-items:center}
+.research-caption{border-color:#ddd8ce}
+@media(min-width:901px) and (max-height:800px){.question-inner{padding-top:34px}.question-panel h1{font-size:70px}.question-points{margin-top:28px}.findings-inner{padding-top:20px}.findings-heading{margin-bottom:10px}.findings-heading h2{font-size:28px}.finding-stage{padding-top:14px}.finding-intro{margin-bottom:12px}.finding-intro h3{font-size:32px}.finding-kicker{margin-bottom:5px}.evidence-line{font-size:13px}.finding-nav button{padding:10px 0}}
+@media(max-width:1100px){.research-topbar .brand span{display:none}.research-topbar .research-nav{gap:18px}.research-topbar{gap:18px;padding:0 24px}.research-topbar .story-home{font-size:11px}}
+@media(max-width:900px){.question-panel h1{font-size:68px}.question-art{right:-24%;width:100%;opacity:.45}.question-scale{margin-top:auto}.question-inner{min-height:100%;padding-bottom:32px}.question-points{max-width:670px}.research-topbar{height:auto;min-height:72px;flex-wrap:wrap;padding:16px 20px 0;gap:12px}.research-topbar .brand{margin-right:auto}.research-topbar .research-nav{order:4;width:100%;height:48px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:0}.research-nav button{white-space:normal;min-width:0;text-align:center}.research-topbar .story-home{margin-right:0}.research-topbar .fullscreen-button{width:28px;height:28px}}
+@media(max-width:600px){.topbar-actions{gap:14px}.topbar-actions .mobile-library{font-size:11px}.intro-replay{width:34px;height:34px}.question-inner{padding:30px 22px 30px}.question-copy{max-width:100%}.question-panel h1{font-size:clamp(39px,10.8vw,57px);line-height:1.07;letter-spacing:-.05em;margin-bottom:22px}.question-lead{font-size:14px;max-width:30ch}.question-points{gap:16px;margin-top:28px;max-width:260px}.question-scale{padding-top:20px;margin-top:32px}.question-scale strong{font-size:34px}.question-scale span{font-size:11px}.question-art{right:-55%;width:140%;opacity:.30}.panel-header h2{font-size:36px;line-height:1.13}.findings-heading h2{font-size:32px}.finding-intro h3{font-size:32px}.finding-intro{gap:14px}.finding-stage{padding-top:18px}.evidence-line{font-size:13px}.figure-heading{width:auto}.figure-heading h4{font-size:15px}.figure-controls{gap:12px}.scroll-hint{display:block}.research-topbar{padding:14px 16px 0;gap:10px}.research-topbar .research-nav{gap:8px;height:54px}.research-topbar .research-nav button{font-size:10px}.research-topbar .brand strong{font-size:26px}.research-topbar .story-home{font-size:10px}#stage h1{font-size:24px}}
+@media(max-width:600px){.question-art{right:0;top:47%;height:50%;width:90%;object-fit:contain;opacity:.26}}
+@media(max-width:600px){.explore-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}.explore-controls label{display:flex;flex-direction:column;align-items:stretch;gap:5px;min-width:0}.explore-controls select{width:100%;max-width:100%;min-width:0;font-size:11px}.explore-controls>label:last-child:nth-child(odd){grid-column:1/-1;max-width:calc(50% - 8px)}}
+@media(max-width:600px){.point-control,.point-readout,.figure-caption{min-width:0;width:100%}.point-control{flex-wrap:wrap;gap:10px 12px}.point-control input[type=range]{min-width:120px}.figure-caption{line-height:1.6}}
+/* Contain fractional edge paint; figures keep their own scrollable viewport. */
+#stage{overflow-x:clip}
+.schema-block{min-width:0}
+@media(min-width:601px) and (max-width:900px){.question-art{right:0;width:90%;object-fit:contain}}
+@media(min-width:901px) and (max-height:800px){.plot{max-width:1000px}}
+@media(prefers-reduced-motion:reduce){.question-art{animation:none!important}*,*::before,*::after{scroll-behavior:auto!important}}
+/* Optical atlas: peripheral chrome only. No scientific SVG/Canvas selectors. */
+.section-index{display:flex;align-items:center;gap:14px}
+.section-index::after{content:"";display:inline-block;width:36px;height:1px;background:currentColor;opacity:.4}
+.key-points .point-icon{border-color:#a34f3640;background:#a34f3605}
+.question-points .point-icon{border-color:#dfa17c65;background:#dfa17c08}
+.question-points .point-icon svg{stroke:#e1b28e}
+.inline-details summary{color:#4c524d}
+.inline-details[open]>summary{color:var(--accent)}
+.schema-preview{box-shadow:0 2px 0 #fff7,inset 0 0 0 1px #d6e5e52b}
+.research-topbar .research-nav button{transition:color .2s,background-color .2s}
+.research-topbar .research-nav button:is(:hover,:focus-visible){background:#e7f4ff08}
+.research-topbar .research-nav button[aria-current]{text-shadow:0 0 18px #f7d6bd22}
+.explore-controls select,.research-toolbar select,.code-study-controls select{border-color:#d5d0c5;background-color:#fffdf8;box-shadow:0 1px 2px #172b3510}
+.explore-controls label{color:#525b58}
+.explore-controls select:is(:hover,:focus),.research-toolbar select:is(:hover,:focus),.code-study-controls select:is(:hover,:focus){border-color:#a34f3675}
+.segmented button[aria-pressed=true],.condition-group button[aria-pressed=true]{box-shadow:inset 0 0 0 1px #a34f3630}
+.research-home:hover{border-color:#a34f3660}
+:is(.research-nav,.finding-nav,.research-toolbar,.figure-controls,.explore-controls,.inline-details,.export-menu) :is(button,a,summary,select):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.inspector{box-shadow:-14px 0 55px #071e3024;border-left:1px solid #d8d1c5}
+.inspector .close{border:1px solid #d5d0c5;border-radius:50%}

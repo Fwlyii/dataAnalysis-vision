@@ -96,7 +96,9 @@ export async function enhanceTokens(root,state,data,callbacks){
  view.addEventListener('pointermove',(event,item)=>{const r=item?.datum;if(r?.model && r?.prompt)showTip(tip,event,`<strong>${esc(r.model_name)}</strong><br>${esc(r.prompt)}<br>${fmt(r.tokens,1)} output tokens · Pass@${state.k} ${fmt(r.score,2)}%<br>Extraction failure ${fmt(r.extraction,1)}%`);else tip.hidden=true;});
  view.addEventListener('pointerout',()=>{tip.hidden=true;});
  cleanups.push(()=>{disposed=true;if(pending)cancelAnimationFrame(pending);if(persistTimer)clearTimeout(persistTimer);view.finalize();chart.dispose();tip.remove();});
- try{await view.runAsync();if(ticket!==generation || !root.isConnected)return;refresh();}catch(e){callbacks.onUnavailable(e.message);return;}
+ try{await view.runAsync();if(ticket!==generation || !root.isConnected)return;
+  scaffold.querySelectorAll('.codeBrush_brush_bg,.codeBrush_brush').forEach(el=>el.setAttribute('aria-label','图表框选范围；也可使用下方精确范围筛选'));
+  refresh();}catch(e){callbacks.onUnavailable(e.message);return;}
  const observer=new ResizeObserver(()=>{if(!disposed)chart.resize();});observer.observe(scaffold);cleanups.push(()=>observer.disconnect());
  // Native buttons are available when direct manipulation is inconvenient.
  const svg=scaffold.querySelector('#code-vega-scatter svg');if(svg){svg.setAttribute('role','img');svg.setAttribute('aria-label','93 个模型与提示条件。拖动框选；精确范围筛选提供键盘替代。');}

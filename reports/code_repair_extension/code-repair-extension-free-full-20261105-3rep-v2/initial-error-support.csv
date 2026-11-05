@@ -1,0 +1,12 @@
+﻿model,model_label,error_kind,initial_programs,task_clusters,repeats_per_task
+Qwen/Qwen2.5-7B-Instruct,Qwen2.5-7B-Instruct,load,12,164,3
+Qwen/Qwen2.5-7B-Instruct,Qwen2.5-7B-Instruct,output_mismatch,60,164,3
+Qwen/Qwen2.5-7B-Instruct,Qwen2.5-7B-Instruct,pass,413,164,3
+Qwen/Qwen2.5-7B-Instruct,Qwen2.5-7B-Instruct,runtime,5,164,3
+Qwen/Qwen2.5-7B-Instruct,Qwen2.5-7B-Instruct,syntax,2,164,3
+Qwen/Qwen3-8B,Qwen3-8B,load,3,164,3
+Qwen/Qwen3-8B,Qwen3-8B,output_mismatch,80,164,3
+Qwen/Qwen3-8B,Qwen3-8B,pass,395,164,3
+Qwen/Qwen3-8B,Qwen3-8B,runtime,9,164,3
+Qwen/Qwen3-8B,Qwen3-8B,syntax,1,164,3
+Qwen/Qwen3-8B,Qwen3-8B,timeout,4,164,3

@@ -2,7 +2,7 @@
 
 对照题目二 PDF 第 1–2 页场景示例、第 5 页参考视图、第 6 页图形与结论要求。课堂默认不展示此清单。
 
-本表核对图形、真实数据和联动入口；课程中的图种为参考，不是全部必做项。当前分类方法、交互、[12 页案例 PDF](../report/baseline_case_report.pdf)、[报告正文](../report/baseline_case_report.md)与[答辩 PPTX](../presentation/baseline_defense_slides.pptx)/[PDF](../presentation/baseline_defense_slides.pdf)均已形成，案例 PDF 已逐页渲染并完成版面检查。课程其余未闭环事项见 [当前状态](analysis-status.md)，图种覆盖不代替采集归属、人工语义审核或学生理解的事实。
+本表核对图形、真实数据和联动入口；课程中的图种为参考，不是全部必做项。当前分类方法、交互、[参考报告 PDF](../report/case_report.pdf)、[报告正文](../report/case_report.md)与[答辩讲稿](../presentation/defense_slides.md)/[PPT PDF](../presentation/defense_slides.pdf)均已形成，作为人工录制的参考资料。课程其余未闭环事项见 [当前状态](insight-audit.md)，图种覆盖不代替采集归属、人工语义审核或学生理解的事实。
 
 | 课程提及类型 | 当前入口 | 实际数据 / 边界 |
 | --- | --- | --- |
@@ -22,7 +22,7 @@
 | 代码通过率、错误分布、Prompt 矩阵、输出开销散点 | 顶栏“代码生成” | 已接入 90,210 条保存评分，Pass@1…5 及独立采样新增、14 类错误×模型×提示、93 个开销点；点图追溯匿名评分。数据没有工具/修复过程，不能当作错误恢复实证。 |
 | 日志详情 | 点击图形打开右侧记录 | 匿名特征与真实请求事件；遵守 PDF 不公开原始对话的要求。 |
 
-五个正式发现及维度证据见 [结论核对](insight-audit.md)与[案例报告](../report/baseline_case_report.pdf)。两条低维、两条多维、一条异常均有图形和统计支持。选项 B 要求至少三个核心交互视图与一种有效联动；当前五案例、自由探索及分类矩阵均有实际入口。
+五个正式发现及维度证据见 [结论核对](insight-audit.md)与[案例报告](../report/case_report.pdf)。两条低维、两条多维、一条异常均有图形和统计支持。选项 B 要求至少三个核心交互视图与一种有效联动；当前五案例、自由探索及分类矩阵均有实际入口。
 
 主入口另有三个任务的预算–SR 分面（每模型 93 个实测提示点）、31 提示 × 3 位置 × 2 模型的矩阵，以及按文档数分面的真实位置剖面。主图由 Matplotlib 生成 SVG；探索库采用 SVG renderer。
 

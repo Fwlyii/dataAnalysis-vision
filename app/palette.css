@@ -1,0 +1,108 @@
+/* LENS optical color system. Layout, scientific tokens and chart paint stay upstream. */
+:root{
+ --lens-navy:#071e30;--lens-navy-surface:#103347;
+ --lens-reading:#eaf0f2;--lens-surface:#f8fafb;--lens-soft:#dfe8ed;
+ --lens-line:#cbd8e0;--lens-ui-ink:#153447;--lens-ui-muted:#526b7a;
+ --lens-champagne:#d2bb96;--lens-accent-ink:#7a603e;
+}
+body{background:var(--lens-reading)}
+body[data-section=question]{background:var(--lens-navy)}
+.deck-panel:not(#gateway):not(#question){background:var(--lens-reading)}
+::selection{background:#b5d0df88}
+/* The existing research heading becomes the navy identity anchor; no navigation is added. */
+.deck-panel:not(#gateway):not(#question) .panel-header{position:relative;isolation:isolate;border-bottom-color:transparent}
+.deck-panel:not(#gateway):not(#question) .panel-header::before{content:"";position:absolute;inset:-22px -26px 0;z-index:-1;border:1px solid #315164;border-radius:14px;background:radial-gradient(ellipse at 100% 0%,#21495d55,transparent 65%),linear-gradient(115deg,#071e30,#103347);box-shadow:0 10px 24px #071e300c;pointer-events:none}
+.deck-panel:not(#gateway):not(#question) .panel-header h2{color:#f1f6f8}
+.deck-panel:not(#gateway):not(#question) .panel-header .panel-aside{color:#bcd0dc}
+.deck-panel:not(#gateway):not(#question) .section-index{color:var(--lens-champagne)}
+.deck-panel:not(#gateway):not(#question) .section-index::after{background:#d2bb965c}
+.research-home,body[data-section=question] .research-home{background:#0b293df5;border-color:#9ab7c64d;color:#edf5f7;box-shadow:0 4px 14px #071e3012}
+.research-home .research-home-caption,body[data-section=question] .research-home-caption{color:#b8ceda}
+.research-home-mark span{color:var(--lens-champagne)}
+/* Question stays immersive; silver edges and muted champagne replace orange UI details. */
+#question .section-index,#question .question-points li::before{color:var(--lens-champagne)}
+#question .question-points li{border-color:#9ebcca54;background:linear-gradient(145deg,#31566b45,#0a283b96 75%)}
+#question .question-points .point-icon{border-color:#d2bb9699;color:#d2bb96;background:#071e3059}
+/* Porcelain cards and blue-gray secondary surfaces unify the method pages. */
+#collection .design-points li,#collection .task-row,#cleaning .schema-block,#cleaning .cleaning-steps{background:var(--lens-surface);border-color:var(--lens-line)}
+#collection .design-points .point-icon,#cleaning .cleaning-steps li::before{background:#e9f0f3;border-color:#bacbd7;color:#375b70}
+#collection .design-points strong,#collection .task-row h3,#collection .task-row>strong,#cleaning .cleaning-steps strong,#cleaning .quality-ledger dd{color:var(--lens-ui-ink)}
+#collection .design-points li>div>span,#collection .task-row p,#collection .flow-node>span,#collection .special-studies>div>span:last-child,#cleaning .schema-label,#cleaning .cleaning-steps li>span,#cleaning .quality-ledger dt,#cleaning .cleaning-points li>div>span{color:var(--lens-ui-muted)}
+#collection .task-row>span{color:#607a8a}
+#collection .experiment-flow .flow-node{background:var(--lens-soft);border-color:var(--lens-line)}
+#collection .flow-node strong{color:var(--lens-ui-ink)}
+#collection .experiment-flow .flow-node.focus{background:linear-gradient(115deg,#103347,#183e52);border-color:#385d71}
+#collection .flow-node.focus>span{color:var(--lens-champagne)}
+#collection .flow-node.focus strong{color:#f2f7f8}
+#collection .experiment-flow>i{color:#6c8594}
+#collection .special-studies>div{background:var(--lens-soft);border-left-color:#b7a17e}
+#collection .special-studies strong,#cleaning .cleaning-points strong{color:var(--lens-ui-ink)}
+#cleaning .schema-preview{background:#102b3d;border-color:#345263}
+#cleaning .schema-label>span:last-child{color:var(--lens-accent-ink)}
+#cleaning .cleaning-steps li:not(:last-child)::after{background:var(--lens-line)}
+#cleaning .quality-ledger,#cleaning .cleaning-points{background:var(--lens-soft)}
+#cleaning .quality-ledger>div:last-child dd{color:var(--lens-accent-ink)}
+#cleaning .cleaning-points .point-icon{color:#42677c;border-color:#9db5c2;background:#e7eff3}
+/* Reading controls share the same optical instrument colors. Scientific SVGs are excluded. */
+.deck-panel:not(#gateway) .inline-details{border-color:var(--lens-line);background:#f8fafbb3}
+.deck-panel:not(#gateway) .inline-details summary,.deck-panel:not(#gateway) .inline-details p{color:var(--lens-ui-muted)}
+.deck-panel:not(#gateway) .landscape-controls{background:var(--lens-surface);border-color:var(--lens-line)}
+.deck-panel:not(#gateway) .control-label{color:var(--lens-ui-muted)}
+.deck-panel:not(#gateway) :is(.task-switch,.choice-switch,.segmented){background:var(--lens-soft)}
+.deck-panel:not(#gateway) :is(.task-switch,.choice-switch,.segmented) button{color:var(--lens-ui-muted)}
+.deck-panel:not(#gateway) :is(.task-switch,.choice-switch,.segmented) button[aria-pressed=true]{background:var(--lens-navy-surface);color:#f1f6f8;box-shadow:none}
+.deck-panel:not(#gateway) .model-switch button{background:var(--lens-soft);border-color:transparent;color:var(--lens-ui-muted)}
+.deck-panel:not(#gateway) .model-switch button[aria-pressed=true]{background:#f8fafb;border-color:#57798d;color:var(--lens-ui-ink)}
+.deck-panel:not(#gateway) .landscape-foot{background:var(--lens-soft);color:var(--lens-ui-muted)}
+#findings .finding-nav{background:var(--lens-soft);border-color:var(--lens-line)}
+#findings .finding-nav button,#findings .finding-nav button>span{color:var(--lens-ui-muted)}
+#findings .finding-nav button[aria-current=page]{background:var(--lens-navy-surface);color:#f1f6f8;box-shadow:none}
+#findings .finding-nav button[aria-current=page]>span{color:var(--lens-champagne)}
+#findings .finding-intro h3,#findings .figure-heading h4{color:var(--lens-ui-ink)}
+#findings .finding-kicker{color:var(--lens-accent-ink)}
+#findings .evidence-line{border-left-color:#b49d79;color:var(--lens-ui-muted)}
+#findings .figure-controls,#findings .evidence-section,#findings .support-section{border-color:var(--lens-line)}
+#findings .export-menu summary{background:var(--lens-surface);border-color:var(--lens-line);color:var(--lens-ui-muted)}
+#findings .export-options{background:var(--lens-surface);border-color:var(--lens-line)}
+/* Every scientific display keeps its original paper and original data colors. No padding/borders alter viewport widths. */
+#landscape .overview-plot,#findings #plot,#stage .plot-surface,#stage .plot-card{background:#f5f2eb;box-shadow:0 0 0 1px #cbd8e080;border-radius:10px}
+/* Library, publication, code study and discovery use the same chrome and card family. */
+.research-topbar{background:var(--lens-navy);border-bottom-color:#365164}
+.research-topbar .research-nav button[aria-current="false"]{color:#b4c8d4}
+.research-topbar .research-nav button[aria-current=page],.research-topbar .research-nav button:hover{color:#f1f6f8}
+.research-topbar .research-nav button[aria-current=page]::after{background:var(--lens-champagne)}
+#stage :is(.page-title,h1){color:var(--lens-ui-ink)}
+#stage .research-heading{border-bottom-color:var(--lens-line)}
+#stage .research-heading p,#stage .scene-context,#stage .analysis-type,#stage .scene-context .context-divider{color:var(--lens-ui-muted)}
+#stage .text-action,#stage .plain-button,#stage .code-playback button{color:var(--lens-ui-muted);border-color:var(--lens-line);background:var(--lens-surface)}
+#stage .explore-controls,#stage .research-toolbar,#stage .metric-card{background:var(--lens-surface);border-color:var(--lens-line)}
+#stage .explore-controls label,#stage .research-toolbar label,#stage .code-study-toolbar label,#stage .research-toolbar>span{color:var(--lens-ui-muted)}
+#stage .explore-controls select,#stage .research-toolbar select{background-color:#edf3f6;border-color:var(--lens-line);color:var(--lens-ui-ink)}
+#stage .model-tabs button,#stage .efficiency-views button{background:var(--lens-soft);color:var(--lens-ui-muted)}
+#stage .model-tabs button[aria-current=page],#stage .model-tabs button[aria-pressed=true],#stage .efficiency-views button[aria-pressed=true]{background:var(--lens-navy-surface);color:#f2f7f8}
+#stage .code-view-nav{background:var(--lens-soft);border-color:var(--lens-line)}
+#stage .code-view-nav button{color:var(--lens-ui-muted)}
+#stage .code-view-nav button[aria-current=page]{background:var(--lens-navy-surface);color:#f2f7f8}
+#stage .research-caption,#stage .efficiency-finding{background:var(--lens-soft);border-color:var(--lens-line)}
+#stage .research-caption .caption-index{color:var(--lens-accent-ink)}
+#stage .metric-value{color:var(--lens-ui-ink)}
+#stage .metric-detail,#stage .subheader{color:var(--lens-ui-muted)}
+.chapter-nav{background:var(--lens-soft);border-color:var(--lens-line)}
+.chapter-nav button{color:var(--lens-ui-muted)}
+.chapter-nav button[aria-current=page]{background:var(--lens-navy-surface);color:#f2f7f8}
+.inspector{background:var(--lens-surface);box-shadow:-15px 0 60px #071e301f}
+.inspector #inspector-title,.inspector h3{color:var(--lens-ui-ink)}
+.inspector :is(p,.subline,.tiny-note,.fact,th,td){color:var(--lens-ui-muted);border-color:var(--lens-line)}
+.inspector :is(.plain-button,.text-action){color:var(--lens-ui-muted);background:#edf3f6;border-color:var(--lens-line)}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline-color:var(--lens-accent-ink)}
+@media(max-width:1100px){.deck-panel:not(#gateway):not(#question) .panel-header::before{left:-16px;right:-16px}}
+/* Detail reading surfaces and small notes need the same accessible blue-gray contrast. */
+#stage :is(.research-foot,.research-foot>span,.figure-note,.header-legend,.code-gesture-note,.publication-scroll-hint){color:var(--lens-ui-muted)}
+#findings .answer,#findings .position-answer{background:var(--lens-surface);border-left-color:var(--lens-line);border-right-color:var(--lens-line);border-bottom-color:var(--lens-line)}
+#findings .answer>header,#findings .answer details,#findings .data-scroll,#findings .data-scroll :is(th,td){border-color:var(--lens-line)}
+#findings .prompt-text,#findings .feedback-strip{background:var(--lens-soft)}
+#findings .prompt-text,#findings .answer-meta,#findings .example-explanation{color:var(--lens-ui-muted)}
+#findings .answer details summary,#findings .support-section details a{color:var(--lens-accent-ink)}
+#findings .data-scroll{background:var(--lens-surface)}
+#findings .data-scroll th{background:var(--lens-soft);color:var(--lens-ui-ink)}
+#collection .special-studies .point-icon{background:#e9f0f3;border-color:#b8cbd6;color:#42677c}

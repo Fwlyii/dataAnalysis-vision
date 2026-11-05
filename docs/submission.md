@@ -1,23 +1,19 @@
-# 课程提交
+# 人工录制与课程提交
 
-运行 `python3 scripts/delivery/build_submission.py` 生成 `submission/AI对话行为分析_系统/`。
+本课程最终人工提交一个演示视频。报告与PPT保留在仓库作为参考，不再生成重复源码提交包或自动合成视频。
 
-```text
-README.md
-app/                        可运行系统、pipeline脚本与统计图稿
-data/
-  raw/                      来源与校验
-  processed/                匿名特征及质量元数据
-  data_dictionary.md
-report/
-  案例报告.pdf
-presentation/
-  答辩PPT.pdf
-  汇报演示_1080P.mp4
-```
+## 录制前
 
-结构对应课程PDF系统组示例。外层名称可按学校要求填写学号姓名。无子Git仓库、无嵌套的第二套项目；app/pipeline是从统一代码基底生成的脚本副本。
+打开[在线系统](https://fwlyii.github.io/data-analysis-frontrefine/)，或在仓库根目录运行 `python3 app/launch.py --port 8770`。建议使用电脑1920×1080窗口，确认页面字体、图表和全部操作正常；如需展示开场，在网址后加 `?intro=1`。
 
-系统：`python3 app/launch.py --port 8766`。匿名统计：`python3 app/pipeline/scripts/reproduce_anonymous.py`。图稿重绘加`--figures`，需分析依赖和Times New Roman；文档重绘另需documents.txt。
+## 演示顺序
 
-两条低维、两条多维和一条异常的证据见PROJECT_SUMMARY.md与案例报告。完整原始响应保存在完整项目，匿名提交目录只带数据特征、代码、统计和图形。
+1. 播放知微之门开场，通过光球进入研究。
+2. 查看研究问题、实验设计、数据处理和数据全貌；演示方向卡、实验卡和流程节点。
+3. 切换五项核心发现，使用真实任务/模型选择、位置滑块、代码版本和匿名案例。
+4. 进入图表库，演示模型/提示筛选、图表切换、匿名记录与CSV/SVG导出。
+5. 在代码研究中演示独立采样播放及散点框选与错误率联动。
+
+保留实验间的区别：九位置专项与原三位置文档问答不同；多轮反馈修复与五次独立采样不同。讲解依据以原图、现有统计和来源说明为准。
+
+录制时间、格式和提交渠道以老师实际要求为准。成片保存在个人录制目录并人工提交，不放回Git仓库。`report/`与`presentation/`中的PDF和讲稿可辅助准备内容。

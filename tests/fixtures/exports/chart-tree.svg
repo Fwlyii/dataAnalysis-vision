@@ -1,0 +1,28 @@
+<svg width="1339" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1339 540">
+<rect width="1339" height="540" x="0" y="0" fill="none"></rect>
+<path d="M0 245L381.3333 245" transform="translate(80 25)" fill="none" stroke="#d3dce9" stroke-width="1.1" class="zr0-cls-0"></path>
+<path d="M381.3333 245L533.8667 245M762.6667 122.5L533.8667 122.5L533.8667 367.5L762.6667 367.5" transform="translate(80 25)" fill="none" stroke="#d3dce9" stroke-width="1.1" class="zr0-cls-0"></path>
+<path d="M762.6667 367.5L1144 367.5" transform="translate(80 25)" fill="none" stroke="#d3dce9" stroke-width="1.1" class="zr0-cls-0"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2.5,0,0,2.5,80,270)" fill="#fff" stroke="#8a9bb5" stroke-width="0.8" class="zr0-cls-1"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2.5,0,0,2.5,461.3333,270)" fill="#fff" stroke="#8a9bb5" stroke-width="0.8" class="zr0-cls-1"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2.5,0,0,2.5,842.6667,147.5)" fill="#fff" stroke="#8a9bb5" stroke-width="0.8" class="zr0-cls-1"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2.5,0,0,2.5,842.6667,392.5)" fill="#fff" stroke="#8a9bb5" stroke-width="0.8" class="zr0-cls-1"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(2.5,0,0,2.5,1224,392.5)" fill="#fff" stroke="#8a9bb5" stroke-width="0.8" class="zr0-cls-1"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" transform="translate(71.5 270)" fill="#526174">运行 · 10</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" transform="translate(452.8333 270)" fill="#526174">状态未记录 · 10</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" transform="translate(851.1667 147.5)" fill="#526174">HTTP 200 · 9</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" transform="translate(834.1667 392.5)" fill="#526174">状态未记录 · 1</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" transform="translate(1232.5 392.5)" fill="#526174">HTTP 200 · 1</text>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+cursor:pointer;
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+fill:rgba(255,255,255,1);
+}
+
+]]>
+
+</style>
+</svg>

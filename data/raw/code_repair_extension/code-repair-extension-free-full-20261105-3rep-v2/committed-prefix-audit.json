@@ -1,0 +1,25 @@
+{
+  "scope": "Committed prefix integrity audit only; no treatment effect estimates",
+  "timestamp": "2026-11-05T05:46:40.922308+00:00",
+  "physical_responses": 18361,
+  "original_public_records": 18361,
+  "frozen_sources_match": true,
+  "config_sha256": "ed88d111c3336fdcd2850e9e50aa63e7beeb4957a34a9228833ce73731942f99",
+  "checks": {
+    "sandboxed_evaluations": 18361,
+    "complete_public_verdicts": 18361,
+    "actual_cases_checked": 168989,
+    "actual_passed_cases": 152969,
+    "actual_failed_cases": 16020,
+    "usage_available": 18361,
+    "independent_requests": 3703,
+    "verified_parent_and_public_feedback": 14658,
+    "load_failed_programs": 272,
+    "load_failed_logical_case_labels": 3162,
+    "load_failed_blocked_inputs": 3162,
+    "audited_candidate_resource_failures": 16,
+    "resource_resolution_confirmed_candidate_resource_violation": 16,
+    "complete_strong_verdicts": 2284,
+    "resource_resolution_completed_candidate_retest": 2
+  }
+}

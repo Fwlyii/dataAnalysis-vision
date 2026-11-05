@@ -1,9 +1,5 @@
-# 答辩材料
+# 参考PPT与讲稿
 
-- `defense_slides.pdf`：12页，覆盖研究问题、实验设计、五条发现、系统与解释范围。
-- `research_demo_340s.mp4`：约5分40秒、1920×1080、25fps的研究结果汇报；画面使用实际图稿，旁白由本机语音合成，不是网页录屏。
-- `research_demo.srt`：与章节对应的标题字幕。
-- `current_slide_content.json`、`defense_slides.md`：页面内容与讲稿。
-- `current_video.json`：视频与来源信息。
+保留 `defense_slides.pdf`、`defense_slides.md` 和 `current_slide_content.json`，用来理解研究结构或准备人工录制。
 
-制作脚本：scripts/delivery/build_course_documents.py、scripts/delivery/build_course_video.py。文档依赖requirements/documents.txt，视频依赖requirements/video.txt与Poppler；本机旁白生成使用macOS say。
+课程最终人工提交一个演示视频。仓库不保存自动合成视频、旁白、字幕或视频生成元数据；录制顺序见[提交指南](../docs/submission.md)。参考文档仍可通过 `scripts/delivery/build_course_documents.py` 重新生成。

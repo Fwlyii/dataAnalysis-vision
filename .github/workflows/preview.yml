@@ -1,0 +1,24 @@
+name: Check chart-motion preview
+
+on:
+  push:
+    branches: [codex/lens-chart-motion]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out preview source
+        uses: actions/checkout@v6
+      - name: Build preview from real source
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 scripts/system/build_web_app.py
+      - name: Verify snapshot and scientific contract
+        run: |
+          python3 scripts/system/check_web_snapshot.py --skip-build
+          python3 scripts/system/check_visual_coverage.py

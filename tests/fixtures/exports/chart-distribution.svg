@@ -1,0 +1,49 @@
+<svg width="655" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 655 540">
+<rect width="655" height="540" x="0" y="0" fill="none"></rect>
+<polyline points="357.4 410.5 359.5 422.3 367.5 422.3" fill="none" stroke="#3f9c91" class="zr0-cls-0"></polyline>
+<polyline points="296.3 75.8 262.2 74.9 254.2 74.9" fill="none" stroke="#b8c3d2" class="zr0-cls-0"></polyline>
+<polyline points="326.2 72.9 326.1 60.9 318.1 60.9" fill="none" stroke="#df964c" class="zr0-cls-0"></polyline>
+<path d="M327.5 72.9A170.1 170.1 0 1 1 268.6255 83.4137L327.5 243Z" fill="#3f9c91" stroke="#fff" stroke-width="3" stroke-linejoin="round" class="zr0-cls-1"></path>
+<path d="M268.6255 83.4137A170.1 170.1 0 0 1 324.8282 72.921L327.5 243Z" fill="#b8c3d2" stroke="#fff" stroke-width="3" stroke-linejoin="round" class="zr0-cls-2"></path>
+<path d="M324.8282 72.921A170.1 170.1 0 0 1 327.5 72.9L327.5 243Z" fill="#df964c" stroke="#fff" stroke-width="3" stroke-linejoin="round" class="zr0-cls-3"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(372.5125 422.2641)" fill="#526174">94.38%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(249.2276 74.9057)" fill="#526174">5.37%</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(313.0698 60.9056)" fill="#526174">0.25%</text>
+<path d="M-5 -5l248.0014 0l0 22.0001l-248.0014 0Z" transform="translate(208.4993 520.9999)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#b7b9be" stroke-width="0" class="zr0-cls-4"></path>
+<path d="M2 0L6 0A2 2 0 0 1 8 2L8 6A2 2 0 0 1 6 8L2 8A2 2 0 0 1 0 6L0 2A2 2 0 0 1 2 0" transform="translate(209.4993 523)" fill="#3f9c91" stroke="#fff" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="round" class="zr0-cls-4"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" x="13" y="4" transform="translate(209.4993 523)" fill="#68788d">完整且命中</text>
+<path d="M-1 -2l74.0005 0l0 12.0001l-74.0005 0Z" transform="translate(209.4993 523)" fill="none" class="zr0-cls-5"></path>
+<path d="M2 0L6 0A2 2 0 0 1 8 2L8 6A2 2 0 0 1 6 8L2 8A2 2 0 0 1 0 6L0 2A2 2 0 0 1 2 0" transform="translate(291.4998 523)" fill="#b8c3d2" stroke="#fff" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="round" class="zr0-cls-4"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" x="13" y="4" transform="translate(291.4998 523)" fill="#68788d">完整但未命中</text>
+<path d="M-1 -2l86.0005 0l0 12.0001l-86.0005 0Z" transform="translate(291.4998 523)" fill="none" class="zr0-cls-5"></path>
+<path d="M2 0L6 0A2 2 0 0 1 8 2L8 6A2 2 0 0 1 6 8L2 8A2 2 0 0 1 0 6L0 2A2 2 0 0 1 2 0" transform="translate(385.5003 523)" fill="#df964c" stroke="#fff" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" stroke-linejoin="round" class="zr0-cls-4"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" x="13" y="4" transform="translate(385.5003 523)" fill="#68788d">输出截断</text>
+<path d="M-1 -2l62.0004 0l0 12.0001l-62.0004 0Z" transform="translate(385.5003 523)" fill="none" class="zr0-cls-5"></path>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+cursor:pointer;
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+fill:rgba(69,171,159,1);
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+fill:rgba(202,214,231,1);
+}
+.zr0-cls-3:hover {
+cursor:pointer;
+fill:rgba(245,165,83,1);
+}
+.zr0-cls-4:hover {
+pointer-events:none;
+}
+.zr0-cls-5:hover {
+cursor:pointer;
+fill:rgba(0,0,0,0);
+}
+
+]]>
+
+</style>
+</svg>

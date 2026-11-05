@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-11-05T09:10:46+00:00",
+  "scope": "full",
+  "responses": 24600,
+  "evaluated": 24600,
+  "expected": 24600,
+  "api_attempts": 25079,
+  "by_model": {
+    "Qwen/Qwen2.5-7B-Instruct": 12300,
+    "Qwen/Qwen3-8B": 12300
+  },
+  "round_counts": {
+    "0": 984,
+    "1": 5904,
+    "2": 5904,
+    "3": 5904,
+    "4": 5904
+  },
+  "seconds": 19811.3,
+  "stopped": false,
+  "failed_blocks": 0,
+  "recent_failures": [],
+  "limits": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "rpm_budget": 600,
+      "tpm_budget": 102400,
+      "rate_limits": 2
+    },
+    "Qwen/Qwen3-8B": {
+      "rpm_budget": 600,
+      "tpm_budget": 1000000,
+      "rate_limits": 0
+    }
+  }
+}

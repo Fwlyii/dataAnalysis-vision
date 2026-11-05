@@ -1,0 +1,57 @@
+import {baseURL,chromiumPath,screenshot} from './helpers.mjs';
+import{createRequire}from'node:module';import{resolve}from'node:path';import{writeFile}from'node:fs/promises';import{fingerprints as collect}from'./source-fingerprints.mjs';
+const fingerprints=await collect(),require=createRequire(resolve('tests/package.json'));
+const{chromium}=require('playwright-core'),Axe=require('@axe-core/playwright').default;
+const browser=await chromium.launch({executablePath:chromiumPath,args:['--no-sandbox','--disable-dev-shm-usage']});
+const results=[],errors=[],layouts=[],base=new URL("",baseURL).href;
+const check=(name,passed,detail)=>{results.push({name,passed:!!passed,detail});if(!passed)console.error('FAIL',name,JSON.stringify(detail));};
+async function fresh(width=1440,motion='no-preference'){const context=await browser.newContext({viewport:{width,height:width===1440?900:width===1366?768:width===768?960:width===390?844:740},reducedMotion:motion});const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));return{context,page};}
+async function open(page,path='?intro=0'){await page.goto(base+path,{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);}
+async function point(page,selector){const r=await page.locator(selector).boundingBox();await page.mouse.move(r.x+r.width/2,r.y+r.height/2);await page.waitForTimeout(420);}
+async function axe(page,label){const a=await new Axe({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();check(label+' accessibility',!a.violations.some(v=>['serious','critical'].includes(v.impact)),a.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)})));}
+try{
+ for(const width of[1440,1366,768,390,320]){
+  const{context,page}=await fresh(width,'reduce');await open(page);
+  const state=await page.evaluate(()=>{const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height};};return{body:document.body.dataset.section,root:rect(document.querySelector('#gateway')),scrollWidth:document.querySelector('#gateway').scrollWidth,documentWidth:document.documentElement.scrollWidth,rail:document.querySelector('.chapter-rail')?getComputedStyle(document.querySelector('.chapter-rail')).display:'none',orbs:[...document.querySelectorAll('.gate-orb')].map(a=>({href:a.hash,...rect(a),inert:a.inert})),center:rect(document.querySelector('#gate-center')),motion:LensGateway.inspect()};});layouts.push({width,...state});
+  check(width+' gateway replaces the homepage rail',state.body==='gateway'&&state.rail==='none'&&state.orbs.length===5);
+  check(width+' contains page width and touch targets',state.documentWidth===width&&state.scrollWidth===width&&state.orbs.every(r=>r.w>=(width<700?240:88)&&r.x>=0&&r.x+r.w<=width+.5&&!r.inert),state);
+  const boxes=[state.center,...state.orbs];const overlap=boxes.some((a,i)=>boxes.slice(i+1).some(b=>a.x<b.x+b.w-1&&a.x+a.w>b.x+1&&a.y<b.y+b.h-1&&a.y+a.h>b.y+1));check(width+' portal and five targets do not overlap',!overlap,boxes);
+  check(width+' reduced motion leaves no idle loops',state.motion.idleAnimations===0&&await page.evaluate(()=>document.getAnimations().every(a=>a.playState!=='running')));
+  await screenshot(page,{path:`artifacts/qa/after/gateway-${width}.png`});await axe(page,'gateway '+width);
+  for(const route of['question','collection','cleaning','landscape','findings']){await page.locator('#gate-'+route).click();check(width+' original page has no navbar and uses full viewport',await page.evaluate(()=>{const r=document.querySelector('.deck-panel.is-active').getBoundingClientRect();return !document.querySelector('.chapter-rail')&&getComputedStyle(document.querySelector('.topbar')).display==='none'&&r.x===0&&r.y===0&&r.width===innerWidth&&r.height===innerHeight;}));check(width+' native link enters '+route,await page.evaluate(route=>document.body.dataset.section===route&&location.hash==='#'+route&&!!document.querySelector('#'+route+'.is-active'),route));await page.locator('.research-home').click();}
+  await context.close();
+ }
+ {
+  const{context,page}=await fresh();await open(page);await page.waitForTimeout(80);check('Idle floating uses existing Motion mini with five controls',await page.evaluate(()=>LensGateway.inspect().driver==='motion-mini'&&LensGateway.inspect().idleAnimations===5));
+  await point(page,'#gate-collection');await page.waitForTimeout(400);check('Hover exposes real description and dims peers',await page.locator('#gate-collection .orb-description').isVisible()&&await page.locator('#gate-question').evaluate(el=>+getComputedStyle(el).opacity<.8));await screenshot(page,{path:'artifacts/qa/after/hover-desktop.png'});
+  await page.locator('#gate-collection').focus();await page.keyboard.press('ArrowRight');check('Arrow keys select the next real link',await page.locator('#gate-cleaning').evaluate(el=>el===document.activeElement));await page.keyboard.press('Home');check('Home key focuses first orb',await page.locator('#gate-question').evaluate(el=>el===document.activeElement));
+  for(const route of['question','collection','cleaning','landscape','findings']){
+   await point(page,'#gate-'+route);await page.locator('#gate-'+route).click();await page.waitForTimeout(120);check('Click '+route+' flies the same link before routing',await page.evaluate(()=>LensGateway.inspect().busy&&document.body.dataset.section==='gateway'&&!!document.querySelector('.gate-flight-layer .gate-orb')));await page.waitForFunction(route=>document.body.dataset.section===route,route);check('Flight '+route+' commits correct original route and cleans layer',await page.evaluate(route=>location.hash==='#'+route&&!LensGateway.inspect().busy&&!document.querySelector('.gate-flight-layer'),route));
+   check('Internal '+route+' stops gateway background motion',await page.evaluate(()=>LensGateway.inspect().idleAnimations===0));await page.locator('.research-home').click();await page.waitForTimeout(50);
+  }
+  await page.goBack();check('Browser back restores the actual research route',await page.evaluate(()=>document.body.dataset.section==='findings'));await page.goForward();check('Browser forward restores the portal',await page.evaluate(()=>document.body.dataset.section==='gateway'));
+  await page.locator('#gate-question').focus();await page.keyboard.press('Enter');await page.waitForFunction(()=>document.body.dataset.section==='question');check('Enter activates the real link and focuses original heading',await page.locator('#question-title').evaluate(el=>el===document.activeElement));await page.locator('.research-home').click();
+  await page.evaluate(()=>Object.defineProperty(document,'hidden',{configurable:true,get:()=>true}));await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));check('Hidden page cancels all home loops',await page.evaluate(()=>LensGateway.inspect().idleAnimations===0));await page.evaluate(()=>delete document.hidden);await page.evaluate(()=>document.dispatchEvent(new Event('visibilitychange')));
+  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(80);check('Live preference change cancels home animations',await page.evaluate(()=>LensGateway.inspect().idleAnimations===0));await context.close();
+ }
+ for(const width of[1440,768,390,320]){
+  const{context,page}=await fresh(width);await page.goto(base+'?intro=1',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.LensIntro?.inspect().running);
+  await page.evaluate(()=>{window.__orbRefs=[...document.querySelectorAll('.gate-orb')];window.__lensRef=document.querySelector('#lens-intro .intro-optics');});
+  await page.waitForFunction(()=>LensIntro.inspect().elapsed>=3550);check(width+' five living link nodes are the intro lights',await page.evaluate(()=>LensGateway.inspect().borrowed&&document.querySelectorAll('#lens-intro .gate-orb').length===5&&document.querySelectorAll('#lens-intro .gate-orb.is-seed').length===5));
+  if(width===1440)await screenshot(page,{path:'artifacts/qa/after/intro-seeds.png'});
+  await page.waitForFunction(()=>LensIntro.inspect().elapsed>=5500);if(width===1440)await screenshot(page,{path:'artifacts/qa/after/intro-forming.png'});
+  await page.waitForFunction(()=>!LensIntro.inspect().running);const state=await page.evaluate(()=>({gateway:LensGateway.inspect(),intro:LensIntro.inspect(),sameLinks:__orbRefs.every(a=>a===document.getElementById(a.id)&&a.parentElement.matches('.gate-slot')),sameLens:__lensRef===document.querySelector('#gate-lens-art .intro-optics'),inert:document.querySelectorAll('[data-intro-inert]').length,locked:document.documentElement.matches('.intro-active,.intro-pending')}));
+  check(width+' original optic and same five links survive handoff',state.sameLens&&state.sameLinks&&state.gateway.sharedLens,state);
+  check(width+' handoff ends in interactive home with clean intro',state.gateway.active&&!state.gateway.borrowed&&!state.inert&&!state.locked&&state.intro.raf===0&&state.intro.canvasPixels===1&&state.intro.history.at(-1).reason==='complete');
+  check(width+' handoff positions join idle motion without a jump',await page.evaluate(()=>{const targets=LensGateway.inspect().lastTransfer.targets;return [...document.querySelectorAll('.gate-slot .gate-orb')].every((el,i)=>{const r=el.getBoundingClientRect();return Math.hypot(r.x+r.width/2-targets[i].x,r.y+r.height/2-targets[i].y)<2;});}));
+  await screenshot(page,{path:`artifacts/qa/after/settled-${width}.png`});await page.locator('#intro-replay').click();await page.waitForTimeout(200);await page.locator('.intro-skip').click();check(width+' early skip restores all links and formed shared lens',await page.evaluate(()=>LensGateway.inspect().links.every(l=>l.inSlot)&&document.querySelector('#gate-lens-art .intro-ring').style.strokeDashoffset==='0'&&!document.querySelector('.gateway-handoff')));
+  await context.close();
+ }
+ {
+  const{context,page}=await fresh();await context.addInitScript(()=>{HTMLCanvasElement.prototype.getContext=()=>null;});await open(page,'?intro=1');check('Canvas failure preserves gateway lens and all links',await page.evaluate(()=>!LensIntro.inspect().running&&LensGateway.inspect().links.every(l=>l.inSlot)&&!document.querySelector('.gateway-handoff')&&getComputedStyle(document.querySelector('.gate-lens-fallback')).visibility==='visible'));await context.close();
+ }
+ {
+  const{context,page}=await fresh();await context.route('**/runtime/intro.js*',r=>r.abort());await open(page,'?intro=1');await page.waitForTimeout(1900);check('Missing intro module reveals a working independent gateway',await page.evaluate(()=>!document.documentElement.classList.contains('intro-pending')&&LensGateway.inspect().links.every(l=>l.inSlot)));await point(page,'#gate-landscape');await page.locator('#gate-landscape').click();await page.waitForFunction(()=>document.body.dataset.section==='landscape');check('Missing intro module does not break native research navigation',await page.locator('.overview-plot svg').count()>0);await context.close();
+ }
+ check('No uncaught gateway browser errors',!errors.length,errors);
+}catch(e){check('Gateway test run completed',false,e.stack);}finally{await browser.close();await writeFile('artifacts/qa/after/gateway-checks.json',JSON.stringify({fingerprints,results,layouts,errors},null,2)+'\n');}console.log(JSON.stringify({checks:results.length,passed:results.filter(r=>r.passed).length,failed:results.filter(r=>!r.passed)}));if(results.some(r=>!r.passed))process.exitCode=1;

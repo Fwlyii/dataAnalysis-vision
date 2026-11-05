@@ -1,0 +1,36 @@
+{
+  "schema": "legacy-code-repair-strong-reevaluation-v1",
+  "source_sha256": "c3642543bf926adc566f6d1ca28dc062d36ecf76dbd3e69f56e320e1ba9b0008",
+  "source_bytes": 41281976,
+  "source_records": 5576,
+  "source_initial_programs": 328,
+  "source_features_sha256": "4ed2f8ea40a9160033c25c9863c9e147af0cea4a308b46fbdc0e3c2455cde381",
+  "new_config_sha256": "ed88d111c3336fdcd2850e9e50aa63e7beeb4957a34a9228833ce73731942f99",
+  "benchmark_split_sha256": "d43fae888c4471e226b6cb3fd86f31f59af66c1c30388e8af6fb8b7a217dfe09",
+  "dataset_sha256": "272720b90ac375502c8ed23cd791c2a93dfb22a911641a494da74a426c09f101",
+  "reference_source_hashes": {
+    "experiments/code_repair_v2/src/dataset.py": "592a939325fc036b0191a377583ac40f84494a97f084770e4a0e4f258ce28f0e",
+    "experiments/code_repair_v2/src/evaluator.py": "1bf8369e9ca4ca9f1e7675dc3549b8731b2b4e93260852436e15fdb42239da60",
+    "experiments/code_repair_v2/src/worker.py": "8576934775d4006b042c9137ec0036fe1ffe57df540ff38d2c3f5c49a31de91e",
+    "experiments/code_repair_v2/src/protocol.py": "bb943458cfe849af09475979c056ef0a0b016b469038bfc60ebb824cea73097f",
+    "experiments/code_repair_v2/src/prepare.py": "73a78645731f0386da3b1eae251d064fa1acf5c637ebe7d510fd9d666beddeb1",
+    "experiments/code_repair/vendor/SOURCE.json": "5bcb06992fad315e60c6c8ac4eeae47197df1fbb47c5600867168cb9c5c7201c",
+    "experiments/code_repair/vendor/evalplus/eval/__init__.py": "905bef8d559bfd955780b670c93a76f5b7a4a09b2a521170ff67de15d389ff96",
+    "experiments/code_repair/vendor/evalplus/eval/_special_oracle.py": "92b126b907ee493121b55de06f6a34058b6e18adc8cf1c48737eedcd83f24cdd",
+    "experiments/code_repair/vendor/evalplus/eval/utils.py": "e902a544a631996ca91a45ee726f1147f6ae4611b2845d81d6a89c110fa03d79"
+  },
+  "runtime_sha256": "8ad95d9cb66d4ffe4975cbc6e53529f5456806246163931fb6021a02b4c4d51d",
+  "evaluation_settings": {
+    "python_executable": "/Users/chengwen/Documents/Codex/2026-11-04/https-github-com-fwlyii-data-analysis/work/repair_v2/venv/bin/python",
+    "evaluation_timeout_s": 300,
+    "cpu_limit_s": 295,
+    "split_time_budget_s": 295.0,
+    "holdout_stop_on_failure": true
+  },
+  "feedback_changed": false,
+  "model_api_calls": 0,
+  "evaluation_policy": "All5576 saved physical candidates, initial programs once; no new generations and no source outcome selection",
+  "exact_code_reuse": false,
+  "interpretation": "Retrospective full-test re-evaluation, not feedback available during original collection",
+  "created_at_utc": "2026-11-05T02:13:53+00:00"
+}

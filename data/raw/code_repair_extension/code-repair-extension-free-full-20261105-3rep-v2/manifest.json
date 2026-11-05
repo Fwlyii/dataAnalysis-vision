@@ -1,0 +1,224 @@
+{
+  "batch_id": "code-repair-extension-free-full-20261105-3rep-v2",
+  "physical_responses": 24600,
+  "credential_files_included": false,
+  "hidden_oracles_included": false,
+  "files": [
+    {
+      "file": "responses.jsonl.gz",
+      "source_file": "responses.jsonl",
+      "source_bytes": 199745201,
+      "source_sha256": "4ac4c65d35e335b70ed9f2e611579eed64f9711b19f77fb787dfd11ef400edc1",
+      "archive_bytes": 15272961,
+      "archive_sha256": "f27c7aab1a8b470873930d51b3f1a6db165a07bd01dd693c114115c6a8bc4f7b"
+    },
+    {
+      "file": "evaluations.jsonl.gz",
+      "source_file": "evaluations.jsonl",
+      "source_bytes": 21974365,
+      "source_sha256": "14936fd596d4db9f73fd1467dda03a485cbc23c8a26e16027de90373dd921675",
+      "archive_bytes": 820832,
+      "archive_sha256": "e44a9c27e22642385e27234dace01ade4bbf24825fb94e36ae07453f5eaf074b"
+    },
+    {
+      "file": "holdout-evaluations.jsonl.gz",
+      "source_file": "holdout-evaluations.jsonl",
+      "source_bytes": 54392257,
+      "source_sha256": "e6c1fc11fdd0e649e3394173ac2272931ac26d789b4c3a082b98d3acb011bd4b",
+      "archive_bytes": 5184498,
+      "archive_sha256": "3d5bc7a91e37b8afcbce1d6ab6cba6b45446e94123b84a856c13572287f68b8e"
+    },
+    {
+      "file": "resource-audit.jsonl.gz",
+      "source_file": "resource-audit.jsonl",
+      "source_bytes": 288111,
+      "source_sha256": "d4c86f0e714226d582ef05fc31fdf8c6b59db891680cd278c7c59a16b6446e74",
+      "archive_bytes": 14537,
+      "archive_sha256": "abd37897169ca0f81eace9a6bf7f20575c36099db11eb0472881781a0f8de406"
+    },
+    {
+      "file": "attempts.jsonl.gz",
+      "source_file": "attempts.jsonl",
+      "source_bytes": 11790444,
+      "source_sha256": "9cfd6f1a7308f79b6aea3378f4415254d7660f7da57f4dd74114f656903217f7",
+      "archive_bytes": 1001149,
+      "archive_sha256": "c6df1d20729fa84df04ab891516fde2beb65f2b976cb2c4139bae6d6f0aee01f"
+    },
+    {
+      "file": "events.jsonl.gz",
+      "source_file": "events.jsonl",
+      "source_bytes": 5429396,
+      "source_sha256": "f9d62c934e05907cbd5acb1ce2437ba77c66100028c42d87c11a9a9331922eb5",
+      "archive_bytes": 183323,
+      "archive_sha256": "ececb8543675c011a2be33bd3170a9b7961fa43cdc52a06a834d0f6208fd2be7"
+    },
+    {
+      "file": "holdout-events.jsonl.gz",
+      "source_file": "holdout-events.jsonl",
+      "source_bytes": 12133215,
+      "source_sha256": "16dcd1edbe38dbfb9d679c2129d3f7398f8caecbc549f14e5262e8e9aa0e49c8",
+      "archive_bytes": 313433,
+      "archive_sha256": "140a4ec1697252c68dcc8e0ea08ac633c3b2de619b323f503517ba864db4453d"
+    },
+    {
+      "file": "config.json",
+      "source_file": "config.json",
+      "source_bytes": 3037,
+      "source_sha256": "ed88d111c3336fdcd2850e9e50aa63e7beeb4957a34a9228833ce73731942f99",
+      "archive_bytes": 3037,
+      "archive_sha256": "ed88d111c3336fdcd2850e9e50aa63e7beeb4957a34a9228833ce73731942f99"
+    },
+    {
+      "file": "plan.json",
+      "source_file": "plan.json",
+      "source_bytes": 130236,
+      "source_sha256": "99726cdf63bfd98c8b327dcec61c91cc53efbba28f8fc41085235bc39453a38f",
+      "archive_bytes": 130236,
+      "archive_sha256": "99726cdf63bfd98c8b327dcec61c91cc53efbba28f8fc41085235bc39453a38f"
+    },
+    {
+      "file": "reference-preflight.json",
+      "source_file": "reference-preflight.json",
+      "source_bytes": 191850,
+      "source_sha256": "bc816efff46d1a16b55478bbc60432b7e46c71c2120b7dad1ae3860044b29848",
+      "archive_bytes": 191850,
+      "archive_sha256": "bc816efff46d1a16b55478bbc60432b7e46c71c2120b7dad1ae3860044b29848"
+    },
+    {
+      "file": "holdout-scope.json",
+      "source_file": "holdout-scope.json",
+      "source_bytes": 906,
+      "source_sha256": "5d61ba6fd544f66fc09601e161a1ad731d43333c80e97ff83173a78d495bcb2b",
+      "archive_bytes": 906,
+      "archive_sha256": "5d61ba6fd544f66fc09601e161a1ad731d43333c80e97ff83173a78d495bcb2b"
+    },
+    {
+      "file": "collection-status.json",
+      "source_file": "collection-status.json",
+      "source_bytes": 672,
+      "source_sha256": "efa9ff525296d4f4861cc2d71d07ff6487889fa8c1104fdbd9b5e6b42e8aa2e0",
+      "archive_bytes": 672,
+      "archive_sha256": "efa9ff525296d4f4861cc2d71d07ff6487889fa8c1104fdbd9b5e6b42e8aa2e0"
+    },
+    {
+      "file": "holdout-status.json",
+      "source_file": "holdout-status.json",
+      "source_bytes": 1023,
+      "source_sha256": "da6667ead87fd0a372fa19dc78270b2ae794a5b2cce02bf80cbc25ad8cf0b7b7",
+      "archive_bytes": 1023,
+      "archive_sha256": "da6667ead87fd0a372fa19dc78270b2ae794a5b2cce02bf80cbc25ad8cf0b7b7"
+    },
+    {
+      "file": "free-model-pricing.json",
+      "source_file": "free-model-pricing.json",
+      "source_bytes": 3915,
+      "source_sha256": "3c2c0039c378531003f4fecc133960363aae0f31aed657d2dcbee8e7d8bc54b4",
+      "archive_bytes": 3915,
+      "archive_sha256": "3c2c0039c378531003f4fecc133960363aae0f31aed657d2dcbee8e7d8bc54b4"
+    },
+    {
+      "file": "live-runtime-integrity-audit.json",
+      "source_file": "live-runtime-integrity-audit.json",
+      "source_bytes": 293,
+      "source_sha256": "820e3a2b69e0718192d4406b7da94850923b97b725a2c441bc5b52e3b905066d",
+      "archive_bytes": 293,
+      "archive_sha256": "820e3a2b69e0718192d4406b7da94850923b97b725a2c441bc5b52e3b905066d"
+    },
+    {
+      "file": "committed-prefix-audit.json",
+      "source_file": "committed-prefix-audit.json",
+      "source_bytes": 965,
+      "source_sha256": "5e914cd81281d438436a20650f14e41914f928bdee3139c133a6f7dc6fafd66a",
+      "archive_bytes": 965,
+      "archive_sha256": "5e914cd81281d438436a20650f14e41914f928bdee3139c133a6f7dc6fafd66a"
+    },
+    {
+      "file": "operational-amendment-1.json",
+      "source_file": "operational-amendment-1.json",
+      "source_bytes": 710,
+      "source_sha256": "f246c79e54b468fc47543ce70c86ec5ec27778a76610a937ab75c7ce2c1efc0f",
+      "archive_bytes": 710,
+      "archive_sha256": "f246c79e54b468fc47543ce70c86ec5ec27778a76610a937ab75c7ce2c1efc0f"
+    },
+    {
+      "file": "operational-amendment-2.json",
+      "source_file": "operational-amendment-2.json",
+      "source_bytes": 861,
+      "source_sha256": "6e20e143b782a58284fc16efdca7a6c877399af8d5f31ca4963f2d2a79a9bfbf",
+      "archive_bytes": 861,
+      "archive_sha256": "6e20e143b782a58284fc16efdca7a6c877399af8d5f31ca4963f2d2a79a9bfbf"
+    },
+    {
+      "file": "operational-amendment-3.json",
+      "source_file": "operational-amendment-3.json",
+      "source_bytes": 868,
+      "source_sha256": "e0dce02f464397a0bb0a5684ed4f9f9ef5c0cbbabb270acc9c3c1f0fb7fb7622",
+      "archive_bytes": 868,
+      "archive_sha256": "e0dce02f464397a0bb0a5684ed4f9f9ef5c0cbbabb270acc9c3c1f0fb7fb7622"
+    },
+    {
+      "file": "collector-source-1374cd21844a.py",
+      "source_file": "collector-source-1374cd21844a.py",
+      "source_bytes": 15816,
+      "source_sha256": "1374cd21844a0b422aa250f7c329291d9163149b7db84ddbb4a4c3b174bd4d8f",
+      "archive_bytes": 15816,
+      "archive_sha256": "1374cd21844a0b422aa250f7c329291d9163149b7db84ddbb4a4c3b174bd4d8f"
+    },
+    {
+      "file": "collector-source-5c2be4eec2fc.py",
+      "source_file": "collector-source-5c2be4eec2fc.py",
+      "source_bytes": 16138,
+      "source_sha256": "5c2be4eec2fc88f0a28d68062dc765e55bfb4a388cfd11ab61f3e4b45f61bcf0",
+      "archive_bytes": 16138,
+      "archive_sha256": "5c2be4eec2fc88f0a28d68062dc765e55bfb4a388cfd11ab61f3e4b45f61bcf0"
+    },
+    {
+      "file": "collector-source-895df629abd2.py",
+      "source_file": "collector-source-895df629abd2.py",
+      "source_bytes": 17100,
+      "source_sha256": "895df629abd297ef7ac222cb9a289128e9c2026424d671a3c185fea881b55b30",
+      "archive_bytes": 17100,
+      "archive_sha256": "895df629abd297ef7ac222cb9a289128e9c2026424d671a3c185fea881b55b30"
+    },
+    {
+      "file": "collector-source-cacf65b6c2f5.py",
+      "source_file": "collector-source-cacf65b6c2f5.py",
+      "source_bytes": 14814,
+      "source_sha256": "cacf65b6c2f5a3f8bef96e06f1f7f8ac985c54de899d036808b7998f90fa43c0",
+      "archive_bytes": 14814,
+      "archive_sha256": "cacf65b6c2f5a3f8bef96e06f1f7f8ac985c54de899d036808b7998f90fa43c0"
+    },
+    {
+      "file": "collector-source.py",
+      "source_file": "collector-source.py",
+      "source_bytes": 17100,
+      "source_sha256": "895df629abd297ef7ac222cb9a289128e9c2026424d671a3c185fea881b55b30",
+      "archive_bytes": 17100,
+      "archive_sha256": "895df629abd297ef7ac222cb9a289128e9c2026424d671a3c185fea881b55b30"
+    },
+    {
+      "file": "holdout-source-83d8a93675b0.py",
+      "source_file": "holdout-source-83d8a93675b0.py",
+      "source_bytes": 27543,
+      "source_sha256": "83d8a93675b0c2c11504cf80b174c2eeefaec5203f152bc437e87be27c050a9b",
+      "archive_bytes": 27543,
+      "archive_sha256": "83d8a93675b0c2c11504cf80b174c2eeefaec5203f152bc437e87be27c050a9b"
+    },
+    {
+      "file": "holdout-source-fb96f332d1f0.py",
+      "source_file": "holdout-source-fb96f332d1f0.py",
+      "source_bytes": 24901,
+      "source_sha256": "fb96f332d1f0a4790dc8fa3512c34233f4bc9e5dbdbb05c2e409eac3113b3ec0",
+      "archive_bytes": 24901,
+      "archive_sha256": "fb96f332d1f0a4790dc8fa3512c34233f4bc9e5dbdbb05c2e409eac3113b3ec0"
+    },
+    {
+      "file": "resource-policy-371820c1e327.py",
+      "source_file": "resource-policy-371820c1e327.py",
+      "source_bytes": 11921,
+      "source_sha256": "371820c1e32711d69fe8727f121187c47d5f5af70ae457f6388be6135dd468dc",
+      "archive_bytes": 11921,
+      "archive_sha256": "371820c1e32711d69fe8727f121187c47d5f5af70ae457f6388be6135dd468dc"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "batch_id": "code-repair-extension-free-full-20261105-3rep-v2",
+  "synthetic": false,
+  "figures": [
+    {
+      "id": "strong-endpoints",
+      "file": "01-strong-endpoints.svg",
+      "title": "强保留测试的初稿与终稿对照",
+      "data_file": "summary.csv"
+    },
+    {
+      "id": "public-trajectories",
+      "file": "02-public-trajectories.svg",
+      "title": "公开诊断测试的五版轨迹",
+      "data_file": "public-curves.csv"
+    },
+    {
+      "id": "strong-trajectories",
+      "file": "06-strong-trajectories.svg",
+      "title": "强保留测试的五版轨迹",
+      "data_file": "strong-curves.csv"
+    },
+    {
+      "id": "repair-regression",
+      "file": "03-repair-regression.svg",
+      "title": "初错修复与初对回退",
+      "data_file": "summary.csv"
+    },
+    {
+      "id": "cost-quality",
+      "file": "04-cost-quality.svg",
+      "title": "强测试质量与调用成本",
+      "data_file": "summary.csv"
+    },
+    {
+      "id": "initial-error-support",
+      "file": "05-initial-error-support.svg",
+      "title": "初始可见错误的真实支持数",
+      "data_file": "initial-error-support.csv"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-11-05T03:27:37+00:00",
+  "checks": {
+    "frozen_sources_match": true,
+    "runtime_matches": true,
+    "resource_policy_matches": true
+  },
+  "note": "External live check after guard was added for future resumes; running collector source snapshot remains preserved."
+}

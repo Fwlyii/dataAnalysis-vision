@@ -1,0 +1,17 @@
+{
+  "schema": "code-repair-holdout-scope-v1",
+  "timestamp": "2026-11-05T03:20:59+00:00",
+  "batch_id": "code-repair-extension-free-full-20261105-3rep-v2",
+  "config_sha256": "ed88d111c3336fdcd2850e9e50aa63e7beeb4957a34a9228833ce73731942f99",
+  "active_scope": "all_rounds",
+  "all_rounds_requested": true,
+  "expected_active_measurements": 24600,
+  "expected_primary_measurements": 6888,
+  "expected_all_round_measurements": 24600,
+  "primary_metric": "Precommitted shared-seed and final-round strong-test results remain unchanged.",
+  "additional_measurement": "All intermediate versions are measured for secondary five-version curves and evaluation of versions selected using public feedback only.",
+  "used_for_model_feedback": false,
+  "used_for_candidate_selection": false,
+  "scheduler_concurrency": 4,
+  "holdout_runner_sha256": "83d8a93675b0c2c11504cf80b174c2eeefaec5203f152bc437e87be27c050a9b"
+}

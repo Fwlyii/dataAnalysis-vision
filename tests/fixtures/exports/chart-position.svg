@@ -1,0 +1,102 @@
+<svg width="1339" height="540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 1339 540">
+<rect width="1339" height="540" x="0" y="0" fill="none"></rect>
+<path d="M50 497.5L1309 497.5" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M50 416.5L1309 416.5" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M50 336.5L1309 336.5" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M50 256.5L1309 256.5" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M50 175.5L1309 175.5" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<path d="M50 95.5L1309 95.5" fill="none" stroke="#e9eef5" stroke-dasharray="4,2" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="-6.0000457763671875" transform="translate(50 80)" fill="#68788d">命中率（%）</text>
+<path d="M50 497.5L1309 497.5" fill="none" stroke="#d2ddc6" stroke-linecap="round" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(42 497)" fill="#68788d">0</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(42 416.6)" fill="#68788d">20</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(42 336.2)" fill="#68788d">40</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(42 255.8)" fill="#68788d">60</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(42 175.4)" fill="#68788d">80</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" transform="translate(42 95)" fill="#68788d">100</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(259.8333 510)" fill="#526174">前部</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(679.5 510)" fill="#526174">中部</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" y="6.0000457763671875" transform="translate(1099.1667 510)" fill="#526174">尾部</text>
+<g clip-path="url(#zr0-c0)">
+<path d="M259.8333 269.87L679.5 293.99L1099.1666 277.91" fill="none" stroke="#8958b4" stroke-width="2" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<g clip-path="url(#zr0-c1)">
+<path d="M259.8333 277.91L679.5 302.03L1099.1666 285.95" fill="none" stroke="#8958b4" stroke-width="2" stroke-dasharray="8,4" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<g clip-path="url(#zr0-c2)">
+<path d="M259.8333 221.63L679.5 245.75L1099.1666 251.78" fill="none" stroke="#2c8d83" stroke-width="2" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<g clip-path="url(#zr0-c3)">
+<path d="M259.8333 231.68L679.5 245.75L1099.1666 261.83" fill="none" stroke="#2c8d83" stroke-width="2" stroke-dasharray="8,4" stroke-linejoin="bevel" class="zr0-cls-2"></path>
+</g>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,259.8333,269.87)" fill="#8958b4" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,679.5,293.99)" fill="#8958b4" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,1099.1666,277.91)" fill="#8958b4" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,259.8333,277.91)" fill="#8958b4" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,679.5,302.03)" fill="#8958b4" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,1099.1666,285.95)" fill="#8958b4" class="zr0-cls-3"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,259.8333,221.63)" fill="#2c8d83" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,679.5,245.75)" fill="#2c8d83" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,1099.1666,251.78)" fill="#2c8d83" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,259.8333,231.68)" fill="#2c8d83" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,679.5,245.75)" fill="#2c8d83" class="zr0-cls-4"></path>
+<path d="M1 0A1 1 0 1 1 1 -0.0001" transform="matrix(3,0,0,3,1099.1666,261.83)" fill="#2c8d83" class="zr0-cls-4"></path>
+<path d="M-5 -5l494.6488 0l0 22.0001l-494.6488 0Z" transform="translate(50 17)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#b7b9be" stroke-width="0" class="zr0-cls-0"></path>
+<path d="M0 2.5L14 2.5" transform="translate(51 20.5)" fill="#000" stroke="#8958b4" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M9 2.5A2 2 0 1 1 9 2.4998" transform="translate(51 20.5)" fill="#8958b4" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" x="19" y="2.5" transform="translate(51 20.5)" fill="#68788d">Qwen2.5 7B · 10 篇</text>
+<path d="M-1 -3.5l116.6622 0l0 12.0001l-116.6622 0Z" transform="translate(51 20.5)" fill="none" class="zr0-cls-5"></path>
+<path d="M0 2.5L14 2.5" transform="translate(179.6622 20.5)" fill="#000" stroke="#8958b4" stroke-width="2" stroke-dasharray="8,4" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M9 2.5A2 2 0 1 1 9 2.4998" transform="translate(179.6622 20.5)" fill="#8958b4" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" x="19" y="2.5" transform="translate(179.6622 20.5)" fill="#68788d">Qwen2.5 7B · 20 篇</text>
+<path d="M-1 -3.5l116.6622 0l0 12.0001l-116.6622 0Z" transform="translate(179.6622 20.5)" fill="none" class="zr0-cls-5"></path>
+<path d="M0 2.5L14 2.5" transform="translate(308.3244 20.5)" fill="#000" stroke="#2c8d83" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M9 2.5A2 2 0 1 1 9 2.4998" transform="translate(308.3244 20.5)" fill="#2c8d83" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" x="19" y="2.5" transform="translate(308.3244 20.5)" fill="#68788d">Qwen3 8B · 10 篇</text>
+<path d="M-1 -3.5l107.6622 0l0 12.0001l-107.6622 0Z" transform="translate(308.3244 20.5)" fill="none" class="zr0-cls-5"></path>
+<path d="M0 2.5L14 2.5" transform="translate(427.9866 20.5)" fill="#000" stroke="#2c8d83" stroke-width="2" stroke-dasharray="8,4" stroke-linecap="butt" stroke-miterlimit="10" class="zr0-cls-0"></path>
+<path d="M9 2.5A2 2 0 1 1 9 2.4998" transform="translate(427.9866 20.5)" fill="#2c8d83" class="zr0-cls-0"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:"Times New Roman", "Songti SC", serif;" xml:space="preserve" x="19" y="2.5" transform="translate(427.9866 20.5)" fill="#68788d">Qwen3 8B · 20 篇</text>
+<path d="M-1 -3.5l107.6622 0l0 12.0001l-107.6622 0Z" transform="translate(427.9866 20.5)" fill="none" class="zr0-cls-5"></path>
+<defs >
+<clipPath id="zr0-c0">
+<path d="M49 94l1261 0l0 404l-1261 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+<clipPath id="zr0-c1">
+<path d="M49 94l1261 0l0 404l-1261 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+<clipPath id="zr0-c2">
+<path d="M49 94l1261 0l0 404l-1261 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+<clipPath id="zr0-c3">
+<path d="M49 94l1261 0l0 404l-1261 0Z" fill="#000" class="zr0-cls-1"></path>
+</clipPath>
+</defs>
+<style ><![CDATA[
+.zr0-cls-0:hover {
+pointer-events:none;
+}
+.zr0-cls-1:hover {
+cursor:pointer;
+fill:rgba(0,0,0,1);
+}
+.zr0-cls-2:hover {
+cursor:pointer;
+}
+.zr0-cls-3:hover {
+cursor:pointer;
+fill:rgba(150,96,198,1);
+}
+.zr0-cls-4:hover {
+cursor:pointer;
+fill:rgba(48,155,144,1);
+}
+.zr0-cls-5:hover {
+cursor:pointer;
+fill:rgba(0,0,0,0);
+}
+
+]]>
+
+</style>
+</svg>
