@@ -1,19 +1,36 @@
-# 当前前端测试
+# 前端与科研检查
 
-- `browser/`：从当前源码发现路由，检查真实页面和交互。
-- `fixtures/`：源码/研究保护清单、已验收科学对照及31项导出基线；不包含录像或截图库。
-- `run.py`：临时启动本地静态服务，执行检查并关闭该服务。
-- `package.json` / `package-lock.json`：仅测试使用的锁定依赖，不进入网页运行包。
+在仓库根目录运行 `python3 tests/check_presentation.py` 可构建并检查当前展示、历史图册和科研保护；使用临时本地服务，完成后自动关闭。首次运行前安装下述锁定的浏览器依赖。
 
-在仓库根目录运行：
+当前主展示为Claude「景深」五屏界面，浏览器回归入口是 `browser/zhiwei.mjs`。原 `browser/defense.mjs` 继续验证 `legacy.html` 的历史完整图册与旧展示。
+
+## 当前主界面
+
+在仓库根目录安装锁定依赖并启动服务：
 
 ```bash
 npm ci --prefix tests
 npm run browser:install --prefix tests
-python3 tests/run.py
-python3 tests/run.py --full
+python3 app/launch.py --port 8770
 ```
 
-当前机器已有Chromium时自动使用 `/snap/bin/chromium`；其他机器使用安装的Playwright浏览器，也可指定 `CHROMIUM_PATH`。测试默认不录制视频、不保存截图，临时结果写入忽略的 `artifacts/qa/`。完整维护说明见 `docs/web-checks.md`。
+在另一个终端执行：
 
-科学对照仍保留逐条件记录与源指纹，不能为了通过检查直接改写保护哈希或导出基线。大量旧优化产物可从Git历史查询，不是当前测试依赖。
+```bash
+BASE_URL=http://127.0.0.1:8770/ node tests/browser/zhiwei.mjs
+```
+
+`CHROMIUM_PATH` 可指定本机浏览器。当前套件核对五章导航、三页核心发现、七图版、模型与题库切换、说明/数据表、代码视图、桌面/手机布局和资源错误。结果及截图写入忽略目录 `artifacts/qa/zhiwei/`。
+
+## 科研与历史兼容
+
+```bash
+python3 scripts/system/check_reconstruction.py
+BASE_URL=http://127.0.0.1:8770/legacy.html node tests/browser/defense.mjs
+```
+
+科研检查覆盖图包与冻结数值、真实记录数量以及1,100项保护文件。`fixtures/research-protection.json` 与科学对照保留原验收指纹；界面更新不重写科研保护哈希。
+
+`run.py`、`browser/smoke.mjs` 和 `browser/reconstruction.mjs` 保留历史路由及布局基线。它们用于对应历史入口的维护，不代表当前主界面的控件或屏数。
+
+代码反馈实验的既有单元测试位于 `test_repair_v2_*.py`，独立于页面测试。测试依赖仅用于验证，不进入网站运行包。当前构建不调用模型API；完整研究复算入口见仓库README。

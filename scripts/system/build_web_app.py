@@ -150,12 +150,12 @@ def build():
     dist=APP/'dist'
     if dist.exists():shutil.rmtree(dist)
     dist.mkdir()
-    for name in ['index.html','explore.html','styles.css','story.css','refinement.css','content-layout.css','palette.css','interaction.css','intro.css','gateway.css']:
+    for name in ['index.html','legacy.html','explore.html','styles.css','story.css','refinement.css','content-layout.css','palette.css','interaction.css','intro.css','gateway.css']:
         shutil.copy2(APP/name,dist/name)
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)
     shutil.copytree(APP/'src',dist/'src',dirs_exist_ok=True)
-    for name in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css']:
+    for name in ['zhiwei.css','research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css']:
         shutil.copy2(APP/name,dist/name)
     (dist/'data').mkdir(exist_ok=True)
     for name in ['summary.json','demo-evidence.json','research-charts.json','research-content.json']:
@@ -197,16 +197,17 @@ def build():
         source=re.sub(r'([\'\"])(\./([\w.-]+\.js))(?:\?v=[a-f0-9]+)?\1',
             lambda m:m.group(1)+m.group(2)+'?v='+modules[m.group(3)]+m.group(1) if m.group(3) in modules else m.group(0),source)
         path.write_text(source)
-    markup=(dist/'index.html').read_text()
-    markup=re.sub(r'<meta name="code-feedback-extension"[^>]*>\s*','',markup)
-    if supplement.exists():
-        supplement_sha=hashlib.sha256(supplement.read_bytes()).hexdigest()[:12]
-        markup=markup.replace('</head>',f'<meta name="code-feedback-extension" content="data/code-feedback-extension.json?v={supplement_sha}">\n</head>')
-    for asset in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css','src/research.js']:
-        digest=hashlib.sha256((dist/asset).read_bytes()).hexdigest()[:12]
-        markup=re.sub(r'([\'\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\'\"])',
-            lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
-    (dist/'index.html').write_text(markup)
+    for entry in ['index.html','legacy.html']:
+        markup=(dist/entry).read_text()
+        markup=re.sub(r'<meta name="code-feedback-extension"[^>]*>\s*','',markup)
+        if supplement.exists():
+            supplement_sha=hashlib.sha256(supplement.read_bytes()).hexdigest()[:12]
+            markup=markup.replace('</head>',f'<meta name="code-feedback-extension" content="data/code-feedback-extension.json?v={supplement_sha}">\n</head>')
+        for asset in ['zhiwei.css','src/zhiwei.js','research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css','src/research.js']:
+            digest=hashlib.sha256((dist/asset).read_bytes()).hexdigest()[:12]
+            markup=re.sub(r'([\'\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\'\"])',
+                lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
+        (dist/entry).write_text(markup)
     print('知微研究系统已构建：app/dist（请通过本地HTTP服务打开）。')
     return dist
 

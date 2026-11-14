@@ -130,17 +130,15 @@ print("只重绘冻结统计；若重新研究数据，请回原仓库核验并�
 '''
 
 EXTENSION_GUIDE = '''
-
-五、可选的代码反馈补充批次
-本包另含已通过完整性检查的代码反馈补充批次；原37张图与原统计保持独立。
-补充内容直接放在“核心发现”的代码反馈部分，仍是静态长页，没有新增按钮或跳页。
-六张新批SVG分别展示强测试端点、公开五版轨迹、修复与回退、Token代价、初始错误支持数、强测试五版轨迹；历史Mini→完整强测另有一张图，单独解释。
-独立图包：知微代码反馈SVG图包.zip。原知微科研SVG图包.zip仍为37张原图。
-代码反馈源图/仅含匿名聚合结果、公开CSV与标准库绘图代码，不含凭证、原始请求、逐程序评测、隐藏答案或oracle。
-重绘：python3 重建代码反馈图.py
-该命令更新随包网站内的SVG和独立补充图包，不调用模型，不重新评测代码，不改原37张图。
-新的研究采集、完整强测和统计复算应回原Git仓库进行，不能把图稿重绘当作重新完成实验。
-有效模型响应、含重试的HTTP尝试和独立题目数分别阅读；95%配对区间含0时不宣称稳定提升。
+五、代码反馈补充批次
+当前主展示的核心发现第三页读取已完成的代码反馈发布快照。
+六张补充SVG分别展示强测端点、公开五版轨迹、修复与回退、Token代价、初稿错误支持数、强测五版轨迹；历史Mini→完整强测复核另存一张图。
+原37图包与七张代码反馈图包分别保留。独立图包为知微代码反馈SVG图包.zip。
+代码反馈源图/ 保存匿名聚合结果、公开CSV、复核摘要和标准库绘图代码。
+运行：python3 重建代码反馈图.py
+该命令重绘六张补充图、一张历史复核图并更新网站图包，复用冻结统计。
+公开测试负责生成模型可见反馈；完整通过要求公开诊断与保留测试同时通过，保留输入不交给模型。区间含0的配对差异按不确定结果解释。
+完整研究复算、采集和评测在原Git仓库进行，方法见docs/code-feedback-methods.md。
 '''
 
 
@@ -245,52 +243,46 @@ def extension_inputs(dist, report_override=None):
     return {'batch_id': batch, 'files': files, 'bundle': bundle,
             'new_figures': len(current_figures), 'legacy_figures': len(old_figures)}
 
-GUIDE = '''知微展示系统 · 研究内容重构版
+GUIDE = '''知微展示系统 · 景深版
 
-一、直接运行
-解压后在此目录运行：python3 启动系统.py
-浏览器地址：http://127.0.0.1:8770
-如端口占用：python3 启动系统.py --port 8780
-使用Python标准库，不需要npm或模型API。请通过HTTP打开，避免双击网站/index.html。
+一、运行
+解压后在本目录运行：python3 启动系统.py
+默认地址：http://127.0.0.1:8770
+端口占用时：python3 启动系统.py --port 8780
+使用Python标准库与本地保存结果。请通过HTTP访问页面。
 
-二、现在包含什么
-五章：研究问题 → 采集设计 → 数据处理 → 核心发现 → 总结与反思。
-总体四项：Token与质量的log关系、模型规模、简洁表达、限长反弹。
-专项三项：数学中英文模板、文档证据位置、代码执行反馈。
-首页保留知微五气泡；正文只有五章顶导航，页底前后翻页和左右键跳章均已删除。
-核心发现按四组连续图板阅读，桌面约3–4屏：四总体、数学与文档、代码统计、真实修改案例。
-主线原生SVG直接读取冻结图册和发布快照，无逐图工具按钮或内跳。
-完整37张原图、7张补充图、4个完整案例，以及SVG/CSV导出、13类通用图和4个代码视图保留在 ?chapter=atlas。
-清洗演示为一张完整静态Figure：A两来源四字段同时红标，B四组映射，C两条统一记录，D统一保存规则。
-没有字段按钮、来源选择框或格式切换；完整21列数据仍保留。
-专项9,176条匿名记录来自248,586条物理响应中的对应子集，不额外累计。
+二、内容与入口
+主展示为五屏：研究问题 → 实验设计 → 数据处理 → 核心发现 → 结论与反思。
+核心发现分三页、七图版：总体规律I–IV；数学与文档V–VI；代码执行反馈VII。
+顶部导航定位各屏；图版保留模型/题库切换、说明、数据表、悬停读数及键盘操作。
+代码页保留两模型、六策略、五版本轨迹、配对比较、四个补充视图和四个真实案例。
+浏览器支持时可用“全屏放映”；窄屏与矮屏使用自然滚动。
 
-三、交给页面美化同学
-网站/ 就是可运行的静态前端，src/中保留ES模块源码，可直接编辑后刷新。
-网站/index.html、research.css、src/research.js：主框架、五章路由、核心发现长页和图册。
-网站/src/research-home.js、research-home.css：原知微五气泡首页。
-网站/src/research-content.js、research-content.css：中文章节、四维31策略和清洗演示。
-网站/research-ocean.css、research-content-ocean.css：深海光学玻璃v5的全局材质与内容图解。
-网站/src/research-ocean-summary.js：由同一冻结目录数值绘制四项总体发现概览。
-网站/src/research-findings-compact.js、research-findings-compact.css：3–4屏主线、数学与文档的原生科研图。
-网站/assets/visual/ocean-optics-v5.png：从用户参考图提取的干净背景；提示词与来源随素材保留。
-网站/src/research-explorer.js、research-explorer.css：13类交互图、4代码视图。
-网站/src/research-special-records.js：位置和修复匿名记录。
-网站/assets/research/：全部可编辑SVG；网站/data/research-charts.json：目录与实际数值。
-网站/runtime/：已生成的冻结数据脚本，页面通过本地HTTP按需读取。
-内容与图表交接.md：模块接口及后续美化边界。
-docs/design.md、.impeccable/design.json：当前设计规范与组件令牌；docs/design-sources.md：素材来源。
+历史完整图册：网站/legacy.html?chapter=atlas。
+原?chapter=atlas地址兼容到这一入口。它保留37张原图、7张补充图、完整案例、13类通用交互图和4个代码视图。
 
-可以继续美化页面切换、布局与动画，不再添加答辩不会使用的按钮或交叉导航。
-请保留图形坐标、单位、条件、来源和评分口径；
-筛选、记录与导出必须对应同一集合；未知规模保持缺失；独立生成不称为反馈修复轮次。
-本版图表已设计配色、直接标注、点线形状与重点数字，可继续使用SVG原图。
+三、源码与研究口径
+网站/ 是可运行静态前端，保留HTML、CSS、JavaScript、本地依赖和冻结数据。
+网站/index.html：五屏结构、图版、说明与弹窗。
+网站/zhiwei.css：当前主界面光场、玻璃、字体、响应式和动态效果。
+网站/src/zhiwei.js：读取快照、汇总展示值、绘制原生SVG和联动控制。
+网站/runtime/：已生成的离线数据脚本。
+网站/assets/research/ 与网站/assets/research-extension/：44张独立科研SVG。
+网站/data/research-charts.json：原37图的目录、条件、真实数值和来源。
+网站/src/research*.js 与legacy.html：历史完整图册与探索实现。
+docs/design.md：当前设计；docs/design-sources.md：素材许可与来源；内容与图表交接.md：接口和研究口径。
 
-四、重新绘制科研图
-科研源图/ 保存生成器和它实际读取的冻结统计，编辑其scripts/figures/build_research_atlas.py后运行：
-python3 重建科研图册.py
-该命令更新网站SVG、目录与图包。它不修改原始研究数据，不重新调用模型。
-完整数据分析及采集代码保留在原Git仓库，本包用于展示、页面美化与图形重绘。
+主页面选用267,610份物理响应：248,586 − 5,576份历史Mini批次 + 24,600份完整补充批次。
+仓库累计273,186份，原CSV与补充CSV各自保存；9,176条专项记录已在原248,586份之中。
+补充批次：164题 × 2模型 × 3份初稿 ×（1共享初稿＋6策略×4次修订）＝24,600份物理响应。
+字段、评分、分母、区间和来源沿用冻结统计。MoE骨干参数、激活参数与稠密参数按各自公开口径说明。
+
+四、图稿重绘
+科研源图/ 保存原37图生成器及实际使用的冻结统计。
+运行：python3 重建科研图册.py
+它更新网站内SVG、目录和图包，复用已保存统计。
+当前主展示的原生SVG由网站/src/zhiwei.js读取同一组快照绘制。
+完整采集与统计复算保留在原Git仓库；本包用于运行展示、页面维护与图稿重绘。
 '''
 
 
@@ -305,14 +297,18 @@ def package(output, extension_report=None):
         raise SystemExit('目标目录已存在；请保留已有修改并换一个输出目录。')
     destination.mkdir()
     shutil.copytree(dist, destination / '网站')
+    for relative in ('index.html', 'src/zhiwei.js'):
+        entry = destination / '网站' / relative
+        entry.write_text(entry.read_text(encoding='utf-8').replace(
+            'python3 app/launch.py', 'python3 启动系统.py'), encoding='utf-8')
     (destination / '启动系统.py').write_text(LAUNCHER, encoding='utf-8')
     (destination / '重建科研图册.py').write_text(REBUILD, encoding='utf-8')
     (destination / '使用与交接.txt').write_text(GUIDE + (EXTENSION_GUIDE if extension else ''), encoding='utf-8')
-    (destination / 'README.md').write_text('# 知微 · 深海光学玻璃展示系统\n\n运行 `python3 启动系统.py`，默认在本机8770端口打开。\n\n[使用与交接](使用与交接.txt) · [内容与图表交接](内容与图表交接.md) · [设计规范](docs/design.md) · [设计令牌](.impeccable/design.json) · [素材来源](docs/design-sources.md)\n\n网站为本地静态文件；37张原科研SVG与独立代码反馈补充图包分别保留。\n', encoding='utf-8')
+    (destination / 'README.md').write_text('# 知微 · 景深展示系统\n\n运行 `python3 启动系统.py`，默认在本机8770端口打开。\n\n[使用与交接](使用与交接.txt) · [内容与图表交接](内容与图表交接.md) · [设计说明](docs/design.md) · [素材来源](docs/design-sources.md)\n\n主展示为五屏、核心发现三页七图版。`网站/legacy.html?chapter=atlas` 保留44张独立科研图、完整案例与原探索视图。\n', encoding='utf-8')
     # Keep the designer's token and provenance documents usable in the standalone bundle.
     docs = destination / 'docs'
     docs.mkdir()
-    for name in ['design.md', 'design-sources.md', 'reconstruction-handoff.md']:
+    for name in ['design.md', 'design-sources.md', 'reconstruction-handoff.md', 'model-spec-sources.md']:
         shutil.copy2(public_file(ROOT / 'docs' / name), docs / name)
     shutil.copytree(ROOT / 'docs/provenance', docs / 'provenance')
     (destination / '.impeccable').mkdir()
@@ -323,6 +319,7 @@ def package(output, extension_report=None):
     (docs / 'reconstruction-handoff.md').write_text(handoff, encoding='utf-8')
     for original, bundled in [('(design.md)', '(docs/design.md)'),
                               ('(design-sources.md)', '(docs/design-sources.md)'),
+                              ('(model-spec-sources.md)', '(docs/model-spec-sources.md)'),
                               ('(../.impeccable/design.json)', '(.impeccable/design.json)'),
                               ('(../README.md)', '(README.md)'),
                               ('(code-feedback-methods.md)', '(docs/code-feedback-methods.md)')]:
@@ -349,7 +346,12 @@ def package(output, extension_report=None):
         (destination / '重建代码反馈图.py').write_text(EXTENSION_REBUILD, encoding='utf-8')
         shutil.copy2(extension['bundle'], output / '知微代码反馈SVG图包.zip')
     shutil.copy2(destination / '使用与交接.txt', output / '重构版_使用与交接.txt')
-    report = ROOT / 'artifacts/qa/defense/report.json'
+    statistics = destination / 'scripts/analysis/derive_concise_ci.py'
+    statistics.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(public_file(ROOT / 'scripts/analysis/derive_concise_ci.py'), statistics)
+    report = ROOT / 'artifacts/qa/zhiwei/report.json'
+    if not report.is_file():
+        report = ROOT / 'artifacts/qa/defense/report.json'
     if not report.is_file():
         report = ROOT / 'artifacts/qa/reconstruction/report.json'
     if report.is_file():

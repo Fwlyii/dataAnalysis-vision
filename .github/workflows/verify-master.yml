@@ -1,0 +1,50 @@
+name: Verify Master presentation
+
+on:
+  push:
+    branches: [Master]
+  pull_request:
+    branches: [Master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-master-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out current source without downloading raw archives
+        uses: actions/checkout@v6
+        with:
+          lfs: false
+      - name: Fetch the single unified table used by research checks
+        run: git lfs pull --include='data/processed/all_records.csv.gz' --exclude=''
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tests/package-lock.json
+      - name: Install locked browser checks
+        run: npm ci --prefix tests --ignore-scripts --no-audit --no-fund
+      - name: Install Chromium
+        run: npm run browser:install --prefix tests
+      - name: Build and verify current presentation, original atlas, and frozen research
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python3 tests/check_presentation.py
+      - name: Save validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: presentation-validation
+          path: |
+            artifacts/qa/zhiwei/
+            artifacts/qa/defense/
+          if-no-files-found: ignore

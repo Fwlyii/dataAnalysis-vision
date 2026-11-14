@@ -1,34 +1,35 @@
 # 设计与第三方来源
 
-## 当前视觉依据
+## 当前主展示
 
-当前视觉方向为用户提供并批准的“知微 · 深海光学玻璃 v5”六张参考图。参考文件位于工作区相邻的 `../style-v5-reference/`：研究问题、数据采集、数据处理、总体规律、任务专项、五条建议。它们决定深海背景、白色中文、青／绿／紫／金玻璃边缘、双层边框和局部折射高光；不作为科研数据或页面截图直接铺进正文。
+当前主展示来自用户于2026-11-15提供并确认的 `知微可视化系统-完整版.zip`。仓库保留可编辑的 `app/index.html`、`app/zhiwei.css` 和 `app/src/zhiwei.js`，按既有构建流程生成静态网站。附件的内嵌单文件预览和压缩资源副本属于交付产物，规范源码继续复用仓库中的冻结快照与本地资产。
 
-实现与规范分别位于 `app/research-ocean.css`、`app/research-content-ocean.css`、`app/research-findings-compact.css`、[design.md](design.md) 和 `.impeccable/design.json`。首页与其余四章继续沿用v5方向。
+视觉母题为“景深”：CSS光场、刻度环、磨砂玻璃展板与前景取景框。主界面的标题、数据和图形使用HTML及原生SVG，光场使用CSS与装饰SVG；实现细节见 [设计说明](design.md)。
 
-发现页四段构图参考工作区 `outputs/Compact_四屏设计参考_v6/01_总体规律.png`、`02_数学与文档.png`、`03_代码反馈.png`、`04_真实案例.png`。四张参考由内置image_gen生成，完整提示写入PNG元数据，并保存于同目录 `生成说明与提示词.json`。它们仅指导分组、密度与玻璃材质，不属于运行时素材；生成图中的文字、曲线、数值和代码均不作为研究证据。紧凑主线沿用v5背景。
-
-## 运行时装饰素材
-
-| 素材 | 来源与用途 | 来源记录 |
+| 来源 | 当前用途 | 许可/记录 |
 |---|---|---|
-| `app/assets/visual/ocean-optics-v5.png` | 本轮通过 image_gen 编辑用户提供的研究问题参考图，移除全部文字、UI、图表、卡片、图标与连接线，生成安静的深海背景；1,436,304字节，仅作装饰 | PNG内嵌生成提示；同目录 `ocean-optics-v5.provenance.json` 保存输入说明、完整提示与用途 |
-| `app/assets/visual/gateway-atmosphere.webp` | 先前实际生成的深海背景；现作首页背景加载失败时的后备素材 | [gateway-design.json](provenance/gateway-design.json) |
-| `app/assets/visual/planet-question.webp`、`planet-collection.webp`、`planet-cleaning.webp`、`planet-landscape.webp`、`planet-findings.webp` | 原五颗玻璃气泡；继续用于同一首页入口，中央透镜另复用原气泡局部装饰 | [planet-design.json](provenance/planet-design.json) |
+| 用户确认的Claude页面 | 五屏版式、景深样式、原生SVG及交互 | `app/index.html`、`app/zhiwei.css`、`app/src/zhiwei.js` |
+| 思源宋体子集 | 标题，`app/assets/fonts/zhiwei-serif.woff2` | SIL OFL 1.1；`app/assets/fonts/Noto-CJK-OFL.txt` |
+| [Geist](https://github.com/google/fonts/tree/main/ofl/geist) | 本地拉丁字体与界面数字 | `app/assets/fonts/Geist-OFL.txt` |
+| 冻结科研快照 | 全部主图和关键数字 | `app/data/summary.json`、`research-charts.json`、`research-content.json`、`code-feedback-extension.json` |
 
-原六张WebP包含在1100项科研保护文件中，保持字节不变；来源记录外置于 `docs/provenance/`，不改写原素材元数据。旧来源记录中的生成输入、设计稿和临时路径属于历史迭代，完整版本可从Git提交 `c3d648a` 的 `optimization/` 查阅。
+模型公开规格与采集端点的对应证据由仓库 `docs/model-spec-sources.md` 记录。MoE骨干参数、激活参数和稠密参数保留各自来源口径。
 
-所有标题、导航、提示词、字段表、科学坐标与结论由HTML或SVG绘制。背景素材不承载数据。原37张科学SVG、六张新反馈图与一张历史强测复核图保持冻结版本字节，完整44图仍在独立图册与原图包；来源指纹随已发布 `app/data/code-feedback-extension.json` 保存。紧凑主线的总体、数学、文档和代码图由原生HTML／SVG直接读取冻结目录与发布快照生成，不改评分或统计。四个概览不计为独立图稿，主线导出的原生SVG与原44图另行保存。
+## 科研图稿
 
-## 第三方与历史参考
+原37张科学SVG、六张完整反馈图和一张历史强测复核图继续保留在原资产目录与两个SVG/CSV图包中。当前主展示的原生SVG直接读取相同快照；已发布图稿的数值和来源指纹保持冻结。图稿重绘代码及统计说明见 [交接说明](reconstruction-handoff.md)。
 
-| 来源 | 使用范围 | 本地许可或记录 |
+## 历史素材与兼容图册
+
+以下资产继续支持 `app/legacy.html` 的历史图册与研究模块；原来源记录保持原样。
+
+| 素材/依赖 | 用途 | 记录 |
 |---|---|---|
-| [Geist](https://github.com/google/fonts/tree/main/ofl/geist) | 本地拉丁与界面数字字体；研究主壳实际加载Regular、Semibold | `app/assets/fonts/Geist-OFL.txt` |
-| ECharts、D3、Vega-Lite、Plotly | 独立图册与课程交互图表库的现有能力 | `app/assets/vendor/visualization-libraries.json` 记录版本、校验和与许可 |
-| Motion mini 14.9.0 | 保留的旧交互模块依赖；当前五气泡反馈由CSS过渡实现 | `app/assets/vendor/` |
-| [AI Design Skills](https://github.com/elayadesign/ai-design-skills) | 历史字体层级、间距、焦点和窄屏检查参考 | MIT；`app/templates/ai-design-skills-LICENSE.txt`；参考版本 `4fdcdd52f15eda09da1257c303c860c13e0c879f` |
-| [Relay](https://relay-sage-sigma.vercel.app/) | 历史首屏、稀疏排版与统计节奏参考；当前外观由v5六图决定 | 未引入该站点代码或图片 |
-| OpenWAM | 历史研究图形表达参考 | 本项目图形按实际数据生成 |
+| `app/assets/visual/ocean-optics-v5.png` | 历史深海光学玻璃v5背景，由image_gen编辑用户参考图生成 | 同目录 `ocean-optics-v5.provenance.json` 与PNG元数据 |
+| `gateway-atmosphere.webp` | 历史背景与后备装饰 | [gateway-design.json](provenance/gateway-design.json) |
+| `planet-question.webp`、`planet-collection.webp`、`planet-cleaning.webp`、`planet-landscape.webp`、`planet-findings.webp` | 历史五气泡入口与透镜装饰 | [planet-design.json](provenance/planet-design.json) |
+| ECharts、D3、Vega-Lite、Plotly | 完整旧图册与课程交互视图 | `app/assets/vendor/visualization-libraries.json` 及同目录许可证 |
+| Motion mini 14.9.0 | 历史交互模块 | `app/assets/vendor/` |
+| [AI Design Skills](https://github.com/elayadesign/ai-design-skills) | 历史字体、间距和焦点参考 | MIT；`app/templates/ai-design-skills-LICENSE.txt` |
 
-保留的Scrollama资源用于模板溯源，当前主展示不加载它。字体、依赖与装饰图均从本地读取。历史截图、视频和未采用设计稿不属于网站运行时依赖；紧凑发现的当前视觉复核记录位于 `.impeccable/review/compact-v6/`，其他v5页面记录保留在 `.impeccable/review/final-v5/`。
+上述旧素材和实现中纳入1,100项保护清单的文件保持原字节。原始设计稿、录屏和临时优化产物可从Git历史查阅，不作为主页面运行依赖。

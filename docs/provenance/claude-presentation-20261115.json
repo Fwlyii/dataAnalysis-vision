@@ -1,0 +1,27 @@
+{
+  "source": "User-approved Claude presentation archive",
+  "approved_date": "2026-11-15",
+  "archive_name": "知微可视化系统-完整版.zip",
+  "archive_bytes": 14713018,
+  "archive_sha256": "b642fdaee8d3d96f2ce3920d09b0e7dda4461972f9175bdf20f71d48b61fb506",
+  "imported_source_files": {
+    "网站/index.html": "80dc66a036931d1a43e20c7bbc9710ff2f07664c1b4340b22e4a614695fbefe4",
+    "网站/zhiwei.css": "ab4887d0349d61ea92551ab95534ba5be370d89c8e778f53b14addc40b2c469c",
+    "网站/src/zhiwei.js": "82a5f73d6f0fe7f13af4b98fd6535566df31b7a4d7b3cd2553f4c19a23060306",
+    "网站/assets/fonts/zhiwei-serif.woff2": "6c3d40bd9c77973756056c7a702b848600e59ef9321359eb430d95055106830b"
+  },
+  "frozen_snapshots": {
+    "summary.json": "1efed20d51ad8bf6fef487c0c6ec7c82e92d9c5a163cdac62ecb9f1c43f50233",
+    "research-charts.json": "a04fabdd938dcb31ccd70144d2e303cc50a41ea6bac318b6952377c1106ffaa2",
+    "research-content.json": "6f5b92b7b25e5db8e9068f883d1e3cb11f10f29a3eebea19816c9aaea9ca775b",
+    "code-feedback-extension.json": "8f8c7a08bb1158918ae8e4ed2d841f78e184bd0592557a35399539f4ca59e270"
+  },
+  "integration_adjustments": [
+    "Preserve canonical repository launch/build and all frozen scientific sources",
+    "Clarify page-selected counts, shared-seed formula, complete-test semantics and public backbone parameters",
+    "Keep the original atlas in legacy.html and map historical chapter links",
+    "Exclude duplicate runtime and embedded single-file preview from source import",
+    "Fix duplicate keyboard handling, responsive viewfinder overflow, strategy-table ARIA rows and legacy home-link routing"
+  ],
+  "font_license": "app/assets/fonts/Noto-CJK-OFL.txt"
+}

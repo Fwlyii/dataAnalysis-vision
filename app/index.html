@@ -1,13 +1,301 @@
 <!doctype html>
-<html lang="zh-CN"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#142b3d">
-<title>知微 · 模型行为研究</title>
-<meta name="description" content="从提示词、输出预算与模型规模，到数学语言、文档位置和代码反馈，以真实数据与中文SVG探索模型行为。">
-<link rel="stylesheet" href="research.css"><link rel="stylesheet" href="research-content.css"><link rel="stylesheet" href="research-explorer.css"><link rel="stylesheet" href="research-home.css"><link rel="stylesheet" href="research-feedback-extension.css"><link rel="stylesheet" href="research-ocean.css"><link rel="stylesheet" href="research-content-ocean.css"><link rel="stylesheet" href="research-findings-compact.css">
-<script src="assets/vendor/echarts.min.js"></script><script src="runtime/summary.js"></script><script src="runtime/publication.js"></script><script src="runtime/code-data.js"></script>
-</head><body data-view="home">
-<a class="skip-link" href="#main-content">跳到研究内容</a>
-<header class="site-header"><a class="brand" href="./" data-home-link aria-label="知微，返回五气泡首页"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><circle cx="18" cy="18" r="12" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="18" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m27 27 8 8M18 2v6M2 18h6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span><strong>知微</strong><small>模型行为研究</small></span></a><nav id="chapter-nav" class="chapter-nav" aria-label="研究章节"></nav></header>
-<div class="research-layout"><main id="main-content" tabindex="-1"><div class="initial-loading"><h1>知微</h1><p>正在读取研究内容。</p></div></main></div>
-<div id="research-toast" class="research-toast" role="status"></div><noscript><p>此系统需要启用JavaScript。</p></noscript><script type="module" src="src/research.js"></script>
-</body></html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07080f">
+<meta name="color-scheme" content="dark">
+<title>知微模型行为研究</title>
+<meta name="description" content="不同的交互策略，会怎样影响大模型的回答质量？31 种提示策略、3 类任务、4 个模型的对照实验与交互式可视化。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0f26'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='none' stroke='%23eef0f8' stroke-width='2'/%3E%3Cpath d='M16 3v5M16 24v5M3 16h5M24 16h5' stroke='%23eef0f8' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='18.2' cy='13.8' r='2.6' fill='%23bc1e72'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="zhiwei.css">
+<script defer src="src/zhiwei.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<div class="backdrop" aria-hidden="true"></div>
+<div class="overlay" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#s1" aria-label="知微，回到开头">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5"/><path d="M16 1.5v5M16 25.5v5M1.5 16h5M25.5 16h5"/><circle class="brand-dot" cx="18.6" cy="13.6" r="2.6"/></svg>
+    <span>知微</span>
+  </a>
+  <nav class="deck-nav" aria-label="板块">
+    <span class="nav-ind" aria-hidden="true"></span>
+    <a href="#s1"><b>01</b>研究问题</a>
+    <a href="#s2"><b>02</b>实验设计</a>
+    <a href="#s3"><b>03</b>数据处理</a>
+    <a href="#s4"><b>04</b>核心发现</a>
+    <a href="#s5"><b>05</b>结论与反思</a>
+  </nav>
+  <button class="present-btn" type="button" id="present-btn" aria-pressed="false" hidden>全屏放映</button>
+  <div class="read-progress" aria-hidden="true"><span></span></div>
+</header>
+
+<main id="main">
+
+<!-- 01 研究问题 -->
+<section class="screen hero" id="s1" data-screen aria-labelledby="hero-title">
+  <div class="hero-text">
+    <p class="kicker" data-anim style="--d:0">课程设计题目二　AI 对话数据与智能体行为分析</p>
+    <h1 id="hero-title" data-anim style="--d:1">知微</h1>
+    <p class="hero-q" data-anim style="--d:2">不同的交互策略，会怎样影响大模型的回答质量？</p>
+    <dl class="hero-stats" data-anim style="--d:3">
+      <div><dt>受测模型</dt><dd data-count="4">4</dd></div>
+      <div><dt>提示策略</dt><dd data-count="31">31</dd></div>
+      <div><dt>任务类型</dt><dd data-count="3">3</dd></div>
+      <div><dt>本页选用回答</dt><dd data-bind="allRecords" data-count="267610">267,610</dd></div>
+    </dl>
+    <ol class="hero-tasks" data-anim style="--d:4" aria-label="三类任务与各自的专项">
+      <li><span class="ht-i">A</span><b>数学与选择题</b><span class="ht-x">专项：作答模板</span><small>GSM8K / MATH500 / MMLU-Pro</small></li>
+      <li><span class="ht-i">B</span><b>文档问答</b><span class="ht-x">专项：证据位置</span><small>NQ-Open</small></li>
+      <li><span class="ht-i">C</span><b>代码</b><span class="ht-x">专项：执行反馈</span><small>CodePromptEval / HumanEval+</small></li>
+    </ol>
+  </div>
+  <figure class="specimen" data-anim style="--d:2" aria-labelledby="specimen-caption">
+    <div class="segmented small specimen-models" id="specimen-models" role="group" aria-label="选择受测模型"></div>
+    <div class="specimen-stage" id="specimen-stage" data-focus data-key></div>
+    <div class="specimen-legend" id="specimen-legend"></div>
+    <figcaption id="specimen-caption" class="sr-only">提示策略切片：每个扇区是一种提示策略，由内到外三圈依次为 GSM8K、MATH500、MMLU-Pro，颜色越亮得分越高。</figcaption>
+    <div id="specimen-table" hidden></div>
+  </figure>
+</section>
+
+<!-- 02 实验设计 -->
+<section class="screen" id="s2" data-screen aria-labelledby="s2-title">
+  <header class="screen-head" data-anim style="--d:0">
+    <p class="idx"><b>02</b>实验设计</p>
+    <h2 id="s2-title">31 种提示策略，覆盖三类任务</h2>
+  </header>
+  <div class="s2-grid">
+    <article class="panel strategy-panel is-key" data-key data-anim style="--d:1;--glow:rgba(60,110,255,.7)">
+      <header class="panel-head"><h3>提示策略矩阵</h3><p class="hint">悬停任一策略，查看实际发送的指令</p></header>
+      <div class="strategy-matrix" id="strategy-matrix"></div>
+      <div class="strategy-detail" id="strategy-detail" aria-live="polite"></div>
+    </article>
+    <article class="panel plate ledger-panel" id="plate-ledger" data-anim style="--d:2">
+      <header class="panel-head"><h3 id="ledger-title">5 组实验</h3><div class="panel-tools"></div></header>
+      <div class="panel-body"><div class="chart" id="chart-ledger"></div></div>
+      <footer class="panel-foot"><span class="src">单位：份模型回答</span></footer>
+    </article>
+    <article class="panel roster-panel is-bare" data-anim style="--d:3">
+      <header class="panel-head"><h3>受测模型与采集</h3></header>
+      <ul class="model-roster" id="model-roster"></ul>
+      <ul class="facts">
+        <li><b>6</b><span>个公开题库</span></li>
+        <li><b>API</b><span>批量调用采集</span></li>
+        <li><b>匿名</b><span>编号，不公开原文</span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- 03 数据处理 -->
+<section class="screen" id="s3" data-screen aria-labelledby="s3-title">
+  <header class="screen-head" data-anim style="--d:0">
+    <p class="idx"><b>03</b>数据处理</p>
+    <h2 id="s3-title">两种原始格式，统一成 21 列记录</h2>
+  </header>
+  <div class="s3-grid">
+    <article class="panel mapping-panel is-key" id="plate-mapping" data-key data-anim style="--d:1;--glow:rgba(22,170,205,.6)">
+      <header class="panel-head"><h3>字段映射</h3><div class="field-picker segmented small" id="field-picker" role="group" aria-label="选择字段"></div></header>
+      <div class="mapping-grid" id="mapping-grid"></div>
+    </article>
+    <article class="panel schema-panel" data-anim style="--d:2">
+      <header class="panel-head"><h3>统一记录的 21 列</h3><p class="hint">与左侧选中的字段联动</p></header>
+      <div class="schema-groups" id="schema-groups"></div>
+      <p class="pipe-stats" id="unified-note"></p>
+    </article>
+  </div>
+  <ol class="rule-list" id="rule-list" data-anim style="--d:3" aria-label="清洗规则"></ol>
+</section>
+
+<!-- 04 核心发现 -->
+<section class="screen findings" id="s4" data-screen aria-labelledby="s4-title">
+  <header class="screen-head" data-anim style="--d:0">
+    <p class="idx"><b>04</b>核心发现</p>
+    <h2 id="s4-title">七张图，五条结论</h2>
+    <div class="pager">
+      <div class="pager-tabs" role="tablist" aria-label="核心发现分页">
+        <button type="button" role="tab" id="tab-a" aria-controls="page-a" aria-selected="true" data-page="0">提示策略：总体规律<small>I–IV</small></button>
+        <button type="button" role="tab" id="tab-b" aria-controls="page-b" aria-selected="false" tabindex="-1" data-page="1">专项：数学与文档<small>V–VI</small></button>
+        <button type="button" role="tab" id="tab-c" aria-controls="page-c" aria-selected="false" tabindex="-1" data-page="2">专项：代码<small>VII</small></button>
+      </div>
+      <button type="button" class="pager-arrow" data-pager="-1" aria-label="上一页">‹</button>
+      <button type="button" class="pager-arrow" data-pager="1" aria-label="下一页">›</button>
+    </div>
+  </header>
+
+  <div class="pages">
+    <!-- 页 A：总体规律 -->
+    <div class="page page-a is-active" id="page-a" role="tabpanel" aria-labelledby="tab-a">
+      <article class="panel plate" id="plate-budget" data-key data-anim style="--d:1">
+        <header class="panel-head">
+          <p class="tag"><b>I</b>总体</p>
+          <h3>Token 越多得分越高，边际收益递减</h3>
+          <div class="panel-tools"><div class="segmented small" id="budget-task" role="group" aria-label="选择题库"></div><div class="segmented small is-hidden" id="budget-axis" role="group" aria-label="横轴刻度"></div><button class="icon-btn note-btn" type="button" aria-expanded="false" aria-label="说明">i</button></div>
+        </header>
+        <div class="panel-body"><div class="chart" id="chart-budget"></div></div>
+        <footer class="panel-foot"><span class="kpi">R² = 0.94 / 0.88 / 0.71</span><span class="src">Qwen2.5 7B，词数上限 1–100 七档，每档 200 题</span></footer>
+        <div class="note"><p class="finding" id="budget-finding"></p><p class="reading">横轴是实际平均输出 Token；曲线为 SR = a + b·ln(Token) 的最小二乘拟合。</p></div>
+        <div hidden><div class="chart" id="chart-budget-r2"></div></div>
+      </article>
+
+      <article class="panel plate" id="plate-scale" data-anim style="--d:2">
+        <header class="panel-head">
+          <p class="tag"><b>II</b>总体</p>
+          <h3>模型排序随题库改变</h3>
+          <div class="panel-tools"><div class="segmented small" id="scale-task" role="group" aria-label="选择题库"></div><button class="icon-btn note-btn" type="button" aria-expanded="false" aria-label="说明">i</button></div>
+        </header>
+        <div class="panel-body"><div class="chart" id="chart-scale"></div></div>
+        <footer class="panel-foot"><span class="kpi">MATH500 最大差 18.0 pp</span><span class="src">四个模型，三种回答组织，每格 200 题</span></footer>
+        <div class="note"><p class="finding" id="scale-finding"></p><p class="reading">每行一个模型，三个记号是同一批题在三种回答组织下的规则评分；MoE 标示骨干及激活参数，模型架构与参数组成不同，不据此拟合规模定律。</p></div>
+      </article>
+
+      <article class="panel plate" id="plate-concise" data-anim style="--d:3">
+        <header class="panel-head">
+          <p class="tag is-low"><b>III</b>低维</p>
+          <h3>简洁分步：省 Token，不降分</h3>
+          <div class="panel-tools"><button class="icon-btn note-btn" type="button" aria-expanded="false" aria-label="说明">i</button></div>
+        </header>
+        <div class="panel-body"><div class="chart" id="chart-concise"></div></div>
+        <footer class="panel-foot"><span class="kpi">17/17 省 Token，15/17 不降分</span><span class="src">17 组模型与任务配对，竖线为 95% 区间</span></footer>
+        <div class="note"><p class="finding" id="concise-finding"></p><p class="reading">横轴为输出 Token 的相对减少，纵轴为得分变化；颜色区分模型，形状区分任务。</p></div>
+        <div hidden><div class="chart" id="chart-concise-mini"></div></div>
+      </article>
+
+      <article class="panel plate plate-anomaly" id="plate-limits" data-anim style="--d:4">
+        <header class="panel-head">
+          <p class="tag is-anomaly"><b>IV</b>异常</p>
+          <h3>长度限得过紧，输出反而变长</h3>
+          <div class="panel-tools"><button class="icon-btn note-btn" type="button" aria-expanded="false" aria-label="说明">i</button></div>
+        </header>
+        <div class="panel-body"><div class="chart" id="chart-limits"></div></div>
+        <footer class="panel-foot"><span class="kpi">9/12 组反弹，最高 ×6.8</span><span class="src">四模型 × 三题库，字母上限 100 → 10</span></footer>
+        <div class="note"><p class="finding" id="limits-finding"></p><p class="reading">条形从 1 倍线出发，向右表示限制更严时输出变长；横轴为对数刻度。</p></div>
+        <div hidden><p id="limits-detail-title"></p><div id="chart-limits-detail"></div></div>
+      </article>
+    </div>
+
+    <!-- 页 B：数学与文档 -->
+    <div class="page page-b" id="page-b" role="tabpanel" aria-labelledby="tab-b">
+      <article class="panel plate" id="plate-language" data-key data-anim style="--d:1">
+        <header class="panel-head">
+          <p class="tag is-low"><b>V</b>低维</p>
+          <h3>中文作答：MATH500 上三个模型提分</h3>
+          <div class="panel-tools"><div class="segmented small" id="language-metric" role="group" aria-label="选择指标"></div><div class="segmented small" id="language-task" role="group" aria-label="选择题库"></div><button class="icon-btn note-btn" type="button" aria-expanded="false" aria-label="说明">i</button></div>
+        </header>
+        <div class="panel-body">
+          <div class="chart" id="chart-language"></div>
+          <p class="sub-cap">中文减默认的得分差（百分点），点击列切换题库</p>
+          <div class="chart matrix" id="chart-language-matrix"></div>
+        </div>
+        <footer class="panel-foot"><span class="kpi">Qwen3 +11.5 pp</span><span class="src">同一批英文原题，每格 200 题</span></footer>
+        <div class="note"><p class="finding" id="language-finding"></p><p class="reading">空心点为默认分步，实心点为中文作答；这是作答模板的对照，不测量模型内部用什么语言思考。</p></div>
+      </article>
+
+      <article class="panel plate is-key" id="plate-position" data-anim style="--d:2;--glow:rgba(200,60,140,.6)">
+        <header class="panel-head">
+          <p class="tag is-multi"><b>VI</b>多维</p>
+          <h3>证据位置决定模型差距</h3>
+          <div class="panel-tools"><button class="icon-btn note-btn" type="button" aria-expanded="false" aria-label="说明">i</button></div>
+        </header>
+        <div class="panel-body stack-2">
+          <div class="chart" id="chart-position"></div>
+          <div class="chart" id="chart-position-diff"></div>
+        </div>
+        <footer class="panel-foot"><span class="kpi">领先 +16.5 → +2.5 pp</span><span class="src">NQ-Open，20 篇资料，200 题 × 9 个位置</span></footer>
+        <div class="note"><p class="finding" id="position-finding"></p><p class="reading">上图阴影为按题配对的 95% 区间，纵轴从 40% 起；下图为同题差值，两图共用横轴。</p></div>
+      </article>
+    </div>
+
+    <!-- 页 C：代码修复 -->
+    <div class="page page-c" id="page-c" role="tabpanel" aria-labelledby="tab-c">
+      <div class="code-bar" data-anim style="--d:1">
+        <ol class="arm-legend" id="arm-legend" aria-label="六种反馈策略，点击可在所有图中突出"></ol>
+        <div class="code-tools">
+          <div class="segmented small" id="fb-model" role="group" aria-label="选择模型"></div>
+          <button class="ghost-btn" type="button" id="open-cases">真实案例</button>
+        </div>
+      </div>
+      <div class="code-grid">
+        <article class="panel plate traj-panel is-key" id="plate-trajectory" data-key data-anim style="--d:2;--glow:rgba(188,30,114,.65)">
+          <header class="panel-head">
+            <p class="tag is-multi"><b>VII</b>多维</p>
+            <h3>具体的失败用例，最能推动修复</h3>
+            <div class="panel-tools"><div class="segmented small" id="fb-metric" role="group" aria-label="选择测试口径"></div><button class="icon-btn note-btn" type="button" aria-expanded="false" aria-label="说明">i</button></div>
+          </header>
+          <div class="panel-body"><div class="chart" id="chart-trajectory"></div></div>
+          <footer class="panel-foot"><span class="kpi">Qwen3 +8.5 pp</span><span class="src">HumanEval+ 164 题 × 3 份初稿，完整测试判定</span></footer>
+          <div class="note"><p class="finding" id="feedback-finding"></p><p class="reading" id="traj-reading"></p><p class="reading" id="feedback-scope"></p></div>
+        </article>
+        <article class="panel contrast-card" id="contrast-card" data-anim style="--d:3">
+          <header class="panel-head"><h3 id="contrast-title">配对比较</h3><div class="contrast-pickers" id="contrast-pickers"></div></header>
+          <div class="contrast-body" id="contrast-body" aria-live="polite"></div>
+        </article>
+        <article class="panel tabs-panel" data-anim style="--d:4">
+          <header class="panel-head">
+            <div class="mini-tabs" data-tabs role="tablist" aria-label="更多视图">
+              <button type="button" role="tab" data-pane="plate-endpoints" aria-selected="true">终稿区间</button>
+              <button type="button" role="tab" data-pane="plate-repair" aria-selected="false">修复与回退</button>
+              <button type="button" role="tab" data-pane="plate-cost" aria-selected="false">Token 代价</button>
+              <button type="button" role="tab" data-pane="plate-errors" aria-selected="false">初稿错误</button>
+            </div>
+          </header>
+          <div class="panes">
+            <div class="pane plate is-active" id="plate-endpoints"><div class="panel-tools pane-tools"></div><div class="chart" id="chart-endpoints"></div></div>
+            <div class="pane plate" id="plate-repair"><div class="panel-tools pane-tools"></div><div class="chart" id="chart-repair"></div><p class="sr-only" id="repair-reading"></p></div>
+            <div class="pane plate" id="plate-cost"><div class="panel-tools pane-tools"></div><div class="chart" id="chart-cost"></div></div>
+            <div class="pane plate" id="plate-errors"><div class="chart" id="chart-errors"></div><p class="sr-only" id="error-note"></p></div>
+          </div>
+        </article>
+      </div>
+      <div hidden><dl id="feedback-ledger"></dl><p id="fb-focus-note"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 结论与反思 -->
+<section class="screen" id="s5" data-screen aria-labelledby="s5-title">
+  <header class="screen-head" data-anim style="--d:0">
+    <p class="idx"><b>05</b>结论与反思</p>
+    <h2 id="s5-title">五条发现，五条使用建议</h2>
+  </header>
+  <ol class="advice-grid" id="advice-list" data-focus data-key></ol>
+  <div class="s5-bottom" data-anim style="--d:7">
+    <section class="panel limits-panel is-bare" aria-labelledby="limits-title">
+      <h3 id="limits-title">局限与反思</h3>
+      <ul class="limit-list" id="limit-list"></ul>
+    </section>
+    <section class="panel ethics-panel is-bare" aria-labelledby="ethics-title">
+      <h3 id="ethics-title">数据与伦理</h3>
+      <ul class="limit-list">
+        <li><b>来源</b><span>公开基准题目</span></li>
+        <li><b>匿名</b><span>不公开原文与回答</span></li>
+        <li><b>运行</b><span><code>python3 app/launch.py</code></span></li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+</main>
+
+<aside class="drawer" id="case-drawer" aria-hidden="true" aria-labelledby="cases-title">
+  <div class="drawer-backdrop" data-close></div>
+  <div class="drawer-inner">
+    <header class="drawer-head"><h3 id="cases-title">真实修改案例</h3><button class="icon-btn drawer-close" type="button" data-close aria-label="关闭">×</button></header>
+    <div class="case-tabs" id="case-tabs" role="tablist" aria-label="选择案例"></div>
+    <div class="case-panel" id="case-panel" role="tabpanel"></div>
+  </div>
+</aside>
+
+<dialog class="table-dialog" id="table-dialog" aria-labelledby="table-dialog-title">
+  <header><h3 id="table-dialog-title">数据表</h3><button class="icon-btn" type="button" data-close aria-label="关闭">×</button></header>
+  <div class="table-dialog-body" id="table-dialog-body"></div>
+</dialog>
+
+<div class="tooltip" id="tooltip" role="status" aria-live="polite" hidden></div>
+<noscript><p class="noscript">本页图表需要启用 JavaScript。</p></noscript>
+</body>
+</html>
