@@ -1,0 +1,46 @@
+% 本报告所有示意图共用的样式：黑白/双色矢量线稿，结构清晰。
+\usepackage[fontset=none]{ctex}
+\setmainfont{Liberation Sans}
+\setsansfont{Liberation Sans}
+\setmonofont{Liberation Mono}
+\setCJKmainfont[BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+\setCJKsansfont[BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+\setCJKmonofont[BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shapes.geometric,shapes.multipart,shapes.misc,decorations.pathreplacing}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{accent}{HTML}{4A39B8}
+\definecolor{tint}{HTML}{F4F3FB}
+\definecolor{muted}{HTML}{555B6E}
+
+\newcommand{\ttl}[1]{{\fontsize{10}{12}\selectfont\bfseries #1}}
+\newcommand{\sub}[1]{{\fontsize{8.5}{10}\selectfont\color{muted} #1}}
+\newcommand{\nt}[2]{\ttl{#1}\\[1.5pt]\sub{#2}}
+\newcommand{\code}[1]{{\fontsize{8.5}{10}\selectfont\ttfamily #1}}
+
+\tikzset{
+  every picture/.style={font=\sffamily\fontsize{8.5}{10}\selectfont, line join=round, color=black},
+  n/.style={draw=black!85, line width=0.85pt, fill=white, align=center, rounded corners=2.5pt,
+            inner xsep=6pt, inner ysep=4pt, minimum height=9mm, minimum width=24mm},
+  na/.style={n, draw=accent, fill=tint},
+  ns/.style={n, minimum width=18mm, minimum height=7.5mm, inner xsep=5pt, inner ysep=3pt},
+  ext/.style={n, dash pattern=on 3pt off 2pt},
+  db/.style={draw=black!85, line width=0.85pt, fill=white, cylinder, shape border rotate=90, aspect=0.16,
+             align=center, minimum height=11mm, minimum width=22mm, inner xsep=5pt},
+  a/.style={draw=black!80, line width=0.85pt, -{Triangle[length=2.3mm, width=1.8mm]}},
+  da/.style={a, dash pattern=on 3pt off 2pt},
+  line/.style={draw=black!80, line width=0.85pt},
+  g/.style={font=\sffamily\fontsize{8}{9.5}\selectfont, fill=white, inner sep=1.2pt, align=center},
+  gn/.style={font=\sffamily\fontsize{8}{9.5}\selectfont, inner sep=1.2pt, align=center},
+}
+
+\newcommand{\grp}[3]{%
+  \begin{scope}[on background layer]
+    \path #1 coordinate (grpA) #2 coordinate (grpB);
+    \draw[draw=black!55, line width=0.7pt, fill=black!2, rounded corners=3pt] (grpA) rectangle (grpB);
+  \end{scope}
+  \node[anchor=north west, inner xsep=5pt, inner ysep=3pt, font=\sffamily\fontsize{8.5}{10}\selectfont\bfseries, color=accent]
+    at (grpA) {#3};
+}

@@ -1,0 +1,35 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}
+  % 上半部：8格关键规模指标
+  \draw[draw=black!80, line width=0.85pt, fill=tint!40, rounded corners=2pt] (0,0) rectangle (14.2,-2.7);
+  \draw[draw=black!35, line width=0.55pt] (0,-1.35) -- (14.2,-1.35);
+  \foreach \x in {3.55,7.1,10.65} \draw[draw=black!35, line width=0.55pt] (\x,0) -- (\x,-2.7);
+  \foreach \v/\t [count=\i from 0] in {5+1/组行为对照实验, {273,186}/条累计物理响应, {267,610}/条主展示选用响应, 31/种提示策略模板,
+                                        4/个受测大模型, 158/个工程源码文件, {37,534}/行代码总规模, 53/项自动检查与单测}
+  {
+    \pgfmathsetmacro{\cx}{1.775+3.55*mod(\i,4)}
+    \pgfmathsetmacro{\cy}{-0.52-1.35*div(\i,4)}
+    \node[color=accent] at (\cx,\cy) {{\fontsize{15}{17}\selectfont\bfseries \v}};
+    \node at (\cx,\cy-0.48) {\sub{\t}};
+  }
+
+  % 下半部：各目录源码行数横向条形图
+  \node[anchor=west] at (0,-3.35) {\ttl{代码库各模块源码行数分布（共计 37,534 行 / 35,695 非空行）}};
+  \draw[draw=black!60, line width=0.6pt] (4.0,-3.75) -- (4.0,-7.05);
+  \foreach \t/\v [count=\i] in {app\slash src\slash 前端脚本 (JS)/10811,
+                                experiments\slash 专项分析 (Py)/10386,
+                                scripts\slash 清洗与构建 (Py)/7080,
+                                app\slash styles\slash 样式表 (CSS)/5012,
+                                tests\slash 浏览器与单测/3587,
+                                app\slash 页面与启动器 (HTML)/658}
+  {
+    \pgfmathsetmacro{\y}{-3.75-0.54*\i+0.27}
+    \pgfmathsetmacro{\w}{\v/10811*8.7}
+    \node[anchor=east, font=\sffamily\fontsize{8.5}{10}\selectfont] at (3.88,\y) {\t};
+    \fill[accent!78] (4.0,\y-0.14) rectangle ++(\w,0.28);
+    \node[anchor=west, font=\sffamily\fontsize{8.5}{10}\selectfont] at (4.0+\w+0.12,\y) {\v};
+  }
+\end{tikzpicture}
+\end{document}

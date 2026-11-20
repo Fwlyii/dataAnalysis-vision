@@ -1,0 +1,122 @@
+% !Mode:: "TeX:UTF-8"
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{eso-pic}
+\usepackage[a4paper,margin=2.6cm,head=6mm,headsep=6.5mm,footskip=1.1cm]{geometry}
+
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\ifdefined\XeTeXversion
+  \PassOptionsToPackage{fontset=none}{ctex}
+\fi
+\usepackage[UTF8]{ctex}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{newtxmath}
+\usepackage{placeins}
+\usepackage{wrapfig}
+\usepackage{needspace}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{subfigure}
+\usepackage[subfigure]{ccaption}
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage{enumitem}
+\usepackage{calc}
+\usepackage{float}
+\usepackage{bm}
+\usepackage[amsmath,thmmarks,hyperref]{ntheorem}
+\usepackage{CJKnumb}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\newcommand{\shot}[2][0.94\linewidth]{{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.45pt}\fcolorbox{black!25}{white}{\includegraphics[width=#1]{#2}}}}
+\newcommand{\shotbox}[2]{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.45pt}\fcolorbox{black!25}{white}{\includegraphics[#1]{#2}}}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={const,let,var,function,return,if,else,for,of,in,while,async,await,try,catch,new,true,false,null,undefined,export,import,from,default},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  morestring=[b]`
+}
+\lstset{numbers=left,
+language=Python,
+numberstyle=\tiny\color[RGB]{150,150,150},
+numbersep=7pt,
+extendedchars=false,
+showstringspaces=false,
+breakatwhitespace=false,
+breaklines=true,
+captionpos=b,
+keywordstyle=\bfseries\color{black},
+commentstyle=\color{black!65},
+stringstyle=\color{black},
+frame=single,
+framerule=0.4pt,
+rulecolor=\color[RGB]{205,205,205},
+backgroundcolor=\color[RGB]{248,248,248},
+framesep=3pt,
+xleftmargin=1.4em,
+framexleftmargin=.7em,
+columns=fullflexible,
+keepspaces=true,
+basicstyle=\linespread{1.0}\ttfamily\fontsize{8.5bp}{10.8bp}\selectfont,
+tabsize=2
+}
+\makeatletter
+\let\ReportListingFrameExit\lst@frameExit
+\def\lst@frameExit{\nobreak\ReportListingFrameExit}
+\makeatother
+\renewcommand{\lstlistingname}{代码}
+
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+\usepackage{hyperref}
+\hypersetup{
+    unicode=true,
+    pdfborder={0 0 0},
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=false,
+}
+
+% 允许正文中的长标识符自然断行，避免整段中文行距或字距被拉散
+\ExplSyntaxOn
+\tl_new:N \l__tju_tt_tl
+\regex_const:Nn \c__tju_camel_regex { ([a-z0-9]) ([A-Z]) }
+\regex_const:Nn \c__tju_punct_regex { ([\./:\-]) }
+\regex_const:Nn \c__tju_us_regex { (\c{_}) }
+\cs_new_protected:Npn \tju_tt_breakable:n #1
+  {
+    \tl_set:Nn \l__tju_tt_tl {#1}
+    \regex_replace_all:NnN \c__tju_camel_regex { \1 \c{penalty} 100 \c{relax} \2 } \l__tju_tt_tl
+    \regex_replace_all:NnN \c__tju_punct_regex { \1 \c{penalty} 50 \c{relax} } \l__tju_tt_tl
+    \regex_replace_all:NnN \c__tju_us_regex { \1 \c{penalty} 50 \c{relax} } \l__tju_tt_tl
+    \tl_use:N \l__tju_tt_tl
+  }
+\cs_set_eq:NN \tjuttbreak \tju_tt_breakable:n
+\ExplSyntaxOff
+\usepackage{letltxmacro}
+\LetLtxMacro{\tjuorigtexttt}{\texttt}
+\DeclareRobustCommand{\texttt}[1]{\tjuorigtexttt{\tjuttbreak{#1}}}
+\AtBeginDocument{\pdfstringdefDisableCommands{\def\texttt#1{#1}}}
+
+\usepackage{caption}
+\DeclareCaptionFont{reportcaption}{\fontsize{10.5bp}{12.6bp}\selectfont}
+\captionsetup{font=reportcaption,labelfont=bf,skip=6pt}
+\captionsetup[table]{position=top,skip=6pt}
+\captionsetup[figure]{position=bottom,skip=6pt}

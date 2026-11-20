@@ -1,0 +1,16 @@
+\section{数据清洗与 21 列统一结构化}\label{sec:cleaning}
+
+异构实验产出的原始日志结构差异较大：推理与文档问答来自多轮 JSONL/ZIP 归档，字段命名偏重 API 原始响应；代码生成与代码修复则附带目标函数 AST 提取文本、沙箱内存限制与测试通过状态。为此，团队编写了 \texttt{scripts/cleaning/classify\_and\_audit.py} 等清洗脚本，将分散在五个方向的日志规范化为统一的 21 列匿名特征表（\texttt{data/processed/all\_records.csv.gz}），具体转换流如图~\ref{fig:data-pipeline} 所示。
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[max width=\linewidth]{\detokenize{figures/diagrams/d04-data-pipeline.pdf}}
+\caption{数据清洗、规则分类与 21 列统一特征构建流程}
+\label{fig:data-pipeline}
+\end{figure}
+
+\paragraph{唯一键校验与重复测量区分}在清洗阶段，脚本为每条物理模型调用生成唯一的 \texttt{record\_id}，并通过 \texttt{parent\_record\_key} 记录代码修复链条的父子版本关系。特别地，针对代码修复中六种反馈策略共享同一份 Round 0 初稿（Seed）的设计，统一表严格执行\textbf{“物理响应去重”}原则——每份共享初稿在物理记录中只出现一次，避免 6 组视图在统计总样本量时被重复放大。同时，针对代码生成任务中因评测环境依赖或超时导致无法判定结果的 \textbf{465 条记录}，设置 \texttt{environment\_excluded=true} 且保持 \texttt{metric\_value=null}，绝不将其填零视作模型代码错误。
+
+\paragraph{可见输出风格与提示词家族分类}为了量化模型回复外显格式对评分的影响，\texttt{classify\_and\_audit.py} 内置了确定性的正则表达式分类器，对所有可见回复文本进行五类形态标注（显式分步（\texttt{explicit\_step\_markers}）、项目列表（\texttt{bullet\_list}）、无标记多行（\texttt{multiline\_unmarked}）、单行（\texttt{singleline}）与空响应（\texttt{empty}）），并统计汉字数（\texttt{han\_character\_count}）、空白词数（\texttt{word\_count}）、总字符数（\texttt{character\_count}）及答案标记匹配状态（\texttt{marker\_present}）。全量 248,586 条记录的缺失率与类型审计同步导出为 \texttt{data/quality/quality\_report.json} 与 \texttt{missingness.csv}（完整 21 列字段定义与缺失率详表列于附录~\ref{app:db}）。
+
+\paragraph{零值与空值语义规范}CSV 导出器统一采用空单元格表达 \texttt{null}，布尔字段规范为小写 \texttt{true/false}，时间戳归一化至 UTC。当原始接口未返回 \texttt{finish\_reason} 时，\texttt{is\_truncated} 保持为 \texttt{null} 而非误判为未截断；同时保留各任务原生主评分标识 \texttt{metric\_name}，严禁将数学准确率、文档问答最终答案包含率与代码 \texttt{Pass@1} 强行合并计算“总体平均分”。

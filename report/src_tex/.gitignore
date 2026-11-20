@@ -1,0 +1,17 @@
+*.aux
+*.log
+*.out
+*.toc
+*.xdv
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.lof
+*.lot
+figures/diagrams/src/*.aux
+figures/diagrams/src/*.log
+figures/diagrams/src/*.out
+tjumain.pdf
+tjumain-build.pdf
+*.thm
+figures/diagrams/src/*.pdf

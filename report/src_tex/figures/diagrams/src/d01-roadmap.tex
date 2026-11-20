@@ -1,0 +1,18 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=9mm and 11mm]
+  \node[na, minimum width=32mm] (s1) {\nt{一、选题与研究设计}{明确5条问题与3类任务}};
+  \node[n, minimum width=32mm, right=of s1] (s2) {\nt{二、多任务数据采集}{5组原实验 + 1组补充采集}};
+  \node[n, minimum width=32mm, right=of s2] (s3) {\nt{三、清洗与匿名化}{21列统一Schema与脱敏}};
+  \node[n, minimum width=32mm, below=of s3] (s4) {\nt{四、统计与可视化}{5000次Bootstrap与7大SVG}};
+  \node[n, minimum width=32mm, left=of s4] (s5) {\nt{五、知微交互系统}{五球入口+五屏联动+案例}};
+  \node[na, minimum width=32mm, left=of s5] (s6) {\nt{六、自动化验收}{29+12项浏览器QA与报告}};
+
+  \draw[a] (s1) -- node[g, above] {协议} (s2);
+  \draw[a] (s2) -- node[g, above] {原始冻结} (s3);
+  \draw[a] (s3) -- node[g, right] {匿名特征} (s4);
+  \draw[a] (s4) -- node[g, above] {静态快照} (s5);
+  \draw[a] (s5) -- node[g, above] {全链路测试} (s6);
+\end{tikzpicture}
+\end{document}

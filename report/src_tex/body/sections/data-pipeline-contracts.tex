@@ -1,0 +1,7 @@
+\section{静态构建管线与数据快照契约}\label{sec:contracts}
+
+为彻底消除前端页面“在浏览器中实时拼凑假数据”或“统计表格更新后网页展示滞后”的风险，团队设计了基于 Python 标准库的静态构建与防漂移契约，核心代码位于 \texttt{scripts/system/build\_web\_app.py} 与 \texttt{app/launch.py}。
+
+\paragraph{构建产物与版本指纹}每次运行 \texttt{python3 app/launch.py --port 8770} 或独立执行 \texttt{build\_web\_app.py} 时，构建器会读取 \texttt{app/} 源码与 \texttt{app/data/} 下经离线分析冻结的科研 JSON（包括 \texttt{summary.json}、\texttt{research-charts.json}、\texttt{research-content.json} 与 \texttt{code-feedback-extension.json} 等 16 份文件），自动将其打包输出至非 Git 追踪的 \texttt{app/dist/} 目录，并为 CSS/JS 与特征脚本生成 12 位 SHA-256 内容哈希后缀（如 \texttt{COURSE\_FEATURE\_VERSION}），从根源上杜绝浏览器强缓存导致的旧版静态数据残留问题。
+
+\paragraph{强一致性互锁校验}在打包代码生成与出版图稿数据时，\texttt{build\_web\_app.py} 会主动核对：\textcircled{1} \texttt{reports/figures/code\_generation/figure-metadata.json} 中记录的 \texttt{source\_evidence\_sha256} 必须与 \texttt{app/data/code-evidence.json} 的实际哈希完全一致；\textcircled{2} 压缩特征包 \texttt{code-features.json.gz} 的哈希必须与 \texttt{code-evidence.json} 内的 \texttt{features\_sha256} 吻合。一旦发现上游统计数据与下游图表不同步，构建过程立即抛出异常并阻断发布。此外，脚本同时将 \texttt{guide/数据分析和可视化-题目2.pdf}、\texttt{report/case\_report.pdf} 与 \texttt{presentation/defense\_slides.pdf} 复制到构建产物 \texttt{app/dist/data/} 中，使系统第五屏的文档跳转与仓库交付物保持单源一致。

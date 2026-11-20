@@ -1,0 +1,35 @@
+\chapter{项目介绍}\label{part:project}
+
+“知微”可视分析系统旨在回答大语言模型应用中的一个核心工程问题：在不改动模型底层权重的前提下，提示词的组织方式、参考证据在上下文中的排布位置，以及执行反馈的信息粒度，如何共同决定任务最终的成败与计算代价。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[五球时空交互入口]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/gateway.jpg}}}\hfill
+\subfigure[第一屏：研究问题与任务全景]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s1-default.jpg}}}
+\caption{“知微”可视交互系统首屏概览}
+\label{fig:ui-overview}
+\end{figure}
+
+如图~\ref{fig:ui-overview} 所示，系统采用深空星图与“景深”光学对焦作为视觉隐喻，将原本枯燥的 26 万余条离线日志封装为可探索的数字标本。用户既可以通过五个光晕入口直达“研究问题、实验设计、数据处理、核心发现、结论与反思”五个连续交互屏，也可随时切换至保留 44 张完整科学图稿的补充探索图册。
+
+\paragraph{工程规模与统计口径}为清晰界定工作量，图~\ref{fig:project-stats} 展示了截至提交版本的代码库物理统计。全仓包含 \textbf{158 个核心源码文件}，合计 \textbf{37,534 行代码}（其中非空行 35,695 行），涵盖前端交互脚本（10,811 行）、专项实验分析（10,386 行）、离线清洗与构建管线（7,080 行）、样式系统（5,012 行）以及自动化测试套件（3,587 行）。
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[max width=\linewidth]{\detokenize{figures/diagrams/d02-project-stats.pdf}}
+\caption{项目数据规模与源码工作量分布}
+\label{fig:project-stats}
+\end{figure}
+
+在数据口径方面，报告与系统严格区分三组物理计数，避免混淆统计分母：
+\begin{itemize}
+  \item \textbf{原五项实验统一表}（\texttt{data/processed/all\_records.csv.gz}）：共 \textbf{248,586 条}物理响应，包含推理提示、文档问答、代码生成、文档位置与历史 Mini 代码修复。
+  \item \textbf{代码反馈补充批次}（\texttt{code-repair-extension-free-full-20261105-3rep-v2}）：独立保存的 \textbf{24,600 条}物理响应，覆盖 164 道题 $\times$ 2 模型 $\times$ 3 份共享初稿及六种反馈处理。
+  \item \textbf{主展示页面选用口径}：新版“知微”主页面采用最新完整代码反馈补充批次替换历史 Mini 批次，共呈现 \textbf{267,610 条}物理响应（$248,586 - 5,576 + 24,600$），仓库全量累计物理响应为 \textbf{273,186 条}。
+\end{itemize}
+
+下面分别从项目背景与实验矩阵、研究需求与课程对照、四层系统架构与技术选型三个方面展开介绍。
+
+\input{body/sections/project}
+\input{body/sections/requirements}
+\input{body/sections/architecture}

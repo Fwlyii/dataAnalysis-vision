@@ -1,0 +1,24 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=10mm and 6.5mm]
+  \node[na, minimum width=31mm] (seed) {\nt{共享初稿 (Round 0)}{164题 × 2模型 × 3初稿}};
+  \node[n, minimum width=30mm, right=of seed] (pub) {\nt{公开诊断沙箱}{768MB / 诊断测试集}};
+  \node[n, minimum width=31mm, right=of pub] (fb) {\nt{协议反馈生成器}{仅读 public 字典}};
+  \node[n, minimum width=30mm, right=of fb] (iter) {\nt{4 轮修复迭代}{Round 1 → Round 4}};
+
+  \node[n, minimum width=31mm, below=of seed] (a1) {\nt{对照基线}{重采样 / 自行检查}};
+  \node[n, minimum width=30mm, below=of pub] (a2) {\nt{弱反馈组}{仅状态 / 定位诊断}};
+  \node[na, minimum width=31mm, below=of fb] (a3) {\nt{强反例组}{单反例 / 多反例}};
+  \node[ext, minimum width=30mm, below=of iter] (hold) {\nt{强保留评测 (Held-out)}{本地独立判定，绝不回传}};
+
+  \draw[a] (seed) -- (pub);
+  \draw[a] (pub) -- (fb);
+  \draw[a] (fb) -- (iter);
+  \draw[da] (iter.north) -- ++(0,0.45) -| node[g, above, pos=0.25] {第 1–3 轮继续执行公开诊断} (pub.north);
+  \draw[a] (fb.south) -- ++(0,-0.42) -| (a1.north);
+  \draw[a] (fb.south) -- ++(0,-0.42) -| (a2.north);
+  \draw[a] (fb.south) -- (a3.north);
+  \draw[a] (iter.south) -- (hold.north);
+\end{tikzpicture}
+\end{document}

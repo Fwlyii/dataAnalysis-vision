@@ -1,0 +1,29 @@
+\chapter{小组分工}\label{part:team}
+
+\textbf{协作模式}\quad 本小组由四名同学共同完成，采用\textbf{“统一契约先行、模块并行推进、交叉测试合流”}的平权协作方式，不设组长与组员层级，所有成员均深度参与需求设计、编码实现、数据分析、系统测试与报告撰写工作。开工前，四人共同审定课程题目二的评分细则与五项研究问题，确定统一的 \texttt{snake\_case} 数据规范、21 列匿名特征 Schema 以及四份科研 JSON 快照接口格式，保证数据管道、统计脚本与前端视图之间能够端到端的无缝衔接与口径一致。
+
+\textbf{研发推进顺序}\quad 整体研发分为四个阶段（见图~\ref{fig:roadmap}）：第一阶段完成多任务推理、文档问答与代码生成原始数据的采集、SHA-256 校验冻结及匿名化清洗脚本；第二阶段开展文档位置 9 点剖面专题与代码反馈双层隔离补充实验，并完成 5,000 次按题聚类 Bootstrap 统计重算与出版级 SVG 图稿绘制；第三阶段研发“知微”五球入口与五屏交互主系统，迁移保留完整历史探索图册，并建立基于 Python 标准库的静态构建与防漂移校验脚本；第四阶段完成 Playwright 全链路浏览器回归、无障碍审计与报告归档。
+
+\textbf{质量与版本约定}\quad 仓库使用 Git 进行多分支协同开发，每项数据分析脚本与前端迭代均须通过 \texttt{scripts/system/check\_coursework.py} 的链接与交付物检查。任何涉及页面数值口径调整的改动，必须同步更新 \texttt{docs/} 下的口径说明与测试断言，严禁在页面代码中硬编码未经统计脚本验证的估算数据。
+
+具体工作量与职责划分见表~\ref{tab:team-work}。
+
+\begin{table}[!htbp]
+\centering
+\caption{小组成员分工与主要工作量明细}\label{tab:team-work}
+\ReportTableStyle
+\renewcommand{\arraystretch}{1.06}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.45cm}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{姓名} & \textbf{学号} & \textbf{核心职责与代码贡献} \\
+\midrule
+李承文 & 3024232129 & 负责研究协议与数据采集规范设计；主导文档证据位置 9 点专题实验与配对差距统计；设计代码反馈协议隔离与强保留评测模块（\texttt{experiments/code\_repair\_v2/}）；编写静态构建流水线 \texttt{build\_web\_app.py} 与科研保护校验脚本，并承担第四屏对比卡与配对统计交互逻辑开发。 \\
+\addlinespace[2pt]
+仲禹潼 & 3024244140 & 负责数据清洗流水线与 21 列统一匿名特征 Schema 构建（\texttt{scripts/cleaning/}）；实现聚类 Bootstrap 重算与异常缺失值审计脚本；设计“知微”五屏布局与响应式 CSS 体系（\texttt{app/styles/}）；完成历史探索图册 \texttt{explore.html} 与 \texttt{legacy.html} 的兼容整合及数据表弹窗开发。 \\
+\addlinespace[2pt]
+范文丽 & 3024244438 & 负责推理提示与文档问答实验的采集调度与源评分核对；主导中文作答模板与极端限长反弹异常的深度分析；开发零依赖原生 SVG 绘图引擎 \texttt{zhiwei.js} 与七大核心图版渲染模块；负责真实代码修复 Diff 案例抽取、抽屉交互组件开发及数据字典编写。 \\
+\addlinespace[2pt]
+赵紫怡 & 3024244137 & 负责代码生成任务的目标函数 AST 抽取与多轮修复数据规范化；独立设计与实现五球时空光晕开场入口及全键盘无障碍导航（\texttt{zhiwei-gate.js}）；主导 Playwright 浏览器双套件回归测试（\texttt{zhiwei.mjs}、\texttt{zhiwei-gate.mjs}）与单元测试编写，并负责课程报告 LaTeX 迁移排版与答辩材料校对。 \\
+\bottomrule
+\end{tabularx}
+\end{table}

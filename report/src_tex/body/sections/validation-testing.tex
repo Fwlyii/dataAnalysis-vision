@@ -1,0 +1,16 @@
+\section{全链路自动化测试与可复现性验证}\label{sec:validation}
+
+高质量的可视化系统不仅需要图表美观，更必须经得起数值复算、链接完整、多视口排版及无障碍规范的严格检验。为此，团队构建了覆盖“静态交付 $\to$ 科研指纹 $\to$ 协议单测 $\to$ 真实浏览器交互”的四层自动化质量保证体系（图~\ref{fig:qa-matrix}）。
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[max width=\linewidth]{\detokenize{figures/diagrams/d07-qa-matrix.pdf}}
+\caption{四层自动化质量保证与回归验证矩阵}
+\label{fig:qa-matrix}
+\end{figure}
+
+\paragraph{结构链接与科研保护核验}脚本 \texttt{scripts/system/check\_coursework.py} 使用纯标准库扫描全仓 15 份核心 Markdown 文档，在最新一次执行中自动校验了 \textbf{185 处本地相对链接与锚点}，确认课程原文与网页受保护副本的 SHA-256 完全一致，且不存在失效链接或残留副本。另一侧的 \texttt{scripts/system/check\_reconstruction.py} 则针对 37 个主题 SVG、12 份数据源清单以及 1,100 项受保护科研文件指纹执行完整性校验（在未拉取大体积 LFS 原始归档时，脚本仍能清晰区分“离线快照完整”与“LFS 未水化”状态）。
+
+\paragraph{代码修复协议单元测试}在 \texttt{tests/test\_repair\_v2\_analysis.py}（25 项测试）与 \texttt{tests/test\_repair\_v2\_protocol.py}（8 项测试）中，我们针对代码修复补充实验编写了 33 项隔离单元测试，涵盖“防隐藏答案泄漏到反馈构造器”“代码哈希篡改拒绝”“基础加载失败与逐例失败计数分离”“整链缺失时绝不按成功/失败插值”等边界情形。实测运行全部 33 项核心分析与协议测试均以 \texttt{ok} 通过。
+
+\paragraph{Playwright 双套件浏览器回归}基于 Chromium 无头浏览器与 \texttt{axe-core} 无障碍引擎，\texttt{tests/browser/zhiwei.mjs} 与 \texttt{tests/browser/zhiwei-gate.mjs} 在多种桌面与移动端视口（如 $1440\times900$、$1920\times1080$、$1024\times768$、$390\times844$ 等）下对启动后的本地服务进行真机点击测试：主展示回归覆盖 29 项数值、图表切换、弹窗、案例抽屉与资源请求断言，\textbf{29/29 全部通过}；五球入口回归覆盖开场跳过/重播、五球直达、历史前进后退、键盘方向键与减少动态效果等 12 项断言，\textbf{12/12 全部通过}，且桌面端与移动端均录得 \textbf{0 条 JS 错误、0 个缺失资源与 0 项严重无障碍违例}（完整核验日志见附录~\ref{app:validation}）。

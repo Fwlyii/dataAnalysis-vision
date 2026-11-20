@@ -2,7 +2,8 @@
 
 [← 项目首页](../README.md#delivery) · [课程要求](../guide/README.md) · [答辩材料](../presentation/README.md)
 
-- [案例报告 PDF](case_report.pdf)：10 页，原五项实验中的两条低维、两条多维与一条异常发现。
+- [完整课程报告 PDF](课程报告.pdf)：38 页详细版课程报告（含设计构想、工程架构、清洗分析、交互界面与附录 A–G），源码见 [src_tex/](src_tex/README.md)。
+- [案例报告 PDF](case_report.pdf)：10 页精简案例版，原五项实验中的两条低维、两条多维与一条异常发现。
 - [报告正文](case_report.md)：便于查阅与修改的文字内容。
 - [生成校验](current_documents.json)：对应两份文档的来源范围与 SHA-256。
 

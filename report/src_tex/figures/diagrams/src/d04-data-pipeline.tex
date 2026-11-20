@@ -1,0 +1,24 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=9mm and 6.5mm]
+  \node[n, minimum width=29mm] (r1) {\nt{原始输入集合}{JSONL / ZIP 源表}};
+  \node[n, minimum width=30mm, right=of r1] (r2) {\nt{键与SHA-256脱敏}{question\_key 生成}};
+  \node[n, minimum width=30mm, right=of r2] (r3) {\nt{规则分类与审计}{output\_style / 缺失标记}};
+  \node[na, minimum width=31mm, right=of r3] (r4) {\nt{21列统一特征}{all\_records.csv.gz}};
+
+  \node[n, minimum width=29mm, below=of r1] (s1) {\nt{源评分保留连接}{不跨任务合并总分}};
+  \node[n, minimum width=30mm, right=of s1] (s2) {\nt{环境排除隔离}{465条置null不填0}};
+  \node[n, minimum width=30mm, right=of s2] (s3) {\nt{重复测量识别}{共享初稿仅物理计1次}};
+  \node[na, minimum width=31mm, right=of s3] (s4) {\nt{质量与缺失报告}{quality\_report.json}};
+
+  \draw[a] (r1) -- (r2);
+  \draw[a] (r2) -- (r3);
+  \draw[a] (r3) -- (r4);
+  \draw[a] (r2.south) -- ++(0,-0.4) -| (s1.north);
+  \draw[a] (s1) -- (s2);
+  \draw[a] (s2) -- (s3);
+  \draw[a] (s3) -- (s4);
+  \draw[da] (s3.north) -- (r4.south);
+\end{tikzpicture}
+\end{document}

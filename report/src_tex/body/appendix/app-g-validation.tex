@@ -1,0 +1,65 @@
+\chapter{课程评分标准对照与验收核验记录}\label{app:validation}
+
+\Needspace{10\baselineskip}\section{课程设计题目二（选项 B）评分点逐项映射}
+
+\begin{table}[H]
+\centering
+\caption{系统组评分细则与本仓库实证入口对应表（对应指导书第 8 页）}\label{tab:rubric-map}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.7cm} >{\raggedleft\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{评分条目} & \textbf{分值} & \textbf{本系统落实内容与查阅路径} \\
+\midrule
+研究问题与选题 & 8 & 聚焦输出表达、证据位置与代码反馈三大维度（\texttt{README.md}、第~\ref{part:purpose} 章） \\
+数据采集与伦理 & 8 & 405+ 原始制品冻结、SHA-256 脱敏、无明文密钥与 AI 辅助声明（\texttt{docs/collection-and-ai-use.md}） \\
+数据清洗与分类 & 15 & 21 列统一 Schema、规则分类器、465 条环境排除与 null 语义隔离（\texttt{data/data\_dictionary.md}） \\
+指标计算与分析 & 15 & 5,000 次按题聚类 Bootstrap、同题配对对照与不混用标尺原则（\texttt{docs/methodology.md}） \\
+可视化质量 & 15 & 原生 SVG 七大核心图版、OKLCH 感知色带、完整标注与 44 张衍生图册（\texttt{docs/design.md}） \\
+系统功能与交互 & 20 & 五球时空门、五屏联动、31 策略热力格、21 列映射、数据表弹窗与代码 Diff 抽屉（\texttt{app/}） \\
+洞察与案例 & 9 & 2 低维 + 2 多维 + 1 异常反弹发现，含金币题、196 正因数与 HumanEval/54 等实例剖析 \\
+代码与可复现性 & 5 & 纯标准库启动、SHA-256 构建互锁与独立复算脚本（\texttt{scripts/reproduce\_anonymous.py}） \\
+文档与答辩 & 5 & 本课程报告、案例短报告 \texttt{case\_report.pdf} 与 12 页答辩材料 \texttt{defense\_slides.pdf} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{交付核验说明}本仓库已按课程要求将源码统一收拢于根目录，移除多余提交副本与旧合成视频占位文件；除需小组成员人工补齐最终录屏外，其余全部代码、数据字典与交互页面均已通过静态链接和双套件无头浏览器核验。
+
+\Needspace{10\baselineskip}\section{可复现命令清单与自动化验收实录}
+
+\begin{table}[H]
+\centering
+\caption{系统启动、复算校验与自动化回归实测记录}\label{tab:qa-log}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5.5cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{核验项目 / 执行命令} & \textbf{实测状态} & \textbf{观测输出摘要} \\
+\midrule
+\texttt{python3 app/launch.py --port 8770} & 正常启动 & 仅用 Python 标准库，本地服务可访问五球、五屏与探索图册 \\
+\texttt{python3 scripts/system/\newline check\_coursework.py} & 全部通过 & 核验 15 份核心文档、185 处本地相对链接与 PDF 完整性，0 错误 \\
+\texttt{python3 -m unittest discover\newline -s tests -p "test\_repair\_v2\_analysis.py"} & 25/25 通过 & 校验分母计数、缺失敏感性、防隐藏反馈重构与实例筛选 \\
+\texttt{python3 -m unittest discover\newline -s tests -p "test\_repair\_v2\_protocol.py"} & 8/8 通过 & 验证六种反馈臂协议与 held-out 物理隔离断言 \\
+\texttt{node tests/browser/zhiwei.mjs} & 29/29 通过 & 覆盖五章导航、模型/题库切换、弹窗抽屉、桌面/手机零溢出及无障碍零违例 \\
+\texttt{node tests/browser/zhiwei-gate.mjs} & 12/12 通过 & 验证开场跳过重播、五球直达、深链接、键盘导航及 5 种视口布局 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\Needspace{8\baselineskip}\section{核心离线复算与构建命令速查}
+
+\begin{table}[H]
+\centering
+\caption{离线复算、构建与静态检查常用命令}\label{tab:repro-cmds}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{6.2cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{命令行入口} & \textbf{功能说明} \\
+\midrule
+\texttt{python3 scripts/reproduce\_anonymous.py} & 从 21 列匿名特征表重算五类实验条件汇总统计 \\
+\texttt{python3 scripts/analysis/\newline derive\_concise\_ci.py} & 复算图版 III 代码生成三点的 5,000 次聚类 Bootstrap 置信区间 \\
+\texttt{python3 scripts/system/\newline build\_web\_app.py} & 校验 SHA-256 指纹并打包前端静态运行目录 \texttt{app/dist/} \\
+\texttt{python3 scripts/pipeline.py all --plan} & 以干跑模式展示全流程采集、清洗、分析与绘图依赖顺序 \\
+\bottomrule
+\end{tabularx}
+\end{table}

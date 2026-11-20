@@ -1,0 +1,34 @@
+\section{多任务数据采集与伦理匿名化}\label{sec:collection}
+
+\subsection{采集方案设计与原始数据冻结}
+
+针对课程要求“至少设计 2–3 类不同任务、保留完整采集环境且不得覆盖原始数据”，我们设计了由五项基础对照实验与一项代码反馈补充实验组成的数据采集矩阵。所有采集脚本统一收敛在 \texttt{scripts/acquisition/} 目录下，默认采用 \texttt{--plan} 干跑模式输出任务计划，仅当显式传入 \texttt{--execute} 参数时才发起接口请求，防止误操作重复刷写远程模型接口。
+
+\noindent\begin{minipage}[t]{0.50\linewidth}
+\vspace{0pt}
+每条原始响应均连同系统提示、温度、最大输出长度（如推理与代码修复设定单次上限 2,048 Token）、请求耗时、返回停止原因（\texttt{finish\_reason}）及本地评分/沙箱结果一并落盘。采集完成后，团队第一时间对 \texttt{data/raw/} 下的原始 ZIP 与 JSONL.GZ 制品执行字节级冻结，并生成涵盖 405 余个不可变制品的 SHA-256 校验清单（\texttt{data/inventory/raw\_files.json}），确保后续任何清洗、重算与可视化过程均只在派生副本上运行。
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\vspace{0pt}
+\centering
+\captionof{table}{六组实验数据采集规模与来源汇总}\label{tab:collection-scale}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.35cm} >{\raggedleft\arraybackslash}p{1.45cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{实验批次} & \textbf{物理响应} & \textbf{题库与变量} \\
+\midrule
+推理与选择题 & 74,400 & 600 题 $\times$ 4 模型 $\times$ 31 策略 \\
+文档问答 & 74,800 & NQ-Open 200 题 $\times$ 2 模型 \\
+代码生成 & 90,210 & 194 题 $\times$ 3 模型 $\times$ 31 策略 $\times$ 5 次 \\
+文档位置专题 & 3,600 & 200 题 $\times$ 2 模型 $\times$ 9 位置 \\
+历史代码修复 & 5,576 & 164 题 $\times$ 2 模型 $\times$ 4 轮 \\
+代码反馈补充 & 24,600 & 164 题 $\times$ 2 模型 $\times$ 3 初稿 $\times$ 6 组 \\
+\bottomrule
+\end{tabularx}
+\end{minipage}
+
+\subsection{伦理规范与分层匿名化策略}
+
+\paragraph{题目去标识化与密钥隔离}由于原始研究语料包含第三方公开基准题目原文、模型推理链条及接口指纹（如 \texttt{system\_fingerprint}），直接发布易触发评测污染与敏感配置暴露。我们在采集与整理阶段执行三层隔离策略：首先，所有外部密钥与接口地址均由 \texttt{.env.example} 与 \texttt{configs/} 模板注入运行环境变量，源码仓库中零明文密钥；其次，在公开派生表与网页数据快照中，所有源题目编号统一通过实验域内的 SHA-256 哈希转换为不可逆假名 \texttt{question\_key}；最后，将完整原始回答文本留存于研究归档层，交互网页仅读取脱敏后的数值特征、聚合区间与经审核的精选代码 Diff 示例。
+
+\paragraph{数据口径透明化}针对历史代码修复批次（5,576 条）与最新完整代码反馈补充批次（24,600 条）的并存情况，系统在文档、数据清单与界面脚标中严格标明三者边界：原统一特征表保持 248,586 条不变以保护科研基线指纹；仓库全量累计 273,186 条；新版“知微”主页面则选用替换后的 267,610 条。两套批次各自独立计算置信区间，不跨批次混用采样分母。

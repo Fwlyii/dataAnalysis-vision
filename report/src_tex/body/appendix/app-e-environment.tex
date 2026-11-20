@@ -1,0 +1,51 @@
+\chapter{运行环境、代码规模与目录映射}\label{app:environment}
+
+\section{本地运行与复算环境配置}
+
+\begin{table}[!htbp]
+\centering
+\caption{系统运行、离线复算与自动化测试环境清单}\label{tab:env-stack}
+\ReportTableStyle\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{用途分层} & \textbf{依赖入口} & \textbf{主要组件与说明} \\
+\midrule
+可视系统启动 & 无额外依赖 & 仅需 Python 3.10+ 标准库即可运行 \texttt{launch.py} 与静态构建器 \\
+清洗与统计复算 & \texttt{requirements/analysis.txt} & Python 科学计算与绘图库（NumPy、SciPy、Matplotlib、psutil 沙箱监控） \\
+报告与 PPT 生成 & \texttt{requirements/documents.txt} & ReportLab 与字体工具；本详细报告另采用 XeLaTeX + TeX Live 2026 \\
+浏览器回归验收 & \texttt{tests/package.json} & Node.js 22+、Playwright、Chromium 与 axe-core 审计库 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{全仓库源码规模明细}
+
+\begin{table}[!htbp]
+\centering
+\caption{仓库各源码目录文件数与代码行数精确统计（排除构建产物与第三方依赖目录）}\label{tab:loc-breakdown}
+\ReportTableStyle\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.75cm} >{\raggedright\arraybackslash}p{1.85cm} >{\raggedleft\arraybackslash}p{1.2cm} >{\raggedleft\arraybackslash}p{1.4cm} >{\raggedleft\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{目录} & \textbf{文件类型} & \textbf{文件数} & \textbf{总行数} & \textbf{非空行数} & \textbf{主要职责} \\
+\midrule
+\texttt{app/} & \texttt{.js} & 23 & 10,811 & 10,688 & 五球入口、原生 SVG 与联动逻辑 \\
+\texttt{app/} & \texttt{.css} & 19 & 5,012 & 4,944 & 景深排版、响应式与字体样式 \\
+\texttt{app/} & \texttt{.html / .py} & 5 & 658 & 607 & 四入口页面与标准库服务器 \\
+\texttt{scripts/} & \texttt{.py} & 40 & 7,080 & 6,591 & 采集、清洗、分析、绘图与构建校验 \\
+\texttt{experiments/} & \texttt{.py} & 43 & 10,386 & 9,509 & 专项协议、双层评测与统计分析 \\
+\texttt{tests/} & \texttt{.mjs / .py} & 28 & 3,587 & 3,356 & 浏览器双套件回归与协议单测 \\
+\midrule
+\textbf{合计} & \textbf{全部源码} & \textbf{158} & \textbf{37,534} & \textbf{35,695} & \textbf{完整可复现研究与交互系统} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\vspace{-8pt}\section{核心交付目录导航}
+
+\begin{itemize}\setlength{\itemsep}{0pt}
+  \item \texttt{app/}：含启动入口 \texttt{launch.py}、主系统 \texttt{index.html}、探索台 \texttt{explore.html} / \texttt{legacy.html} 及 16 份匿名快照。
+  \item \texttt{data/}：保留 \texttt{raw/} 只读归档、\texttt{processed/} 五类清洗表与 21 列特征表及 \texttt{quality/} 缺失报告。
+  \item \texttt{scripts/} 与 \texttt{experiments/}：收纳数据采集、分类清洗、聚类 Bootstrap、SVG 绘图与静态校验脚本。
+  \item \texttt{report/} 与 \texttt{presentation/}：提供课程报告 \texttt{课程报告.pdf}、\texttt{case\_report.pdf} 与 \texttt{defense\_slides.pdf}。
+\end{itemize}

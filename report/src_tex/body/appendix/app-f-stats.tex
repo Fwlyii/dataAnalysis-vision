@@ -1,0 +1,134 @@
+\chapter{全维度统计结果与配对比较明细}\label{app:stats}
+
+本附录收录报告正文核心结论对应的全部详细数值对照表，所有数据均直接取自仓库 \texttt{reports/} 下的实测统计 CSV。
+
+\Needspace{10\baselineskip}\section{17 组跨任务简洁分步对照明细}
+
+\begin{table}[H]
+\centering
+\caption{BeConcise 相对 DefaultCoT 的 17 组输出压缩与得分变化全表}\label{tab:app-concise-17}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedleft\arraybackslash}p{2.4cm} >{\raggedleft\arraybackslash}p{2.4cm}@{}}
+\toprule
+\textbf{模型} & \textbf{任务 / 题库} & \textbf{所属方向} & \textbf{Token 降幅 (\%)} & \textbf{得分变化 (pp)} \\
+\midrule
+DeepSeek & GSM8K & 推理/选择题 & 43.67 & +1.50 \\
+DeepSeek & MATH500 & 推理/选择题 & 22.51 & +7.00 \\
+DeepSeek & MMLU-Pro & 推理/选择题 & 27.42 & +0.50 \\
+HY4 & GSM8K & 推理/选择题 & 25.74 & 0.00 \\
+HY4 & MATH500 & 推理/选择题 & 11.38 & +4.50 \\
+HY4 & MMLU-Pro & 推理/选择题 & 19.21 & +3.50 \\
+Qwen2.5 & GSM8K & 推理/选择题 & 21.50 & +0.50 \\
+Qwen2.5 & MATH500 & 推理/选择题 & 13.34 & +2.00 \\
+Qwen2.5 & MMLU-Pro & 推理/选择题 & 16.98 & +1.50 \\
+Qwen3 & GSM8K & 推理/选择题 & 41.23 & -1.00 \\
+Qwen3 & MATH500 & 推理/选择题 & 20.95 & +11.50 \\
+Qwen3 & MMLU-Pro & 推理/选择题 & 33.54 & +6.00 \\
+\addlinespace[2pt]
+Qwen2.5 & NQ-Open & 文档问答 & 26.88 & +0.33 \\
+Qwen3 & NQ-Open & 文档问答 & 43.99 & +1.25 \\
+\addlinespace[2pt]
+DeepSeek & CodePromptEval & 代码生成 & 57.46 & +2.90 \\
+Qwen2.5 & CodePromptEval & 代码生成 & 21.99 & -0.62 \\
+Qwen3 & CodePromptEval & 代码生成 & 39.02 & +1.55 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\Needspace{10\baselineskip}\section{12 组中文作答模板对照明细}
+
+\begin{table}[H]
+\centering
+\caption{中文模板（ChineseCoT）相对默认分步（DefaultCoT）的 12 组全量对照}\label{tab:app-chinese-12}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{2.0cm} >{\raggedleft\arraybackslash}p{2.0cm}@{}}
+\toprule
+\textbf{模型} & \textbf{题库} & \textbf{默认得分} & \textbf{中文得分} & \textbf{Token 节省} & \textbf{默认截断} & \textbf{中文截断} \\
+\midrule
+DeepSeek & GSM8K & 97.5\% & 96.0\% & 28.3\% & 0.5\% & 0.0\% \\
+DeepSeek & MATH500 & 76.0\% & 75.0\% & 4.4\% & 23.5\% & 24.5\% \\
+DeepSeek & MMLU-Pro & 84.0\% & 84.0\% & 16.9\% & 12.0\% & 10.0\% \\
+\addlinespace[2pt]
+HY4 & GSM8K & 98.0\% & 95.0\% & 32.3\% & 0.0\% & 0.5\% \\
+HY4 & MATH500 & 68.5\% & 74.0\% & 19.5\% & 30.5\% & 23.0\% \\
+HY4 & MMLU-Pro & 77.0\% & 77.0\% & 18.3\% & 20.5\% & 19.5\% \\
+\addlinespace[2pt]
+Qwen2.5 & GSM8K & 91.5\% & 87.0\% & 44.9\% & 0.0\% & 0.0\% \\
+Qwen2.5 & MATH500 & 68.0\% & 70.5\% & 33.3\% & 22.0\% & 2.5\% \\
+Qwen2.5 & MMLU-Pro & 64.0\% & 65.0\% & 48.7\% & 13.5\% & 2.0\% \\
+\addlinespace[2pt]
+Qwen3 & GSM8K & 90.5\% & 90.0\% & 43.5\% & 0.5\% & 0.0\% \\
+Qwen3 & MATH500 & 58.0\% & 69.5\% & 19.5\% & 31.5\% & 23.5\% \\
+Qwen3 & MMLU-Pro & 63.5\% & 73.5\% & 37.7\% & 29.5\% & 12.5\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\Needspace{10\baselineskip}\section{文档位置 9 点剖面与代码反馈 6 策略全表}
+
+\begin{table}[H]
+\centering
+\caption{20 篇文档九位置最终答案包含率（200 题，95\% 聚类置信区间）}\label{tab:app-docpos-9}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedleft\arraybackslash}p{1.1cm} >{\raggedleft\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}p{2.8cm} >{\raggedleft\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}p{2.8cm} >{\raggedleft\arraybackslash}X@{}}
+\toprule
+\textbf{位置} & \textbf{Qwen2.5 命中} & \textbf{Qwen2.5 95\% CI} & \textbf{Qwen3 命中} & \textbf{Qwen3 95\% CI} & \textbf{模型差距 (pp)} \\
+\midrule
+1 & 54.5\% & [47.5\%, 61.5\%] & 71.0\% & [64.5\%, 77.0\%] & +16.50 \\
+3 & 52.5\% & [45.5\%, 59.5\%] & 61.0\% & [54.0\%, 68.0\%] & +8.50 \\
+5 & 50.0\% & [43.0\%, 57.0\%] & 61.0\% & [54.0\%, 67.5\%] & +11.00 \\
+8 & 52.0\% & [45.0\%, 59.0\%] & 61.5\% & [54.5\%, 68.0\%] & +9.50 \\
+10 & 52.5\% & [45.5\%, 59.5\%] & 61.5\% & [54.5\%, 68.0\%] & +9.00 \\
+13 & 50.5\% & [43.5\%, 57.5\%] & 58.5\% & [51.5\%, 65.0\%] & +8.00 \\
+15 & 51.0\% & [44.0\%, 58.0\%] & 58.5\% & [51.5\%, 65.5\%] & +7.50 \\
+18 & 51.0\% & [44.0\%, 58.0\%] & 59.0\% & [52.0\%, 65.5\%] & +8.00 \\
+20 & 56.5\% & [49.5\%, 63.5\%] & 59.0\% & [52.0\%, 65.5\%] & +2.50 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{代码反馈补充实验六策略终稿强测全表（164 题 $\times$ 3 初稿 = 492 程序，含相对单反例差值）}\label{tab:app-repair-ext}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.65cm} >{\raggedright\arraybackslash}p{2.15cm} >{\raggedleft\arraybackslash}p{1.55cm} >{\raggedleft\arraybackslash}p{2.35cm} >{\raggedleft\arraybackslash}p{1.65cm} >{\raggedleft\arraybackslash}p{1.15cm} >{\raggedleft\arraybackslash}X@{}}
+\toprule
+\textbf{模型} & \textbf{反馈处理组} & \textbf{终稿通过} & \textbf{终稿 95\% CI} & \textbf{初错修复} & \textbf{回退} & \textbf{总 Token / 相对单反例} \\
+\midrule
+Qwen2.5 & 独立重采样 & 379/492 & [70.5\%, 82.9\%] & 11/110 & 14/382 & 2,184 / -4.47 pp \\
+Qwen2.5 & 自行检查 & 392/492 & [73.8\%, 85.2\%] & 18/110 & 8/382 & 5,644 / -1.83 pp \\
+Qwen2.5 & 仅通过状态 & 398/492 & [75.0\%, 86.4\%] & 17/110 & 1/382 & 5,814 / -0.61 pp \\
+Qwen2.5 & 错误定位诊断 & 401/492 & [75.8\%, 86.8\%] & 21/110 & 2/382 & 5,924 / -0.00 pp \\
+Qwen2.5 & 单个失败反例 & 401/492 & [76.0\%, 86.6\%] & 22/110 & 3/382 & 5,909 / 基线 \\
+Qwen2.5 & 多个失败反例 & 399/492 & [75.4\%, 86.6\%] & 19/110 & 2/382 & 6,911 / -0.41 pp \\
+\addlinespace[2pt]
+Qwen3 & 独立重采样 & 377/492 & [69.9\%, 82.7\%] & 18/122 & 11/370 & 1,837 / -8.33 pp \\
+Qwen3 & 自行检查 & 376/492 & [69.9\%, 82.5\%] & 9/122 & 3/370 & 4,431 / -8.54 pp \\
+Qwen3 & 仅通过状态 & 395/492 & [74.4\%, 85.8\%] & 25/122 & 0/370 & 4,654 / -4.67 pp \\
+Qwen3 & 错误定位诊断 & 409/492 & [77.4\%, 88.2\%] & 39/122 & 0/370 & 4,909 / -1.83 pp \\
+Qwen3 & 单个失败反例 & 418/492 & [79.9\%, 89.8\%] & 48/122 & 0/370 & 4,904 / 基线 \\
+Qwen3 & 多个失败反例 & 421/492 & [80.5\%, 90.2\%] & 51/122 & 0/370 & 5,671 / +0.61 pp \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\Needspace{10\baselineskip}\section{代码生成独立采样与模型配对对照}
+
+\begin{table}[H]
+\centering
+\caption{CodePromptEval 独立采样通过率与按题配对差异（193 道共同可评题，89,745 条可评记录）}\label{tab:app-codegen-passk}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.0cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{受测模型} & \textbf{Pass@1} & \textbf{Pass@3} & \textbf{Pass@5} & \textbf{第 5 次新增 / 配对差异参考} \\
+\midrule
+DeepSeek Flash & 30.22\% & 33.73\% & 34.97\% & +0.47 pp；相对 Qwen2.5 高 +7.62 pp（Pass@1 [4.48, 10.85]） \\
+Qwen2.5 7B & 22.59\% & 26.04\% & 27.34\% & +0.60 pp；相对 Qwen3 差 +0.50 pp（95\% CI [-1.96, 2.91]，跨 0） \\
+Qwen3 8B & 22.09\% & 26.36\% & 28.01\% & +0.79 pp；NoCoT 下 44.0\% 可评回答未能提取目标函数 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\paragraph{代码任务两类实验口径边界}表~\ref{tab:app-repair-ext} 来自 \texttt{HumanEval+ Mini} 多轮反馈补充批次，主指标要求同时通过公开诊断与强保留测试；表~\ref{tab:app-codegen-passk} 来自 \texttt{CodePromptEval} 单轮五次独立采样，两者题目集合与采样协议不同，不作跨实验直接混合对比。

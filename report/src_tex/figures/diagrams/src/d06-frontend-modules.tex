@@ -1,0 +1,21 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=10mm and 13mm]
+  \node[na, minimum width=32mm] (gate) {\nt{五球时空门}{zhiwei-gate.js}};
+  \node[na, minimum width=38mm, right=of gate] (core) {\nt{主控制器与状态路由}{zhiwei.js (Hash 同步)}};
+  \node[n, minimum width=32mm, right=of core] (svg) {\nt{原生 SVG 绘图引擎}{零第三方图表依赖}};
+
+  \node[n, minimum width=29mm, below=11mm of gate, xshift=-6mm] (m1) {\nt{第二屏矩阵联动}{31 策略 × 热力网格}};
+  \node[n, minimum width=29mm, right=5mm of m1] (m2) {\nt{第三屏字段联动}{21 列映射高亮}};
+  \node[n, minimum width=29mm, right=5mm of m2] (m3) {\nt{第四屏切片联动}{模型 / 题库 / 口径}};
+  \node[n, minimum width=29mm, right=5mm of m3] (m4) {\nt{案例与表格浮层}{代码 Diff / CSV 表}};
+
+  \draw[a] (gate) -- node[g, above] {选定章节} (core);
+  \draw[a] (core) -- node[g, above] {重绘} (svg);
+  \draw[a] (core.south) -- ++(0,-0.45) -| (m1.north);
+  \draw[a] (core.south) -- ++(0,-0.45) -| (m2.north);
+  \draw[a] (core.south) -- ++(0,-0.45) -| (m3.north);
+  \draw[a] (svg.south) -- ++(0,-0.45) -| (m4.north);
+\end{tikzpicture}
+\end{document}

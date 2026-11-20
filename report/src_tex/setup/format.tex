@@ -1,0 +1,188 @@
+% !Mode:: "TeX:UTF-8"
+\newcommand{\ReportTriangleListFont}{}
+\makeatletter
+\RequirePackage{xeCJK}
+\IfFontExistsTF{Times New Roman}{%
+  \setmainfont[BoldFont={Times New Roman Bold}]{Times New Roman}
+  \setsansfont[BoldFont={Times New Roman Bold}]{Times New Roman}
+  \setmonofont[BoldFont={Liberation Mono Bold}]{Liberation Mono}
+}{%
+  \setmainfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf]
+  \setsansfont{texgyretermes-regular.otf}[BoldFont=texgyretermes-bold.otf]
+  \setmonofont{Liberation Mono}
+}
+\setCJKmainfont[BoldFont=FandolSong-Bold.otf]{FandolSong-Regular.otf}
+\setCJKsansfont[BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+\setCJKmonofont[BoldFont=FandolSong-Bold.otf]{FandolSong-Regular.otf}
+\setCJKfamilyfont{song}[BoldFont=FandolSong-Bold.otf]{FandolSong-Regular.otf}
+\setCJKfamilyfont{fs}[AutoFakeBold=2]{FandolFang-Regular.otf}
+\setCJKfamilyfont{kai}[AutoFakeBold=2]{FandolKai-Regular.otf}
+\setCJKfamilyfont{hei}[BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+\setCJKfamilyfont{coverbody}[BoldFont=FandolSong-Bold.otf]{FandolSong-Regular.otf}
+\setCJKfamilyfont{coversong}[BoldFont=FandolSong-Bold.otf]{FandolSong-Regular.otf}
+\xeCJKsetup{CheckSingle=true,WidowPenalty=10000}
+
+\newcommand{\song}{\CJKfamily{song}}
+\newcommand{\fs}{\CJKfamily{fs}}
+\newcommand{\kai}{\CJKfamily{kai}}
+\newcommand{\hei}{\CJKfamily{hei}\sffamily\bfseries}
+\newcommand{\coverbody}{\CJKfamily{coverbody}}
+
+\DeclareSymbolFont{operators}{TU}{\rmdefault}{m}{n}
+\SetSymbolFont{operators}{bold}{TU}{\rmdefault}{b}{n}
+\DeclareMathAlphabet{\mathrm}{TU}{\rmdefault}{m}{n}
+\makeatother
+
+\newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}
+\newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}
+\newcommand{\erhao}{\fontsize{22pt}{1.25\baselineskip}\selectfont}
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}
+\newcommand{\sanhao}{\fontsize{16pt}{16pt}\selectfont}
+\newcommand{\xiaosan}{\fontsize{15pt}{15pt}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{14pt}\selectfont}
+\newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}
+\newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.5pt}{7.5pt}\selectfont}
+
+\newcommand{\ReportTriangle}{\raisebox{0.08ex}{\scalebox{1.25}{\ensuremath{\triangleright}}}}
+\setitemize{label=\ReportTriangle,leftmargin=2.8em,itemsep=0.1em,partopsep=0em,parsep=0em,topsep=0.15em}
+\setenumerate{leftmargin=2.8em,itemsep=0.1em,partopsep=0em,parsep=0em,topsep=0.15em}
+
+\makeatletter
+\renewcommand\normalsize{
+  \@setfontsize\normalsize{12bp}{14.4bp}
+  \setlength\abovedisplayskip{4pt}
+  \setlength\abovedisplayshortskip{4pt}
+  \setlength\belowdisplayskip{\abovedisplayskip}
+  \setlength\belowdisplayshortskip{\abovedisplayshortskip}
+  \let\@listi\@listI}
+\def\defaultfont{\renewcommand{\baselinestretch}{1.25}\normalsize\selectfont}
+\XeTeXlinebreakskip = 0pt plus 1pt
+\makeatother
+
+\renewcommand{\contentsname}{目\qquad 录}
+\setcounter{tocdepth}{0}
+\titlecontents{chapter}[0pt]{\song\fontsize{12pt}{18pt}\selectfont}
+             {\CJKnumber{\thecontentslabel}、}{}
+             {\titlerule*[6pt]{.}\contentspage}
+\titlecontents{section}[4.2em]{\vspace{.25\baselineskip}\sihao\song}
+             {\thecontentslabel\quad}{}
+             {\hspace{.5em}\titlerule*[10pt]{$\cdot$}\sihao\contentspage}
+
+\setcounter{secnumdepth}{3}
+\setlength{\parindent}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+\renewcommand{\chaptername}{\CJKnumber{\thechapter}、}
+\titleformat{\chapter}{\centering\fontsize{18bp}{21.6bp}\selectfont\bfseries}{\chaptername}{0pt}{}
+\titlespacing{\chapter}{0pt}{4pt}{9pt}
+
+\titleformat{\section}{\fontsize{15bp}{18bp}\selectfont\bfseries}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{8pt plus 2pt minus 1pt}{5pt}
+
+\titleformat{\subsection}{\fontsize{12bp}{14.4bp}\selectfont\bfseries}{\thesubsection}{0.75em}{}
+\titlespacing{\subsection}{0pt}{7pt plus 1pt minus 1pt}{3pt}
+
+\titleformat{\subsubsection}{\fontsize{12bp}{14.4bp}\selectfont\bfseries}{\thesubsubsection}{0.75em}{}
+\titlespacing{\subsubsection}{0pt}{6pt plus 1pt minus 1pt}{3pt}
+\titleformat{\paragraph}[runin]{\fontsize{12bp}{14.4bp}\selectfont\bfseries}{}{0pt}{}
+\titlespacing{\paragraph}{0pt}{.5ex}{1em}
+\setlength{\abovecaptionskip}{7pt}
+\setlength{\belowcaptionskip}{6pt}
+
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+
+\makeatletter
+\def\ctitle#1{\def\@ctitle{#1}}\def\@ctitle{}
+\def\caffil#1{\def\@caffil{#1}}\def\@caffil{}
+\def\csubject#1{\def\@csubject{#1}}\def\@csubject{}
+\def\cgrade#1{\def\@cgrade{#1}}\def\@cgrade{}
+\long\def\cstudenttable#1{\long\def\@cstudenttable{#1}}\long\def\@cstudenttable{}
+\def\cdate#1{\def\@cdate{#1}}\def\@cdate{}
+\def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
+\def\ccovertitle#1{\def\@ccovertitle{#1}}\def\@ccovertitle{}
+
+\pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[C]{\song\wuhao \@cheading}
+  \fancyfoot[C]{\song\xiaowu ~\thepage~}
+
+% 封面成员行：坐标单位为 PDF bp，与原模板保持一致
+\newcommand{\covermember}[6]{%
+  \put(136,\numexpr 274-32*#1\relax){\makebox(0,0)[b]{\coverbody\fontsize{13pt}{16pt}\selectfont #2}}%
+  \put(226,\numexpr 274-32*#1\relax){\makebox(0,0)[b]{\coverbody\fontsize{13pt}{16pt}\selectfont #3}}%
+  \put(306,\numexpr 274-32*#1\relax){\makebox(0,0)[b]{\coverbody\fontsize{13pt}{16pt}\selectfont #4}}%
+  \put(405,\numexpr 274-32*#1\relax){\makebox(0,0)[b]{\coverbody\fontsize{13pt}{16pt}\selectfont #5}}%
+  \put(497,\numexpr 274-32*#1\relax){\makebox(0,0)[b]{\coverbody\fontsize{12pt}{16pt}\selectfont #6}}%
+}
+\def\makecover{%
+  \phantomsection
+  \pdfbookmark[0]{封面}{cover}
+  \begin{titlepage}
+  \thispagestyle{empty}
+  \AddToShipoutPictureFG*{\AtPageLowerLeft{%
+    \setlength{\unitlength}{1bp}%
+    % 天津大学书法校名与校徽矢量图
+    \put(309.82,704){\makebox(0,0)[b]{\includegraphics[width=192bp]{\detokenize{figures/template/wordmark.pdf}}}}%
+    \put(309.82,648){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{22pt}{26pt}\selectfont\@ccovertitle}}%
+    \put(309.82,612){\makebox(0,0)[b]{\coverbody\fontsize{14.5pt}{20pt}\selectfont ——基于多维行为实验的 AI 对话与}}%
+    \put(309.82,590){\makebox(0,0)[b]{\coverbody\fontsize{14.5pt}{20pt}\selectfont 代码修复可视分析系统（知微）}}%
+    \put(309.82,414){\makebox(0,0)[b]{\includegraphics[width=158bp]{\detokenize{figures/template/emblem.pdf}}}}%
+    % 小组成员标题及五列表格边框
+    \put(309.82,308){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{15pt}{18pt}\selectfont 小组成员}}%
+    \put(90,136){\begin{tikzpicture}[x=1bp,y=1bp]
+      \draw[line width=0.7pt] (0,0) rectangle (439.6,160);
+      \foreach \y in {32,64,96,128} \draw[line width=0.55pt] (0,\y) -- (439.6,\y);
+      \foreach \x in {92,180,252,378} \draw[line width=0.55pt] (\x,0) -- (\x,160);
+    \end{tikzpicture}}%
+    \put(136,274){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{13pt}{16pt}\selectfont 学号}}%
+    \put(226,274){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{13pt}{16pt}\selectfont 姓名}}%
+    \put(306,274){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{13pt}{16pt}\selectfont 专业}}%
+    \put(405,274){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{13pt}{16pt}\selectfont 学院}}%
+    \put(497,274){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{13pt}{16pt}\selectfont 年级}}%
+    \@cstudenttable
+    \put(395,83.7){\makebox(0,0)[b]{\CJKfamily{coversong}\bfseries\fontsize{16pt}{20pt}\selectfont 时间}}%
+    \put(422,83.7){\makebox(0,0)[lb]{\coverbody\fontsize{12bp}{15bp}\selectfont\@cdate}}%
+  }}%
+  \null
+  \end{titlepage}
+}
+\makeatother
+
+% Compact booktabs tables, following ACM/MICRO typographic conventions.
+\newcommand{\ReportTableStyle}{%
+  \renewcommand{\baselinestretch}{1}\fontsize{10.5bp}{12.6bp}\selectfont
+  \renewcommand{\arraystretch}{1.08}%
+  \setlength{\tabcolsep}{4.5pt}%
+  \setlength{\extrarowheight}{0pt}}
+\newcommand{\ReportTableHeader}[1]{{\sffamily\bfseries #1}}
+\setlength{\heavyrulewidth}{0.65pt}
+\setlength{\lightrulewidth}{0.35pt}
+\setlength{\cmidrulewidth}{0.3pt}
+\setlength{\aboverulesep}{0.45ex}
+\setlength{\belowrulesep}{0.65ex}
+\setlength{\defaultaddspace}{0.45ex}
+\setlength{\LTpre}{5pt}
+\setlength{\LTpost}{6pt}
+\setlength{\textfloatsep}{11pt plus 2pt minus 2pt}
+\setlength{\floatsep}{9pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.12}
+\renewcommand{\floatpagefraction}{0.72}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{3}
+\setcounter{totalnumber}{6}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{10pt plus 1fil}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother

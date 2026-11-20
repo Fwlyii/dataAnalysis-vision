@@ -1,0 +1,61 @@
+\section{“知微”交互可视化系统设计与实现}\label{sec:visualization}
+
+“知微”可视化系统定位为服务科研复核与课程演示的可探索交互界面。系统代码集中在 \texttt{app/} 目录下，核心由入口控制器 \texttt{zhiwei-gate.js}（259 行）、主图版与联动引擎 \texttt{zhiwei.js}（1,760 行）、多套响应式样式表（5,012 行）以及面向全量图库的探索页面 \texttt{explore.html} / \texttt{legacy.html} 构成。
+
+\subsection{五球时空入口与全键盘无障碍导航}
+
+为了克服传统仪表盘开屏信息过载的问题，系统首屏设计为“光学对焦五球时空门”（\texttt{zhiwei-gate.js}）。页面初始化时利用 HTML5 Canvas 绘制低饱和度星野粒子背景，并在中央光学标尺环（动态生成 96 条放射刻度 \texttt{zw-optic-ticks}）周围排布对应“研究问题、实验设计、数据处理、核心发现、结论与反思”的五个交互光球。
+
+\noindent\begin{minipage}[t]{0.48\linewidth}
+\vspace{0pt}
+\textbf{渐进式动效与无障碍兼容}\quad 开场动画持续 3,400\,ms，随后自动激活全部光球控件；用户可随时点击“跳过开场”或重播。当检测到操作系统开启 \texttt{prefers-reduced-motion: reduce} 时，脚本自动跳过粒子飞入与光球轨迹过渡，直接呈现稳定态入口；同时完整支持方向键（上下左右）、\texttt{Home/End} 切换光球焦点、\texttt{Enter} 进入章节及 \texttt{Escape} 返回入口，浏览器前进/后退与 URL Hash 深链接（如 \texttt{\#s4}）均可精确恢复状态。
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\vspace{0pt}
+\centering
+\includegraphics[width=\linewidth]{\detokenize{figures/diagrams/d06-frontend-modules.pdf}}
+\captionof{figure}{前端交互控制器与四类联动状态流}
+\label{fig:frontend-modules}
+\end{minipage}
+
+\subsection{视觉编码规范与三页七图版核心设计}
+
+在核心发现页（第四屏 \texttt{\#s4}），我们摒弃了 ECharts 等黑盒模板，全部使用 \texttt{zhiwei.js} 编写原生 SVG 渲染器。为防止多图切换时产生认知混淆，全站严格固化以下视觉编码规则：
+\begin{itemize}
+  \item \textbf{模型通道色标固定}：\texttt{Qwen2.5 7B} 恒定使用紫罗兰（\texttt{\#6749e2}）、\texttt{Qwen3 8B} 使用暖橙（\texttt{\#e07227}）、\texttt{DeepSeek Flash} 使用翡翠绿（\texttt{\#32a67d}）、\texttt{HY4 preview} 使用洋红（\texttt{\#bc1e72}）。
+  \item \textbf{双编码冗余传达}：任何得分增减与状态变化基于 \texttt{oklch(L, C, hue)} 感知均匀空间计算顺序列紫与紫—橙发散色，并同时使用\textbf{颜色映射 + 文本符号 / 误差线}及 \texttt{fitText} 标签防溢出裁剪机制传达；例如发散差值采用紫—橙发散色带并附带带正负号的百分点数值（pp）。
+  \item \textbf{坐标截断与口径透明}：所有截取局部 Y 轴的图版（如文档位置剖面或代码修复轨迹）均在读图说明弹窗（\texttt{i} 按钮）与脚标中显式声明坐标范围、独立题目分母及置信区间计算口径。
+\end{itemize}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[总体规律页（图版 I–IV）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s4-a.jpg}}}\hfill
+\subfigure[专项页：中文模板与文档位置（图版 V–VI）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s4-b.jpg}}}
+\caption{第四屏前两页核心发现全景交互视图}
+\label{fig:s4-ab}
+\end{figure}
+
+如图~\ref{fig:s4-ab} 所示，第四屏通过顶部三个无障碍 \texttt{role="tab"} 选项卡组织七个核心图版：\textbf{第一页（图版 I–IV）}呈现对数预算曲线（支持切换 GSM8K/MATH500/MMLU-Pro 并动态绘制 $R^2$ 拟合虚线）、模型基准排序对比、17 组简洁分步气泡散点以及极端限长反弹柱状图；\textbf{第二页（图版 V–VI）}并列呈现四模型中文作答箭头/得分变化矩阵与 20 篇文档九位置误差带剖面；\textbf{第三页（图版 VII）}则聚焦多轮代码修复，如图~\ref{fig:s4-c-drawer} 所示，左侧绘制六策略五版本折线轨迹（支持切换“公开诊断/完整强测”与模型），右上放置可实时选定对照双方的“配对比较卡”，右下嵌入“终稿区间 / 修复与回退 / Token 代价 / 初稿错误”四子页签容器。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[专项代码修复页（图版 VII 与配对比较卡）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s4-c.jpg}}}\hfill
+\subfigure[侧边真实修改案例抽屉（代码 Diff 与反馈原文）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/case-drawer.jpg}}}
+\caption{代码修复多维度交互分析与真实案例溯源抽屉}
+\label{fig:s4-c-drawer}
+\end{figure}
+
+\subsection{精细微交互与探索图册兼容}
+
+除了主图切换外，系统还在每个图版右上角内置了\textbf{“说明（i）”展开面板}与\textbf{“查看数据表”模态框}，允许评阅人随时调出底层精确数值列表（支持键盘 ESC 关闭与焦点回归）；点击“真实修改案例”按钮则会从右侧滑出 \texttt{\#case-drawer} 抽屉，逐轮展示反馈 JSON 载荷与前后 Python 代码行级 Diff 高亮。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[结构化数据表弹窗]{\shot[0.32\linewidth]{\detokenize{figures/screenshots/table-dialog.jpg}}}\hfill
+\subfigure[探索分析工作台（explore.html）]{\shot[0.32\linewidth]{\detokenize{figures/screenshots/explore-overview.jpg}}}\hfill
+\subfigure[44 张完整科学图册（legacy.html）]{\shot[0.32\linewidth]{\detokenize{figures/screenshots/atlas.jpg}}}
+\caption{弹窗数据查阅与历史完整探索图册入口}
+\label{fig:dialogs-explore}
+\end{figure}
+
+同时，对于希望查看所有 44 张衍生科学图稿（包含错误恢复路径图、行为时间线、分组箱线图与平行坐标图等课程指导书提及图种）的用户，系统通过第五屏导航及路由 \texttt{explore.html}、\texttt{legacy.html?chapter=atlas} 完整保留了浅色高对比度科研图册工作台（图~\ref{fig:dialogs-explore}），兼顾叙事体验与全量查阅需求。

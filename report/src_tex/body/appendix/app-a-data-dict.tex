@@ -1,0 +1,70 @@
+\chapter{统一数据字典与清洗质量明细}\label{app:db}
+
+本附录收录统一匿名特征表 \texttt{data/processed/all\_records.csv.gz}（248,586 条物理响应）的 21 列完整定义、分实验清洗表结构以及全量缺失率审计记录。CSV 中空单元格统一代表 \texttt{null}，布尔字段规范为 \texttt{true/false}，时间戳归一化至 UTC，严禁跨任务混合计算总准确率。
+
+\section{统一匿名特征表字段字典（21 列）}
+
+\begingroup
+\ReportTableStyle
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.55cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{4.25cm} >{\raggedright\arraybackslash}p{\dimexpr\linewidth-10.75cm-6\tabcolsep\relax}@{}}
+\caption{统一匿名特征表（all\_records.csv.gz）21 列字段定义}\label{tab:schema-21}\\
+\addlinespace[-1pt]
+\toprule
+\textbf{字段名} & \textbf{类型} & \textbf{含义} & \textbf{缺失规则与约束} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{表~\ref{tab:schema-21}（续）} \\
+\addlinespace[-1pt]
+\toprule
+\textbf{字段名} & \textbf{类型} & \textbf{含义} & \textbf{缺失规则与约束} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+record\_id & string & 公开项目内唯一匿名响应标识 & 永不缺失 \\
+experiment\_id & category & 实验方向标识（界定评测单元与协议） & 永不缺失 \\
+model\_id & category & 规范化受测模型家族标识 & 永不缺失 \\
+benchmark & category & 基准题库家族名称（非评分标尺） & 永不缺失 \\
+question\_key & string & 源题号的实验域内 SHA-256 脱敏假名 & 永不缺失 \\
+prompt\_id & category/null & 命名提示策略标识 & 代码修复基线为 null \\
+timestamp & datetime/null & 归一化至 UTC 的响应时间戳 & 历史推理与代码生成未记录 \\
+input\_tokens & integer/null & 服务商返回的输入 Token 计数 & 源日志未返回时为 null \\
+output\_tokens & integer/null & 服务商返回的输出 Token 计数 & 源日志未返回时为 null \\
+latency\_seconds & float/null & 单次请求耗时（秒） & 源日志未记录时为 null \\
+finish\_reason & category/null & 接口停止原因（如 stop/length） & 接口未返回时为 null \\
+is\_truncated & boolean/null & 仅当停止原因明确为长度截断时为 true & 停止原因缺失时保持 null \\
+metric\_name & category & 任务原生主评分规则标识（不跨任务合并） & 永不缺失 \\
+metric\_value & float/null & 原生规则下的 0/1 观测值 & 环境排除或未决保持 null，不填 0 \\
+environment\_excluded & boolean & 代码基准评测环境排除标记 & 无环境排除方向恒为 false \\
+document\_count & integer/null & 提供的参考文档数量（10 或 20） & 非文档问答方向为 null \\
+evidence\_position & integer/null & 基于 1 的相关证据文档所在位置 & 闭卷对照及非问答方向为 null \\
+independent\_sample & integer/null & 代码生成独立采样序号（非修复轮次） & 非代码生成方向为 null \\
+revision\_round & integer/null & 共享初稿后的修改轮次（初稿为 0） & 非代码修复方向为 null \\
+feedback\_type & category/null & 反馈类型（seed/resample/self\_review 等） & 非代码修复方向为 null \\
+parent\_record\_key & string/null & 前序物理修复记录的匿名键 & 初稿及非修复方向为 null \\
+\end{longtable}
+\endgroup
+
+\section{分实验清洗表与非零缺失率审计}
+
+\begin{table}[!htbp]
+\centering
+\caption{各实验清洗表与非零缺失率字段审计汇总（来自 quality\_report.json 与 missingness.csv）}\label{tab:missingness-audit}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.55cm} >{\raggedright\arraybackslash}p{3.15cm} >{\raggedleft\arraybackslash}p{1.35cm} >{\raggedleft\arraybackslash}p{1.35cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{实验表} & \textbf{局部/全缺失字段} & \textbf{缺失数} & \textbf{缺失率} & \textbf{真实语义归因} \\
+\midrule
+reasoning (74,400) & timestamp 等 7 列 & 74,400 & 100.00\% & 历史归档未记录时间戳；非跨任务适用字段 \\
+document\_qa (74,800) & evidence\_position & 400 & 0.53\% & 对应 200 题 $\times$ 2 模型闭卷无文档对照 \\
+code\_generation (90,210) & metric\_value & 465 & 0.52\% & 环境排除记录保持 null，绝不填零 \\
+document\_positions (3,600) & independent\_sample 等 & 3,600 & 100.00\% & 仅非文档位置专题适用列 \\
+code\_repair (5,576) & parent\_record\_key & 1,640 & 29.41\% & 共享 Round 0 初稿及独立重采样无父版本 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\section{质量审计与哈希冻结说明}
+
+统一特征表 \texttt{all\_records.csv.gz} 在本仓库发布版本中的 SHA-256 校验和为 \texttt{f0649392...64552}，五张分实验清洗表各自独立保留源评分与 SHA-256 指纹。针对代码生成与代码修复中存在的环境依赖排除及加载阻断，清洗层坚持“不以零值替代缺失”的原则，确保任何下游统计均可追溯真实有效分母。

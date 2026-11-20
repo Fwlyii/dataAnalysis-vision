@@ -1,0 +1,17 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm and 6mm]
+  \node[na, minimum width=32mm] (t1) {\nt{交付结构与链接校验}{check\_coursework.py}};
+  \node[n, minimum width=32mm, right=of t1] (t2) {\nt{科研指纹与保护校验}{check\_reconstruction.py}};
+  \node[n, minimum width=32mm, right=of t2] (t3) {\nt{协议与分析单元测试}{test\_repair\_v2\_*.py}};
+
+  \node[na, minimum width=48mm, below=8mm of t1, xshift=18mm] (t4) {\nt{主页面全链路浏览器回归}{zhiwei.mjs (29项断言 + 无障碍审计)}};
+  \node[na, minimum width=48mm, right=6mm of t4] (t5) {\nt{五球入口与多视口回归}{zhiwei-gate.mjs (12项断言 + 5种视口)}};
+
+  \draw[a] (t1) -- (t2);
+  \draw[a] (t2) -- (t3);
+  \draw[a] (t1.south) -- ++(0,-0.35) -| (t4.north);
+  \draw[a] (t3.south) -- ++(0,-0.35) -| (t5.north);
+\end{tikzpicture}
+\end{document}

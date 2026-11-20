@@ -1,0 +1,38 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}
+  % 四层架构：每层留足顶部标题空间与垂直间距
+  \grp{(0,0)}{(15.0,-2.0)}{L4 零依赖交互可视化前端层（app/）}
+  \node[na, minimum width=30mm] (f1) at (1.85,-1.25) {\nt{五球时空入口}{zhiwei-gate.js}};
+  \node[na, minimum width=34mm] (f2) at (5.50,-1.25) {\nt{五屏联动主视图}{zhiwei.js + 原生 SVG}};
+  \node[n, minimum width=30mm]  (f3) at (9.20,-1.25) {\nt{抽屉与数据表}{真实代码 Diff 与明细}};
+  \node[n, minimum width=32mm]  (f4) at (12.95,-1.25) {\nt{兼容探索图册}{explore / legacy.html}};
+
+  \grp{(0,-2.45)}{(15.0,-4.45)}{L3 静态构建与匿名快照层（scripts/system/ \& app/data/）}
+  \node[n, minimum width=41mm] (b1) at (2.50,-3.70) {\nt{构建与版本管线}{build\_web\_app.py}};
+  \node[n, minimum width=45mm] (b2) at (7.45,-3.70) {\nt{核心科研 JSON 快照}{summary / charts / repair}};
+  \node[n, minimum width=42mm] (b3) at (12.45,-3.70) {\nt{SHA-256 防漂移校验}{coursework / reconstruction}};
+
+  \grp{(0,-4.90)}{(15.0,-6.90)}{L2 离线清洗、统计与科研绘图层（scripts/ \& experiments/）}
+  \node[n, minimum width=41mm] (p1) at (2.50,-6.15) {\nt{清洗与规则分类}{classify\_and\_audit.py}};
+  \node[n, minimum width=45mm] (p2) at (7.45,-6.15) {\nt{聚类 Bootstrap 与配对统计}{5,000 次重采样 / 95\% CI}};
+  \node[n, minimum width=42mm] (p3) at (12.45,-6.15) {\nt{出版级 SVG 图稿生成}{story / repair\_extension}};
+
+  \grp{(0,-7.35)}{(15.0,-9.35)}{L1 原始字节冻结与规范数据层（data/raw/ \& data/processed/）}
+  \node[n, minimum width=41mm] (d1) at (2.50,-8.60) {\nt{原始日志冻结}{405+ 不可变制品}};
+  \node[n, minimum width=45mm] (d2) at (7.45,-8.60) {\nt{21 列统一匿名特征}{all\_records.csv.gz (248,586)}};
+  \node[n, minimum width=42mm] (d3) at (12.45,-8.60) {\nt{代码反馈补充表}{24,600 条独立保存}};
+
+  \draw[a] (d1.north) -- (p1.south);
+  \draw[a] (d2.north) -- (p2.south);
+  \draw[a] (d3.north) -- (p3.south);
+  \draw[a] (p1.north) -- (b1.south);
+  \draw[a] (p2.north) -- (b2.south);
+  \draw[a] (p3.north) -- (b3.south);
+  \draw[a] (b1.north) -- (f1.south);
+  \draw[a] (b2.north) -- (f2.south);
+  \draw[a] (b2.north) -- (f3.south);
+  \draw[a] (b3.north) -- (f4.south);
+\end{tikzpicture}
+\end{document}

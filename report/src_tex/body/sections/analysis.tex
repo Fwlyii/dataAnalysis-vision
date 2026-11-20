@@ -1,0 +1,69 @@
+\section{统计建模与五项核心发现验证}\label{sec:analysis}
+
+\subsection{按题聚类 Bootstrap 与同题配对对照}
+
+由于同一道题目在不同提示策略、不同证据位置或多次采样下的回答存在显著相关性，若将单条回答视作独立样本会严重低估标准误、虚夸统计显著性。因此，我们在 \texttt{scripts/analysis/} 与 \texttt{experiments/code\_repair\_v2/} 中统一采用\textbf{以独立题目为聚类单元的配对 Bootstrap 重采样方法}（主要分析设定重采样次数 $B=5{,}000$，随机种子固定为 91）。每次抽样按题目编号有放回地抽取完整题簇，同步保留该题在对照双方（如 \texttt{BeConcise} 与 \texttt{DefaultCoT}、第 1 位与第 20 位、反例反馈与自检）的全部模型与重复采样观测，再取差值分布的 2.5\% 与 97.5\% 分位数构造 95\% 置信区间。
+
+\subsection{低维发现一：温和简洁分步可在压缩开销的同时保留高分}
+
+在 \texttt{Qwen2.5 / GSM8K} 的 200 道同题对照中，只给答案（\texttt{NoCoT}）平均仅消耗 6.5 Token，但得分只有 \textbf{22.0\%}；要求分步思考（\texttt{DefaultCoT}）将得分大幅拉升至 \textbf{91.5\%}（配对差值 +69.5 个百分点，95\% 区间 [63.0, 76.0]），平均输出也增至 236.7 Token。若在此基础上追加温和简洁要求（\texttt{BeConcise}，即 \emph{Think step by step before answering, but be concise.}），得分点估计保持在 \textbf{92.0\%}，平均输出则降至 185.8 Token（净节省 \textbf{21.5\%}）。
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.96\linewidth]{\detokenize{figures/charts/story-01-budget-and-concise.pdf}}
+\caption{输出预算拟合曲线与 17 组跨任务简洁分步对照结果}
+\label{fig:story-concise}
+\end{figure}
+
+如图~\ref{fig:story-concise} 所示，这一规律并非孤例：横跨数学推理/选择题、文档问答与代码生成共计 \textbf{17 个模型 $\times$ 任务分组}，\texttt{BeConcise} 相对 \texttt{DefaultCoT} 实现了 \textbf{17/17 全组输出缩短}（Token 降幅介于 11.4\% 至 57.5\%），且 \textbf{15/17 组得分点估计持平或更高}。例如在一道“每小时售出 15\,kg、每天 10 小时、共 750\,kg 需几天”的真实算术题中，DeepSeek Flash 将原本 163 Token 的冗长复述压缩至 40 Token 的核心算式 \texttt{15×10=150，750÷150=5}，两次作答均准确得分。
+
+\subsection{低维发现二：中文作答模板在 MATH500 上省 Token 且助三模型提分}
+
+面对相同的英文竞赛数学题库 \texttt{MATH500}，将提示模板由英文默认分步切换为中文作答指令（\texttt{ChineseCoT}：\emph{Respond in Chinese.}）后，四个受测模型均展现出紧凑输出效应，图~\ref{fig:story-chinese-rebound}(a) 直观对比了四模型在该任务上的得分与节省幅度。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[MATH500 上中文模板对得分与 Token 的影响]{\includegraphics[width=0.49\linewidth]{\detokenize{figures/charts/story-06-chinese-math.pdf}}}\hfill
+\subfigure[极限字母/词数上限引发的 Token 反弹]{\includegraphics[width=0.49\linewidth]{\detokenize{figures/charts/story-02-extreme-limit-rebound.pdf}}}
+\caption{中文模板提分效应与极端长度约束反弹现象}
+\label{fig:story-chinese-rebound}
+\end{figure}
+
+具体数值表明，\texttt{Qwen3} 得分从 58.0\% 跃升至 \textbf{69.5\%}（+11.5 个百分点，Token 节省 19.5\%），\texttt{HY4} 从 68.5\% 升至 \textbf{74.0\%}（+5.5 pp），\texttt{Qwen2.5} 从 68.0\% 升至 \textbf{70.5\%}（+2.5 pp，截断率由 22.0\% 大幅降至 \textbf{2.5\%}），\texttt{DeepSeek} 则保持在 75.0\% 附近并节省 4.4\% Token。究其原因，三个提分模型原本得分受挫的题目中，原英文回答遭遇 800 Token 截断的比例分别高达 HY4 20/21、Qwen2.5 13/19 与 Qwen3 18/30——中文模板用更少的 Token 完成了推理链收尾，降低了截断失败率。需要强调的是，该提分效应定位于 \texttt{MATH500}（全部 12 组对比均省 Token，但在难度较低的 \texttt{GSM8K} 上四模型得分微降 0.5–4.5 pp），且仅代表接口外显作答模板的差异，不能直接等同于模型内部思考语言机制。
+
+\subsection{异常现象：极端长度约束下的输出反弹与预算挤占}
+
+与“温和简洁带来收益”形成鲜明对比的是极端软约束的反效果。图~\ref{fig:story-chinese-rebound}(b) 揭示了一个违反直觉的异常现象：当提示词中的词数上限从 10 词进一步压紧到 1 词时，12 个模型 $\times$ 题库分组中有 \textbf{9 组平均输出 Token 反而上升}；同样地，当字母数上限从 100 字母收紧到 10 字母时，也有 \textbf{9/12 组输出反增}。
+
+最为典型的案例出现在 \texttt{DeepSeek / MATH500}：当限制从 100 字母收紧至 10 字母时，模型实际返回的平均输出从 102.0 Token 暴涨至 \textbf{520.6 Token}，得分却从 \textbf{83.5\% 暴跌至 38.0\%}。溯源真实作答文本（如求解 196 的正因数个数）发现，模型在 100 字母条件下仅用 25 Token 便算得正确答案 9；而在 10 字母条件下，模型虽然同样算出了 9，却陷入了“如何将单词 \texttt{NINE} 或推导过程凑进 10 个字母以内”的自我纠缠与反复验证，最终消耗约 800 Token 并触发长度截断。这一机制证实了极端格式约束会引入高昂的元认知校验负担，反而挤占真正用于解题的推理预算。
+
+\subsection{多维发现一：证据位置与模型能力的交互效应}
+
+在 20 篇材料的多文档问答专题实验中（固定 \texttt{NoCoT}，共 3,600 条响应），我们考察了\textbf{“模型 $\times$ 相关证据位置 $\to$ 最终答案包含率”}的联合作用。如图~\ref{fig:docpos-and-repair}(a) 所示，\texttt{Qwen2.5} 在第 1、10、20 位分别取得 54.5\%、52.5\% 与 56.5\% 的命中率，整体呈现平缓的浅 U 形轮廓（全九个位置中有 39.0\% 即 78/200 题至少发生过一次命中状态翻转，如案例 \texttt{C007} 在前/中/尾位置分别输出 Ozzie Smith $\to$ Omar Vizquel $\to$ Ozzie Smith）；而 \texttt{Qwen3} 则表现出强烈的首位优势，第 1 位高达 \textbf{71.0\%}（比第 10 位 61.5\% 高出 +9.50 pp，95\% 区间 [4.50, 15.00]），至第 20 位则滑落至 59.0\%。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[20 篇文档九位置命中率剖面（文档位置专题）]{\includegraphics[width=0.49\linewidth]{\detokenize{figures/charts/docpos-profile.pdf}}}\hfill
+\subfigure[六种代码反馈在强保留测试上的终稿表现]{\includegraphics[width=0.49\linewidth]{\detokenize{figures/charts/repair-01-strong-endpoints.pdf}}}
+\caption{多维关系发现：文档证据位置剖面与代码反馈闭环对比}
+\label{fig:docpos-and-repair}
+\end{figure}
+
+从两模型配对差距看，\texttt{Qwen3} 相对 \texttt{Qwen2.5} 的优势在第 1 位高达 \textbf{+16.50 个百分点}（[9.50, 23.50]），而在第 20 位迅速收缩至仅 \textbf{+2.50 个百分点}（[-4.50, 9.00]），首尾两端的模型增益差达到 \textbf{14.00 个百分点}（95\% 区间 [5.50, 23.00]）。这说明模型之间的横向比较结论高度依赖证据在上下文中的落点位置，仅凭单一位置无法代表全局排序。
+
+\subsection{多维发现二：具体执行反例驱动多轮代码修复与防回退}
+
+\begin{wrapfigure}{r}{0.44\linewidth}
+\vspace{-4pt}
+\centering
+\includegraphics[width=\linewidth]{\detokenize{figures/diagrams/d05-repair-protocol.pdf}}
+\caption{代码修复双层隔离评测协议}
+\label{fig:repair-protocol}
+\vspace{-6pt}
+\end{wrapfigure}
+
+为厘清反馈信息粒度对代码迭代修复的影响，团队在 \texttt{HumanEval+ Mini} 的 164 道独立题目上（每题 $\times$ 2 模型 $\times$ 3 份共享初稿，共 492 份程序轨迹、24,600 条物理响应）执行了严格隔离的双层评测实验（图~\ref{fig:repair-protocol}）。其中，反馈构造器只能读取沙箱内的公开诊断结果（\texttt{public}），绝不接触本地强保留测试集（\texttt{held-out}）；模型依据不同反馈最多迭代 4 轮（共五个版本），最终以\textbf{“同时通过公开诊断与强保留测试”}作为终稿指标。
+
+从图~\ref{fig:docpos-and-repair}(b) 可见，随着反馈信息从“独立重采样、无反馈自检”递进至“仅通过状态、错误定位诊断、单个失败反例与多个失败反例”，修复收益呈显著阶梯状攀升。在 \texttt{Qwen3-8B} 上，共享初稿通过率为 370/492（75.2\%）：经过四轮修改，无反馈自行检查几乎停滞（376/492，初错仅修复 9/122），甚至伴随 3 例初对回退；仅给通过状态升至 395/492（回退 0 例）；而提供具体失败输入与期望/实际输出反例后，\textbf{单个反例组达到 418/492（85.0\%，相对自检高 +8.54 pp，95\% 区间 [4.88, 12.60]）}，\textbf{多个反例组进一步达到 421/492（85.6\%，初错修复 51/122 且零回退）}。
+
+追溯真实案例库中的典型轨迹可以直观理解这一差异：在 \texttt{HumanEval/54}（判断两字符串是否含相同字符集合）中，\texttt{Qwen2.5} 的初始版本误用了 \texttt{sorted(s0) == sorted(s1)}；当多反例反馈给出 \texttt{['eabcdzzzz', 'dddzzzzzzzddeddabc']} 期望 \texttt{True} 实际 \texttt{False} 后，模型立刻修正为 \texttt{set(s0) == set(s1)} 并通过强测；相反在 \texttt{HumanEval/50} 中，缺乏外部校验的“自行检查”组将原本正确的凯撒移位代码盲目添加 \texttt{if ch.isalpha()} 过滤条件，反而引发了强测回退（通过 $\to$ 失败）。此外，在 \texttt{CodePromptEval}（194 题 $\times$ 31 策略 $\times$ 5 次独立采样）的代码生成补充分析中，增加独立采样虽能将 \texttt{Pass@1} 推升至 \texttt{Pass@5}（DeepSeek 30.22\% $\to$ 34.97\%），但第 4、5 次采样的边际覆盖增益已明显趋缓，印证了无反馈重采样在迭代收益上显著弱于针对性反例反馈。
