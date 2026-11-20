@@ -9,7 +9,9 @@
 <meta name="description" content="不同的交互策略，会怎样影响大模型的回答质量？31 种提示策略、3 类任务、4 个模型的对照实验与交互式可视化。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0f26'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='none' stroke='%23eef0f8' stroke-width='2'/%3E%3Cpath d='M16 3v5M16 24v5M3 16h5M24 16h5' stroke='%23eef0f8' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='18.2' cy='13.8' r='2.6' fill='%23bc1e72'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="zhiwei.css">
+<link rel="stylesheet" href="zhiwei-gate.css">
 <script defer src="src/zhiwei.js"></script>
+<script defer src="src/zhiwei-gate.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>
@@ -17,9 +19,10 @@
 <div class="overlay" aria-hidden="true"></div>
 
 <header class="topbar">
-  <a class="brand" href="#s1" aria-label="知微，回到开头">
+  <a class="brand" href="#gateway" aria-label="知微，返回五球入口">
     <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12.5"/><path d="M16 1.5v5M16 25.5v5M1.5 16h5M25.5 16h5"/><circle class="brand-dot" cx="18.6" cy="13.6" r="2.6"/></svg>
     <span>知微</span>
+    <small class="brand-gate-label">返回入口</small>
   </a>
   <nav class="deck-nav" aria-label="板块">
     <span class="nav-ind" aria-hidden="true"></span>
@@ -32,6 +35,58 @@
   <button class="present-btn" type="button" id="present-btn" aria-pressed="false" hidden>全屏放映</button>
   <div class="read-progress" aria-hidden="true"><span></span></div>
 </header>
+
+<section class="zw-gate" id="gateway" aria-labelledby="zw-gate-title" hidden>
+  <canvas class="zw-gate-field" aria-hidden="true"></canvas>
+  <div class="zw-gate-grain" aria-hidden="true"></div>
+  <div class="zw-gate-topline"><span>MODEL BEHAVIOR OBSERVATORY</span><span>交互策略 · 模型行为</span></div>
+  <div class="zw-gate-scene">
+    <svg class="zw-gate-traces" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M500 272 Q300 272 225 125M500 272 Q700 272 775 125M500 272 Q760 272 845 367M500 272 Q500 420 500 475M500 272 Q240 272 155 367"/>
+      <ellipse cx="500" cy="272" rx="345" ry="216"/>
+    </svg>
+    <div class="zw-gate-lens" aria-hidden="true">
+      <svg class="zw-gate-optics" viewBox="-250 -250 500 500">
+        <circle r="230" class="zw-optic-dots"/>
+        <circle r="210"/><circle r="199" class="zw-optic-inner"/><circle r="173" class="zw-optic-inner"/>
+        <g class="zw-optic-ticks"></g>
+        <path class="zw-optic-arc" d="M-184-102A210 210 0 0 1 102-184M184 102A210 210 0 0 1-102 184"/>
+        <path class="zw-optic-cross" d="M-248 0H-176M176 0H248M0-248V-176M0 176V248"/>
+      </svg>
+    </div>
+    <header class="zw-gate-heading">
+      <p class="zw-gate-eyebrow">从细微处，看见规律</p>
+      <h1 id="zw-gate-title">知微</h1>
+      <p class="zw-gate-subtitle">五条路径，同一个研究现场</p>
+      <p class="zw-gate-instruction">选择一束光，开始探索</p>
+    </header>
+    <nav class="zw-gate-orbits" aria-label="五个研究板块">
+      <a class="zw-orb-link" href="#s1" style="--tone:173,162,255;--shade:49,30,117;--orb-x:22.5%;--orb-y:20.8%;--delay:0s">
+        <span class="zw-orb" aria-hidden="true"><span class="zw-orb-shell"><span class="zw-orb-flow"></span><span class="zw-orb-core"></span><span class="zw-orb-sheen"></span><span class="zw-orb-meridian"></span><span class="zw-orb-spark"></span></span><span class="zw-orb-halo"></span><span class="zw-orb-index">01</span></span>
+        <span class="zw-orb-caption"><b>研究问题</b><small>QUESTION</small><span>从一个问题出发 <i aria-hidden="true">↗</i></span></span>
+      </a>
+      <a class="zw-orb-link" href="#s2" style="--tone:108,156,255;--shade:17,47,127;--orb-x:77.5%;--orb-y:20.8%;--delay:-1.6s">
+        <span class="zw-orb" aria-hidden="true"><span class="zw-orb-shell"><span class="zw-orb-flow"></span><span class="zw-orb-core"></span><span class="zw-orb-sheen"></span><span class="zw-orb-meridian"></span><span class="zw-orb-spark"></span></span><span class="zw-orb-halo"></span><span class="zw-orb-index">02</span></span>
+        <span class="zw-orb-caption"><b>实验设计</b><small>EXPERIMENT</small><span>理解比较的方式 <i aria-hidden="true">↗</i></span></span>
+      </a>
+      <a class="zw-orb-link" href="#s3" style="--tone:94,218,200;--shade:12,78,94;--orb-x:84.5%;--orb-y:61.2%;--delay:-3.2s">
+        <span class="zw-orb" aria-hidden="true"><span class="zw-orb-shell"><span class="zw-orb-flow"></span><span class="zw-orb-core"></span><span class="zw-orb-sheen"></span><span class="zw-orb-meridian"></span><span class="zw-orb-spark"></span></span><span class="zw-orb-halo"></span><span class="zw-orb-index">03</span></span>
+        <span class="zw-orb-caption"><b>数据处理</b><small>PIPELINE</small><span>循着证据的来路 <i aria-hidden="true">↗</i></span></span>
+      </a>
+      <a class="zw-orb-link" href="#s4" style="--tone:239,146,199;--shade:106,28,101;--orb-x:50%;--orb-y:79.2%;--delay:-4.8s">
+        <span class="zw-orb" aria-hidden="true"><span class="zw-orb-shell"><span class="zw-orb-flow"></span><span class="zw-orb-core"></span><span class="zw-orb-sheen"></span><span class="zw-orb-meridian"></span><span class="zw-orb-spark"></span></span><span class="zw-orb-halo"></span><span class="zw-orb-index">04</span></span>
+        <span class="zw-orb-caption"><b>核心发现</b><small>FINDINGS</small><span>让数据呈现规律 <i aria-hidden="true">↗</i></span></span>
+      </a>
+      <a class="zw-orb-link" href="#s5" style="--tone:246,189,125;--shade:113,57,40;--orb-x:15.5%;--orb-y:61.2%;--delay:-6.4s">
+        <span class="zw-orb" aria-hidden="true"><span class="zw-orb-shell"><span class="zw-orb-flow"></span><span class="zw-orb-core"></span><span class="zw-orb-sheen"></span><span class="zw-orb-meridian"></span><span class="zw-orb-spark"></span></span><span class="zw-orb-halo"></span><span class="zw-orb-index">05</span></span>
+        <span class="zw-orb-caption"><b>结论与反思</b><small>REFLECTION</small><span>带着新的问题离开 <i aria-hidden="true">↗</i></span></span>
+      </a>
+    </nav>
+  </div>
+  <footer class="zw-gate-footer"><button type="button" class="zw-gate-replay">重播开场 <span aria-hidden="true">↺</span></button><span>点击光球进入 · 页内滚动浏览 · 左上角返回</span><a href="#s1" class="zw-gate-start">顺序阅读 <span aria-hidden="true">↓</span></a></footer>
+  <button type="button" class="zw-gate-skip" hidden>跳过开场 <span aria-hidden="true">↗</span></button>
+  <span class="sr-only zw-gate-status" role="status" aria-live="polite"></span>
+</section>
 
 <main id="main">
 

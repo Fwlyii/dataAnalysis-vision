@@ -30,7 +30,7 @@ def main():
     worker.start()
     try:
         base = f'http://127.0.0.1:{args.port}/'
-        for script, url in [('zhiwei.mjs', base), ('defense.mjs', base + 'legacy.html')]:
+        for script, url in [('zhiwei-gate.mjs', base), ('zhiwei.mjs', base), ('defense.mjs', base + 'legacy.html')]:
             subprocess.run(['node', 'tests/browser/' + script], cwd=ROOT,
                            env={**os.environ, 'BASE_URL': url}, check=True)
     finally:

@@ -18,9 +18,12 @@ python3 app/launch.py --port 8770
 
 ```bash
 BASE_URL=http://127.0.0.1:8770/ node tests/browser/zhiwei.mjs
+BASE_URL=http://127.0.0.1:8770/ node tests/browser/zhiwei-gate.mjs
 ```
 
 `CHROMIUM_PATH` 可指定本机浏览器。当前套件核对五章导航、三页核心发现、七图版、模型与题库切换、说明/数据表、代码视图、桌面/手机布局和资源错误。结果及截图写入忽略目录 `artifacts/qa/zhiwei/`。
+
+五球入口套件另外核对开场跳过与重播、五球跳转和返回、前进/后退、章节深链接、键盘与触屏、减少动态效果、桌面/平板/手机/矮屏布局及无障碍。结果及截图写入 `artifacts/qa/zhiwei-gate/`。
 
 ## 科研与历史兼容
 

@@ -154,6 +154,7 @@ def build():
         shutil.copy2(APP/name,dist/name)
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)
+    shutil.copy2(APP/'zhiwei-gate.css',dist/'zhiwei-gate.css')
     shutil.copytree(APP/'src',dist/'src',dirs_exist_ok=True)
     for name in ['zhiwei.css','research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css']:
         shutil.copy2(APP/name,dist/name)
@@ -203,7 +204,7 @@ def build():
         if supplement.exists():
             supplement_sha=hashlib.sha256(supplement.read_bytes()).hexdigest()[:12]
             markup=markup.replace('</head>',f'<meta name="code-feedback-extension" content="data/code-feedback-extension.json?v={supplement_sha}">\n</head>')
-        for asset in ['zhiwei.css','src/zhiwei.js','research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css','src/research.js']:
+        for asset in ['zhiwei.css','src/zhiwei.js','zhiwei-gate.css','src/zhiwei-gate.js','research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css','src/research.js']:
             digest=hashlib.sha256((dist/asset).read_bytes()).hexdigest()[:12]
             markup=re.sub(r'([\'\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\'\"])',
                 lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)

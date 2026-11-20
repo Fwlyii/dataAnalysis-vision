@@ -1743,6 +1743,13 @@
     }
     initDepth();
     initDeck();
+    document.addEventListener('zhiwei:enter', event => {
+      const target = document.getElementById(event.detail.id);
+      if (!target) return;
+      target.classList.add('is-in');
+      animateIn(target.id === 's4' ? target.querySelector('.page.is-active') : target);
+      activate(target);
+    });
     if (chapter === 'findings') {
       const page = {language:1, position:1, feedback:2}[legacy.get('topic')];
       if (page !== undefined) document.querySelector(`.pager-tabs [data-page="${page}"]`)?.click();
