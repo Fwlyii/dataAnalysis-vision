@@ -1,9 +1,0 @@
-model,first,score_difference_pp,rescued_questions,rescues_baseline_truncated,lost_questions,losses_first_truncated,rescues_previously_truncated_pct
-deepseek,ChineseCoT,-1.0,3,3,5,5,100.0
-deepseek,BeConcise,7.000000000000001,15,15,1,1,100.0
-hy4,ChineseCoT,5.5,21,20,10,6,95.23809523809523
-hy4,BeConcise,4.5,14,13,5,4,92.85714285714286
-qwen,ChineseCoT,2.5,19,13,14,1,68.42105263157895
-qwen,BeConcise,2.0,14,8,10,2,57.14285714285714
-qwen3,ChineseCoT,11.5,30,18,7,2,60.0
-qwen3,BeConcise,11.5,29,18,6,1,62.06896551724138

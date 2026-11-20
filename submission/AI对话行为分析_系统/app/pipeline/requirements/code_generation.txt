@@ -1,4 +1,0 @@
-numpy==1.26.4
-pandas==2.3.3
-matplotlib==3.8.4
-openai>=1.40.0,<4

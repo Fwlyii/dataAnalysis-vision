@@ -65,6 +65,10 @@ button { font: inherit; }
 .is-hidden { display: none !important; }
 ::selection { background: rgba(173, 162, 255, .35); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.course-resources { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12px; }
+.course-resources a { display: inline-flex; align-items: center; gap: 12px; padding: 7px 0; color: var(--ink-2); text-decoration: none; transition: color .2s; }
+.course-resources a:hover { color: var(--accent); }
+.course-resources a span { color: var(--accent); }
 .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 8px; }
 .skip-link:focus { top: 12px; }
 .noscript { padding: 24px; text-align: center; }

@@ -1,6 +1,0 @@
-# Generic reasoning/document/position collectors use the Python standard library.
-# Original Python-function collector uses an OpenAI-compatible SDK.
-openai==2.9.0
-# Paired repair preparation/evaluation uses these; collection itself is explicit.
-psutil==7.2.2
-numpy==2.3.5

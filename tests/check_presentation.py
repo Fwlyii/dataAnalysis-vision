@@ -21,6 +21,7 @@ def main():
     parser.add_argument('--port', type=int, default=8847)
     parser.add_argument('--skip-build', action='store_true')
     args = parser.parse_args()
+    subprocess.run([sys.executable, 'scripts/system/check_coursework.py'], cwd=ROOT, check=True)
     if not args.skip_build:
         subprocess.run([sys.executable, 'scripts/system/build_web_app.py'], cwd=ROOT, check=True)
     subprocess.run([sys.executable, 'scripts/system/check_reconstruction.py'], cwd=ROOT, check=True)

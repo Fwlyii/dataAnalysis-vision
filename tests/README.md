@@ -2,6 +2,8 @@
 
 在仓库根目录运行 `python3 tests/check_presentation.py` 可构建并检查当前展示、历史图册和科研保护；使用临时本地服务，完成后自动关闭。首次运行前安装下述锁定的浏览器依赖。
 
+仅检查课程交付结构和文档跳转，可运行 `python3 scripts/system/check_coursework.py`。完整科研校验需要先取得原统一表，下载方式见[数据说明](../data/DOWNLOAD.md#download)。
+
 当前主展示为Claude「景深」五屏界面，浏览器回归入口是 `browser/zhiwei.mjs`。原 `browser/defense.mjs` 继续验证 `legacy.html` 的历史完整图册与旧展示。
 
 ## 当前主界面

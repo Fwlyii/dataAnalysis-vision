@@ -1,5 +1,0 @@
-# Pure offline source-score audit; no API client or model generation.
-# Source reasoning manifests record math-verify 0.8.0.
-math-verify==0.8.0
-regex==2026.9.29
-sympy==1.14.0

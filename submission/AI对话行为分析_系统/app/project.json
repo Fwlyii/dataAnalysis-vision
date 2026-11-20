@@ -1,9 +1,0 @@
-{
-  "schema": "model-behavior-coursework-v1",
-  "name": "model-behavior-project",
-  "created": "2026-10-28",
-  "data_policy": "Complete raw payloads are included locally; coursework submission is a separate anonymized profile.",
-  "api_calls_during_assembly": 0,
-  "profile": "anonymous-coursework-submission",
-  "raw_payloads_included": false
-}

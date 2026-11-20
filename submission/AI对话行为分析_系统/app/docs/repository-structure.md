@@ -1,7 +1,0 @@
-# 统一仓库组织
-
-项目只有一个代码基底：根目录README与PROJECT_SUMMARY给出总入口；data区分raw/processed/quality/inventory；scripts按acquisition、cleaning、analysis、figures、system、delivery分阶段；experiments按研究内容提供专用协议与源方法；app为当前系统与课程图表库；reports为统计与图稿；report/presentation为当前交付和archive历史材料。
-
-不再用采集成员缩写命名数据、目录、文件或入口。原始ZIP的内部结构、原始记录字段与来源manifest按证据保留，不为统一命名改写源字节。当前外层原始校验以data/inventory/raw_files.json为准。
-
-submission是生成的独立提交目录，不含Git元信息，不是子模块，不产生另一套独立实验。其app/project携带相同匿名复算代码。

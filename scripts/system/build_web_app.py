@@ -185,8 +185,9 @@ def build():
     for name in ['findings.md','README.md']:
         shutil.copy2(ROOT/'reports/baseline'/name,dist/'data'/f'analysis-{name}')
     shutil.copy2(ROOT/'data/processed/data_dictionary.tsv',dist/'data/data_dictionary.tsv')
-    shutil.copy2(ROOT/'docs/assignment/数据分析和可视化-题目2.pdf',dist/'data/course-assignment.pdf')
-    shutil.copy2(ROOT/'docs/assignment/数据分析和可视化-题目2.pdf',APP/'data/course-assignment.pdf')
+    shutil.copy2(ROOT/'guide/数据分析和可视化-题目2.pdf',dist/'data/course-assignment.pdf')
+    shutil.copy2(ROOT/'report/case_report.pdf',dist/'data/case-report.pdf')
+    shutil.copy2(ROOT/'presentation/defense_slides.pdf',dist/'data/defense-slides.pdf')
     for name in ['chart-coverage.md','demo-guide.md','insight-audit.md']:
         path=ROOT/'docs'/name
         if path.exists():shutil.copy2(path,dist/'data'/name)

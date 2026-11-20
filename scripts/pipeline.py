@@ -8,10 +8,9 @@ STAGES={
  'figures':['scripts/figures/plot_baseline_figures.py','scripts/figures/plot_code_generation.py','scripts/figures/plot_story_figures.py','scripts/figures/plot_story_figures.py --mobile','scripts/figures/plot_narrative_figures.py'],
  'web':['scripts/system/build_web_app.py'],
  'documents':['scripts/delivery/build_course_documents.py'],
- 'submission':['scripts/delivery/build_submission.py'],
 }
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('stage',choices=['snapshot','clean','analyze','figures','web','documents','submission','all']);p.add_argument('--plan',action='store_true');a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('stage',choices=['snapshot','clean','analyze','figures','web','documents','all']);p.add_argument('--plan',action='store_true');a=p.parse_args()
  selected=['web'] if a.stage=='snapshot' else list(STAGES) if a.stage=='all' else [a.stage]
  for stage in selected:
   for script in STAGES[stage]:

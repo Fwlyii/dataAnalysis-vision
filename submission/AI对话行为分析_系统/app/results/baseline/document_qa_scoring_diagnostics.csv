@@ -1,5 +1,0 @@
-model_id,scope,responses,truncated,needs_review,firstline_positive_final_contains_negative,firstline_negative_final_contains_positive,full_positive_strict_negative
-Qwen/Qwen2.5-7B-Instruct,all31,37200,56,9052,2286,2144,8624
-Qwen/Qwen2.5-7B-Instruct,main19,22800,30,6492,1509,1856,6251
-Qwen/Qwen3-8B,all31,37200,1015,11678,3143,1815,11415
-Qwen/Qwen3-8B,main19,22800,318,7753,1518,1436,7693

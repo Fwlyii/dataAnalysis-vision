@@ -1,3 +1,0 @@
-id,question,model,task,prompt,tokens,truncated,source_score
-Z015404,Z404,deepseek,math500,CharLimit(10),801,1,0
-Z015804,Z404,deepseek,math500,CharLimit(100),25,0,1

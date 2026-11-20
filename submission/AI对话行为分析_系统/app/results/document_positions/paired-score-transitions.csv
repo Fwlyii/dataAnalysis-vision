@@ -1,7 +1,0 @@
-model,metric,first_position,second_position,questions,first_only_hit,second_only_hit,both_hit,both_miss
-Qwen/Qwen2.5-7B-Instruct,final_contains,1,10,200,21,17,88,74
-Qwen/Qwen2.5-7B-Instruct,final_contains,20,10,200,16,8,97,79
-Qwen/Qwen2.5-7B-Instruct,final_contains,1,20,200,18,22,91,69
-Qwen/Qwen3-8B,final_contains,1,10,200,25,6,117,52
-Qwen/Qwen3-8B,final_contains,20,10,200,8,13,110,69
-Qwen/Qwen3-8B,final_contains,1,20,200,31,7,111,51

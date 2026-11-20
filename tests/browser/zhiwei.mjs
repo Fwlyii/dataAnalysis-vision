@@ -112,6 +112,19 @@ try {
     assert(await page.locator('#strategy-matrix button').count()===content.prompts.length && content.prompts.length===31, 'Prompt catalogue is incomplete');
     return {sections:5, findingPlates:7, promptStrategies:content.prompts.length};
   });
+  await test('course materials link to the exact submitted PDF bytes',async()=>{
+    const materials=[['course-assignment.pdf','guide/数据分析和可视化-题目2.pdf'],['case-report.pdf','report/case_report.pdf'],['defense-slides.pdf','presentation/defense_slides.pdf']];
+    for(const [name,local] of materials) {
+      const link=page.locator('.course-resources a[href="data/'+name+'"]');
+      assert(await link.count()===1 && await link.getAttribute('target')==='_blank','Missing course material link: '+name);
+      const response=await context.request.get(new URL('data/'+name,base).href);
+      assert(response.ok(),'Course material cannot be downloaded: '+name);
+      const delivered=await response.body(), original=await readFile(resolve(local));
+      assert(delivered.subarray(0,5).toString()==='%PDF-','Course material is not a PDF: '+name);
+      assert(delivered.equals(original),'Delivered course material differs from repository: '+name);
+    }
+    return {materials:materials.length};
+  });
   await test('display ledger distinguishes the five shown experiments from frozen historical records',async()=>{
     const legacy=content.experiments.find(x=>x.id==='code_repair');
     const displayed=content.experiments.filter(x=>x.id!=='code_repair').reduce((total,x)=>total+x.records,0)+ev.saved_physical_responses;

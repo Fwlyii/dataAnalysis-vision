@@ -1,28 +1,61 @@
-# 复算说明
+# 复算与可复现性
 
-## 只运行系统
+[← 项目首页](../README.md#reproduce) · [数据下载](../data/DOWNLOAD.md#download) · [测试](../tests/README.md)
 
-`python3 app/launch.py --port 8766`。标准库即可，构建使用已有JSON/SVG；不需要模型密钥、网络或npm。
+## 只运行网站
 
-## 全量数据管道
+```bash
+python3 app/launch.py --port 8770
+```
 
-Python3.12环境安装`requirements/analysis.txt`和`requirements/documents.txt`。先运行`python3 scripts/pipeline.py all --plan`查看命令。分阶段为clean、analyze、figures、web、documents、submission；全部为离线数据操作，不触发采集，也不重新执行模型代码。
+Python 3.10 及以上的标准库即可。构建读取保存的 JSON/SVG，不需要模型密钥或 npm，也不会调用模型或执行模型生成的程序。
 
-- clean：405个不可变源制品校验→原两方向解析→新三方向记录清洗→统一匿名表。
-- analyze：保留原评分，做题目级配对比较和原定分组；文档位置与修复各自分析。
-- figures：科学母版、代码图稿、五章主图；需合法Times New Roman。文档中文字体可用COURSE_CJK_FONT_FILE指定本地TrueType文件。
-- web：标准库打包当前数据、主图和完整图表库。
-- documents：当前10页报告与12页答辩PDF，原历史材料仍在archive。
-- submission：生成课程目录树与匿名版系统。
+## 从匿名数值重算原五项实验
 
-`reproduce_baselines.py`保留原基线的匿名/全本地重算方式；它只覆盖原问答和独立代码生成，不冒充新增文档位置/修复的完整管道。
+先取得 Git LFS 对象 `data/processed/all_records.csv.gz`，再运行：
 
-## 只有匿名提交数据
+```bash
+python3 scripts/reproduce_anonymous.py
+```
 
-`python3 scripts/reproduce_anonymous.py`可从248,586条数值特征重算五方向全部条件汇总，输出reports/reproduced。加`--figures`可从保存CSV重绘五章SVG并构建系统。匿名数值不能重构全文、重新判断语义、重新跑代码或重新生成模型回答。
+此步骤使用标准库，读取原 248,586 行匿名特征并重新计算条件汇总，输出 `reports/reproduced/condition_summary.csv` 与 `summary.json`。任务原评分分别保留，缺失值不补 0，共享初稿不重复计数。
+
+匿名数值不能恢复对话全文、重新做语义判定或重新生成模型回答。完整补充批次有独立的[分析协议](../experiments/code_repair_v2/ANALYSIS.md)与[统计结果](../reports/code_repair_extension/)，不并入原统一表。
+
+## 完整离线管道
+
+建议使用 Python 3.12 虚拟环境：
+
+```bash
+python3 -m venv .venv
+```
+
+激活虚拟环境后安装 `requirements/analysis.txt`；需要生成报告和 PPT 时另安装 `requirements/documents.txt`。字体与平台依赖以对应生成脚本为准，中文字体可通过 `COURSE_CJK_FONT_FILE` 指定。先查看执行计划：
+
+```bash
+python3 scripts/pipeline.py all --plan
+```
+
+| 阶段 | 功能与前提 |
+|---|---|
+| `clean` | 校验原始制品、解析和清洗；需要对应方向的完整 LFS 原始材料 |
+| `analyze` | 保留源评分，做按题配对比较与各专项分析；需要清洗结果和分析依赖 |
+| `figures` | 重绘科研图；需要统计输入、绘图库及合法字体 |
+| `web` | 从保存快照构建 `app/dist/`；仅需标准库 |
+| `documents` | 重绘原五项实验的 10 页报告和 12 页答辩 PDF；需要文档依赖与字体 |
+
+例如 `python3 scripts/pipeline.py web` 只构建网站。根目录已按课程结构交付，不再通过管道生成另一份旧 `submission/` 副本。
+
+## 科研文件与评分校验
+
+```bash
+python3 scripts/system/check_coursework.py
+python3 scripts/system/build_web_app.py
+python3 scripts/system/check_reconstruction.py
+```
+
+第一项核对课程材料和文档链接；第二项生成图包和网站；第三项核对 37 张原图、图包内容、原统一表行数与 1,100 个受保护文件。完整浏览器验证使用 `python3 tests/check_presentation.py`。
 
 ## 重新采集与重新评分
 
-采集位于scripts/acquisition，默认计划/干跑；只有--execute才发送请求。文档位置和修复使用新批次，不改冻结数据。推理入口是根据保存材料重建的版本，原包没有交付历史采集器。
-
-代码生成完整重测需要原CodePromptEval中34个项目的依赖环境；源评价脚本保留在experiments/code_generation/src，日常统计使用保存的target-function-ast-v2结果。代码修复的实际采集/执行依赖macOS沙箱，离线分析不调用该执行路径。新的API采样不属于本次整理。
+采集脚本位于 `scripts/acquisition/`，默认计划或干跑，仅明确执行采集时才向模型接口发送请求。代码生成重测需要原 CodePromptEval 项目环境；历史代码修复采集/执行依赖原平台沙箱。日常复现使用保存评分，不把新请求当作旧实验的精确重放。

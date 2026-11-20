@@ -1,3 +1,0 @@
-model_id,responses,paper_firstline,strict_final_em,final_contains,full_response_contains
-Qwen/Qwen2.5-7B-Instruct,200,0.29,0.195,0.29,0.295
-Qwen/Qwen3-8B,200,0.285,0.19,0.275,0.285

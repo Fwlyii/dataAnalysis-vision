@@ -1,4 +1,6 @@
-# 项目概述
+# 原五项实验概述
+
+本页记录原 248,586 条响应批次。当前页面还使用独立的代码反馈补充批次，合并范围见[项目首页的数据口径](../README.md#data)。完整交付要求见[课程对照](../guide/README.md)。
 
 ## 研究目标
 
@@ -39,7 +41,7 @@
 | 数据分析 | `scripts/analysis/`与`experiments/*/src/analyze*.py`：配对比较、题目聚类区间、Prompt差异、位置关系、错误与修复 |
 | 绘图与系统 | `scripts/figures/`、`scripts/system/`、`app/`：可编辑SVG、课程图表库与五章交互 |
 | 报告与答辩 | `report/case_report.pdf`、`presentation/defense_slides.pdf`及演示制作源码 |
-| 课程最终提交 | 人工录制并提交一个演示视频；仓库不存放成片 |
+| 课程最终提交 | 可运行源码、数据说明、案例报告、PPT 及人工录制的演示视频；见[提交清单](submission.md) |
 
 数据字典：`data/data_dictionary.md`。原始校验：`data/inventory/raw_files.json`。质量与缺失：`data/quality/`。原研究资料登记快照：`data/inventory/current_files.json`；该文件作为来源记录保留，不作为当前仓库目录索引。
 
@@ -62,4 +64,4 @@ python3 scripts/pipeline.py all --plan
 
 完整清洗、分析与重绘需`requirements/analysis.txt`；文档生成另需`requirements/documents.txt`。图字使用Times New Roman，文档中文字体可用`COURSE_CJK_FONT_FILE`指定。采集入口默认计划/干跑，只有主动加`--execute`才请求模型；离线流程只读取保存材料。
 
-完整研究资料保留原始来源与来源映射；网页使用匿名数值特征、统计、图稿和已允许展示的示例。最终人工录制并提交演示视频。第三方来源、协议和评分适用范围见对应实验说明。
+完整研究资料保留原始来源与来源映射；网页使用匿名数值特征、统计、图稿和已允许展示的示例。根目录按课程系统组结构交付，最终录屏仍需小组实际操作并提交。第三方来源、协议和评分适用范围见对应实验说明。
