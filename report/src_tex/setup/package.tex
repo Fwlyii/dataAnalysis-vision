@@ -120,3 +120,23 @@ tabsize=2
 \captionsetup{font=reportcaption,labelfont=bf,skip=6pt}
 \captionsetup[table]{position=top,skip=6pt}
 \captionsetup[figure]{position=bottom,skip=6pt}
+
+% 紧凑实验摘录与对比信息卡（左侧细色条 + 浅灰底衬，避免正文堆砌大表格）
+\definecolor{zwaccent}{HTML}{4A39B8}
+\definecolor{zwtint}{HTML}{F7F7FC}
+\definecolor{zwborder}{HTML}{DCDCE8}
+\newcommand{\CaseCard}[2]{%
+  \par\smallskip\noindent
+  \begin{tikzpicture}
+    \node[inner xsep=9pt, inner ysep=6.5pt, text width=\dimexpr\linewidth-20pt\relax,
+          fill=zwtint, draw=zwborder, line width=0.45pt, rounded corners=1.5pt, align=justify] (box) {%
+      {\setlength{\parfillskip}{0pt plus 1fil}\setlength{\parindent}{0pt}%
+       \fontsize{10.5bp}{13.6bp}\selectfont\textbf{\color{zwaccent}#1}\par\vspace{2.5pt}#2}%
+    };
+    \draw[zwaccent, line width=2.2pt] (box.north west) -- (box.south west);
+  \end{tikzpicture}\par\smallskip
+}
+\setlength{\columnsep}{12pt}
+
+
+\makeatletter

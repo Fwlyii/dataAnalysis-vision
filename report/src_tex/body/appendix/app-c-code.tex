@@ -1,10 +1,42 @@
-\chapter{关键处理与交互系统源码清单}\label{app:code}
+\chapter{核心数据清洗、统计推断与前端引擎源码清单}\label{app:code}
 
-本附录摘录仓库中最核心的四段工程实现，分别对应规则清洗分类、按题聚类 Bootstrap 重算、原生 SVG 感知均匀配色映射以及静态快照 SHA-256 互锁校验。
+本附录按“数据清洗归并—AST 评分修正—防泄漏反馈评测—聚类 Bootstrap 统计—五球门户状态机—原生 SVG 与色彩引擎—防漂移构建与浏览器验收”的工程链路，摘录本仓库八个核心模块的关键源码实现。所有代码均直接取自仓库对应源文件，未作伪代码简化。
 
-\section{数据清洗与规则分类核心实现}
+\section{21 列统一匿名特征归并与作用域脱敏实现}
 
-\begin{lstlisting}[language=Python, caption={scripts/cleaning/classify\_and\_audit.py 可见输出风格分类与代理预算检查}]
+脚本 \texttt{scripts/cleaning/build\_unified\_features.py} 负责读取五类实验清洗表，严格校验数值有限性与 UTC 时区信息，使用实验域前缀拼接题号生成不可逆的 24 位 SHA-256 伪匿名键 \texttt{question\_key}，并在导出 \texttt{all\_records.csv.gz} 时保持物理初稿唯一与空值不填零。
+
+\begin{lstlisting}[language=Python, caption={scripts/cleaning/build\_unified\_features.py 统一类型转换、脱敏与物理去重主循环}]
+def boolean(x):
+    if x in [None, '']: return None
+    if str(x).lower() in ['1', '1.0', 'true']: return True
+    if str(x).lower() in ['0', '0.0', 'false']: return False
+    raise ValueError('Invalid boolean')
+
+def numeric(x):
+    if x in [None, '']: return None
+    v = float(x)
+    if not math.isfinite(v): raise ValueError('Non-finite number')
+    return int(v) if v.is_integer() else v
+
+def pseudo(direction, value):
+    return hashlib.sha256((direction + '|' + value).encode()).hexdigest()[:24]
+
+def utc(x):
+    if not x: return None
+    date = dt.datetime.fromisoformat(x.replace('Z', '+00:00'))
+    if date.tzinfo is None: raise ValueError('Ambiguous source timestamp')
+    return date.astimezone(dt.timezone.utc).isoformat()
+
+def cell(v):
+    return '' if v is None else str(v).lower() if isinstance(v, bool) else v
+\end{lstlisting}
+
+\section{可见输出组织形态与响应状态规则分类器}
+
+脚本 \texttt{scripts/cleaning/classify\_and\_audit.py} 对推理与文档问答共 149,200 条响应执行确定性规则标注，分离外显排版形态（显式步骤标记、项目符号、多行无标记、单行短答）与底层完成状态（请求失败、长度截断、答案未解析、正常判分），支撑工作台“输出形态与约束”交叉矩阵联动。
+
+\begin{lstlisting}[language=Python, caption={scripts/cleaning/classify\_and\_audit.py 正则形态分类与完成状态判定}]
 def classify(row, dataset, anonymous_id):
     text = row["response_text"]
     family, limit, base = prompt_family(row["prompt_id"])
@@ -33,9 +65,89 @@ def classify(row, dataset, anonymous_id):
     return style, state, family, limit, words, chars
 \end{lstlisting}
 
-\section{按题聚类 Bootstrap 区间复算脚本}
+\section{代码生成 AST-v2 目标函数规范化与依赖内迁器}
 
-\begin{lstlisting}[language=Python, caption={scripts/analysis/derive\_concise\_ci.py 聚类重采样核心循环}]
+针对初版评测器在类方法缩进与函数外标准库导入上产生的假性报错，\texttt{experiments/code\_generation/src/evaluate\_responses.py} 实现了 \texttt{normalized\_generated\_function}：先剥离公共缩进解析 AST，再把顶层导入、常量和辅助函数安全移入目标函数体内部（置于文档字符串之后），最后拷贝官方参考函数的类型注解与装饰器并用 \texttt{ast.unparse} 还原合法源码。
+
+\begin{lstlisting}[language=Python, caption={experiments/code\_generation/src/evaluate\_responses.py 中 AST-v2 规范化实现}]
+def normalized_generated_function(
+    source: str, original_name: str, reference: ast.FunctionDef | ast.AsyncFunctionDef
+) -> str:
+    source = textwrap.dedent(source)
+    tree = ast.parse(source)
+    functions = [n for n in ast.walk(tree) if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+    if not functions:
+        raise ValueError("Could not find a function definition")
+    target_original = next((n for n in functions if n.name == original_name), functions[0])
+    target = copy.deepcopy(target_original)
+    target.name = original_name
+    movable = (ast.Import, ast.ImportFrom, ast.Assign, ast.AnnAssign,
+               ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)
+    helpers = [
+        copy.deepcopy(node) for node in tree.body
+        if isinstance(node, movable) and node is not target_original
+        and not (isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == target.name)
+    ]
+    if helpers:
+        insertion = 1 if (
+            target.body and isinstance(target.body[0], ast.Expr)
+            and isinstance(target.body[0].value, ast.Constant)
+            and isinstance(target.body[0].value.value, str)
+        ) else 0
+        target.body[insertion:insertion] = helpers
+    ref_ann = {a.arg: a.annotation for a in [*reference.args.posonlyargs, *reference.args.args, *reference.args.kwonlyargs]}
+    for arg in [*target.args.posonlyargs, *target.args.args, *target.args.kwonlyargs]:
+        arg.annotation = copy.deepcopy(ref_ann.get(arg.arg))
+    target.returns = copy.deepcopy(reference.returns)
+    target.decorator_list = copy.deepcopy(reference.decorator_list)
+    ast.fix_missing_locations(target)
+    return ast.unparse(target)
+\end{lstlisting}
+
+\section{代码修复防隐藏测试泄漏的六臂反馈构造器}
+
+模块 \texttt{experiments/code\_repair\_v2/src/protocol.py} 从函数输入结构与字段白名单投影两个层面锁死反馈信息边界：即便传入字典同时挂载了保留集结果，\texttt{feedback\_message} 也只读取 \texttt{evaluation["public"]} 并按 \texttt{DIAGNOSTIC\_FIELDS} 或 \texttt{CASE\_FIELDS} 过滤键值，从根源阻断隐藏测试用例泄漏。
+
+\begin{lstlisting}[language=Python, caption={experiments/code\_repair\_v2/src/protocol.py 物理隔离反馈消息构造函数}]
+DIAGNOSTIC_FIELDS = ('kind', 'stage', 'error_type', 'error_message',
+                     'line', 'column', 'source_line', 'candidate_traceback')
+CASE_FIELDS = ('case_index', 'input', 'expected', 'actual', 'error_type', 'error_message')
+
+def _project(failure, keys):
+    return {k: failure[k] for k in keys if k in failure}
+
+def feedback_message(arm, evaluation):
+    """Never accesses held-out outcomes or reference code, including when present."""
+    if arm not in ARMS or arm == 'resample':
+        raise ValueError('This arm has no revision feedback: ' + str(arm))
+    if arm == 'self_review':
+        return INSTRUCTION
+    public = evaluation['public']
+    if public.get('complete') is False:
+        raise ValueError('Incomplete diagnostic execution cannot be used as feedback')
+    feedback = {'diagnostic_status': 'PASS' if public['passed'] else 'FAIL'}
+    failures = public.get('failures') or ([public['first_failure']] if public.get('first_failure') else [])
+    if not public['passed']:
+        if not failures:
+            raise ValueError('A diagnostic failure must have a recorded cause')
+        if arm == 'diagnostic':
+            feedback['diagnostic'] = _project(failures[0], DIAGNOSTIC_FIELDS)
+        elif arm == 'counterexample':
+            feedback['first_failure'] = _project(failures[0], CASE_FIELDS)
+        elif arm == 'multi_counterexample':
+            feedback['failures'] = [_project(f, CASE_FIELDS) for f in failures[:3]]
+    if arm == 'multi_counterexample':
+        summary_keys = ('total_cases', 'passed_cases', 'failed_cases',
+                        'cases_checked', 'blocked_cases', 'unchecked_cases')
+        feedback['test_summary'] = {k: public[k] for k in summary_keys if k in public}
+    return 'Diagnostic test feedback:\n' + json.dumps(feedback, ensure_ascii=False) + '\n\n' + INSTRUCTION
+\end{lstlisting}
+
+\section{按独立题目聚类的配对 Bootstrap 置信区间引擎}
+
+脚本 \texttt{scripts/analysis/derive\_concise\_ci.py} 与 \texttt{experiments/code\_repair\_v2/src/analyze.py} 均采用按题号整簇有放回抽样（$B=5{,}000, \text{seed}=91$）。下方代码展示了在代码生成 193 道共同可评题（每题 5 次重复采样）上按题簇聚合分子分母并重算 \texttt{BeConcise} 相对 \texttt{DefaultCoT} 95\% 差值区间的核心实现。
+
+\begin{lstlisting}[language=Python, caption={scripts/analysis/derive\_concise\_ci.py 按题簇配对重采样核心循环}]
 for model in sorted({m for (m, _, _) in agg}):
     qs = sorted({q for (m, p, q) in agg if m == model and p in ('BeConcise', 'DefaultCoT')})
     a = [agg[(model, 'BeConcise', q)] for q in qs]
@@ -51,12 +163,64 @@ for model in sorted({m for (m, _, _) in agg}):
         )
     diffs.sort()
     lo, hi = diffs[int(0.025 * draws)] * 100, diffs[int(0.975 * draws) - 1] * 100
-    out[model] = [round(lo, 2), round(hi, 2)]
+    out[model] = {'point_pp': round(point * 100, 2), 'ci95_pp': [round(lo, 2), round(hi, 2)]}
 \end{lstlisting}
 
-\section{原生 SVG 感知均匀配色映射}
+\section{五球时空光晕入口状态机与无障碍降级控制}
 
-\begin{lstlisting}[language=JavaScript, caption={app/src/zhiwei.js 中 OKLCH 感知均匀顺序色与紫—橙发散色映射}]
+前端脚本 \texttt{app/src/zhiwei-gate.js} 管理首页开场动画、SVG 光学刻度环生成、视口自适应星尘粒子场以及 \texttt{prefers-reduced-motion} 无障碍静态直达逻辑，确保视觉表现力与键盘可控性兼备。
+
+\begin{lstlisting}[language=JavaScript, caption={app/src/zhiwei-gate.js 开场状态切换、减少动态效果降级与自适应粒子场}]
+function finishIntro() {
+  clearTimeout(introTimer);
+  gate.dataset.phase = 'idle';
+  skip.hidden = true;
+  replay.disabled = false;
+  orbits.inert = false;
+  footer.inert = false;
+  status.textContent = '请选择一个光球，进入对应研究板块。';
+  if (focusOnArrival || document.activeElement === skip) links[0].focus({preventScroll: true});
+  focusOnArrival = false;
+}
+
+function playIntro(focus) {
+  if (preference.matches) { finishIntro(); return; }
+  clearTimeout(introTimer);
+  gate.dataset.phase = 'idle';
+  void gate.offsetWidth;
+  gate.dataset.phase = 'intro';
+  introElapsed = 0;
+  focusOnArrival = focus;
+  skip.hidden = false;
+  replay.disabled = true;
+  orbits.inert = true;
+  footer.inert = true;
+  if (focus) skip.focus({preventScroll: true});
+  status.textContent = '正在聚焦研究现场，可以跳过开场。';
+  introTimer = setTimeout(finishIntro, 3400);
+}
+
+function resizeField() {
+  width = gate.clientWidth;
+  height = gate.clientHeight;
+  const ratio = Math.min(devicePixelRatio || 1, 1.75);
+  canvas.width = width * ratio;
+  canvas.height = height * ratio;
+  context?.setTransform(ratio, 0, 0, ratio, 0, 0);
+  particles = Array.from({length: width < 700 ? 65 : 140}, (_, index) => ({
+    x: ((index * 373 + 137) % 997) / 997 * width,
+    y: ((index * 211 + 53) % 991) / 991 * height,
+    phase: index * 2.39996,
+    radius: index % 9 === 0 ? 1.1 : 0.55
+  }));
+}
+\end{lstlisting}
+
+\section{原生 SVG 感知均匀色空间映射与防溢出文本裁剪}
+
+在 \texttt{app/src/zhiwei.js} 中，我们不依赖外部色彩库，直接通过 \texttt{OKLCH} 到线性 \texttt{LMS} 再到标准 \texttt{sRGB} 的伽马校正变换生成感知亮度均匀的顺序色阶与紫—橙发散色阶，并配套实现了 SVG 节点创建与 \texttt{fitText} 安全字宽裁剪工具函数。
+
+\begin{lstlisting}[language=JavaScript, caption={app/src/zhiwei.js 中 OKLCH 色彩空间矩阵转换与原生 SVG 构造工具}]
 function oklch(L, C, hue) {
   const a = C * Math.cos(hue * Math.PI / 180), b = C * Math.sin(hue * Math.PI / 180);
   const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3;
@@ -73,16 +237,147 @@ function oklch(L, C, hue) {
     return Math.round(v * 255).toString(16).padStart(2, '0');
   }).join('');
 }
+
+function divergeColor(delta, maxAbs = 15) {
+  const t = Math.max(-1, Math.min(1, delta / maxAbs));
+  return t >= 0
+    ? oklch(0.86 - 0.32 * t, 0.03 + 0.14 * t, 282)
+    : oklch(0.86 - 0.28 * (-t), 0.03 + 0.13 * (-t), 52);
+}
 \end{lstlisting}
 
-\section{静态构建防漂移互锁校验}
+\section{静态构建 SHA-256 指纹互锁与无头浏览器数值核验}
 
-\begin{lstlisting}[language=Python, caption={scripts/system/build\_web\_app.py 快照与图稿 SHA-256 一致性检查}]
+最后两段代码分别摘自后端构建管线 \texttt{scripts/system/build\_web\_app.py} 与前端回归脚本 \texttt{tests/browser/zhiwei.mjs}：前者在每次打包时强制校验图稿元数据与压缩特征包的 SHA-256 哈希同源，后者在真实 Chromium 浏览器中抓取 DOM 渲染出的文本数字，并与底层科研快照逐项做浮点容差比对。
+
+\begin{lstlisting}[language=Python, caption={scripts/system/build\_web\_app.py 构建期图证同源哈希互锁检查}]
 code_figures = ROOT / 'reports/figures/code_generation'
-code_meta = json.loads((code_figures / 'figure-metadata.json').read_text())
+code_meta = json.loads((code_figures / 'figure-metadata.json').read_text(encoding='utf-8'))
 if code_meta['source_evidence_sha256'] != hashlib.sha256(code_path.read_bytes()).hexdigest():
-    raise ValueError('Code figure evidence changed; rebuild with scripts/figures/plot_code_generation.py.')
+    raise ValueError('Code figure evidence changed; rebuild with plot_code_generation.py.')
 packed_code = (APP / 'data/code-features.json.gz').read_bytes()
 if hashlib.sha256(packed_code).hexdigest() != code['features_sha256']:
     raise ValueError('Code scores and evidence belong to different snapshots.')
+\end{lstlisting}
+
+\begin{lstlisting}[language=JavaScript, caption={tests/browser/zhiwei.mjs 浏览器端数值容差断言与零溢出巡检}]
+const numbers = text =>
+  (String(text).replace(/[−–]/g, '-').replaceAll(',', '').match(/[+-]?\d+(?:\.\d+)?/g) || []).map(Number);
+const closeTo = (actual, expected, label, tolerance = 0.051) =>
+  assert(Number.isFinite(actual) && Math.abs(actual - expected) <= tolerance,
+         `${label}: ${actual} != ${expected}`);
+
+for (const [w, h] of [[1920, 1080], [1440, 900], [1280, 720], [390, 844]]) {
+  await page.setViewportSize({width: w, height: h});
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+  assert(!overflow, `Horizontal overflow detected at viewport ${w}x${h}`);
+}
+\end{lstlisting}
+
+\section{探索台 Vega-Lite 二维框选集合过滤与错误率联动}
+
+模块 \texttt{app/src/code-study.js} 监听 Vega-Lite 散点视图回传的数据域矩形范围 \texttt{[xmin, xmax, ymin, ymax]}，实时从 93 个模型$\times$提示统计单元中筛出命中子集，动态重算总可评样本数与 14 类错误的条件占比并驱动右侧 ECharts 柱状图刷新。
+
+\begin{lstlisting}[language=JavaScript, caption={app/src/code-study.js 二维框选条件集合筛选与首要失败环节诊断}]
+if (s.view === 'tokens' && s.brush) {
+  const b = s.brush;
+  const rs = D.stats.filter(r =>
+    r.prompt !== '__all' &&
+    r.mean_output_tokens >= b[0] && r.mean_output_tokens <= b[1] &&
+    r.pass[s.k - 1] * 100 >= b[2] && r.pass[s.k - 1] * 100 <= b[3]
+  );
+  const n = rs.reduce((acc, r) => acc + r.n, 0);
+  if (!n) {
+    return '<h2>这个范围内没有实测条件。</h2><p>扩大范围或清除框选，可返回全部 93 个条件。</p>';
+  }
+  const rates = D.error_categories
+    .map(error => ({error, count: rs.reduce((acc, r) => acc + (r.errors[error] || 0), 0)}))
+    .sort((a, b) => b.count - a.count);
+  const top = rates[0];
+  return `<h2>结合输出开销，进一步区分失败发生的环节。</h2>` +
+         `<p>${rs.length} 个条件中，${esc(ERROR_LABELS[top.error])}为 ` +
+         `${fmt(top.count)} / ${fmt(n)}（${pct(top.count / n, 2)}）。</p>`;
+}
+\end{lstlisting}
+
+\section{代码修复补充批次缺失敏感性逻辑上下界核算}
+
+在 \texttt{experiments/code\_repair\_v2/src/analyze.py} 中，针对任何可能存在的未完成评测项，分析器拒绝将其粗暴当作 0 分处理，而是严格在原计划分母 $N_{0}$ 下同时输出极端悲观下界（未知全败）与极端乐观上界（未知全胜），确保结果报告透明严谨。
+
+\begin{lstlisting}[language=Python, caption={experiments/code\_repair\_v2/src/analyze.py 计划分母未知结果逻辑上下界计算}]
+def compute_planned_endpoint_bounds(records, planned_programs):
+    known_pass = sum(1 for r in records if r['outcome_known'] and r['strong_pass'] is True)
+    known_fail = sum(1 for r in records if r['outcome_known'] and r['strong_pass'] is False)
+    unknown = planned_programs - known_pass - known_fail
+    if unknown < 0:
+        raise ValueError("Observed records exceed planned denominator")
+    worst_case = known_pass / planned_programs
+    best_case = (known_pass + unknown) / planned_programs
+    return {
+        "planned_programs": planned_programs,
+        "known_pass": known_pass,
+        "known_fail": known_fail,
+        "unknown": unknown,
+        "worst_case_rate": worst_case,
+        "best_case_rate": best_case,
+    }
+\end{lstlisting}
+
+
+\section{标准库零依赖本地 HTTP 启动服务实现}
+
+入口脚本 \texttt{app/launch.py} 仅依赖 Python 标准库中的 \texttt{importlib}、\texttt{http.server} 与 \texttt{threading} 模块：启动时先动态调用构建器生成经哈希校验的 \texttt{app/dist/} 静态目录，随后在本地环回地址 \texttt{127.0.0.1} 上拉起多线程 HTTP 服务器，确保验收环境无需安装任何第三方 Web 框架即可一键运行。
+
+\begin{lstlisting}[language=Python, caption={app/launch.py 纯标准库快照构建触发与本地环回 HTTP 托管实现}]
+def main():
+    p = argparse.ArgumentParser(description='启动模型行为分析课程系统')
+    p.add_argument('--port', type=int, default=8765)
+    p.add_argument('--no-open', action='store_true')
+    args = p.parse_args()
+    spec = importlib.util.spec_from_file_location('build_app', ROOT / 'scripts/system/build_web_app.py')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    dist = module.build()
+    handler = functools.partial(SimpleHTTPRequestHandler, directory=str(dist))
+    try:
+        server = ThreadingHTTPServer(('127.0.0.1', args.port), handler)
+    except OSError:
+        p.exit(1, f'端口 {args.port} 无法使用，请通过 --port 指定其他端口。\n')
+    url = f'http://127.0.0.1:{args.port}'
+    if not args.no_open:
+        threading.Timer(0.6, lambda: webbrowser.open(url)).start()
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        server.server_close()
+\end{lstlisting}
+
+\section{全仓文档相对链接与交付物完备性静态核验器}
+
+脚本 \texttt{scripts/system/check\_coursework.py} 遍历全仓 15 份核心 Markdown 文档，解析全部相对路径与章节锚点（共 185 处），同时核对课程指导书原件与前端内置副本的 SHA-256 字节一致性，防止文档重排后留下失效死链。
+
+\begin{lstlisting}[language=Python, caption={scripts/system/check\_coursework.py 交付物、PDF 水化状态与锚点链接校验核心逻辑}]
+for relative in [*DOCUMENTS, *REQUIRED]:
+    path = ROOT / relative
+    if not path.exists():
+        errors.append(f'Missing course deliverable: {relative}')
+    elif path.suffix == '.pdf' and not path.read_bytes().startswith(b'%PDF-'):
+        errors.append(f'PDF is not hydrated: {relative}')
+
+for relative in DOCUMENTS:
+    document = ROOT / relative
+    source = document.read_text(encoding='utf-8')
+    for target in re.findall(r'\[[^\]\n]+\]\(([^)\n]+)\)', source):
+        address = urlsplit(target.strip('<>'))
+        if address.scheme or address.netloc:
+            continue
+        link_count += 1
+        destination = (document.parent / unquote(address.path)).resolve() if address.path else document
+        if not destination.is_relative_to(ROOT) or not destination.exists():
+            errors.append(f'{relative}: broken or escaping link: {target}')
+        elif address.fragment and destination.suffix == '.md':
+            if unquote(address.fragment) not in anchors(destination.read_text(encoding='utf-8')):
+                errors.append(f'{relative}: missing anchor: {target}')
 \end{lstlisting}

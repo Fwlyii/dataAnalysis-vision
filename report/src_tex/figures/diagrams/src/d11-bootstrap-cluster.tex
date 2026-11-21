@@ -1,0 +1,14 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm and 6mm]
+  \node[n, minimum width=62mm] (pool) {\nt{同题配对观测池（$Q$ 道独立题簇）}{每题挂载全部受测模型、策略与重复初稿}};
+  \node[na, minimum width=62mm, below=of pool] (draw) {\nt{按题有放回整簇抽样（$B=5{,}000$, seed=91）}{同步保留题簇内策略 A 与策略 B 的配对样本}};
+  \node[n, minimum width=62mm, below=of draw] (stat) {\nt{簇内计数求和比值计算差值 $\Delta_b$}{区分程序份数（492）与独立题簇分母（164）}};
+  \node[na, minimum width=62mm, below=of stat] (ci) {\nt{排序取 2.5\% 与 97.5\% 分位点}{输出 95\% 探索性区间 + 胜/负/平题数明细}};
+
+  \draw[a] (pool) -- (draw);
+  \draw[a] (draw) -- (stat);
+  \draw[a] (stat) -- (ci);
+\end{tikzpicture}
+\end{document}

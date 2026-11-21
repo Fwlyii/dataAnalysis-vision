@@ -1,0 +1,17 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=6mm and 6mm]
+  \node[na, minimum width=65mm] (core) {\nt{核心问题：如何组织输入与反馈提升效能}{固定底层权重，系统调节外显交互条件}};
+  \node[n, minimum width=30mm, below left=7mm and -15mm of core] (d1) {\ttl{维度一：输出组织}\\[1.5pt]\sub{简洁分步 / 中文 / 限长}};
+  \node[n, minimum width=30mm, below right=7mm and -15mm of core] (d2) {\ttl{维度二：证据位置}\\[1.5pt]\sub{10/20篇问答 $\cdot$ 9位扫描}};
+  \node[n, minimum width=65mm, below=20mm of core] (d3) {\nt{维度三：执行反馈与修改轮次}{重采样 / 自检 / 状态 / 诊断 / 单反例 / 多反例}};
+  \node[na, minimum width=65mm, below=6mm of d3] (out) {\nt{五项实证结论（2低维 + 2多维 + 1反常）}{同题配对差值 $\cdot$ 5,000次聚类Bootstrap区间}};
+
+  \draw[a] (core.south) -- ++(0,-3mm) -| (d1.north);
+  \draw[a] (core.south) -- ++(0,-3mm) -| (d2.north);
+  \draw[a] (d1.south) -- (d1.south |- d3.north);
+  \draw[a] (d2.south) -- (d2.south |- d3.north);
+  \draw[a] (d3) -- (out);
+\end{tikzpicture}
+\end{document}

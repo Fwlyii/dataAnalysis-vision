@@ -1,0 +1,14 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm and 6mm]
+  \node[n, minimum width=60mm] (raw) {\nt{1. 模型原始代码提取}{剥离 Markdown 围栏，定位目标函数定义}};
+  \node[n, minimum width=60mm, below=of raw] (dedent) {\nt{2. 类方法参考模板去缩进}{消除初版评分器 ast.parse 假性缩进报错}};
+  \node[na, minimum width=60mm, below=of dedent] (hoist) {\nt{3. 顶层导入与辅助函数内迁}{注入目标函数局部作用域并继承类型注解}};
+  \node[n, minimum width=60mm, below=of hoist] (sbx) {\nt{4. 受限沙箱无网预检与执行}{禁外网 / 仅写临时目录 $\to$ 隔离 T149 (465条)}};
+
+  \draw[a] (raw) -- (dedent);
+  \draw[a] (dedent) -- (hoist);
+  \draw[a] (hoist) -- (sbx);
+\end{tikzpicture}
+\end{document}

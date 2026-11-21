@@ -1,0 +1,88 @@
+\chapter{衍生科学图册（Research Atlas）专题图版选编}\label{app:atlas}
+
+仓库在 \texttt{app/assets/research/} 下完整保存了 37 幅统一深青科研版式的独立矢量图稿（连同 7 幅代码反馈补充图共 44 幅，目录索引见附录~\ref{app:environment} 表~\ref{tab:app-g-atlas44}）。每幅图稿均内置独立标题、量纲单位、观测样本说明与底层 CSV 数据源路径。本附录按研究脉络精选其中 21 幅代表性专题图版分类编排，供离线审阅时直接核对细节趋势。
+
+\section{预算对数律、模型规模与简洁分步专题图版}
+
+图~\ref{fig:app-i-budget} 与图~\ref{fig:app-i-concise} 展示了算术与竞赛数学任务上的对数预算曲线、已知参数模型分基准表现以及简洁分步（\texttt{BeConcise}）前后的逐对 Token 压缩关系。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[GSM8K 上 Token 投入的边际收益曲线]{\shot[0.485\linewidth]{\detokenize{figures/atlas/budget-log-gsm8k.pdf}}}\hfill
+\subfigure[MATH500 上 Token 投入的边际收益曲线]{\shot[0.485\linewidth]{\detokenize{figures/atlas/budget-log-math500.pdf}}}\\[6pt]
+\subfigure[MMLU-Pro 多学科选择题预算曲线]{\shot[0.485\linewidth]{\detokenize{figures/atlas/budget-log-mmlu.pdf}}}\hfill
+\subfigure[MATH500 上四模型表现分差对照]{\shot[0.485\linewidth]{\detokenize{figures/atlas/scale-models-math500.pdf}}}
+\caption{三大推理与多选题库的单模型预算收益曲线及竞赛数学模型表现对照}
+\label{fig:app-i-budget}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[NoCoT / DefaultCoT / BeConcise 三基线阶梯对比]{\shot[0.485\linewidth]{\detokenize{figures/atlas/concise-baseline.pdf}}}\hfill
+\subfigure[默认分步与简洁分步的成对输出 Token 映射]{\shot[0.485\linewidth]{\detokenize{figures/atlas/concise-token-pairs.pdf}}}
+\caption{温和简洁分步在推理基线上的阶梯跃升（左）与跨条件成对长度压缩（右）}
+\label{fig:app-i-concise}
+\end{figure}
+
+\section{极限长度软约束、中文模板边界与文档位置专题图版}
+
+图~\ref{fig:app-i-limits-lang} 与图~\ref{fig:app-i-pos-fb} 分别归档了词数与词元软约束曲线、中文作答跨任务得分边界、文档问答位置优势曲线以及早期多轮修复轨迹对照图。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[Qwen3 在不同词数上限下的输出与得分演化]{\shot[0.485\linewidth]{\detokenize{figures/atlas/limits-word-qwen3.pdf}}}\hfill
+\subfigure[Qwen3 在名义 Token 上限下的遵从偏离]{\shot[0.485\linewidth]{\detokenize{figures/atlas/limits-token-qwen3.pdf}}}\\[6pt]
+\subfigure[MATH500 中文模板对四模型准确率的改变]{\shot[0.485\linewidth]{\detokenize{figures/atlas/language-math-score.pdf}}}\hfill
+\subfigure[中文模板在三个不同基准题库上的作用边界]{\shot[0.485\linewidth]{\detokenize{figures/atlas/language-task-boundary.pdf}}}
+\caption{极限词数/词元软约束曲线（上）与中文作答模板跨题库效应边界（下）}
+\label{fig:app-i-limits-lang}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[文档位置扫描中的两代模型优势差值曲线]{\shot[0.485\linewidth]{\detokenize{figures/atlas/position-model-advantage.pdf}}}\hfill
+\subfigure[不同证据位置下的输出长度稳定性核查]{\shot[0.485\linewidth]{\detokenize{figures/atlas/position-output-cost.pdf}}}\\[6pt]
+\subfigure[文档问答四套评分标尺在位置上的敏感性对照]{\shot[0.485\linewidth]{\detokenize{figures/atlas/position-scoring-sensitivity.pdf}}}\hfill
+\subfigure[代码独立重复采样覆盖率与单次边际新增]{\shot[0.485\linewidth]{\detokenize{figures/atlas/feedback-independent-sampling.pdf}}}
+\caption{多文档位置优势与开销诊断（上、左下）及代码生成独立采样基准图版（右下）}
+\label{fig:app-i-pos-fb}
+\end{figure}
+
+\section{全策略评分全景矩阵与早期多轮修复对照图版}
+
+图~\ref{fig:app-i-extra-fb} 补充归档了 \texttt{Qwen2.5} 在三大题库全部 31 种提示策略上的完整评分全景热力表，以及早期多轮修复基线中的轮次曲线与修复/回退双向柱状图，与正文补充批次形成跨阶段对照。
+
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}[c]{0.47\linewidth}
+  \centering
+  \shot[0.98\linewidth]{\detokenize{figures/atlas/budget-prompt-landscape.pdf}}\\[3pt]
+  {\fontsize{9.3bp}{11.5bp}\selectfont (a) 31 种提示在三大题库的完整评分全景}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.50\linewidth}
+  \centering
+  \shot[0.98\linewidth]{\detokenize{figures/atlas/feedback-rounds-qwen.pdf}}\\[3pt]
+  {\fontsize{9.3bp}{11.5bp}\selectfont (b) Qwen2.5 早期多轮反馈逐轮曲线}\\[5pt]
+  \shot[0.98\linewidth]{\detokenize{figures/atlas/feedback-repair-regression.pdf}}\\[3pt]
+  {\fontsize{9.3bp}{11.5bp}\selectfont (c) 早期基线的初错修复与初对回退对照}
+\end{minipage}
+\caption{全策略评分热力全景（左）与早期多轮修复基线对照图版（右）}
+\label{fig:app-i-extra-fb}
+\end{figure}
+
+
+\section{简洁质量矩阵与中文模板词元成本专题图版}
+
+图~\ref{fig:app-i-cost-matrix} 补充展示了简洁分步在各题库上的质量变化矩阵、\texttt{GSM8K} 模型横向基线以及中文作答模板在 \texttt{MATH500} 上的逐模型词元压缩与成本—质量联合分布。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[跨模型与题库的简洁分步质量变化矩阵]{\shot[0.485\linewidth]{\detokenize{figures/atlas/concise-quality-matrix.pdf}}}\hfill
+\subfigure[GSM8K 上四模型基准得分与区间对照]{\shot[0.485\linewidth]{\detokenize{figures/atlas/scale-models-gsm8k.pdf}}}\\[6pt]
+\subfigure[MATH500 切换中文模板前后的平均词元对比]{\shot[0.485\linewidth]{\detokenize{figures/atlas/language-math-tokens.pdf}}}\hfill
+\subfigure[语言模板在输出成本与准确率二维平面的位移]{\shot[0.485\linewidth]{\detokenize{figures/atlas/language-cost-quality.pdf}}}
+\caption{简洁分步质量矩阵（左上）、算术基准模型对照（右上）及中文模板词元与成本位移（下）}
+\label{fig:app-i-cost-matrix}
+\end{figure}
+
+\FloatBarrier

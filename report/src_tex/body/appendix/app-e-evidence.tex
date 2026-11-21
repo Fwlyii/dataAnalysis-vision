@@ -1,0 +1,109 @@
+\chapter{知微系统全链路界面与多终端实测图集}\label{app:evidence}
+
+本附录系统归档“知微”可视分析平台在本地标准库 HTTP 服务（\texttt{python3 app/launch.py}）下真实渲染采集的多状态运行截图，涵盖主叙事五屏切换、七大核心原生 SVG 图版局部特写、多维配对与 Diff 抽屉、浅色四库探索工作台（\texttt{explore.html}）以及窄屏手机视口响应式布局。
+
+\section{主叙事流前五屏状态切换与移动端适配实测}
+
+图~\ref{fig:app-e-s1s5} 至图~\ref{fig:app-e-mobile-trio} 记录了主站从第一屏模型切换、第二屏中文与简洁提示词矩阵联动、第三屏清洗管道溯源到第五屏实践建议与交付物入口的完整交互链路，以及 $390\times 844$ 竖屏手机视口下的零水平溢出堆叠效果。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[第一屏：默认全景状态（Qwen2.5-7B）]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s1-default.jpg}}}\hfill
+\subfigure[第一屏：切换至 Qwen3-8B 实时重排]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s1-qwen3.jpg}}}\\[6pt]
+\subfigure[第二屏：点选 ChineseCoT 展开实验设计]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s2-chinese.jpg}}}\hfill
+\subfigure[第五屏：五条建议、适用边界与交付材料入口]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s5.jpg}}}
+\caption{主站第一屏模型切换、第二屏策略矩阵联动与第五屏总结入口实测}
+\label{fig:app-e-s1s5}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[第二屏右侧指令条件详情特写]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s2-detail.jpg}}}\hfill
+\subfigure[第三屏 21 列统一特征默认映射视图]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s3-default.jpg}}}
+\caption{第二屏提示策略条件面板特写与第三屏数据清洗全景视图}
+\label{fig:app-e-s2s3}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[手机端：五球光晕入口]{\shot[0.31\linewidth]{\detokenize{figures/screenshots/live-mobile-gate.jpg}}}\hfill
+\subfigure[手机端：第三屏字段溯源]{\shot[0.31\linewidth]{\detokenize{figures/screenshots/live-mobile-s3.jpg}}}\hfill
+\subfigure[手机端：第四屏图版流式堆叠]{\shot[0.31\linewidth]{\detokenize{figures/screenshots/live-mobile-s4.jpg}}}
+\caption{窄屏手机视口（$390\times 844$）下主站门户、数据清洗屏与核心发现屏自适应实测}
+\label{fig:app-e-mobile-trio}
+\end{figure}
+
+\section{第四屏七大核心原生 SVG 图版与子页签特写}
+
+图~\ref{fig:app-e-plates-14} 与图~\ref{fig:app-e-plates-57} 逐幅展示了第四屏七块原生 SVG 图版在不同题库切换、读图说明展开以及代码修复四维子页签（终稿区间、修复与回退、Token 代价、初稿错误分布）切换时的局部高清状态。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[图版 I：GSM8K 对数预算拟合]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-budget.jpg}}}\hfill
+\subfigure[图版 I：切换至 MATH500 曲线重绘]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-budget-math.jpg}}}\\[6pt]
+\subfigure[图版 I：展开右上角读图边界说明浮层]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-budget-note.jpg}}}\hfill
+\subfigure[图版 II：已知参数模型跨基准表现对比]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-scale.jpg}}}\\[6pt]
+\subfigure[图版 III：17 组跨任务简洁分步气泡散点]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-concise.jpg}}}\hfill
+\subfigure[图版 IV：极限词数与字母上限输出反弹]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-limits.jpg}}}
+\caption{第四屏总体规律页（图版 I–IV）的题库切换、说明浮层与细节渲染特写}
+\label{fig:app-e-plates-14}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[图版 V：四模型中文作答变化矩阵]{\shot[0.42\linewidth]{\detokenize{figures/screenshots/plate-language.jpg}}}\hfill
+\subfigure[图版 VI：20 篇文档九位置误差带剖面]{\shot[0.42\linewidth]{\detokenize{figures/screenshots/plate-position.jpg}}}
+\caption{第四屏专项页（图版 V–VI）高分辨率局部渲染特写}
+\label{fig:app-e-plates-57}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[图版 VII：公开诊断通过率轨迹模式]{\shot[0.44\linewidth]{\detokenize{figures/screenshots/plate-trajectory-alt.jpg}}}\hfill
+\subfigure[图版 VII：完整强保留测试轨迹模式]{\shot[0.44\linewidth]{\detokenize{figures/screenshots/plate-trajectory.jpg}}}
+\caption{图版 VII 公开诊断曲线与完整强保留测试曲线切换对比}
+\label{fig:app-e-repair-traj}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[子页签 1：终稿强测置信区间对比]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-endpoints.jpg}}}\hfill
+\subfigure[子页签 2：初错修复与初对回退拆解]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-repair.jpg}}}\\[6pt]
+\subfigure[子页签 3：累计输出 Token 开销对比]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-cost.jpg}}}\hfill
+\subfigure[子页签 4：初稿错误类型支持度分布]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/plate-errors.jpg}}}
+\caption{图版 VII 右下角四维指标子页签完整切换实测}
+\label{fig:app-e-repair-tabs}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[图版 VII：切换至 Qwen2.5-7B 模型视角]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s4-c-model0.jpg}}}\hfill
+\subfigure[案例抽屉：切换至过度修改回退 Diff 实例]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/case-drawer-2.jpg}}}
+\caption{代码修复页模型切换同步与侧滑抽屉回退案例对比实测}
+\label{fig:app-e-repair-drawer2}
+\end{figure}
+
+\section{浅色四库探索工作台与 44 幅科学图册全景实测}
+
+图~\ref{fig:app-e-explore-grid1} 与图~\ref{fig:app-e-explore-grid2} 展示了 \texttt{explore.html} 与 \texttt{legacy.html} 中实现的其余交互图种，包括多策略能力雷达图、输出形态约束分类矩阵、HTTP 请求时间线、代码错误构成、位置剖面联动以及 44 幅科学图册中段代码专题卷。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[代码开销未框选全量 93 条件基线]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-vega-tokens.jpg}}}\hfill
+\subfigure[代码细粒度错误构成交互筛选视图]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-code-errors.jpg}}}\\[6pt]
+\subfigure[ECharts 多维提示策略能力雷达图]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-echarts-radar.jpg}}}\hfill
+\subfigure[149,200 条响应的输出形态与约束联动矩阵]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-echarts-behavior.jpg}}}
+\caption{探索工作台中的代码开销散点、错误构成、能力雷达图与输出形态矩阵实测}
+\label{fig:app-e-explore-grid1}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[文档问答逐次 HTTP 请求重试时间线]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-echarts-timeline.jpg}}}\hfill
+\subfigure[探索台出版级预算—准确率分面视图]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-pub-budget.jpg}}}\\[6pt]
+\subfigure[探索台全量衍生图表库切换导航]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/explore-library.jpg}}}\hfill
+\subfigure[44 幅历史科学图册代码与反馈分卷实测]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-atlas-code.jpg}}}
+\caption{HTTP 请求时间线、出版级预算分面、图表库导航与 44 图科学图册实测}
+\label{fig:app-e-explore-grid2}
+\end{figure}
+\FloatBarrier

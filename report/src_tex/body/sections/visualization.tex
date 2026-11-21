@@ -1,61 +1,116 @@
-\section{“知微”交互可视化系统设计与实现}\label{sec:visualization}
+\section{“知微”双模式可视交互系统设计与前端实现}\label{sec:visualization}
 
-“知微”可视化系统定位为服务科研复核与课程演示的可探索交互界面。系统代码集中在 \texttt{app/} 目录下，核心由入口控制器 \texttt{zhiwei-gate.js}（259 行）、主图版与联动引擎 \texttt{zhiwei.js}（1,760 行）、多套响应式样式表（5,012 行）以及面向全量图库的探索页面 \texttt{explore.html} / \texttt{legacy.html} 构成。
-
-\subsection{五球时空入口与全键盘无障碍导航}
-
-为了克服传统仪表盘开屏信息过载的问题，系统首屏设计为“光学对焦五球时空门”（\texttt{zhiwei-gate.js}）。页面初始化时利用 HTML5 Canvas 绘制低饱和度星野粒子背景，并在中央光学标尺环（动态生成 96 条放射刻度 \texttt{zw-optic-ticks}）周围排布对应“研究问题、实验设计、数据处理、核心发现、结论与反思”的五个交互光球。
-
-\noindent\begin{minipage}[t]{0.48\linewidth}
-\vspace{0pt}
-\textbf{渐进式动效与无障碍兼容}\quad 开场动画持续 3,400\,ms，随后自动激活全部光球控件；用户可随时点击“跳过开场”或重播。当检测到操作系统开启 \texttt{prefers-reduced-motion: reduce} 时，脚本自动跳过粒子飞入与光球轨迹过渡，直接呈现稳定态入口；同时完整支持方向键（上下左右）、\texttt{Home/End} 切换光球焦点、\texttt{Enter} 进入章节及 \texttt{Escape} 返回入口，浏览器前进/后退与 URL Hash 深链接（如 \texttt{\#s4}）均可精确恢复状态。
-\end{minipage}\hfill
-\begin{minipage}[t]{0.49\linewidth}
-\vspace{0pt}
-\centering
-\includegraphics[width=\linewidth]{\detokenize{figures/diagrams/d06-frontend-modules.pdf}}
-\captionof{figure}{前端交互控制器与四类联动状态流}
-\label{fig:frontend-modules}
-\end{minipage}
-
-\subsection{视觉编码规范与三页七图版核心设计}
-
-在核心发现页（第四屏 \texttt{\#s4}），我们摒弃了 ECharts 等黑盒模板，全部使用 \texttt{zhiwei.js} 编写原生 SVG 渲染器。为防止多图切换时产生认知混淆，全站严格固化以下视觉编码规则：
-\begin{itemize}
-  \item \textbf{模型通道色标固定}：\texttt{Qwen2.5 7B} 恒定使用紫罗兰（\texttt{\#6749e2}）、\texttt{Qwen3 8B} 使用暖橙（\texttt{\#e07227}）、\texttt{DeepSeek Flash} 使用翡翠绿（\texttt{\#32a67d}）、\texttt{HY4 preview} 使用洋红（\texttt{\#bc1e72}）。
-  \item \textbf{双编码冗余传达}：任何得分增减与状态变化基于 \texttt{oklch(L, C, hue)} 感知均匀空间计算顺序列紫与紫—橙发散色，并同时使用\textbf{颜色映射 + 文本符号 / 误差线}及 \texttt{fitText} 标签防溢出裁剪机制传达；例如发散差值采用紫—橙发散色带并附带带正负号的百分点数值（pp）。
-  \item \textbf{坐标截断与口径透明}：所有截取局部 Y 轴的图版（如文档位置剖面或代码修复轨迹）均在读图说明弹窗（\texttt{i} 按钮）与脚标中显式声明坐标范围、独立题目分母及置信区间计算口径。
-\end{itemize}
+在完成全部离线统计与图表复算后，我们面临的核心设计命题是：如何把横跨六批次实验、数十个分析切片的复杂证据，组织成一个既能让初次浏览者顺畅读懂来龙去脉，又能支撑细粒度自由钻取的交互系统？经过组内两轮原型推翻与重构，我们最终确立了\textbf{“深空叙事主站（\texttt{index.html}）+ 浅色四库探索工作台（\texttt{explore.html} / \texttt{legacy.html}）”}的双模式前端架构，前端交互控制流如图~\ref{fig:frontend-modules} 所示。
 
 \begin{figure}[!htbp]
 \centering
-\subfigure[总体规律页（图版 I–IV）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s4-a.jpg}}}\hfill
-\subfigure[专项页：中文模板与文档位置（图版 V–VI）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s4-b.jpg}}}
-\caption{第四屏前两页核心发现全景交互视图}
+\includegraphics[width=0.92\linewidth]{\detokenize{figures/diagrams/d06-frontend-modules.pdf}}
+\caption{前端控制器模块划分与多视图状态联动数据流}
+\label{fig:frontend-modules}
+\end{figure}
+
+\subsection{五球时空门户与前三屏渐进式背景导览}
+
+\Needspace{15\baselineskip}
+\begin{wrapfigure}{r}{0.31\linewidth}
+\vspace{-8pt}
+\centering
+\shot[0.92\linewidth]{\detokenize{figures/screenshots/live-mobile-gate.jpg}}
+\caption{手机竖屏（$390\times 844$）下的五球门户自适应重排}
+\label{fig:mobile-gate}
+\vspace{-8pt}
+\end{wrapfigure}
+
+初次打开系统根路径时，首先映入眼帘的是由 \texttt{zhiwei-gate.js} 与 \texttt{zhiwei-gate.css} 驱动的\textbf{五球时空光晕门户}。我们用 Canvas 2D 绘制了随视口宽度自适应密度的微弱星尘背景（桌面端 140 颗、窄屏降至 65 颗以节省移动端帧率），并在中心排布 96 道 SVG 光学刻度环与五颗分别代表“研究问题、实验设计、数据处理、核心发现、结论与反思”的悬浮光球。
+
+为了不让开场动效变成干扰操作的负担，门户状态机内置了细致的无障碍与中断处理：一是首次进入的 3.4 秒聚焦过渡期间，右上角始终提供高对比度的“跳过开场”按钮，按键盘 \texttt{Escape} 键也可随时中止飞行动画直达稳态；二是主动监听操作系统的 \texttt{prefers-reduced-motion: reduce} 媒体查询，一旦检测到用户开启了减少动态效果偏好，立即跳过全部粒子渐变直接呈现静态导航；三是完整接管键盘左右上下方向键、\texttt{Home/End} 键与 \texttt{Enter} 键焦点切换，并在窄屏手机视口下自动收缩轨道半径与字号（图~\ref{fig:mobile-gate}），确保在桌面宽屏与窄屏手机分辨率下均不发生球体边缘裁切。
+
+穿过门户进入主站前三个章节屏后，页面并未堆砌冗长文字，而是将实验背景转化为三个可直接点选验证的交互沙盘（图~\ref{fig:s1-s2-s3}）：\textbf{第一屏（\texttt{\#s1} 研究问题）}提供四个受测模型切换器，同步刷新 31 项提示策略在三大题库上的全景表现条带；\textbf{第二屏（\texttt{\#s2} 实验设计）}将全部提示策略排布为二维交互矩阵，点击如 \texttt{BeConcise} 或 \texttt{ChineseCoT} 等任意单元格，右侧面板即刻联动展开该策略实际注入的英文提示词原文、采样控制条件与样本量；\textbf{第三屏（\texttt{\#s3} 数据处理）}则把 21 列统一匿名特征表做成可点选的字段溯源器，点击如 \texttt{finish\_reason} 或 \texttt{environment\_excluded} 字段，界面便会高亮其在上下游清洗表中的映射路径与缺失处理规则。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[第二屏：点选 \texttt{BeConcise} 联动英文指令与实验条件]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-s2-beconcise.jpg}}}\hfill
+\subfigure[第三屏：点选 \texttt{finish\_reason} 高亮清洗字段血缘]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s3-finish.jpg}}}
+\caption{主站第二屏策略矩阵联动与第三屏 21 列清洗血缘交互实测}
+\label{fig:s1-s2-s3}
+\end{figure}
+
+\subsection{第四屏手写原生 SVG 引擎与七大核心图版联动}
+
+来到承载全部核心统计证据的第四屏（\texttt{\#s4} 核心发现），我们没有调用现成的黑盒图表库，而是在 \texttt{zhiwei.js}（1,753 行原生脚本）中从零实现了一套基于固定逻辑视框（\texttt{viewBox}）的轻量级 SVG 渲染引擎。之所以自己手写底层绘图函数，是因为这七张核心图版包含了对数回归动态虚线、17 组跨任务双编码气泡、9 位置非等距误差带以及右侧实时配对胜负平计算卡等高度定制的科研元素，手写 SVG 能够对每一个坐标刻度、误差棒端帽和标签避让拥有百分之百的像素级控制权。
+
+在视觉编码一致性上，全站严格固化了三条准则：第一，\textbf{模型身份色标全局唯一}，\texttt{Qwen2.5-7B} 固定使用紫罗兰（\texttt{\#6749e2}）、\texttt{Qwen3-8B} 使用暖橙（\texttt{\#e07227}）、\texttt{DeepSeek Flash} 使用翡翠绿（\texttt{\#32a67d}）、\texttt{HY4 preview} 使用洋红（\texttt{\#bc1e72}），用户翻越不同章节时无需反复核对图例；第二，\textbf{感知均匀色空间与冗余双编码}，脚本内嵌了从 \texttt{OKLCH} 空间向线性 sRGB 的矩阵变换函数，用亮度单调变化的紫—橙发散色带表达配对增减，并强制叠加带正负号的百分点文本与误差区间线，照顾色觉辨识差异；第三，\textbf{截断坐标显式声明}，凡是为看清局部波动而未从 0 起算的纵轴（如文档位置剖面与代码修复曲线），均在副标题与右上角“说明（\texttt{i}）”浮层中明确标出坐标起止范围与独立题簇分母。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[第一页（总体规律）：图版 I–IV 全景联动]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s4-a.jpg}}}\hfill
+\subfigure[第二页（专项机制）：中文矩阵与 9 位置剖面]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s4-b.jpg}}}
+\caption{第四屏前两个无障碍选项卡（图版 I–VI）交互视图实测}
 \label{fig:s4-ab}
 \end{figure}
 
-如图~\ref{fig:s4-ab} 所示，第四屏通过顶部三个无障碍 \texttt{role="tab"} 选项卡组织七个核心图版：\textbf{第一页（图版 I–IV）}呈现对数预算曲线（支持切换 GSM8K/MATH500/MMLU-Pro 并动态绘制 $R^2$ 拟合虚线）、模型基准排序对比、17 组简洁分步气泡散点以及极端限长反弹柱状图；\textbf{第二页（图版 V–VI）}并列呈现四模型中文作答箭头/得分变化矩阵与 20 篇文档九位置误差带剖面；\textbf{第三页（图版 VII）}则聚焦多轮代码修复，如图~\ref{fig:s4-c-drawer} 所示，左侧绘制六策略五版本折线轨迹（支持切换“公开诊断/完整强测”与模型），右上放置可实时选定对照双方的“配对比较卡”，右下嵌入“终稿区间 / 修复与回退 / Token 代价 / 初稿错误”四子页签容器。
+如图~\ref{fig:s4-ab} 与图~\ref{fig:s4-c-grid} 所示，第四屏通过顶部三个符合 WAI-ARIA \texttt{role="tab"} 规范的页签分屏承载七大核心图版：第一页并置对数预算拟合曲线（支持实时切换三大题库重算 $R^2$）、模型规模基准排序、17 组简洁分步气泡图与极限限长反弹柱图；第二页对比四模型中文模板矩阵与 20 篇文档九位置剖面；第三页（图版 VII）则构建了“左轨迹主图 + 右上配对比较器 + 右下四维子页签 + 侧滑真实案例抽屉”的紧凑分析台。点击任一图版顶部的“查看数据表”按钮均可弹出底层精确数值模态窗；点击“真实修改案例”则滑出 \texttt{\#case-drawer}，逐行高亮展示 Python 修改前后的增删差异与当时实际喂给模型的 JSON 反馈载荷。
 
 \begin{figure}[!htbp]
 \centering
-\subfigure[专项代码修复页（图版 VII 与配对比较卡）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s4-c.jpg}}}\hfill
-\subfigure[侧边真实修改案例抽屉（代码 Diff 与反馈原文）]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/case-drawer.jpg}}}
-\caption{代码修复多维度交互分析与真实案例溯源抽屉}
-\label{fig:s4-c-drawer}
+\begin{minipage}[c]{0.595\linewidth}
+  \centering
+  \shot[0.99\linewidth]{\detokenize{figures/screenshots/s4-c.jpg}}\\[4pt]
+  {\fontsize{9.5bp}{12bp}\selectfont (a) 图版 VII 主视图：多轮轨迹、实时配对卡与四维指标子页签}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.385\linewidth}
+  \centering
+  \shot[0.99\linewidth]{\detokenize{figures/screenshots/case-drawer.jpg}}\\[2.5pt]
+  {\fontsize{9bp}{11.5bp}\selectfont (b) 侧滑抽屉：逐轮反馈与代码行级 Diff}\\[5pt]
+  \shot[0.99\linewidth]{\detokenize{figures/screenshots/table-dialog.jpg}}\\[2.5pt]
+  {\fontsize{9bp}{11.5bp}\selectfont (c) 模态数据窗：底层统计明细随时核查}
+\end{minipage}
+\caption{第四屏代码修复专题页的多层次“宏观轨迹—配对统计—微观代码 Diff”钻取构图}
+\label{fig:s4-c-grid}
 \end{figure}
 
-\subsection{精细微交互与探索图册兼容}
+\subsection{离线集成四大主流库的自由探索工作台}
 
-除了主图切换外，系统还在每个图版右上角内置了\textbf{“说明（i）”展开面板}与\textbf{“查看数据表”模态框}，允许评阅人随时调出底层精确数值列表（支持键盘 ESC 关闭与焦点回归）；点击“真实修改案例”按钮则会从右侧滑出 \texttt{\#case-drawer} 抽屉，逐轮展示反馈 JSON 载荷与前后 Python 代码行级 Diff 高亮。
+如果用户不满足于阅读主站提炼好的七块核心图版，想要自己框选异常点、调节独立采样轮数或者查看课程指导书提到的其他图种，只需点击第五屏或顶栏入口即可无缝切入探索分析工作台（\texttt{explore.html}）。在这一工作台中，我们按各可视化工具的看家本领做了明确的工程分工，并将四个库（合计 2.45\,MB）固定版本离线打包：
 
 \begin{figure}[!htbp]
 \centering
-\subfigure[结构化数据表弹窗]{\shot[0.32\linewidth]{\detokenize{figures/screenshots/table-dialog.jpg}}}\hfill
-\subfigure[探索分析工作台（explore.html）]{\shot[0.32\linewidth]{\detokenize{figures/screenshots/explore-overview.jpg}}}\hfill
-\subfigure[44 张完整科学图册（legacy.html）]{\shot[0.32\linewidth]{\detokenize{figures/screenshots/atlas.jpg}}}
-\caption{弹窗数据查阅与历史完整探索图册入口}
-\label{fig:dialogs-explore}
+\subfigure[Vega-Lite 二维区间框选联动 ECharts 错误构成柱图]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-vega-brush.jpg}}}\hfill
+\subfigure[D3.js 可打断过渡逐轮揭示 Pass@1 至 Pass@5 收益]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-d3-sampling.jpg}}}
+\caption{探索工作台中的声明式二维框选联动（左）与采样饱和动态揭示视图（右）}
+\label{fig:explore-vega-d3}
 \end{figure}
 
-同时，对于希望查看所有 44 张衍生科学图稿（包含错误恢复路径图、行为时间线、分组箱线图与平行坐标图等课程指导书提及图种）的用户，系统通过第五屏导航及路由 \texttt{explore.html}、\texttt{legacy.html?chapter=atlas} 完整保留了浅色高对比度科研图册工作台（图~\ref{fig:dialogs-explore}），兼顾叙事体验与全量查阅需求。
+\paragraph{Vega-Lite 声明式框选与 ECharts 跨视图联动}在“代码输出开销与测试表现”视图（图~\ref{fig:explore-vega-d3}a，规范定义于 \texttt{app/data/code-scatter.vl.json}）中，我们用 Vega-Lite 渲染全部 93 个“模型 $\times$ 提示”条件散点，并开启二维区间选择（\texttt{interval selection}）。每当用户拖动鼠标框选一片区域（如框选输出 120～340 Token、通过率 14\%～32\% 的中段密集区），Vega View 的信号监听器立即将选中条件集合同步给右侧 ECharts 错误分类横向柱状图与底部样本计数器（实时重算出 47 个选中条件、45,355 条可评回答及 33.73\% 的断言失败占比），框选坐标同时写入 URL 参数 \texttt{codeBrush}，刷新页面亦不会丢失选区。
+
+\paragraph{D3.js 采样步进揭示与 Plotly 分组分布缩放}在“独立采样收益”视图（图~\ref{fig:explore-vega-d3}b）中，我们利用 D3 7.9 的 SVG 裁剪路径与可打断过渡（\texttt{d3-transition}），支持点击播放或拖动滑块依次揭示 $k=1\dots 5$ 的真实无偏估计与单步新增题率，切屏或失焦时自动销毁定时器防止内存泄漏。而在“分组箱线图”视图（图~\ref{fig:explore-plotly-echarts}a）中，则调用 Plotly.js 精确绘制预计算好的线性四分位数（Q1、中位数、Q3）与 $1.5\,\text{IQR}$ 须线，支持拖拽局部放大、双击复位及点击箱体直达对应匿名记录。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[Plotly 分组箱线图（支持坐标缩放与箱体溯源）]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-plotly-box.jpg}}}\hfill
+\subfigure[ECharts 多维平行坐标图（评分/Token/截断联动）]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-echarts-parallel.jpg}}}\\[6pt]
+\subfigure[HTTP 请求重试路径前缀树（文档问答真实日志）]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-echarts-tree.jpg}}}\hfill
+\subfigure[首行匹配与末段包含的评分分歧桑基流图]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/live-echarts-flow.jpg}}}
+\caption{探索工作台实现的分组箱线图、平行坐标图、重试前缀树与评分分歧流图实测}
+\label{fig:explore-plotly-echarts}
+\end{figure}
+
+此外，工作台还利用 ECharts 完整实现了多维平行坐标图（图~\ref{fig:explore-plotly-echarts}b）、多策略能力雷达图、输出形态约束交叉矩阵、逐次 HTTP 请求起止时间线、重试状态前缀树（图~\ref{fig:explore-plotly-echarts}c）以及揭示判分规则偏差的评分分歧流图（图~\ref{fig:explore-plotly-echarts}d），并在 \texttt{legacy.html?chapter=atlas} 中归档了全部 44 幅静态出版级科学图稿（多终端与全视图完整截图见附录~\ref{app:evidence}）。
+
+\subsection{双向 URL 状态同步、单图聚焦与科研级 SVG/CSV 导出}
+
+为了确保用户在探索工作台（\texttt{explore.html}）中筛出的每一个分析发现都具备可分享、可复查的工程属性，我们在 \texttt{app/src/model.js}、\texttt{app/src/interaction.js} 与 \texttt{app/src/code-study.js} 中构建了统一的状态持久化与导出机制（实测界面见图~\ref{fig:explore-inspector-code}）：
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[点选位置矩阵单元格精准联动 400 条同条件匿名响应]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/explore-position.jpg}}}\hfill
+\subfigure[代码生成专题工作台的多指标与导出工具栏]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/explore-code.jpg}}}
+\caption{探索工作台的条件子集抽屉溯源（左，支持一键导出 400 行 CSV）与代码专题工具栏（右）}
+\label{fig:explore-inspector-code}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{无损 URL 查询参数编解码}：无论用户在顶栏切换数据集（\texttt{dataset}）、基准题库（\texttt{task}）、提示词（\texttt{prompt}）、模型子集（\texttt{models}），还是在代码散点图上拉出二维框选框（\texttt{codeBrush=xmin,xmax,ymin,ymax}），控制器都会即时通过 \texttt{history.replaceState} 序列化进地址栏。把当前链接发给同伴或按 \texttt{F5} 刷新浏览器，页面能够精确复原到同一个筛选子集；而当用户从 \texttt{Pass@1} 切换到 \texttt{Pass@5} 量纲时，系统又会自动清空旧指标下的框选坐标，防止把旧量纲阈值误套在新纵轴上。
+  \item \textbf{单图无干扰聚焦（Focus Mode）与焦点闭环}：每张科学图表顶部的交互条均配有“操作导览”与“聚焦图表”按钮。点击聚焦后，当前 SVG 图版平滑居中放大并弱化周边控件，按键盘 \texttt{Escape} 键即可退出聚焦并将键盘焦点精准归还至原触发按钮，不破坏底层的 SVG 节点指纹。
+  \item \textbf{所见即所得的独立 SVG 与子集 CSV 导出}：点击任一交互视图右上角的导出按钮，系统会将当前实时渲染态（包括 D3 当前停驻的采样步数或 Vega-Lite 当前框选结果）连同内联字体样式打包下载为可直接在 Illustrator 或 Inkscape 中编辑的独立矢量 \texttt{.svg} 文件；而在记录检查器中点击“导出记录”（如图~\ref{fig:explore-inspector-code}a 点选单个位置格筛出的 400 条记录），则会直接生成带标准表头的 401 行匿名特征 \texttt{.csv} 文件供外部脚本二次核验。
+\end{itemize}

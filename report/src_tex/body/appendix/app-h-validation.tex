@@ -1,0 +1,87 @@
+\chapter{课程评分标准逐项映射与全链路自动化验收记录}\label{app:validation}
+
+本附录对照《数据分析与可视化实践》课程设计指导书（题目二，第 5--8 页“选项 B：可视交互系统”）的全部考核细则给出仓库实证查阅路径，并归档离线复算、构建校验与无头浏览器回归的完整执行命令及实测通过记录。
+
+\section{系统组 100 分评分细则逐项核验对照}
+
+表~\ref{tab:app-h-rubric} 按指导书第 8 页的九个评分维度（满分 100 分），逐项列出本项目的完成内容、超额拓展亮点以及在报告与代码仓库中的对应核查位置。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{课程设计题目二（可视交互系统组）评分细则逐项落实对照表}\label{tab:app-h-rubric}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.5cm} >{\raggedleft\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{评分项目} & \textbf{分值} & \textbf{指导书核心考核要求} & \textbf{本项目落实情况与仓库查阅入口} \\
+\midrule
+研究问题与选题 & 8 & 问题具体、系统目标明确、有自主探索价值 & 围绕输出表达、证据位置与执行反馈提出 5 个可证伪问题（第~\ref{part:purpose} 章、\texttt{README.md}） \\
+数据采集与伦理 & 8 & 采集规范、原始备份不可覆盖、匿名化充分 & 六批次 273,186 条物理响应只读冻结，SHA-256 题号脱敏、零明文密钥（第~\ref{sec:collection} 节、\texttt{docs/ethics-and-data-handling.md}） \\
+数据清洗与分类 & 15 & 清洗合理、分类依据清晰、数据管道完整 & 构建 21 列匿名特征表，重写 AST-v2 评分器并隔离 \texttt{T149} 环境排除项，建立输出形态与 14 类代码错误规则分类（第~\ref{sec:cleaning} 节、附录~\ref{app:db}） \\
+指标计算与分析 & 15 & 指标定义正确、统计推断合理、解释不夸大因果 & 统一采用 5,000 次按独立题目聚类配对 Bootstrap、无偏 Pass@$k$ 与四标尺敏感性对比（第~\ref{sec:analysis} 节、附录~\ref{app:stats}） \\
+可视化质量 & 15 & 视图合理、坐标单位齐全、配色协调无伪 3D & 主站手写 7 大原生 SVG 图版 + OKLCH 感知色阶，工作台实现 13 类交互图种并附 44 幅科学图册（第~\ref{sec:visualization} 节、附录~\ref{app:evidence}） \\
+系统功能与交互 & 20 & 视图可交互、多视图有效联动、系统稳定可运行 & 实现五球入口、矩阵联动、字段溯源、Vega-Lite 二维框选联动、D3 采样播放与代码 Diff 抽屉，标准库一键运行（\texttt{app/}） \\
+洞察与案例 & 9 & 利用系统发现具体模式（2低维+2多维+1异常） & 完整验证五类核心结论并配套屠夫题、196 正因数死循环与 \texttt{HumanEval/54} 等真实单题档案（第~\ref{part:conclusions} 章、附录~\ref{app:cases}） \\
+代码与可复现性 & 5 & 结构清晰、README 完整、分析与构建可复现 & 零 API 离线复算脚本、SHA-256 图证同源互锁与 1,100 项科研指纹保护（\texttt{docs/reproducibility.md}） \\
+文档与答辩材料 & 5 & 报告规范详实、演示路线清晰、能解释技术选型 & 交付本份详细课程报告、10 页精简案例版 \texttt{case\_report.pdf} 与 12 页答辩幻灯片 \texttt{defense\_slides.pdf} \\
+\bottomrule
+\end{tabularx}
+\end{table}}
+
+\section{一键启动、离线复算与自动化测试命令实录}
+
+表~\ref{tab:app-h-qa-log} 记录了交付前在干净终端环境下逐条实测的核心启动、复算与自动化回归指令及其精确输出结果，所有检查项均以零错误通过验收。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{全链路运行、离线复算、协议单测与无头浏览器回归实测记录表}\label{tab:app-h-qa-log}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{5.6cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{终端执行命令} & \textbf{实测状态} & \textbf{验证覆盖范围与输出核对摘要} \\
+\midrule
+\texttt{python3 app/launch.py --port 8770} & 正常启动 & 仅调用 Python 标准库自动完成快照校验打包并启动本地 HTTP 服务 \\
+\texttt{python3 scripts/reproduce\_anonymous.py} & 复算一致 & 直接从 21 列匿名特征表重算五类实验条件统计，与已保存报表完全吻合 \\
+\texttt{python3 scripts/analysis/derive\_concise\_ci.py} & 复算一致 & 按 193 个独立题簇完成 5,000 次 Bootstrap 重算代码简洁分步置信区间 \\
+\texttt{python3 scripts/system/check\_coursework.py} & 0 错误通过 & 静态扫描 15 份核心 Markdown 文档共 185 处相对路径链接、锚点与 PDF 交付物 \\
+\texttt{python3 scripts/system/check\_reconstruction.py} & 指纹完整 & 核验 37 幅主题 SVG、12 份数据清单及 1,100 项受保护科研文件哈希未发生漂移 \\
+\texttt{python3 -m unittest discover -s tests -p "test\_repair\_v2\_*.py"} & 全部 \texttt{OK} & 通过全部协议防泄漏、分母隔离、沙箱限额、加载失败计数与归档发布单元测试 \\
+\texttt{node tests/browser/zhiwei.mjs} & 29/29 通过 & 真机验证五屏切换、七图版数值精度、数据弹窗、Diff 抽屉及多视口零横向溢出 \\
+\texttt{node tests/browser/zhiwei-gate.mjs} & 12/12 通过 & 在 5 种桌面与移动视口下验证开场跳过/重播、键盘方向键导航、深链接与无障碍合规 \\
+\texttt{python3 tests/run.py} & 93 状态通过 & 巡检探索工作台全部 93 个路由与筛选组合状态、四库渲染及 CSV/SVG 真实导出 \\
+\bottomrule
+\end{tabularx}
+\end{table}}
+
+
+
+\section{多视口几何自适应与五球门户无障碍专项核验表}
+
+表~\ref{tab:app-h-viewports} 汇总了无头浏览器回归套件（\texttt{zhiwei.mjs} 与 \texttt{zhiwei-gate.mjs}）在八种典型桌面、平板与移动端视口分辨率下的几何溢出、五球可达性及 WCAG 2.1 AA 无障碍扫描结果。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{八种标准视口分辨率下的页面水平溢出、导航可达性与无障碍巡检汇总}\label{tab:app-h-viewports}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{测试视口尺寸} & \textbf{设备形态} & \textbf{横向溢出检查} & \textbf{axe 严重违例} & \textbf{布局模式与交互验证结果} \\
+\midrule
+$2560\times 1440$ & 2K 桌面宽屏 & 0\,px 溢出 & 0 项 & 居中最大阅读版心限制生效，SVG 矢量锐利无拉伸失真 \\
+$1920\times 1080$ & 全高清桌面屏 & 0\,px 溢出 & 0 项 & 五屏整屏对焦吸附正常，图版 VII 双栏与配对卡同屏完整呈现 \\
+$1440\times 900$  & 主流笔记本屏 & 0\,px 溢出 & 0 项 & 默认回归基准视口，29 项主站断言与 93 项探索台状态全部通过 \\
+$1280\times 720$  & 紧凑笔记本屏 & 0\,px 溢出 & 0 项 & 顶栏导航、三页签切换、模态数据表与右侧 Diff 抽屉零遮挡 \\
+$1024\times 768$  & 平板横屏视口 & 0\,px 溢出 & 0 项 & 五球轨道自动等比收敛，光球标题与副标清晰可点按 \\
+$844\times 390$   & 手机横屏矮视口 & 0\,px 溢出 & 0 项 & 触发矮屏高度媒体查询，解除强制整屏吸附，纵向自然滚动到底 \\
+$390\times 844$   & 手机竖屏视口 & 0\,px 溢出 & 0 项 & 双栏图版自动降级为单列堆叠，65 颗轻量化星尘帧率平稳 \\
+$320\times 568$   & 极窄小屏极限 & 0\,px 溢出 & 0 项 & 最小窄屏边界测试，五颗导航光球与跳过按钮均保持视口内可达 \\
+\bottomrule
+\end{tabularx}
+\end{table}}
+
+上述无障碍扫描覆盖了 \texttt{wcag2a}、\texttt{wcag2aa} 与 \texttt{wcag21aa} 标签集下的文本对比度（\texttt{color-contrast}）、交互控件可访问名称（\texttt{button-name}）、ARIA 页签角色合法性（\texttt{aria-roles}）以及模态焦点锁定等关键条目，确保键盘与辅助阅读设备均可顺畅操作全部核心视图。
+
+\CaseCard{最终交付归档完整性核验小结}{
+截至本报告编译定稿，代码仓库根目录下的 \texttt{app/}（可运行交互系统）、\texttt{data/}（只读原始归档、21 列匿名特征表与数据字典）、\texttt{scripts/} 与 \texttt{experiments/}（全套采集、清洗、AST-v2 评测与聚类 Bootstrap 统计源码）、\texttt{tests/}（Python 单元测试与 Playwright 浏览器回归套件）、\texttt{presentation/}（答辩幻灯片）以及 \texttt{report/}（本份完整课程报告与精简案例报告）均已完成交叉对齐与构建验证，可在任意具备 Python 3.10+ 标准库的环境下直接离线启动复现。}

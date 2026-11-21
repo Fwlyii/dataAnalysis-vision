@@ -1,70 +1,124 @@
-\chapter{统一数据字典与清洗质量明细}\label{app:db}
+\chapter{统一数据字典、分实验表结构与质量审计}\label{app:db}
 
-本附录收录统一匿名特征表 \texttt{data/processed/all\_records.csv.gz}（248,586 条物理响应）的 21 列完整定义、分实验清洗表结构以及全量缺失率审计记录。CSV 中空单元格统一代表 \texttt{null}，布尔字段规范为 \texttt{true/false}，时间戳归一化至 UTC，严禁跨任务混合计算总准确率。
+本附录集中收录“知微”系统底层数据管道的字段定义、分实验派生宽表结构以及 21 列统一匿名特征表的逐字段缺失率精确审计结果，供查阅与复算核对。
 
-\section{统一匿名特征表字段字典（21 列）}
+\section{统一匿名特征表 21 列完整定义}
 
-\begingroup
+统一特征表 \texttt{data/processed/all\_records.csv.gz} 收纳原五项实验共 248,586 条唯一物理响应。表内严格执行空单元格表示 \texttt{null}、布尔值统一小写 \texttt{true/false}、时间戳归一化为标准 UTC ISO-8601 格式的存储规范，具体字段说明见表~\ref{tab:app-a-dict21}。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
 \ReportTableStyle
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.55cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{4.25cm} >{\raggedright\arraybackslash}p{\dimexpr\linewidth-10.75cm-6\tabcolsep\relax}@{}}
-\caption{统一匿名特征表（all\_records.csv.gz）21 列字段定义}\label{tab:schema-21}\\
-\addlinespace[-1pt]
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{4.6cm} >{\raggedright\arraybackslash}p{4.3cm}@{}}
+\caption{统一匿名特征表（\texttt{all\_records.csv.gz}）21 列字段字典}\label{tab:app-a-dict21}\\
 \toprule
-\textbf{字段名} & \textbf{类型} & \textbf{含义} & \textbf{缺失规则与约束} \\
+\textbf{字段名} & \textbf{数据类型} & \textbf{物理含义与量纲说明} & \textbf{允许空值条件与填充禁令} \\
 \midrule
 \endfirsthead
-\multicolumn{4}{@{}l}{表~\ref{tab:schema-21}（续）} \\
-\addlinespace[-1pt]
+\multicolumn{4}{@{}l}{\fontsize{10bp}{12bp}\selectfont 表~\ref{tab:app-a-dict21}（续）：统一匿名特征表字段字典} \\
 \toprule
-\textbf{字段名} & \textbf{类型} & \textbf{含义} & \textbf{缺失规则与约束} \\
+\textbf{字段名} & \textbf{数据类型} & \textbf{物理含义与量纲说明} & \textbf{允许空值条件与填充禁令} \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-record\_id & string & 公开项目内唯一匿名响应标识 & 永不缺失 \\
-experiment\_id & category & 实验方向标识（界定评测单元与协议） & 永不缺失 \\
-model\_id & category & 规范化受测模型家族标识 & 永不缺失 \\
-benchmark & category & 基准题库家族名称（非评分标尺） & 永不缺失 \\
-question\_key & string & 源题号的实验域内 SHA-256 脱敏假名 & 永不缺失 \\
-prompt\_id & category/null & 命名提示策略标识 & 代码修复基线为 null \\
-timestamp & datetime/null & 归一化至 UTC 的响应时间戳 & 历史推理与代码生成未记录 \\
-input\_tokens & integer/null & 服务商返回的输入 Token 计数 & 源日志未返回时为 null \\
-output\_tokens & integer/null & 服务商返回的输出 Token 计数 & 源日志未返回时为 null \\
-latency\_seconds & float/null & 单次请求耗时（秒） & 源日志未记录时为 null \\
-finish\_reason & category/null & 接口停止原因（如 stop/length） & 接口未返回时为 null \\
-is\_truncated & boolean/null & 仅当停止原因明确为长度截断时为 true & 停止原因缺失时保持 null \\
-metric\_name & category & 任务原生主评分规则标识（不跨任务合并） & 永不缺失 \\
-metric\_value & float/null & 原生规则下的 0/1 观测值 & 环境排除或未决保持 null，不填 0 \\
-environment\_excluded & boolean & 代码基准评测环境排除标记 & 无环境排除方向恒为 false \\
-document\_count & integer/null & 提供的参考文档数量（10 或 20） & 非文档问答方向为 null \\
-evidence\_position & integer/null & 基于 1 的相关证据文档所在位置 & 闭卷对照及非问答方向为 null \\
-independent\_sample & integer/null & 代码生成独立采样序号（非修复轮次） & 非代码生成方向为 null \\
-revision\_round & integer/null & 共享初稿后的修改轮次（初稿为 0） & 非代码修复方向为 null \\
-feedback\_type & category/null & 反馈类型（seed/resample/self\_review 等） & 非代码修复方向为 null \\
-parent\_record\_key & string/null & 前序物理修复记录的匿名键 & 初稿及非修复方向为 null \\
-\end{longtable}
-\endgroup
+\texttt{record\_id} & \texttt{string} & 全项目内唯一匿名物理记录主键 & 永不缺失（100\% 完备） \\
+\texttt{experiment\_id} & \texttt{category} & 实验方向标识，区分采集协议与分析单元 & 永不缺失（5 类枚举值） \\
+\texttt{model\_id} & \texttt{category} & 规范化受测模型家族标识（\texttt{qwen/qwen3/deepseek/hy4}） & 永不缺失 \\
+\texttt{benchmark} & \texttt{category} & 所属基准题集名称（仅标识题源，不代表统一度量衡） & 永不缺失 \\
+\texttt{question\_key} & \texttt{string} & 实验域隔离的源题号 SHA-256 前 24 位伪匿名键 & 永不缺失 \\
+\texttt{prompt\_id} & \texttt{category/null} & 命名的提示词策略编号（31 种策略之一） & 代码修复基线不适用，记为 \texttt{null} \\
+\texttt{timestamp} & \texttt{datetime/null} & 响应落盘时间，统一换算为 UTC 时区 & 历史推理与代码生成源表未采集 \\
+\texttt{input\_tokens} & \texttt{integer/null} & 接口返回的单次请求输入 Token 计数 & 源端未返回时记为 \texttt{null} \\
+\texttt{output\_tokens} & \texttt{integer/null} & 接口返回的单次模型生成输出 Token 计数 & 源端未返回时记为 \texttt{null} \\
+\texttt{latency\_seconds} & \texttt{float/null} & 端到端 HTTP 请求响应耗时（单位：秒） & 历史静态归档未记录时为空 \\
+\texttt{finish\_reason} & \texttt{category/null} & 解码停止原因（如 \texttt{stop}、\texttt{length}） & 服务商未返回时记为 \texttt{null} \\
+\texttt{is\_truncated} & \texttt{boolean/null} & 仅当停止原因明确指示达到长度上限时为 \texttt{true} & 停止原因缺失时保持未知 \texttt{null} \\
+\texttt{metric\_name} & \texttt{category} & 该任务原生主评分规则名称，防止跨任务混算 & 永不缺失 \\
+\texttt{metric\_value} & \texttt{float/null} & 原生主指标下的 0/1 观测得分 & 沙箱环境排除或未决样本保持 \texttt{null}，严禁填 0 \\
+\texttt{environment\_excluded} & \texttt{boolean} & 代码基准中因沙箱无网/只读限制排除的参考题标记 & 无此类排除的任务固定为 \texttt{false} \\
+\texttt{document\_count} & \texttt{integer/null} & 上下文拼入的参考文档总篇数（0、10 或 20） & 非文档问答任务固定为 \texttt{null} \\
+\texttt{evidence\_position} & \texttt{integer/null} & 唯一含标准答案文档从 1 开始计数的插入位置 & 闭卷控制组及非文档问答为 \texttt{null} \\
+\texttt{independent\_sample} & \texttt{integer/null} & 同条件低温独立重复采样序号（$1\dots 5$） & 仅代码生成适用，非修改轮次 \\
+\texttt{revision\_round} & \texttt{integer/null} & 相对共享初稿的代码修改轮次（初稿记 0，后续 $1\dots 4$） & 非代码修复任务固定为 \texttt{null} \\
+\texttt{feedback\_type} & \texttt{category/null} & 反馈类别（初稿、重采样、自检、状态、诊断、反例） & 非代码修复任务固定为 \texttt{null} \\
+\texttt{parent\_record\_key} & \texttt{string/null} & 上一轮父物理响应的伪匿名键，用于还原修改树 & 初稿（第 0 轮）及单轮任务为 \texttt{null} \\
+\end{longtable}}
 
-\section{分实验清洗表与非零缺失率审计}
+\section{六类分实验派生宽表与血缘映射规范}
 
+除 21 列匿名总表外，仓库在 \texttt{data/processed/} 与 \texttt{reports/code\_repair\_extension/} 下保留了各实验方向的专属清洗表，用于支撑细粒度错误诊断与多判分规则对比，各表规模、列数与校验摘要见表~\ref{tab:app-a-tables}。图~\ref{fig:app-a-docpos-base} 给出了基于文档问答分实验宽表绘制的 10 篇与 20 篇基线位置概览图，直观展示了宽表多指标列对位置衰减分析的支撑作用。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
 \begin{table}[!htbp]
 \centering
-\caption{各实验清洗表与非零缺失率字段审计汇总（来自 quality\_report.json 与 missingness.csv）}\label{tab:missingness-audit}
+\caption{各实验方向派生清洗表规模、专有扩展列与 SHA-256 前缀核对表}\label{tab:app-a-tables}
 \ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.55cm} >{\raggedright\arraybackslash}p{3.15cm} >{\raggedleft\arraybackslash}p{1.35cm} >{\raggedleft\arraybackslash}p{1.35cm} >{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.65cm} >{\raggedleft\arraybackslash}p{1.55cm} >{\raggedleft\arraybackslash}p{0.95cm} >{\raggedright\arraybackslash}p{2.75cm} >{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{实验表} & \textbf{局部/全缺失字段} & \textbf{缺失数} & \textbf{缺失率} & \textbf{真实语义归因} \\
+\textbf{实验批次标识} & \textbf{物理行数} & \textbf{列数} & \textbf{SHA-256 前 12 位} & \textbf{关键专有分析字段} \\
 \midrule
-reasoning (74,400) & timestamp 等 7 列 & 74,400 & 100.00\% & 历史归档未记录时间戳；非跨任务适用字段 \\
-document\_qa (74,800) & evidence\_position & 400 & 0.53\% & 对应 200 题 $\times$ 2 模型闭卷无文档对照 \\
-code\_generation (90,210) & metric\_value & 465 & 0.52\% & 环境排除记录保持 null，绝不填零 \\
-document\_positions (3,600) & independent\_sample 等 & 3,600 & 100.00\% & 仅非文档位置专题适用列 \\
-code\_repair (5,576) & parent\_record\_key & 1,640 & 29.41\% & 共享 Round 0 初稿及独立重采样无父版本 \\
+\texttt{reasoning} & 74,400 & 32 & \texttt{de273b88c9e6} & \texttt{latency\_seconds, returned\_model\_name, source\_file, source\_record\_hash} \\
+\texttt{document\_qa} & 74,800 & 46 & \texttt{cc745a84a87d} & \texttt{output\_tokens, total\_tokens, output\_whitespace\_words, output\_characters} \\
+\texttt{code\_generation} & 90,210 & 21 & \texttt{96bd1e2989a9} & \texttt{finish\_reason, scorer, function\_name, source\_file} \\
+\texttt{document\_positions} & 3,600 & 22 & \texttt{351fcf6a7f11} & \texttt{strict\_final\_em, paper\_firstline, full\_response\_contains, is\_truncated} \\
+\texttt{code\_repair} & 5,576 & 24 & \texttt{2930938a5532} & \texttt{full\_pass, diagnostic\_error\_json, evaluation\_seconds, sandboxed} \\
+\texttt{code\_repair\_v2} & 24,600 & 26 & \texttt{extension-v2} & \texttt{shared\_seed\_id, load\_failed, blocked\_cases, executed\_failed\_cases} \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table}}
 
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.90\linewidth]{\detokenize{figures/charts/base-04_document_qa_position.pdf}}
+\caption{基于文档问答 46 列宽表导出的双模型多文档规模位置基线对比图}
+\label{fig:app-a-docpos-base}
+\end{figure}
 
-\section{质量审计与哈希冻结说明}
+\section{五类实验逐字段缺失数量与成因审计明细}
 
-统一特征表 \texttt{all\_records.csv.gz} 在本仓库发布版本中的 SHA-256 校验和为 \texttt{f0649392...64552}，五张分实验清洗表各自独立保留源评分与 SHA-256 指纹。针对代码生成与代码修复中存在的环境依赖排除及加载阻断，清洗层坚持“不以零值替代缺失”的原则，确保任何下游统计均可追溯真实有效分母。
+清洗流水线执行完毕后，质量检查脚本自动生成 \texttt{data/quality/missingness.csv}（共 $5\times 21 = 105$ 项审计单元）。为方便快速核对非零缺失与结构性留空字段，表~\ref{tab:app-a-missing} 按实验方向完整列出了全部存在缺失或部分留空的审计项及其处置依据（其余未列出的必填元数据列如 \texttt{record\_id}、\texttt{model\_id}、\texttt{question\_key}、\texttt{metric\_name} 等在全部五类实验中缺失率均为严格的 0.00\%）。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedleft\arraybackslash}p{1.6cm} >{\raggedleft\arraybackslash}p{1.6cm} >{\raggedleft\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{3.5cm}@{}}
+\caption{统一特征表存在结构性空置或局部缺失的字段审计全表}\label{tab:app-a-missing}\\
+\toprule
+\textbf{实验方向} & \textbf{字段名} & \textbf{总记录数} & \textbf{空值条数} & \textbf{空值占比} & \textbf{审计判定与处置规则} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\fontsize{10bp}{12bp}\selectfont 表~\ref{tab:app-a-missing}（续）：字段缺失率与空值规则审计明细} \\
+\toprule
+\textbf{实验方向} & \textbf{字段名} & \textbf{总记录数} & \textbf{空值条数} & \textbf{空值占比} & \textbf{审计判定与处置规则} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\texttt{reasoning} & \texttt{timestamp} & 74,400 & 74,400 & 100.00\% & 历史归档源表未记录该元数据 \\
+\texttt{reasoning} & \texttt{document\_count} & 74,400 & 74,400 & 100.00\% & 闭卷控制组或非问答任务留空 \\
+\texttt{reasoning} & \texttt{evidence\_position} & 74,400 & 74,400 & 100.00\% & 闭卷控制组或非问答任务留空 \\
+\texttt{reasoning} & \texttt{independent\_sample} & 74,400 & 74,400 & 100.00\% & 非单轮多采样代码生成任务留空 \\
+\texttt{reasoning} & \texttt{revision\_round} & 74,400 & 74,400 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{reasoning} & \texttt{feedback\_type} & 74,400 & 74,400 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{reasoning} & \texttt{parent\_record\_key} & 74,400 & 74,400 & 100.00\% & 第 0 轮共享初稿无父节点或非修复任务 \\
+\texttt{document\_qa} & \texttt{evidence\_position} & 74,800 & 400 & 0.53\% & 闭卷控制组或非问答任务留空 \\
+\texttt{document\_qa} & \texttt{independent\_sample} & 74,800 & 74,800 & 100.00\% & 非单轮多采样代码生成任务留空 \\
+\texttt{document\_qa} & \texttt{revision\_round} & 74,800 & 74,800 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{document\_qa} & \texttt{feedback\_type} & 74,800 & 74,800 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{document\_qa} & \texttt{parent\_record\_key} & 74,800 & 74,800 & 100.00\% & 第 0 轮共享初稿无父节点或非修复任务 \\
+\texttt{code\_generation} & \texttt{timestamp} & 90,210 & 90,210 & 100.00\% & 历史归档源表未记录该元数据 \\
+\texttt{code\_generation} & \texttt{metric\_value} & 90,210 & 465 & 0.52\% & T149 沙箱排除，置空移出分母 \\
+\texttt{code\_generation} & \texttt{document\_count} & 90,210 & 90,210 & 100.00\% & 闭卷控制组或非问答任务留空 \\
+\texttt{code\_generation} & \texttt{evidence\_position} & 90,210 & 90,210 & 100.00\% & 闭卷控制组或非问答任务留空 \\
+\texttt{code\_generation} & \texttt{revision\_round} & 90,210 & 90,210 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{code\_generation} & \texttt{feedback\_type} & 90,210 & 90,210 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{code\_generation} & \texttt{parent\_record\_key} & 90,210 & 90,210 & 100.00\% & 第 0 轮共享初稿无父节点或非修复任务 \\
+\texttt{document\_positions} & \texttt{independent\_sample} & 3,600 & 3,600 & 100.00\% & 非单轮多采样代码生成任务留空 \\
+\texttt{document\_positions} & \texttt{revision\_round} & 3,600 & 3,600 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{document\_positions} & \texttt{feedback\_type} & 3,600 & 3,600 & 100.00\% & 非多轮代码修复任务结构性留空 \\
+\texttt{document\_positions} & \texttt{parent\_record\_key} & 3,600 & 3,600 & 100.00\% & 第 0 轮共享初稿无父节点或非修复任务 \\
+\texttt{code\_repair} & \texttt{prompt\_id} & 5,576 & 5,576 & 100.00\% & 代码修复无静态单轮提示词 \\
+\texttt{code\_repair} & \texttt{document\_count} & 5,576 & 5,576 & 100.00\% & 闭卷控制组或非问答任务留空 \\
+\texttt{code\_repair} & \texttt{evidence\_position} & 5,576 & 5,576 & 100.00\% & 闭卷控制组或非问答任务留空 \\
+\texttt{code\_repair} & \texttt{independent\_sample} & 5,576 & 5,576 & 100.00\% & 非单轮多采样代码生成任务留空 \\
+\texttt{code\_repair} & \texttt{parent\_record\_key} & 5,576 & 1,640 & 29.41\% & 第 0 轮共享初稿无父节点或非修复任务 \\
+\end{longtable}}

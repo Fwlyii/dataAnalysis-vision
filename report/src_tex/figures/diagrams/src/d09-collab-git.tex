@@ -1,0 +1,19 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{diagram-style}
+\begin{document}
+\begin{tikzpicture}[node distance=5.5mm and 5mm]
+  \node[na, minimum width=65mm] (spec) {\nt{阶段零：四人联合冻结接口契约}{21列 snake\_case 字典 $\cdot$ 4份前端 JSON 快照}};
+  \node[n, minimum width=30mm, below left=6.5mm and -15mm of spec] (m1) {\ttl{数据与统计分支}\\[1.5pt]\sub{清洗归并 / 聚类重采样}};
+  \node[n, minimum width=30mm, below right=6.5mm and -15mm of spec] (m2) {\ttl{协议与评测分支}\\[1.5pt]\sub{AST-v2 / 双层防泄漏}};
+  \node[n, minimum width=30mm, below=5.5mm of m1] (m3) {\ttl{原生可视化分支}\\[1.5pt]\sub{五球七图 / 四库工作台}};
+  \node[n, minimum width=30mm, below=5.5mm of m2] (m4) {\ttl{质量与文档分支}\\[1.5pt]\sub{指纹互锁 / 浏览器验收}};
+  \node[na, minimum width=65mm, below=38mm of spec] (gate) {\nt{主干合流守门（main）}{185处链接检查 + 33项单测 + 41项浏览器断言}};
+
+  \draw[a] (spec.south) -- ++(0,-2.8mm) -| (m1.north);
+  \draw[a] (spec.south) -- ++(0,-2.8mm) -| (m2.north);
+  \draw[a] (m1) -- (m3);
+  \draw[a] (m2) -- (m4);
+  \draw[a] (m3.south) -- (m3.south |- gate.north);
+  \draw[a] (m4.south) -- (m4.south |- gate.north);
+\end{tikzpicture}
+\end{document}

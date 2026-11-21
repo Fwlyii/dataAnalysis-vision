@@ -1,7 +1,11 @@
-\section{静态构建管线与数据快照契约}\label{sec:contracts}
+\section{静态快照防漂移契约与工程难点攻关}\label{sec:contracts-challenges}
 
-为彻底消除前端页面“在浏览器中实时拼凑假数据”或“统计表格更新后网页展示滞后”的风险，团队设计了基于 Python 标准库的静态构建与防漂移契约，核心代码位于 \texttt{scripts/system/build\_web\_app.py} 与 \texttt{app/launch.py}。
+\subsection{构建管线 SHA-256 指纹互锁与防漂移机制}
 
-\paragraph{构建产物与版本指纹}每次运行 \texttt{python3 app/launch.py --port 8770} 或独立执行 \texttt{build\_web\_app.py} 时，构建器会读取 \texttt{app/} 源码与 \texttt{app/data/} 下经离线分析冻结的科研 JSON（包括 \texttt{summary.json}、\texttt{research-charts.json}、\texttt{research-content.json} 与 \texttt{code-feedback-extension.json} 等 16 份文件），自动将其打包输出至非 Git 追踪的 \texttt{app/dist/} 目录，并为 CSS/JS 与特征脚本生成 12 位 SHA-256 内容哈希后缀（如 \texttt{COURSE\_FEATURE\_VERSION}），从根源上杜绝浏览器强缓存导致的旧版静态数据残留问题。
+在多人同时迭代统计脚本、科学图稿与前端页面的几周里，最容易出纰漏的地方就是“上游重跑了某个 CSV，下游网页数据包却忘了同步更新”。为了把这种人为疏忽彻底拦在构建阶段，我们在 \texttt{scripts/system/build\_web\_app.py} 与 \texttt{check\_web\_snapshot.py} 中建立了一套严格的哈希互锁契约：
 
-\paragraph{强一致性互锁校验}在打包代码生成与出版图稿数据时，\texttt{build\_web\_app.py} 会主动核对：\textcircled{1} \texttt{reports/figures/code\_generation/figure-metadata.json} 中记录的 \texttt{source\_evidence\_sha256} 必须与 \texttt{app/data/code-evidence.json} 的实际哈希完全一致；\textcircled{2} 压缩特征包 \texttt{code-features.json.gz} 的哈希必须与 \texttt{code-evidence.json} 内的 \texttt{features\_sha256} 吻合。一旦发现上游统计数据与下游图表不同步，构建过程立即抛出异常并阻断发布。此外，脚本同时将 \texttt{guide/数据分析和可视化-题目2.pdf}、\texttt{report/case\_report.pdf} 与 \texttt{presentation/defense\_slides.pdf} 复制到构建产物 \texttt{app/dist/data/} 中，使系统第五屏的文档跳转与仓库交付物保持单源一致。
+\begin{itemize}
+  \item \textbf{图证同源强校验}：每次执行构建或运行 \texttt{python3 app/launch.py} 时，脚本都会重新计算 \texttt{code-evidence.json} 与压缩特征包 \texttt{code-features.json.gz} 的字节级 SHA-256 摘要，并与 \texttt{figure-metadata.json} 中记录的源指纹逐一比对；一旦发现图稿与数据包不属于同一次快照生成，构建器当场抛出异常终止打包，绝不允许新旧口径混装上线。
+  \item \textbf{静态产物内容寻址防缓存}：所有拷贝至 \texttt{app/dist/} 运行目录的样式表与脚本均自动追加由文件内容计算出的 12 位版本查询串（如 \texttt{?v=64c2ad0fc74d}），同时对内置的四大前端可视化库核验许可证与包哈希，确保本地离线打开时不会读到陈旧的浏览器磁盘缓存。
+  \item \textbf{科研资产保护白名单}：脚本 \texttt{check\_reconstruction.py} 对仓库内 37 幅核心主题 SVG、12 份数据源清单及总计 \textbf{1,100 项已验收科研文件指纹}建立只读保护监控，确保美化界面交互时不会无意篡改任何一条实验曲线的坐标数值。
+\end{itemize}

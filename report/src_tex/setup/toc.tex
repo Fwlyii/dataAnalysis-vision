@@ -1,31 +1,11 @@
 \clearpage
 \begingroup
-\pagestyle{empty}
 \setcounter{page}{2}
+\pagestyle{fancy}
 \phantomsection
 \pdfbookmark[0]{目录}{mulu}
-\newcommand{\ReportTocRow}[3]{%
-  \put(73.70,#1){\makebox(0,0)[lb]{\song\fontsize{12bp}{18bp}\selectfont
-    \hbox to447.88bp{\hyperref[#2]{#3}\leaders\hbox to6bp{\hss.\hss}\hfill\pageref{#2}}}}%
-}
-\AddToShipoutPictureFG*{\AtPageLowerLeft{%
-  \setlength{\unitlength}{1bp}%
-  \put(297.64,745.92){\makebox(0,0)[b]{\song\bfseries\fontsize{18bp}{24bp}\selectfont 目录}}%
-  \ReportTocRow{710}{part:purpose}{一、实验目的}
-  \ReportTocRow{686}{part:team}{二、小组分工}
-  \ReportTocRow{662}{part:project}{三、项目介绍}
-  \ReportTocRow{638}{part:process}{四、实验过程}
-  \ReportTocRow{614}{part:conclusions}{五、实验结论}
-  \ReportTocRow{590}{part:experience}{六、实验体会}
-  \ReportTocRow{552}{app:db}{附录 A\quad 统一数据字典与清洗质量明细}
-  \ReportTocRow{528}{app:prompts}{附录 B\quad 提示策略、受测模型与实验配置}
-  \ReportTocRow{504}{app:code}{附录 C\quad 关键处理与交互系统源码清单}
-  \ReportTocRow{480}{app:evidence}{附录 D\quad 知微系统运行界面与多视图实测截图}
-  \ReportTocRow{456}{app:environment}{附录 E\quad 运行环境、代码规模与目录映射}
-  \ReportTocRow{432}{app:stats}{附录 F\quad 全维度统计结果与配对比较明细}
-  \ReportTocRow{408}{app:validation}{附录 G\quad 课程评分标准对照与验收核验记录}
-}}
-\null
-\thispagestyle{empty}
+{\setlength{\parfillskip}{0pt plus 1fil}%
+ \setlength{\parskip}{1.5pt}%
+ \tableofcontents}
 \clearpage
 \endgroup

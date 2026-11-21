@@ -1,34 +1,42 @@
-\section{多任务数据采集与伦理匿名化}\label{sec:collection}
+\section{多任务实验方案设计与原始日志采集}\label{sec:collection}
 
-\subsection{采集方案设计与原始数据冻结}
+\subsection{四大任务场景与六批次对照矩阵}
 
-针对课程要求“至少设计 2–3 类不同任务、保留完整采集环境且不得覆盖原始数据”，我们设计了由五项基础对照实验与一项代码反馈补充实验组成的数据采集矩阵。所有采集脚本统一收敛在 \texttt{scripts/acquisition/} 目录下，默认采用 \texttt{--plan} 干跑模式输出任务计划，仅当显式传入 \texttt{--execute} 参数时才发起接口请求，防止误操作重复刷写远程模型接口。
+为了避免只在单一简单题集上得出片面结论，我们在采集方案设计阶段选取了知识形态、输入长度与评判方式截然不同的四类代表性任务，累计形成六个冻结实验批次：
 
-\noindent\begin{minipage}[t]{0.50\linewidth}
-\vspace{0pt}
-每条原始响应均连同系统提示、温度、最大输出长度（如推理与代码修复设定单次上限 2,048 Token）、请求耗时、返回停止原因（\texttt{finish\_reason}）及本地评分/沙箱结果一并落盘。采集完成后，团队第一时间对 \texttt{data/raw/} 下的原始 ZIP 与 JSONL.GZ 制品执行字节级冻结，并生成涵盖 405 余个不可变制品的 SHA-256 校验清单（\texttt{data/inventory/raw\_files.json}），确保后续任何清洗、重算与可视化过程均只在派生副本上运行。
-\end{minipage}\hfill
-\begin{minipage}[t]{0.47\linewidth}
-\vspace{0pt}
+\paragraph{数学推理与多学科选择（74,400 条物理响应）}选取小学算术应用题 \texttt{GSM8K}、英文竞赛数学 \texttt{MATH500} 与多学科高阶选择题 \texttt{MMLU-Pro} 三个基准，每个基准固定抽取 200 道独立题目，分别在 \texttt{Qwen2.5-7B}、\texttt{Qwen3-8B}、\texttt{DeepSeek Flash} 与 \texttt{HY4 preview} 四个模型上遍历全部 31 种提示词策略（$4\times 3\times 200\times 31 = 74{,}400$ 条）。采集脚本固定单次生成上限以观察不同提示长度下的自然截断现象，并完整记录接口返回的输入/输出 Token 数、结束原因（\texttt{finish\_reason}）与源判分结果。
+
+\paragraph{多文档开放域问答与九位置精细扫描（74,800 + 3,600 条）}基于自然问题数据集 \texttt{NQ-Open} 的 200 道事实型问题，构造两阶段上下文位置实验。第一阶段基线实验同时涵盖无参考材料的闭卷控制组（每模型 200 条），以及供给 10 篇或 20 篇检索段落并将唯一含答案文档（Gold Document）置于首部、中部或尾部的全策略对照，在两个 Qwen 模型上共采集 74,800 条响应；第二阶段专题实验（\texttt{configs/document\_positions.json}）为精细刻画“中间迷失”曲线形状，固定使用简洁直接的 \texttt{NoCoT} 指令与 20 篇参考文档，将含答案文档依次放入第 \textbf{1、3、5、8、10、13、15、18、20} 共 9 个精确序号位置（$2\times 200\times 9 = 3{,}600$ 条），从而排除了提示词格式噪声对位置效应的干扰。
+
+\paragraph{单轮多采样代码生成（90,210 条）}采用经过可执行性筛选的 \texttt{CodePromptEval} 基准中 194 道 Python 函数任务，横跨“无外部依赖独立函数”“仅依赖标准库”“依赖第三方包”与“跨文件工程级依赖”四个复杂度层级。在 \texttt{DeepSeek Flash}、\texttt{Qwen2.5-7B} 与 \texttt{Qwen3-8B} 三个模型上遍历 31 种任务适配后的提示策略，并对每个“模型 $\times$ 题目 $\times$ 提示”组合执行 5 次低温度独立采样（$3\times 194\times 31\times 5 = 90{,}210$ 条），专门用于检验重复采样饱和度与提示词多样性增益。
+
+\paragraph{多轮代码执行反馈修复（5,576 条基线 + 24,600 条双层隔离补充）}在早期完成 5,576 条多轮修复基线探索后，团队针对 \texttt{HumanEval+ Mini} 的全部 164 道 Python 编程题重新设计了严格受控的补充采集协议（图~\ref{fig:repair-protocol}）。我们先为每个模型（\texttt{Qwen2.5-7B} 与 \texttt{Qwen3-8B}，显式关闭 Qwen3 额外思考模式以拉平推理预算）每道题生成 3 份低温独立初稿（\texttt{temperature=0.2}，共 $2\times 164\times 3 = 984$ 份物理共享初稿），随后从每一份相同的初稿分叉出六种反馈处理臂，各自连续推进 4 轮生成（$984 + 984\times 6\times 4 = 24{,}600$ 条唯一物理响应）。
+
+\begin{figure}[!htbp]
 \centering
-\captionof{table}{六组实验数据采集规模与来源汇总}\label{tab:collection-scale}
-\ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.35cm} >{\raggedleft\arraybackslash}p{1.45cm} >{\raggedright\arraybackslash}X@{}}
-\toprule
-\textbf{实验批次} & \textbf{物理响应} & \textbf{题库与变量} \\
-\midrule
-推理与选择题 & 74,400 & 600 题 $\times$ 4 模型 $\times$ 31 策略 \\
-文档问答 & 74,800 & NQ-Open 200 题 $\times$ 2 模型 \\
-代码生成 & 90,210 & 194 题 $\times$ 3 模型 $\times$ 31 策略 $\times$ 5 次 \\
-文档位置专题 & 3,600 & 200 题 $\times$ 2 模型 $\times$ 9 位置 \\
-历史代码修复 & 5,576 & 164 题 $\times$ 2 模型 $\times$ 4 轮 \\
-代码反馈补充 & 24,600 & 164 题 $\times$ 2 模型 $\times$ 3 初稿 $\times$ 6 组 \\
-\bottomrule
-\end{tabularx}
-\end{minipage}
+\includegraphics[width=0.95\linewidth]{\detokenize{figures/diagrams/d05-repair-protocol.pdf}}
+\caption{多轮代码修复补充实验的共享初稿分叉与公开/保留测试物理隔离协议}
+\label{fig:repair-protocol}
+\end{figure}
 
-\subsection{伦理规范与分层匿名化策略}
+\subsection{31 种提示词策略族系与六臂反馈梯度}
 
-\paragraph{题目去标识化与密钥隔离}由于原始研究语料包含第三方公开基准题目原文、模型推理链条及接口指纹（如 \texttt{system\_fingerprint}），直接发布易触发评测污染与敏感配置暴露。我们在采集与整理阶段执行三层隔离策略：首先，所有外部密钥与接口地址均由 \texttt{.env.example} 与 \texttt{configs/} 模板注入运行环境变量，源码仓库中零明文密钥；其次，在公开派生表与网页数据快照中，所有源题目编号统一通过实验域内的 SHA-256 哈希转换为不可逆假名 \texttt{question\_key}；最后，将完整原始回答文本留存于研究归档层，交互网页仅读取脱敏后的数值特征、聚合区间与经审核的精选代码 Diff 示例。
+为了让实验对比具有清晰的结构层次，我们将 31 种单轮提示词归纳为四个对照族系（完整英文原文模板与参数见附录~\ref{app:prompts}）：（1）\textbf{回答组织族}（6 种），包括 \texttt{NoCoT}、\texttt{DefaultCoT}、\texttt{BeConcise} 以及限制推理步数的 \texttt{StepLimit(1/2/5)}；（2）\textbf{语言模板族}（5 种），包括切换中文作答的 \texttt{ChineseCoT} 及其带字数上限的四个变体 \texttt{ChineseCoT(10/50/100/500)}；（3）\textbf{长度预算族}（15 种），按词数 \texttt{WordLimit(1..100)}、字母数 \texttt{CharLimit(10..500)} 和词元数 \texttt{TokenLimit(10..500)} 设置由松到紧的软约束梯度；（4）\textbf{表达格式族}（5 种），包括仅列要点 \texttt{BulletPoints}、缩写去元音 \texttt{AbbreviateWords}、忽略语法 \texttt{NoProperGrammar}、去空格换行 \texttt{NoSpaces} 与仅用数字算式 \texttt{OnlyNumbers}。在代码生成任务中，我们将格式与长度约束限定在代码围栏之外的解释文字上，避免直接破坏 Python 关键字语法。
 
-\paragraph{数据口径透明化}针对历史代码修复批次（5,576 条）与最新完整代码反馈补充批次（24,600 条）的并存情况，系统在文档、数据清单与界面脚标中严格标明三者边界：原统一特征表保持 248,586 条不变以保护科研基线指纹；仓库全量累计 273,186 条；新版“知微”主页面则选用替换后的 267,610 条。两套批次各自独立计算置信区间，不跨批次混用采样分母。
+而在多轮代码修复补充实验中，六种处理臂按外部执行信息量由零到强严格递增：（1）\textbf{独立重采样（\texttt{resample}）}：每轮只重新传入原题，不保留历史代码与报错；（2）\textbf{自行检查（\texttt{self\_review}）}：传入上一轮候选代码并要求复查修正，但不提供任何测试结果；（3）\textbf{仅通过状态（\texttt{pass\_fail}）}：仅告知公开诊断测试为 \texttt{PASS} 或 \texttt{FAIL}；（4）\textbf{错误定位诊断（\texttt{diagnostic}）}：提供首个报错的异常类型、行号与调用栈摘要，隐去具体测试输入与期望输出；（5）\textbf{单个失败反例（\texttt{counterexample}）}：给出首个失败公开用例的输入、期望输出与实际输出；（6）\textbf{多个失败反例（\texttt{multi\_counterexample}）}：最多给出前 3 个失败公开用例及测试通过计数摘要。
+
+\subsection{原始制品只读冻结与伦理脱敏措施}
+
+采集脚本运行过程中，每条 API 请求均以追加写模式实时落盘至 \texttt{data/raw/} 下的 JSONL 文件，并同步记录配置哈希 \texttt{config\_sha256}。全部跑批结束后，我们对 405 余份原始数据制品生成校验清单并设为只读，后续任何清洗重算脚本均被禁止改写原始目录（验证测试会检查 \texttt{api\_calls == 0}）。
+
+在伦理与隐私合规方面，本实验全部基于公开学术基准题库与模型接口生成，不涉及真实人类受试者的私人聊天记录。清洗导出阶段，脚本自动剥离环境变量中的 API Key、服务商内部请求头及本地机器路径，并通过作用域哈希函数 \texttt{sha256((direction + "|" + question\_id).encode())[:24]} 生成 24 位十六进制伪匿名题号 \texttt{question\_key}。前端公开部署包仅携带数值统计特征与少量人工脱敏核查后的教学示例片段，严格遵循课程指导书第 3 页的伦理要求。
+
+\subsection{异步并发采集调度、断点续采与异常重试日志治理}
+
+二十七万余条模型接口调用并非一蹴而就，在跨越数天的批量采集过程中，云端 API 偶发的速率限制（HTTP 429）、网关瞬时超时（HTTP 502/504）以及本地网络抖动都是必须正面处理的工程常态。为此，我们在 \texttt{scripts/acquisition/} 与 \texttt{experiments/code\_repair\_v2/} 的采集器中内置了三项容错保障：
+
+\paragraph{进程级互斥锁与幂等断点续采}每次启动跑批脚本时，程序首先在实验工作目录创建 \texttt{.collection.lock} 文件锁，防止误开两个终端并发覆盖同一输出流。重连恢复时，采集器先扫描已落盘 JSONL 文件构建已完成任务键集合 \texttt{completed\_keys = \{(model, task\_id, prompt\_id, sample\_id)\}}，自动跳过已成功获取完整响应的单元，确保中途断网重跑不会产生重复计费或脏行。
+
+\paragraph{指数退避重试与完整 HTTP 状态轨迹留存}遇到可恢复的服务端限流或瞬断时，调度器按带随机抖动的指数退避间隔发起有限次重试，并将每一次尝试的起止时间戳、HTTP 状态码与累计尝试次数（\texttt{attempt\_count}）原样写入日志。这些真实保存下来的通信元数据没有在清洗时被丢弃，而是直接转化为了探索工作台中的“请求时间线”与“重试路径前缀树”两类行为视图。
+
+\paragraph{评测计划前置哈希锁定}在代码修复补充实验中，采集器在发出第一条请求前先将全部 164 道题目列表、模型参数、随机种子与六臂名称固化写入 \texttt{plan.json} 并计算 \texttt{config\_sha256}；后续每一条物理响应与沙箱评测回执都必须携带匹配的 \texttt{config\_sha256}，否则离线分析器将拒绝合并，从源头杜绝了中途临时改配置混跑数据的隐患。

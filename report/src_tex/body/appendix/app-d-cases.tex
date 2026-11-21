@@ -1,0 +1,127 @@
+\chapter{典型实验原始问答对与多轮代码修复案例档案}\label{app:cases}
+
+为了使正文中的统计规律拥有可逐字核实的微观证据支撑，本附录从 \texttt{reports/story/案例原文.md} 与 \texttt{reports/code\_repair\_extension/} 归档库中精选五组同题配对案例原文与代码修改轨迹，涵盖温和简洁防截断、中文模板救援、极限字母上限死循环、长文档中间迷失以及代码修复正反向典型场景。
+
+\section{推理分步与温和压缩（BeConcise）同题对照档案}
+
+\paragraph{案例组 D-1：算术应用题冗余复述压缩（GSM8K：记录 Z006587 vs.\ Z006787）}题目询问：“屠夫 Prince 工作时每小时售出 15\,kg 肉，每天工作 10 小时；朋友送给他一头重 750\,kg 的公牛，卖完需要多少天？”（标准答案：\texttt{5}）。在 \texttt{DefaultCoT} 下，\texttt{DeepSeek Flash} 耗费 163 Token 分三步反复重抄题干条件；而在 \texttt{BeConcise} 下，同一模型仅用 40 Token 写出两行算式即准确命中：
+
+\begin{lstlisting}[language={}, numbers=none, caption={记录 Z006787（deepseek / gsm8k / BeConcise，40 Token，得分 1，stop）}]
+Prince sells 15 kg/hour * 10 hours/day = 150 kg/day.
+The bull weighs 750 kg.
+750 / 150 = 5 days.
+
+Answer: 5
+\end{lstlisting}
+
+\paragraph{案例组 D-2：消除画蛇添足的二次验算防截断（MATH500：记录 Z012672 vs.\ Z012872）}题目要求将二进制数 $10101001110_2$ 换算为八进制数（标准答案：\texttt{2516}）。下方对比清晰展示了为什么 \texttt{BeConcise} 在竞赛数学上不仅省流还能提分——\texttt{DefaultCoT} 在第 2 步本已算出正确答案，却因启动繁琐的十进制二次验算在 800 Token 处被硬截断判零分：
+
+\begin{lstlisting}[language={}, numbers=none, caption={记录 Z012672 摘录（DefaultCoT，800 Token，finish\_reason=length，得分 0） vs.\ Z012872（BeConcise，89 Token，得分 1）}]
+[Z012672 - DefaultCoT: 已算出 2516 后开启冗余验算导致截断失分]
+Step 2: Convert each 3-bit group to octal digit.
+- 010_2 = 2_8, 101_2 = 5_8, 001_2 = 1_8, 110_2 = 6_8 -> So octal: 2516_8
+Step 3: Double-check by converting binary to decimal, then to octal.
+Binary 10101001110_2 = 1*2^10 + 0*2^9 + 1*2^8 + 0*2^7 + 1*2^6 + ...
+= 1024 + 0 + 256 + 0 + 64 + 0 + 0 + 8 + 4 + 2 + 0 = (此处触达 800 Token 上限被截断，未输出 Answer 行！)
+
+[Z012872 - BeConcise: 89 Token 干净收尾拿满分]
+First, group the binary digits into sets of three from right to left:
+10101001110 -> 10 101 001 110 -> Pad leftmost group: 010 101 001 110
+Convert each group: 010_2 = 2, 101_2 = 5, 001_2 = 1, 110_2 = 6.
+So in octal: 2516_8
+Answer: 2516
+\end{lstlisting}
+
+\section{中文作答模板（ChineseCoT）救援长推导截断档案}
+
+\paragraph{案例组 D-3：同余方程推导密度对比（MATH500：记录 Z049851 vs.\ Z054851）}题目大意：你有 7 袋金币（每袋个数相同，总数超过 200 枚），加上找到的 53 枚散币后恰好能均分进 8 个袋子，求原先最少有多少枚金币（标准答案：\texttt{203}）。在英文 \texttt{DefaultCoT}（\texttt{Z049851}）下，\texttt{Qwen3-8B} 逐一枚举乘法逆元 $7\times 1,\dots,7\times 7=49$，写到第 4 步不等式 \texttt{56k + 35 + 53 >} 时耗尽 800 Token 被截断判 0 分；切换 \texttt{ChineseCoT}（\texttt{Z054851}）后，模型利用 $7 \equiv -1 \pmod 8$ 快速化简并在预算内顺利收尾：
+
+\begin{lstlisting}[language={}, numbers=none, caption={记录 Z054851 核心推导摘录（qwen3 / math500 / ChineseCoT，正常 stop，得分 1）}]
+因为 7x + 53 = 0 (mod 8)，且 53 = 5 (mod 8)，所以 7x = -5 = 3 (mod 8)。
+又因为 7 = -1 (mod 8)，所以 -x = 3 (mod 8) => x = -3 = 5 (mod 8)，即 x = 8k + 5。
+代入第二个条件 7x + 53 > 200：7(8k + 5) + 53 > 200 => 56k + 88 > 200 => 56k > 112 => k > 2。
+所以最小正整数 k = 3，代入得 x = 8 * 3 + 5 = 29。
+因此，原来最少有 7 * 29 = 203 个 coins。
+Answer: $203$
+\end{lstlisting}
+
+同样在球体体积与表面积数值相等求半径题（记录 \texttt{Z049873} vs.\ \texttt{Z054873}）中，中文作答仅用 \textbf{154 Token} 即解出 $\frac{4}{3}\pi r^3 = 4\pi r^2 \Rightarrow r=3$，验证了高语义密度对控制推导长度的稳定作用。
+
+\section{极端长度与格式软约束引发的异常失控档案}
+
+\paragraph{案例组 D-4：10 字母上限引发的 760 Token 拼写纠结死循环（记录 Z015404 vs.\ Z015804）}求解“196 有多少个正整数因数”（标准答案：\texttt{9}）。在宽松的 \texttt{CharLimit(100)}（\texttt{Z015804}）下，\texttt{DeepSeek Flash} 仅花 \textbf{25 Token} 便给出正确回答；但在极端的 \texttt{CharLimit(10)}（\texttt{Z015404}）下，模型算出 9 后陷入对英文单词字母数的无限纠结直至 801 Token 截断失分：
+
+\begin{lstlisting}[language={}, numbers=none, caption={记录 Z015404 真实失控原文摘录（deepseek / math500 / CharLimit(10)，801 Token 截断，得分 0）}]
+First, factorize 196: 196 = 14^2 = (2 * 7)^2 = 2^2 * 7^2.
+The number of positive divisors is: (2 + 1) * (2 + 1) = 3 * 3 = 9.
+We need the answer in 10 letters. "Nine" is only 4 letters, so we can write "NINE" padded or spelled out?
+Perhaps they mean the word form must be 10 letters, so maybe "NINEDIVSOR"? That doesn't make sense.
+The number 9 in word is "nine" (4 letters)... Possibly they want "NINENINENI"? That's nonsense.
+Perhaps a word with 10 letters that means 9? "Ennead" is 6 letters. "Novenary" is 8. "Nine" is 4...
+(模型继续纠结空格算不算字母、如何凑满 10 个英文字母，直至耗尽 801 Token 预算被强制截断)
+\end{lstlisting}
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[代码可靠性与跨模型题集覆盖重叠]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/story-04-code-reliability-coverage.pdf}}}\hfill
+\subfigure[重复采样与跨提示多样性的覆盖增益]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/story-05-sampling-and-prompt-diversity.pdf}}}
+\caption{代码生成任务的跨模型覆盖度分析（左）与提示多样性增益实证（右）}
+\label{fig:app-d-code-story}
+\end{figure}
+
+\paragraph{案例组 D-5：NoCoT 机械省略代码围栏触发提取失败（记录 Y080661 vs.\ Y080666）}在 \texttt{CodePromptEval} 判断字符串是否表示 \texttt{'none'} 的基础题上，\texttt{Qwen3-8B} 在 \texttt{DefaultCoT}（\texttt{Y080661}）下输出带 \texttt{```python} 围栏的函数并顺利通过；而在 \texttt{NoCoT}（\texttt{Y080666}）下，模型严格执行“不加任何额外解释包装”，裸输出两行完全正确的 Python 代码，却因缺少 Markdown 围栏在代码块提取阶段被判 \texttt{extraction\_error}（图~\ref{fig:app-d-code-story} 展示了代码任务的整体可靠性与多样性特征）。
+
+
+
+\paragraph{案例组 D-5b：生成器函数迭代泛化与围栏缺失同题对照（CodePromptEval：题目 paging）}任务编号 \texttt{62ece4982e6aefcf4aabbd5f} 要求编写生成器函数 \texttt{def paging(response, max\_results)}，将输入序列按每页最多 \texttt{max\_results} 个元素分页 \texttt{yield} 返回。对比同一次采样的真实输出可以看到两层差异：一是 \texttt{qwen3-8b} 在 \texttt{NoCoT} 下再次因省略 \texttt{```python} 围栏落入提取错误；二是在 \texttt{DefaultCoT} 下，\texttt{deepseek-flash} 在分步推理中主动识别出“输入可能是任意可迭代对象而非仅限列表”，遂放弃按下标切片 \texttt{response[i:i+k]}，改用对任意迭代器均成立的流式缓存写法：
+
+\begin{lstlisting}[language=Python, caption={CodePromptEval 题目 paging 在 NoCoT 围栏缺失（上）与 DefaultCoT 迭代器泛化实现（下）对比}]
+# [qwen3-8b-cloud / NoCoT -> 未写 Markdown 围栏，触发 extraction_error]
+def paging(response, max_results):
+    if not response:
+        return []
+    total = len(response)
+    for i in range(0, total, max_results):
+        yield response[i:i+max_results]
+
+# [deepseek-flash / DefaultCoT -> 分步推理识别任意可迭代对象边界，顺利通过全部沙箱断言]
+def paging(response, max_results):
+    page = []
+    for item in response:
+        page.append(item)
+        if len(page) == max_results:
+            yield page
+            page = []
+    if page:
+        yield page
+\end{lstlisting}
+
+\section{多文档问答证据位置敏感性与多轮代码修复 Diff 档案}
+
+\paragraph{案例组 D-6：20 篇文档中间位置干扰误答（NQ-Open：题目 C007）}问题询问“who has the most gold gloves at shortstop”（标准答案：\texttt{Ozzie Smith}，生涯 13 座游击手金手套）。当包含标准答案的维基段落位于\textbf{第 1 位}或\textbf{第 20 位}时，模型均准确输出 \texttt{Ozzie Smith FINAL ANSWER: Ozzie Smith}（得分 1）；而当完全相同的段落被移至\textbf{第 10 位}中间腹地时，模型被紧邻的另一位著名游击手干扰段落带偏，直接输出错误实体 \texttt{Omar Vizquel}（得分 0），直观再现了长上下文中段的注意力稀释现象。
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.76\linewidth]{\detokenize{figures/charts/repair-05-initial-error-support.pdf}}
+\caption{代码修复补充实验中两个受测模型的 492 份初稿初始错误类型分布支持度}
+\label{fig:app-d-init-err}
+\end{figure}
+
+\paragraph{案例组 D-7：多轮代码修复四类代表性机制 Diff 实录}图~\ref{fig:app-d-init-err} 统计了补充实验初稿的错误构成。下方完整摘录了正文中引用的四类典型代码演化 Diff：（1）\texttt{HumanEval/19} 借助定位诊断修好模块加载期 \texttt{KeyError}；（2）\texttt{HumanEval/54} 借助失败反例一轮纠正“字符多重集排序”与“字符集合相等”的语义混淆；（3）\texttt{HumanEval/50} 在无测试反馈的“自行检查”下画蛇添足添加 \texttt{if ch.isalpha()} 改坏原本正确的初稿；（4）\texttt{HumanEval/22} 通过全部公开测试后早停、却在隐藏强测试集上因布尔子类边界挂掉的过拟合样本。
+
+\begin{lstlisting}[language=Python, caption={代码修复补充实验三类典型状态转移的真实前后行级 Diff 对照}]
+# [类型 1：错误定位诊断成功修复] Qwen2.5-7B / HumanEval/19 (sort_numbers, 版本 2 -> 3, 强测 FAIL -> PASS)
+# 诊断反馈指出 line 29 KeyError: 1（把已转为整数的列表又拿去查字符串字典）
+-   sorted_numberals = [str(numeral_map[numeral]) for numeral in sorted_numberals]
++   sorted_numberals = [list(numeral_map.keys())[list(numeral_map.values()).index(num)] for num in sorted_numberals]
+
+# [类型 2：失败反例一轮根治语义偏差] Qwen2.5-7B / HumanEval/54 (same_chars, 版本 1 -> 2, 强测 FAIL -> PASS)
+# 反例输入 ['abcd', 'dddddddabc'] 期望 True 实际 False，直接暴露重复字符计数错误
+-   return sorted(s0) == sorted(s1)
++   return set(s0) == set(s1)
+
+# [类型 3：无反馈自行检查改坏正确初稿] Qwen2.5-7B / HumanEval/50 (decode_shift, 版本 1 -> 2, 强测 PASS -> FAIL)
+# 初稿原本完全通过强保留测试；自行检查凭空臆造字母过滤条件，破坏非字母字符处理
+-   return "".join([chr(((ord(ch) + 5 - ord("a")) % 26) + ord("a")) for ch in s])
++   return "".join([chr(((ord(ch) - ord('a') + 5) % 26) + ord('a')) for ch in s if ch.isalpha()])
+\end{lstlisting}

@@ -1,16 +1,75 @@
-\section{数据清洗与 21 列统一结构化}\label{sec:cleaning}
+\section{异构日志清洗、21 列特征归并与评分器迭代修正}\label{sec:cleaning}
 
-异构实验产出的原始日志结构差异较大：推理与文档问答来自多轮 JSONL/ZIP 归档，字段命名偏重 API 原始响应；代码生成与代码修复则附带目标函数 AST 提取文本、沙箱内存限制与测试通过状态。为此，团队编写了 \texttt{scripts/cleaning/classify\_and\_audit.py} 等清洗脚本，将分散在五个方向的日志规范化为统一的 21 列匿名特征表（\texttt{data/processed/all\_records.csv.gz}），具体转换流如图~\ref{fig:data-pipeline} 所示。
+\subsection{异构源日志解析与 21 列统一匿名 Schema}
+
+把六批次原始日志摆在一起时，我们面临的第一个脏活就是格式对齐：推理实验保存的是带源评分与复核标记的宽表，文档问答包含 46 列 HTTP 重试与四套匹配指标，代码生成是逐样本 JSONL 加独立沙箱评测文件，而代码修复还存在父子轮次引用链。为此，我们在 \texttt{scripts/cleaning/} 下搭建了分阶段清洗归并流水线（图~\ref{fig:data-pipeline}）。
 
 \begin{figure}[!htbp]
 \centering
-\includegraphics[max width=\linewidth]{\detokenize{figures/diagrams/d04-data-pipeline.pdf}}
-\caption{数据清洗、规则分类与 21 列统一特征构建流程}
+\includegraphics[width=0.95\linewidth]{\detokenize{figures/diagrams/d04-data-pipeline.pdf}}
+\caption{从异构原始 JSONL 日志到 21 列统一匿名特征表与静态快照的清洗流程}
 \label{fig:data-pipeline}
 \end{figure}
 
-\paragraph{唯一键校验与重复测量区分}在清洗阶段，脚本为每条物理模型调用生成唯一的 \texttt{record\_id}，并通过 \texttt{parent\_record\_key} 记录代码修复链条的父子版本关系。特别地，针对代码修复中六种反馈策略共享同一份 Round 0 初稿（Seed）的设计，统一表严格执行\textbf{“物理响应去重”}原则——每份共享初稿在物理记录中只出现一次，避免 6 组视图在统计总样本量时被重复放大。同时，针对代码生成任务中因评测环境依赖或超时导致无法判定结果的 \textbf{465 条记录}，设置 \texttt{environment\_excluded=true} 且保持 \texttt{metric\_value=null}，绝不将其填零视作模型代码错误。
+\Needspace{15\baselineskip}
+\begin{wrapfigure}{r}{0.46\linewidth}
+\vspace{-8pt}
+\centering
+\includegraphics[width=\linewidth]{\detokenize{figures/charts/c07-missingness-audit.pdf}}
+\caption{21 列统一特征在五类实验中的非空完备率审计}
+\label{fig:missing-audit}
+\vspace{-10pt}
+\end{wrapfigure}
 
-\paragraph{可见输出风格与提示词家族分类}为了量化模型回复外显格式对评分的影响，\texttt{classify\_and\_audit.py} 内置了确定性的正则表达式分类器，对所有可见回复文本进行五类形态标注（显式分步（\texttt{explicit\_step\_markers}）、项目列表（\texttt{bullet\_list}）、无标记多行（\texttt{multiline\_unmarked}）、单行（\texttt{singleline}）与空响应（\texttt{empty}）），并统计汉字数（\texttt{han\_character\_count}）、空白词数（\texttt{word\_count}）、总字符数（\texttt{character\_count}）及答案标记匹配状态（\texttt{marker\_present}）。全量 248,586 条记录的缺失率与类型审计同步导出为 \texttt{data/quality/quality\_report.json} 与 \texttt{missingness.csv}（完整 21 列字段定义与缺失率详表列于附录~\ref{app:db}）。
+归并脚本 \texttt{build\_unified\_features.py} 将所有物理响应映射为结构统一的 21 列压缩表 \texttt{all\_records.csv.gz}，同时导出记录血缘表 \texttt{record\_lineage.csv.gz}。在这套 Schema 中，我们坚持了三条清洗铁律：
 
-\paragraph{零值与空值语义规范}CSV 导出器统一采用空单元格表达 \texttt{null}，布尔字段规范为小写 \texttt{true/false}，时间戳归一化至 UTC。当原始接口未返回 \texttt{finish\_reason} 时，\texttt{is\_truncated} 保持为 \texttt{null} 而非误判为未截断；同时保留各任务原生主评分标识 \texttt{metric\_name}，严禁将数学准确率、文档问答最终答案包含率与代码 \texttt{Pass@1} 强行合并计算“总体平均分”。
+一是\textbf{物理去重记账}。在代码修复任务里，六个反馈臂的第 0 轮共享同一份初稿生成结果；归并脚本仅将该物理初稿写入一次，通过 \texttt{parent\_record\_key} 维护分叉拓扑，绝不把 6,560 行逻辑展开视图重复混入物理响应总账单。
+
+二是\textbf{原生指标分列命名、严禁跨任务混算}。每条记录以 \texttt{metric\_name} 明确标注其原生主指标（如推理为 \texttt{source\_score}、文档问答为 \texttt{final\_answer\_contains}、代码生成为 \texttt{test\_pass}、代码修复为 \texttt{base\_and\_heldout\_pass}），从表结构上阻止把代码单元测试通过率与开放问答字符串包含率混成一个毫无物理意义的“总分”。
+
+三是\textbf{严格区分空值（\texttt{null}）与零分（\texttt{0}）}。如图~\ref{fig:missing-audit} 的全量缺失率审计所示，诸如推理与代码生成历史归档未记录请求时间戳（完备率 0\%）、文档问答闭卷控制组无证据位置（400 条记录空置，完备率 99.5\%）、代码修复初稿无父节点（1,640 条空置，完备率 70.6\%）以及代码生成沙箱环境排除（465 条记录的 \texttt{metric\_value} 置为 \texttt{null}，完备率 99.5\%），全部具有明确的实验结构成因（完整 105 项审计明细见附录~\ref{app:db}）。清洗脚本对空值统一输出空单元格并在校验器中禁止零值填充，防止样本分母失真。
+
+\subsection{输出形态规则分类与代码执行错误编码}
+
+为了支撑行为模式分布分析，脚本 \texttt{classify\_and\_audit.py} 对模型回复文本与执行结果做了两级确定性分类。在文本组织层面，利用正则表达式识别显式步骤标记（如 \texttt{Step 1}、\texttt{第一步}）、项目符号列表、无标记多行段落与单行短答四类可见输出形态（\texttt{output\_style}），并与请求状态、长度截断标志组合成四类互斥结果状态（请求失败、长度截断、答案未解析、正常判分）。
+
+在代码任务层面，评测器根据语法树解析与沙箱运行回执，将失败响应细分为断言失败（\texttt{AssertionError}，代表代码可运行但逻辑不符）、代码提取失败（\texttt{extraction\_error}，代表回复中未能解析出有效函数）、类型错误（\texttt{TypeError}）、名称与导入错误（\texttt{NameError} / \texttt{ImportError}）、语法缩进错误、超时与内存受限等 14 个细类，为后续诊断“提示词究竟改坏了算法逻辑还是破坏了输出格式”提供了直接依据。
+
+\subsection{两次关键清洗踩坑与评分器修正纪实}
+
+在检查第一轮初步统计表时，我们没有急于画图，而是抽样核对了数百条原始报错日志，结果抓出了两处足以改变实验结论的系统性测量偏差，并逐一完成了工程修正：
+
+\Needspace{15\baselineskip}
+\begin{wrapfigure}{l}{0.45\linewidth}
+\vspace{-6pt}
+\centering
+\includegraphics[width=\linewidth]{\detokenize{figures/diagrams/d10-ast-v2-pipeline.pdf}}
+\caption{代码生成 \texttt{target-function-ast-v2} 规范化抽取与沙箱预检流程}
+\label{fig:ast-v2}
+\vspace{-8pt}
+\end{wrapfigure}
+
+\paragraph{修正一：重写 AST-v2 消除类方法缩进误报}在 \texttt{CodePromptEval} 第一轮自动测试跑完后，我们惊讶地看到大量肉眼完全正确的 Python 代码被判成了 \texttt{IndentationError} 或安全违规。顺着日志追查源代码才发现两个隐藏陷阱：其一，基准中不少目标函数其实是类里面的实例方法，官方参考代码本身带有 4 格类内缩进，初版评测脚本直接把切片喂给 \texttt{ast.parse} 自然当场报缩进错；其二，模型习惯在函数上方写 \texttt{import re}、\texttt{from typing import Optional} 或辅助小函数，若原样按 4 格缩进塞回类体内部，导入语句就会变成类属性定义，而旧版沙箱白名单又错误拦截了部分标准库导入。
+
+针对这一问题，我们在 \texttt{evaluate\_responses.py} 中彻底重写了 \texttt{target-function-ast-v2} 规范化器（流程见图~\ref{fig:ast-v2}，核心代码见附录~\ref{app:code}）：先调用 \texttt{textwrap.dedent} 剥离外层缩进并解析语法树，精准定位同名目标函数；再把模型写在顶层的 \texttt{Import}、常量赋值与辅助函数节点安全内迁至目标函数文档字符串之后；同时从官方参考函数自动继承参数类型注解、返回值注解与装饰器，防止测试模板因缺少 \texttt{List} 等类型导入报假错。接着，我们让官方参考实现在完全相同的无网络、仅允许临时目录写入的沙箱策略下做前置预检，发现编号为 \texttt{T149} 的题目连官方标准答案都会因沙箱外路径访问而失败。我们将这 $3\times 31\times 5 = 465$ 条记录如实标记为 \texttt{environment\_excluded=true} 移出正确率分母，使其余 193 道共同可评题（89,745 条记录）的通过率回归真实水平。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[四套问答判分规则下的命中率分歧]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/base-05_document_qa_metric_sensitivity.pdf}}}\hfill
+\subfigure[不同提示格式引发的截断与漏判分布]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/base-06_document_qa_format_truncation.pdf}}}
+\caption{多文档问答任务中判分规则敏感性诊断与格式截断交叉分析}
+\label{fig:docqa-metric-sens}
+\end{figure}
+
+\paragraph{修正二：多文档问答四标尺并存揭示“答对但判错”}在清洗 74,800 条文档问答记录时，我们也遇到了类似的测量难题：原论文常用的首行匹配（\texttt{paper\_firstline}）要求模型把答案放在第一行，但当叠加了 \texttt{DefaultCoT}（先分步思考）提示词后，模型自然会把推理过程写在前面、把最终答案放在末尾；反之，若采用末尾行严格精确匹配（\texttt{strict\_final\_em}），模型只要多写一个句号或冠词就会被判零分。统计诊断表显示，在 \texttt{Qwen2.5-7B} 与 \texttt{Qwen3-8B} 各自的 37,200 条全策略回答中，全文实际已包含标准答案但被严格末行精确匹配判负的记录分别高达 \textbf{8,624 条}与 \textbf{11,415 条}！如图~\ref{fig:docqa-metric-sens} 所示，我们在清洗表中完整保留了全部四套判分列，选定对分步推理与简答均更公平的末段标准化包含率（\texttt{final\_contains}）作为主分析标尺，并在探索工作台中专门设计了“评分分歧桑基流图”供直观比对。
+
+\subsection{高风险样本分层抽样复核与多轮血缘图消歧}
+
+除了自动化清洗与 AST-v2 评分修正外，我们还针对自动规则最容易出偏差的灰色地带补充了两项人工与结构审计工作：
+
+\paragraph{170 条高风险边界样本分层复核抽样}在数学推理与多选问答的 74,400 条记录中，当模型回答带有复杂单位（如 \texttt{2516\_8}、\texttt{\$203}）、分数等价形式或没有按标准格式在末行写出 \texttt{Answer:} 时，纯正则提取可能发生漏判。为此，脚本 \texttt{classify\_and\_audit.py} 按“长度截断、首末行提取不一致、无显式标记多行输出”等风险层分层抽取了 \textbf{170 条代表性样本}导出至 \texttt{reports/baseline/scoring-review-sample.csv}，同时将此前已人工逐条核实的 139 条争议答案判分结论固化进复核覆盖表（在清洗表的 \texttt{grading\_status} 列明确区分“已判分”与“已按保存的逐条复核结论判分”），绝不暗中手工涂改原始分数。
+
+\paragraph{多轮代码修复的物理节点与逻辑视图严格分离}在整理多轮修复数据时，一个极易把样本数算糊涂的陷阱是“共享初稿复用”。由于每一道题的同一份第 0 轮初稿同时作为 6 种反馈策略的共同起点，如果按“6 个策略 $\times$ 5 个版本（R0–R4）”直接展开成平面宽表（\texttt{features.csv}），每份初稿就会在表里重复出现 6 次。我们在清洗规范中明确将此类展开表界定为\emph{仅供画逐轮轨迹折线使用的逻辑视图}；而在计算总物理响应条数（24,600 条）与生成统一格式压缩表（\texttt{unified-records.csv.gz}）时，严格按 \texttt{physical\_record\_id} 去重，确保第 0 轮共享初稿只计入一次，并通过 \texttt{shared\_seed\_id} 与 \texttt{parent\_id} 无损还原整棵分叉修改树。
+
+
+\paragraph{311 条跨条件极端反差样本自动归档}为了支撑前端点击异常点时能够秒级调出具有代表性的同题反差证据，我们编写了 \texttt{scripts/system/export\_special\_records.py}，在离线阶段扫描配对清洗表，自动筛出“默认分步因超长截断得 0 分而温和简洁分步拿满分”“宽松 100 字母上限顺利答对而极限 10 字母上限反弹截断”“首行匹配判错但末段包含判对”等 \textbf{311 条典型跨条件交叉异常记录}，经脱敏核验后压缩存入 \texttt{app/data/special-records.json.gz}（145\,KB），使每一个统计反常点背后都有真实可查的单题记录支撑。

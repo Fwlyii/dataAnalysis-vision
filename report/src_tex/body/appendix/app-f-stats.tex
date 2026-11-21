@@ -1,83 +1,363 @@
-\chapter{全维度统计结果与配对比较明细}\label{app:stats}
+\chapter{全维度实验统计结果与配对比较查阅全表}\label{app:stats}
 
-本附录收录报告正文核心结论对应的全部详细数值对照表，所有数据均直接取自仓库 \texttt{reports/} 下的实测统计 CSV。
+本附录收录报告正文全部实验结论对应的底层完整统计汇总表，所有数值均由离线分析脚本直接从冻结数据集导出（零人工估算）。为方便按任务检索，依次排列推理三基准 31 策略全表、对数拟合与简洁压缩明细表、中文模板与词元遵从度表、多文档问答四标尺与九位置表、代码生成依赖分层与错误构成表，以及多轮代码修复逐轮轨迹与两两配对检验全表。
 
-\Needspace{10\baselineskip}\section{17 组跨任务简洁分步对照明细}
+\section{推理与选择题三基准 31 策略 $\times$ 四模型表现全表}
 
-\begin{table}[H]
-\centering
-\caption{BeConcise 相对 DefaultCoT 的 17 组输出压缩与得分变化全表}\label{tab:app-concise-17}
+表~\ref{tab:app-f-reasoning-93} 汇总了 \texttt{GSM8K}、\texttt{MATH500} 与 \texttt{MMLU-Pro} 三个基准（每格 200 道独立题目，合计 $93\times 4\times 200 = 74{,}400$ 条物理响应）在全部 31 种提示策略下的准确率与平均输出 Token（格式为“得分\% / 平均Token”）。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
 \ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedleft\arraybackslash}p{2.4cm} >{\raggedleft\arraybackslash}p{2.4cm}@{}}
+\fontsize{9.2bp}{11.4bp}\selectfont
+\setlength{\tabcolsep}{3.5pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{2.95cm} >{\raggedleft\arraybackslash}p{2.35cm} >{\raggedleft\arraybackslash}p{2.35cm} >{\raggedleft\arraybackslash}p{2.35cm} >{\raggedleft\arraybackslash}p{2.35cm}@{}}
+\caption{推理三基准 31 策略下四模型准确率与平均输出 Token 全景查阅表（得分\% / Token）}\label{tab:app-f-reasoning-93}\\
 \toprule
-\textbf{模型} & \textbf{任务 / 题库} & \textbf{所属方向} & \textbf{Token 降幅 (\%)} & \textbf{得分变化 (pp)} \\
+\textbf{题库} & \textbf{提示策略} & \textbf{Qwen2.5-7B} & \textbf{Qwen3-8B} & \textbf{DeepSeek} & \textbf{HY4 preview} \\
 \midrule
-DeepSeek & GSM8K & 推理/选择题 & 43.67 & +1.50 \\
-DeepSeek & MATH500 & 推理/选择题 & 22.51 & +7.00 \\
-DeepSeek & MMLU-Pro & 推理/选择题 & 27.42 & +0.50 \\
-HY4 & GSM8K & 推理/选择题 & 25.74 & 0.00 \\
-HY4 & MATH500 & 推理/选择题 & 11.38 & +4.50 \\
-HY4 & MMLU-Pro & 推理/选择题 & 19.21 & +3.50 \\
-Qwen2.5 & GSM8K & 推理/选择题 & 21.50 & +0.50 \\
-Qwen2.5 & MATH500 & 推理/选择题 & 13.34 & +2.00 \\
-Qwen2.5 & MMLU-Pro & 推理/选择题 & 16.98 & +1.50 \\
-Qwen3 & GSM8K & 推理/选择题 & 41.23 & -1.00 \\
-Qwen3 & MATH500 & 推理/选择题 & 20.95 & +11.50 \\
-Qwen3 & MMLU-Pro & 推理/选择题 & 33.54 & +6.00 \\
-\addlinespace[2pt]
-Qwen2.5 & NQ-Open & 文档问答 & 26.88 & +0.33 \\
-Qwen3 & NQ-Open & 文档问答 & 43.99 & +1.25 \\
-\addlinespace[2pt]
-DeepSeek & CodePromptEval & 代码生成 & 57.46 & +2.90 \\
-Qwen2.5 & CodePromptEval & 代码生成 & 21.99 & -0.62 \\
-Qwen3 & CodePromptEval & 代码生成 & 39.02 & +1.55 \\
+\endfirsthead
+\multicolumn{6}{@{}l}{\fontsize{9.5bp}{11.5bp}\selectfont 表~\ref{tab:app-f-reasoning-93}（续）：推理三基准 31 策略准确率与平均输出 Token 全表} \\
+\toprule
+\textbf{题库} & \textbf{提示策略} & \textbf{Qwen2.5-7B} & \textbf{Qwen3-8B} & \textbf{DeepSeek} & \textbf{HY4 preview} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+GSM8K & \texttt{AbbreviateWords} & 37.5\% / 56 & 79.5\% / 146 & 97.5\% / 72 & 97.0\% / 78 \\
+GSM8K & \texttt{BeConcise} & 92.0\% / 186 & 89.5\% / 153 & 99.0\% / 94 & 98.0\% / 156 \\
+GSM8K & \texttt{BulletPoints} & 83.5\% / 86 & 85.0\% / 105 & 96.5\% / 70 & 96.0\% / 82 \\
+GSM8K & \texttt{CharLimit(10)} & 19.5\% / 6 & 86.5\% / 91 & 79.5\% / 204 & 92.0\% / 181 \\
+GSM8K & \texttt{CharLimit(100)} & 61.0\% / 38 & 86.0\% / 81 & 92.0\% / 30 & 97.5\% / 58 \\
+GSM8K & \texttt{CharLimit(50)} & 39.5\% / 22 & 84.5\% / 65 & 95.0\% / 36 & 96.0\% / 52 \\
+GSM8K & \texttt{CharLimit(500)} & 90.0\% / 121 & 91.0\% / 136 & 97.5\% / 67 & 96.5\% / 100 \\
+GSM8K & \texttt{ChineseCoT} & 87.0\% / 130 & 90.0\% / 147 & 96.0\% / 120 & 95.0\% / 142 \\
+GSM8K & \texttt{ChineseCoT(10)} & 21.0\% / 6 & 75.5\% / 52 & 68.0\% / 11 & 92.0\% / 32 \\
+GSM8K & \texttt{ChineseCoT(100)} & 33.0\% / 21 & 81.0\% / 59 & 92.5\% / 30 & 93.0\% / 54 \\
+GSM8K & \texttt{ChineseCoT(50)} & 28.5\% / 13 & 79.0\% / 56 & 86.0\% / 22 & 93.5\% / 39 \\
+GSM8K & \texttt{ChineseCoT(500)} & 78.0\% / 94 & 89.0\% / 90 & 94.5\% / 53 & 94.5\% / 98 \\
+GSM8K & \texttt{DefaultCoT} & 91.5\% / 237 & 90.5\% / 261 & 97.5\% / 167 & 98.0\% / 210 \\
+GSM8K & \texttt{NoCoT} & 22.0\% / 6 & 72.0\% / 74 & 96.0\% / 66 & 84.5\% / 53 \\
+GSM8K & \texttt{NoProperGrammar} & 59.5\% / 37 & 75.0\% / 95 & 98.0\% / 59 & 96.0\% / 63 \\
+GSM8K & \texttt{NoSpaces} & 36.5\% / 28 & 85.0\% / 93 & 90.0\% / 49 & 98.0\% / 102 \\
+GSM8K & \texttt{OnlyNumbers} & 70.0\% / 55 & 79.0\% / 64 & 96.5\% / 36 & 96.0\% / 60 \\
+GSM8K & \texttt{StepLimit(1)} & 81.5\% / 127 & 88.0\% / 118 & 96.0\% / 80 & 97.5\% / 81 \\
+GSM8K & \texttt{StepLimit(2)} & 84.5\% / 140 & 87.0\% / 123 & 95.5\% / 87 & 96.5\% / 103 \\
+GSM8K & \texttt{StepLimit(5)} & 85.5\% / 191 & 90.5\% / 184 & 97.5\% / 110 & 98.5\% / 143 \\
+GSM8K & \texttt{TokenLimit(10)} & 34.5\% / 14 & 85.0\% / 72 & 75.0\% / 14 & 96.5\% / 52 \\
+GSM8K & \texttt{TokenLimit(100)} & 79.5\% / 70 & 90.0\% / 109 & 97.0\% / 50 & 96.5\% / 102 \\
+GSM8K & \texttt{TokenLimit(50)} & 79.5\% / 58 & 86.5\% / 87 & 93.0\% / 34 & 97.0\% / 75 \\
+GSM8K & \texttt{TokenLimit(500)} & 92.0\% / 218 & 90.0\% / 170 & 96.5\% / 102 & 97.5\% / 190 \\
+GSM8K & \texttt{WordLimit(1)} & 17.0\% / 3 & 87.0\% / 90 & 73.0\% / 29 & 84.0\% / 53 \\
+GSM8K & \texttt{WordLimit(10)} & 22.0\% / 8 & 78.0\% / 55 & 81.5\% / 18 & 95.0\% / 46 \\
+GSM8K & \texttt{WordLimit(100)} & 82.0\% / 74 & 87.5\% / 106 & 95.5\% / 69 & 97.5\% / 107 \\
+GSM8K & \texttt{WordLimit(15)} & 38.5\% / 17 & 80.0\% / 57 & 81.0\% / 22 & 95.5\% / 49 \\
+GSM8K & \texttt{WordLimit(25)} & 49.5\% / 30 & 84.5\% / 67 & 91.0\% / 29 & 96.0\% / 54 \\
+GSM8K & \texttt{WordLimit(5)} & 18.5\% / 7 & 72.0\% / 60 & 62.5\% / 14 & 93.0\% / 51 \\
+GSM8K & \texttt{WordLimit(50)} & 62.5\% / 45 & 83.0\% / 77 & 94.5\% / 45 & 96.0\% / 72 \\
+MATH500 & \texttt{AbbreviateWords} & 23.0\% / 87 & 66.0\% / 369 & 81.0\% / 251 & 73.5\% / 352 \\
+MATH500 & \texttt{BeConcise} & 70.0\% / 431 & 69.5\% / 425 & 83.0\% / 343 & 73.0\% / 441 \\
+MATH500 & \texttt{BulletPoints} & 60.5\% / 167 & 71.0\% / 216 & 88.0\% / 217 & 83.5\% / 267 \\
+MATH500 & \texttt{CharLimit(10)} & 30.5\% / 6 & 73.0\% / 330 & 38.0\% / 521 & 56.0\% / 505 \\
+MATH500 & \texttt{CharLimit(100)} & 42.5\% / 47 & 71.0\% / 243 & 83.5\% / 102 & 83.0\% / 258 \\
+MATH500 & \texttt{CharLimit(50)} & 34.5\% / 22 & 69.0\% / 209 & 84.5\% / 206 & 82.5\% / 285 \\
+MATH500 & \texttt{CharLimit(500)} & 70.0\% / 309 & 72.0\% / 414 & 87.5\% / 212 & 80.5\% / 338 \\
+MATH500 & \texttt{ChineseCoT} & 70.5\% / 332 & 69.5\% / 432 & 75.0\% / 424 & 74.0\% / 400 \\
+MATH500 & \texttt{ChineseCoT(10)} & 35.5\% / 8 & 59.5\% / 176 & 66.0\% / 45 & 83.0\% / 114 \\
+MATH500 & \texttt{ChineseCoT(100)} & 37.0\% / 20 & 65.0\% / 165 & 77.5\% / 52 & 85.0\% / 146 \\
+MATH500 & \texttt{ChineseCoT(50)} & 34.5\% / 13 & 62.5\% / 174 & 76.5\% / 39 & 84.5\% / 115 \\
+MATH500 & \texttt{ChineseCoT(500)} & 65.0\% / 196 & 69.5\% / 228 & 85.5\% / 152 & 85.5\% / 280 \\
+MATH500 & \texttt{DefaultCoT} & 68.0\% / 497 & 58.0\% / 537 & 76.0\% / 443 & 68.5\% / 497 \\
+MATH500 & \texttt{NoCoT} & 34.0\% / 7 & 61.0\% / 157 & 83.5\% / 280 & 75.0\% / 242 \\
+MATH500 & \texttt{NoProperGrammar} & 33.0\% / 75 & 60.5\% / 236 & 86.5\% / 204 & 81.5\% / 278 \\
+MATH500 & \texttt{NoSpaces} & 26.5\% / 72 & 72.0\% / 305 & 80.0\% / 246 & 75.0\% / 367 \\
+MATH500 & \texttt{OnlyNumbers} & 60.5\% / 160 & 69.0\% / 254 & 86.0\% / 197 & 83.5\% / 278 \\
+MATH500 & \texttt{StepLimit(1)} & 59.0\% / 225 & 76.0\% / 283 & 84.5\% / 283 & 84.0\% / 241 \\
+MATH500 & \texttt{StepLimit(2)} & 64.5\% / 243 & 77.0\% / 249 & 87.5\% / 251 & 85.0\% / 286 \\
+MATH500 & \texttt{StepLimit(5)} & 68.5\% / 346 & 74.0\% / 352 & 88.0\% / 302 & 82.0\% / 379 \\
+MATH500 & \texttt{TokenLimit(10)} & 34.5\% / 12 & 71.5\% / 205 & 71.0\% / 46 & 86.5\% / 220 \\
+MATH500 & \texttt{TokenLimit(100)} & 60.0\% / 104 & 76.0\% / 338 & 88.5\% / 150 & 85.0\% / 299 \\
+MATH500 & \texttt{TokenLimit(50)} & 51.0\% / 71 & 73.0\% / 263 & 82.5\% / 77 & 87.0\% / 226 \\
+MATH500 & \texttt{TokenLimit(500)} & 74.0\% / 427 & 67.0\% / 470 & 85.0\% / 332 & 74.5\% / 460 \\
+MATH500 & \texttt{WordLimit(1)} & 23.0\% / 4 & 71.0\% / 309 & 70.5\% / 170 & 78.0\% / 353 \\
+MATH500 & \texttt{WordLimit(10)} & 31.5\% / 8 & 56.0\% / 124 & 71.0\% / 62 & 86.0\% / 210 \\
+MATH500 & \texttt{WordLimit(100)} & 57.0\% / 116 & 72.5\% / 216 & 87.0\% / 165 & 87.5\% / 272 \\
+MATH500 & \texttt{WordLimit(15)} & 32.5\% / 20 & 64.0\% / 145 & 74.5\% / 57 & 84.5\% / 211 \\
+MATH500 & \texttt{WordLimit(25)} & 34.0\% / 32 & 66.0\% / 147 & 77.5\% / 53 & 87.0\% / 155 \\
+MATH500 & \texttt{WordLimit(5)} & 29.5\% / 7 & 58.0\% / 174 & 51.5\% / 96 & 81.5\% / 272 \\
+MATH500 & \texttt{WordLimit(50)} & 47.0\% / 56 & 69.0\% / 153 & 80.0\% / 69 & 87.5\% / 194 \\
+MMLU-Pro & \texttt{AbbreviateWords} & 30.5\% / 41 & 72.5\% / 304 & 87.5\% / 157 & 85.0\% / 197 \\
+MMLU-Pro & \texttt{BeConcise} & 65.5\% / 400 & 69.5\% / 379 & 84.5\% / 237 & 80.5\% / 371 \\
+MMLU-Pro & \texttt{BulletPoints} & 54.5\% / 92 & 62.5\% / 130 & 89.5\% / 132 & 91.0\% / 183 \\
+MMLU-Pro & \texttt{CharLimit(10)} & 31.0\% / 3 & 71.0\% / 343 & 86.0\% / 251 & 79.0\% / 361 \\
+MMLU-Pro & \texttt{CharLimit(100)} & 35.5\% / 18 & 75.0\% / 227 & 86.5\% / 161 & 85.0\% / 249 \\
+MMLU-Pro & \texttt{CharLimit(50)} & 32.0\% / 7 & 73.5\% / 171 & 87.5\% / 229 & 80.5\% / 325 \\
+MMLU-Pro & \texttt{CharLimit(500)} & 61.0\% / 145 & 73.5\% / 338 & 92.0\% / 157 & 82.5\% / 291 \\
+MMLU-Pro & \texttt{ChineseCoT} & 65.0\% / 247 & 73.5\% / 356 & 84.0\% / 272 & 77.0\% / 375 \\
+MMLU-Pro & \texttt{ChineseCoT(10)} & 29.5\% / 3 & 66.5\% / 119 & 79.0\% / 24 & 89.5\% / 74 \\
+MMLU-Pro & \texttt{ChineseCoT(100)} & 27.0\% / 11 & 68.0\% / 93 & 84.5\% / 40 & 87.5\% / 103 \\
+MMLU-Pro & \texttt{ChineseCoT(50)} & 26.5\% / 6 & 67.0\% / 85 & 81.5\% / 34 & 89.0\% / 82 \\
+MMLU-Pro & \texttt{ChineseCoT(500)} & 63.0\% / 137 & 72.0\% / 160 & 88.0\% / 94 & 89.0\% / 222 \\
+MMLU-Pro & \texttt{DefaultCoT} & 64.0\% / 482 & 63.5\% / 570 & 84.0\% / 327 & 77.0\% / 459 \\
+MMLU-Pro & \texttt{NoCoT} & 32.0\% / 5 & 43.0\% / 30 & 82.0\% / 163 & 75.0\% / 72 \\
+MMLU-Pro & \texttt{NoProperGrammar} & 39.0\% / 35 & 64.0\% / 154 & 88.0\% / 127 & 86.0\% / 164 \\
+MMLU-Pro & \texttt{NoSpaces} & 36.5\% / 48 & 73.0\% / 239 & 85.5\% / 170 & 81.5\% / 263 \\
+MMLU-Pro & \texttt{OnlyNumbers} & 52.0\% / 93 & 72.0\% / 232 & 87.5\% / 130 & 87.0\% / 198 \\
+MMLU-Pro & \texttt{StepLimit(1)} & 61.5\% / 183 & 70.0\% / 229 & 89.5\% / 206 & 89.0\% / 143 \\
+MMLU-Pro & \texttt{StepLimit(2)} & 62.5\% / 188 & 72.0\% / 205 & 90.5\% / 180 & 88.5\% / 187 \\
+MMLU-Pro & \texttt{StepLimit(5)} & 65.0\% / 301 & 72.5\% / 344 & 87.0\% / 233 & 86.0\% / 322 \\
+MMLU-Pro & \texttt{TokenLimit(10)} & 31.5\% / 9 & 71.5\% / 131 & 77.0\% / 17 & 88.0\% / 177 \\
+MMLU-Pro & \texttt{TokenLimit(100)} & 58.0\% / 92 & 71.0\% / 276 & 87.0\% / 109 & 88.0\% / 261 \\
+MMLU-Pro & \texttt{TokenLimit(50)} & 49.0\% / 52 & 71.0\% / 208 & 86.5\% / 68 & 89.5\% / 199 \\
+MMLU-Pro & \texttt{TokenLimit(500)} & 67.5\% / 324 & 67.0\% / 371 & 89.5\% / 227 & 80.5\% / 391 \\
+MMLU-Pro & \texttt{WordLimit(1)} & 32.5\% / 1 & 73.5\% / 263 & 80.5\% / 143 & 85.5\% / 240 \\
+MMLU-Pro & \texttt{WordLimit(10)} & 26.5\% / 5 & 59.0\% / 64 & 82.0\% / 22 & 84.0\% / 117 \\
+MMLU-Pro & \texttt{WordLimit(100)} & 63.5\% / 102 & 73.5\% / 150 & 90.0\% / 111 & 90.5\% / 211 \\
+MMLU-Pro & \texttt{WordLimit(15)} & 30.0\% / 11 & 65.5\% / 67 & 82.0\% / 31 & 87.0\% / 109 \\
+MMLU-Pro & \texttt{WordLimit(25)} & 39.5\% / 18 & 61.5\% / 79 & 84.0\% / 34 & 87.5\% / 94 \\
+MMLU-Pro & \texttt{WordLimit(5)} & 24.0\% / 4 & 63.0\% / 136 & 79.0\% / 33 & 83.5\% / 166 \\
+MMLU-Pro & \texttt{WordLimit(50)} & 52.0\% / 40 & 68.5\% / 96 & 84.0\% / 67 & 89.5\% / 131 \\
+\end{longtable}}
+
+\section{输出预算对数回归诊断与 17 组温和简洁分步对照明细}
+
+表~\ref{tab:app-f-logfit} 给出了四个模型在三大题库上分别针对全部 31 策略与 7 档词数预算拟合对数回归模型 $\widetilde{S} = \beta_0 + \beta_1 \ln(\overline{T})$ 的截距、对数斜率与决定系数 $R^2$；表~\ref{tab:app-f-concise17} 则列出跨三类任务共 17 组 \texttt{BeConcise} 相对 \texttt{DefaultCoT} 的输出压缩率与同题得分变化明细。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.45cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{1.2cm} >{\raggedleft\arraybackslash}p{1.95cm} >{\raggedleft\arraybackslash}p{1.95cm} >{\raggedleft\arraybackslash}p{1.7cm}@{}}
+\caption{推理预算对数回归模型 $\widetilde{S} = \beta_0 + \beta_1 \ln(\overline{T})$ 拟合参数诊断表}\label{tab:app-f-logfit}\\
+\toprule
+\textbf{受测模型} & \textbf{基准题库} & \textbf{策略范围} & \textbf{点数} & \textbf{截距 $\beta_0$} & \textbf{斜率 $\beta_1$} & \textbf{样本内 $R^2$} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\fontsize{10bp}{12bp}\selectfont 表~\ref{tab:app-f-logfit}（续）：对数回归参数诊断表} \\
+\toprule
+\textbf{受测模型} & \textbf{基准题库} & \textbf{策略范围} & \textbf{点数} & \textbf{截距 $\beta_0$} & \textbf{斜率 $\beta_1$} & \textbf{样本内 $R^2$} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+DeepSeek Flash & GSM8K & 全31策略 & 31 & 56.45 & 8.79 & 0.443 \\
+DeepSeek Flash & GSM8K & 词数上限7档 & 7 & 21.32 & 18.34 & 0.669 \\
+DeepSeek Flash & MATH500 & 全31策略 & 31 & 69.94 & 1.73 & 0.015 \\
+DeepSeek Flash & MATH500 & 词数上限7档 & 7 & 69.39 & 0.84 & 0.001 \\
+DeepSeek Flash & MMLU-Pro & 全31策略 & 31 & 72.73 & 2.73 & 0.396 \\
+DeepSeek Flash & MMLU-Pro & 词数上限7档 & 7 & 75.57 & 1.92 & 0.149 \\
+HY4 preview & GSM8K & 全31策略 & 31 & 82.95 & 2.81 & 0.164 \\
+HY4 preview & GSM8K & 词数上限7档 & 7 & 71.25 & 5.54 & 0.130 \\
+HY4 preview & MATH500 & 全31策略 & 31 & 149.42 & -12.26 & 0.466 \\
+HY4 preview & MATH500 & 词数上限7档 & 7 & 139.32 & -10.06 & 0.570 \\
+HY4 preview & MMLU-Pro & 全31策略 & 31 & 104.54 & -3.69 & 0.189 \\
+HY4 preview & MMLU-Pro & 词数上限7档 & 7 & 85.09 & 0.34 & 0.002 \\
+Qwen2.5-7B & GSM8K & 全31策略 & 31 & -21.08 & 21.46 & 0.912 \\
+Qwen2.5-7B & GSM8K & 词数上限7档 & 7 & -18.94 & 21.57 & 0.939 \\
+Qwen2.5-7B & MATH500 & 全31策略 & 31 & 8.04 & 9.67 & 0.747 \\
+Qwen2.5-7B & MATH500 & 词数上限7档 & 7 & 10.10 & 8.90 & 0.878 \\
+Qwen2.5-7B & MMLU-Pro & 全31策略 & 31 & 16.02 & 8.29 & 0.835 \\
+Qwen2.5-7B & MMLU-Pro & 词数上限7档 & 7 & 19.18 & 8.05 & 0.709 \\
+Qwen3-8B & GSM8K & 全31策略 & 31 & 41.40 & 9.42 & 0.469 \\
+Qwen3-8B & GSM8K & 词数上限7档 & 7 & 6.35 & 17.67 & 0.635 \\
+Qwen3-8B & MATH500 & 全31策略 & 31 & 37.11 & 5.61 & 0.146 \\
+Qwen3-8B & MATH500 & 词数上限7档 & 7 & -3.57 & 13.34 & 0.424 \\
+Qwen3-8B & MMLU-Pro & 全31策略 & 31 & 35.09 & 6.44 & 0.441 \\
+Qwen3-8B & MMLU-Pro & 词数上限7档 & 7 & 26.24 & 8.56 & 0.584 \\
+\end{longtable}}
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{17 组跨任务 \texttt{BeConcise} 相对 \texttt{DefaultCoT} 的 Token 节省率与同题准确率变化表}\label{tab:app-f-concise17}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedleft\arraybackslash}p{2.6cm} >{\raggedleft\arraybackslash}X@{}}
+\toprule
+\textbf{受测模型} & \textbf{任务基准} & \textbf{所属任务大类} & \textbf{Token 节省率} & \textbf{同题得分变化 (pp)} \\
+\midrule
+DeepSeek Flash & GSM8K & 数学推理与多选 & 43.67\% & +1.50 \\
+DeepSeek Flash & MATH500 & 数学推理与多选 & 22.51\% & +7.00 \\
+DeepSeek Flash & MMLU-Pro & 数学推理与多选 & 27.42\% & +0.50 \\
+HY4 preview & GSM8K & 数学推理与多选 & 25.74\% & +0.00 \\
+HY4 preview & MATH500 & 数学推理与多选 & 11.38\% & +4.50 \\
+HY4 preview & MMLU-Pro & 数学推理与多选 & 19.21\% & +3.50 \\
+Qwen2.5-7B & GSM8K & 数学推理与多选 & 21.50\% & +0.50 \\
+Qwen2.5-7B & MATH500 & 数学推理与多选 & 13.34\% & +2.00 \\
+Qwen2.5-7B & MMLU-Pro & 数学推理与多选 & 16.98\% & +1.50 \\
+Qwen3-8B & GSM8K & 数学推理与多选 & 41.23\% & -1.00 \\
+Qwen3-8B & MATH500 & 数学推理与多选 & 20.95\% & +11.50 \\
+Qwen3-8B & MMLU-Pro & 数学推理与多选 & 33.54\% & +6.00 \\
+Qwen2.5-7B & Document QA & 开放域多文档问答 & 26.88\% & +0.33 \\
+Qwen3-8B & Document QA & 开放域多文档问答 & 43.99\% & +1.25 \\
+DeepSeek Flash & Code & 代码生成 (Pass@1) & 57.46\% & +2.90 \\
+Qwen2.5-7B & Code & 代码生成 (Pass@1) & 21.99\% & -0.62 \\
+Qwen3-8B & Code & 代码生成 (Pass@1) & 39.02\% & +1.55 \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table}}
 
-\Needspace{10\baselineskip}\section{12 组中文作答模板对照明细}
+\section{中文作答模板对比明细与名义词元软约束遵从度表}
 
-\begin{table}[H]
+表~\ref{tab:app-f-chinese12} 给出了四模型在三题库上从 \texttt{DefaultCoT} 切换至 \texttt{ChineseCoT} 的输出开销、准确率及长度截断率完整对比；表~\ref{tab:app-f-tokcomp} 列出 \texttt{MATH500} 上四档 \texttt{TokenLimit} 的实测均值与超标比例。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
 \centering
-\caption{中文模板（ChineseCoT）相对默认分步（DefaultCoT）的 12 组全量对照}\label{tab:app-chinese-12}
+\caption{四模型在三题库切换 \texttt{ChineseCoT} 的开销压缩、得分差值与截断率对照表}\label{tab:app-f-chinese12}
 \ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{2.0cm} >{\raggedleft\arraybackslash}p{2.0cm}@{}}
+\fontsize{9.6bp}{11.8bp}\selectfont
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{1.65cm} >{\raggedleft\arraybackslash}p{2.15cm} >{\raggedleft\arraybackslash}p{1.55cm} >{\raggedleft\arraybackslash}p{2.15cm} >{\raggedleft\arraybackslash}p{1.55cm} >{\raggedleft\arraybackslash}X@{}}
 \toprule
-\textbf{模型} & \textbf{题库} & \textbf{默认得分} & \textbf{中文得分} & \textbf{Token 节省} & \textbf{默认截断} & \textbf{中文截断} \\
+\textbf{模型} & \textbf{题库} & \textbf{英/中 Token} & \textbf{节省率} & \textbf{英/中得分} & \textbf{差值 pp} & \textbf{英/中截断率} \\
 \midrule
-DeepSeek & GSM8K & 97.5\% & 96.0\% & 28.3\% & 0.5\% & 0.0\% \\
-DeepSeek & MATH500 & 76.0\% & 75.0\% & 4.4\% & 23.5\% & 24.5\% \\
-DeepSeek & MMLU-Pro & 84.0\% & 84.0\% & 16.9\% & 12.0\% & 10.0\% \\
-\addlinespace[2pt]
-HY4 & GSM8K & 98.0\% & 95.0\% & 32.3\% & 0.0\% & 0.5\% \\
-HY4 & MATH500 & 68.5\% & 74.0\% & 19.5\% & 30.5\% & 23.0\% \\
-HY4 & MMLU-Pro & 77.0\% & 77.0\% & 18.3\% & 20.5\% & 19.5\% \\
-\addlinespace[2pt]
-Qwen2.5 & GSM8K & 91.5\% & 87.0\% & 44.9\% & 0.0\% & 0.0\% \\
-Qwen2.5 & MATH500 & 68.0\% & 70.5\% & 33.3\% & 22.0\% & 2.5\% \\
-Qwen2.5 & MMLU-Pro & 64.0\% & 65.0\% & 48.7\% & 13.5\% & 2.0\% \\
-\addlinespace[2pt]
-Qwen3 & GSM8K & 90.5\% & 90.0\% & 43.5\% & 0.5\% & 0.0\% \\
-Qwen3 & MATH500 & 58.0\% & 69.5\% & 19.5\% & 31.5\% & 23.5\% \\
-Qwen3 & MMLU-Pro & 63.5\% & 73.5\% & 37.7\% & 29.5\% & 12.5\% \\
+DeepSeek Flash & GSM8K & 166.8 / 119.6 & 28.3\% & 97.5\% / 96.0\% & -1.5 & 0.5\% / 0.0\% \\
+DeepSeek Flash & MATH500 & 443.1 / 423.7 & 4.4\% & 76.0\% / 75.0\% & -1.0 & 23.5\% / 24.5\% \\
+DeepSeek Flash & MMLU-Pro & 327.0 / 271.8 & 16.9\% & 84.0\% / 84.0\% & +0.0 & 12.0\% / 10.0\% \\
+HY4 preview & GSM8K & 209.9 / 142.1 & 32.3\% & 98.0\% / 95.0\% & -3.0 & 0.0\% / 0.5\% \\
+HY4 preview & MATH500 & 497.3 / 400.2 & 19.5\% & 68.5\% / 74.0\% & +5.5 & 30.5\% / 23.0\% \\
+HY4 preview & MMLU-Pro & 459.1 / 375.2 & 18.3\% & 77.0\% / 77.0\% & +0.0 & 20.5\% / 19.5\% \\
+Qwen2.5-7B & GSM8K & 236.7 / 130.4 & 44.9\% & 91.5\% / 87.0\% & -4.5 & 0.0\% / 0.0\% \\
+Qwen2.5-7B & MATH500 & 497.3 / 331.8 & 33.3\% & 68.0\% / 70.5\% & +2.5 & 22.0\% / 2.5\% \\
+Qwen2.5-7B & MMLU-Pro & 481.9 / 247.3 & 48.7\% & 64.0\% / 65.0\% & +1.0 & 13.5\% / 2.0\% \\
+Qwen3-8B & GSM8K & 260.5 / 147.2 & 43.5\% & 90.5\% / 90.0\% & -0.5 & 0.5\% / 0.0\% \\
+Qwen3-8B & MATH500 & 537.2 / 432.2 & 19.5\% & 58.0\% / 69.5\% & +11.5 & 31.5\% / 23.5\% \\
+Qwen3-8B & MMLU-Pro & 570.3 / 355.6 & 37.7\% & 63.5\% / 73.5\% & +10.0 & 29.5\% / 12.5\% \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table}}
 
-\Needspace{10\baselineskip}\section{文档位置 9 点剖面与代码反馈 6 策略全表}
-
-\begin{table}[H]
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
 \centering
-\caption{20 篇文档九位置最终答案包含率（200 题，95\% 聚类置信区间）}\label{tab:app-docpos-9}
+\caption{\texttt{MATH500} 上名义词元上限（\texttt{TokenLimit}）的实测输出均值、中位数与超标率}\label{tab:app-f-tokcomp}
 \ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedleft\arraybackslash}p{1.1cm} >{\raggedleft\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}p{2.8cm} >{\raggedleft\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}p{2.8cm} >{\raggedleft\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedleft\arraybackslash}p{1.6cm} >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}X@{}}
 \toprule
-\textbf{位置} & \textbf{Qwen2.5 命中} & \textbf{Qwen2.5 95\% CI} & \textbf{Qwen3 命中} & \textbf{Qwen3 95\% CI} & \textbf{模型差距 (pp)} \\
+\textbf{受测模型} & \textbf{策略标识} & \textbf{名义上限} & \textbf{实测均值} & \textbf{实测中位数} & \textbf{超出上限比例} \\
 \midrule
-1 & 54.5\% & [47.5\%, 61.5\%] & 71.0\% & [64.5\%, 77.0\%] & +16.50 \\
-3 & 52.5\% & [45.5\%, 59.5\%] & 61.0\% & [54.0\%, 68.0\%] & +8.50 \\
-5 & 50.0\% & [43.0\%, 57.0\%] & 61.0\% & [54.0\%, 67.5\%] & +11.00 \\
-8 & 52.0\% & [45.0\%, 59.0\%] & 61.5\% & [54.5\%, 68.0\%] & +9.50 \\
+DeepSeek Flash & \texttt{TokenLimit(10)} & 10 & 46.2 & 9.0 & 44.0\% \\
+DeepSeek Flash & \texttt{TokenLimit(100)} & 100 & 149.6 & 82.0 & 40.0\% \\
+DeepSeek Flash & \texttt{TokenLimit(50)} & 50 & 76.8 & 50.5 & 50.0\% \\
+DeepSeek Flash & \texttt{TokenLimit(500)} & 500 & 332.2 & 226.0 & 25.5\% \\
+HY4 preview & \texttt{TokenLimit(10)} & 10 & 220.1 & 114.0 & 97.5\% \\
+HY4 preview & \texttt{TokenLimit(100)} & 100 & 298.7 & 188.0 & 82.0\% \\
+HY4 preview & \texttt{TokenLimit(50)} & 50 & 226.0 & 131.5 & 97.5\% \\
+HY4 preview & \texttt{TokenLimit(500)} & 500 & 459.6 & 404.5 & 41.5\% \\
+Qwen2.5-7B & \texttt{TokenLimit(10)} & 10 & 11.8 & 6.0 & 27.5\% \\
+Qwen2.5-7B & \texttt{TokenLimit(100)} & 100 & 104.2 & 88.5 & 38.5\% \\
+Qwen2.5-7B & \texttt{TokenLimit(50)} & 50 & 70.5 & 62.0 & 62.0\% \\
+Qwen2.5-7B & \texttt{TokenLimit(500)} & 500 & 426.9 & 368.0 & 33.0\% \\
+Qwen3-8B & \texttt{TokenLimit(10)} & 10 & 205.2 & 138.0 & 100.0\% \\
+Qwen3-8B & \texttt{TokenLimit(100)} & 100 & 338.0 & 242.0 & 92.5\% \\
+Qwen3-8B & \texttt{TokenLimit(50)} & 50 & 262.8 & 190.5 & 97.0\% \\
+Qwen3-8B & \texttt{TokenLimit(500)} & 500 & 470.2 & 392.0 & 42.0\% \\
+\bottomrule
+\end{tabularx}
+\end{table}}
+
+\section{多文档问答四标尺敏感性与九位置配对明细}
+
+图~\ref{fig:app-f-lim-pair} 展示了多文档问答中输出长度与准确率的关系及全策略截断分布；表~\ref{tab:app-f-docqa31} 完整列出两个 Qwen 模型在 31 种提示策略（每格 1,200 条响应，横跨 10/20 篇文档与首/中/尾三位置）下的四套判分指标与截断率；表~\ref{tab:app-f-pos9} 则给出 20 篇文档 9 位置精细扫描的配对置信区间全表。
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[文档问答输出 Token 与命中率分布]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/lim-04-tokens-acc.pdf}}}\hfill
+\subfigure[31 种提示策略在文档问答上的截断率对比]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/lim-06-truncation.pdf}}}
+\caption{多文档问答任务的输出开销关系（左）与全策略截断行为诊断（右）}
+\label{fig:app-f-lim-pair}
+\end{figure}
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\fontsize{9.2bp}{11.4bp}\selectfont
+\setlength{\tabcolsep}{3.5pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.85cm} >{\raggedright\arraybackslash}p{3.05cm} >{\raggedleft\arraybackslash}p{1.68cm} >{\raggedleft\arraybackslash}p{1.68cm} >{\raggedleft\arraybackslash}p{1.68cm} >{\raggedleft\arraybackslash}p{1.68cm} >{\raggedleft\arraybackslash}p{1.88cm}@{}}
+\caption{多文档问答 31 策略 $\times$ 双模型四套判分标尺与输出开销全表（每格 1,200 条响应）}\label{tab:app-f-docqa31}\\
+\toprule
+\textbf{模型} & \textbf{提示策略} & \textbf{首行匹配} & \textbf{末行严配} & \textbf{末段包含} & \textbf{全文包含} & \textbf{均长/截断} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\fontsize{9.5bp}{11.5bp}\selectfont 表~\ref{tab:app-f-docqa31}（续）：多文档问答四套判分标尺全表} \\
+\toprule
+\textbf{模型} & \textbf{提示策略} & \textbf{首行匹配} & \textbf{末行严配} & \textbf{末段包含} & \textbf{全文包含} & \textbf{均长/截断} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Qwen2.5-7B & \texttt{AbbreviateWords} & 46.8\% & 31.7\% & 40.0\% & 48.8\% & 34 / 0.9\% \\
+Qwen2.5-7B & \texttt{BeConcise} & 59.3\% & 39.6\% & 59.7\% & 68.5\% & 68 / 0.0\% \\
+Qwen2.5-7B & \texttt{BulletPoints} & 56.8\% & 37.9\% & 55.9\% & 74.2\% & 86 / 2.3\% \\
+Qwen2.5-7B & \texttt{CharLimit(10)} & 56.8\% & 42.2\% & 48.9\% & 56.9\% & 17 / 0.0\% \\
+Qwen2.5-7B & \texttt{CharLimit(100)} & 64.4\% & 43.2\% & 54.9\% & 64.4\% & 34 / 0.0\% \\
+Qwen2.5-7B & \texttt{CharLimit(50)} & 64.2\% & 43.0\% & 54.5\% & 64.2\% & 31 / 0.0\% \\
+Qwen2.5-7B & \texttt{CharLimit(500)} & 68.6\% & 42.5\% & 56.9\% & 68.7\% & 48 / 0.0\% \\
+Qwen2.5-7B & \texttt{ChineseCoT} & 44.8\% & 29.7\% & 46.6\% & 52.4\% & 83 / 0.2\% \\
+Qwen2.5-7B & \texttt{ChineseCoT(10)} & 47.7\% & 37.3\% & 46.5\% & 50.7\% & 20 / 0.0\% \\
+Qwen2.5-7B & \texttt{ChineseCoT(100)} & 50.0\% & 34.5\% & 48.2\% & 50.6\% & 32 / 0.0\% \\
+Qwen2.5-7B & \texttt{ChineseCoT(50)} & 50.6\% & 34.8\% & 46.9\% & 50.9\% & 24 / 0.0\% \\
+Qwen2.5-7B & \texttt{ChineseCoT(500)} & 41.8\% & 26.6\% & 42.3\% & 48.7\% & 90 / 0.5\% \\
+Qwen2.5-7B & \texttt{DefaultCoT} & 52.8\% & 38.6\% & 59.3\% & 69.6\% & 93 / 0.2\% \\
+Qwen2.5-7B & \texttt{NoCoT} & 61.1\% & 45.6\% & 56.4\% & 61.3\% & 22 / 0.0\% \\
+Qwen2.5-7B & \texttt{NoProperGrammar} & 62.4\% & 41.0\% & 50.2\% & 62.8\% & 31 / 0.0\% \\
+Qwen2.5-7B & \texttt{NoSpaces} & 41.8\% & 25.6\% & 38.5\% & 41.8\% & 44 / 0.5\% \\
+Qwen2.5-7B & \texttt{OnlyNumbers} & 52.1\% & 44.4\% & 53.6\% & 58.2\% & 22 / 0.1\% \\
+Qwen2.5-7B & \texttt{StepLimit(1)} & 45.1\% & 30.1\% & 60.7\% & 67.1\% & 57 / 0.0\% \\
+Qwen2.5-7B & \texttt{StepLimit(2)} & 17.6\% & 20.7\% & 61.9\% & 66.1\% & 89 / 0.0\% \\
+Qwen2.5-7B & \texttt{StepLimit(5)} & 5.2\% & 21.1\% & 61.1\% & 67.6\% & 133 / 0.0\% \\
+Qwen2.5-7B & \texttt{TokenLimit(10)} & 61.1\% & 42.9\% & 55.4\% & 61.2\% & 25 / 0.0\% \\
+Qwen2.5-7B & \texttt{TokenLimit(100)} & 66.6\% & 43.1\% & 57.8\% & 66.8\% & 42 / 0.0\% \\
+Qwen2.5-7B & \texttt{TokenLimit(50)} & 65.0\% & 43.9\% & 57.8\% & 65.2\% & 37 / 0.0\% \\
+Qwen2.5-7B & \texttt{TokenLimit(500)} & 67.9\% & 40.9\% & 60.4\% & 69.3\% & 72 / 0.0\% \\
+Qwen2.5-7B & \texttt{WordLimit(1)} & 50.1\% & 44.6\% & 47.8\% & 50.1\% & 12 / 0.0\% \\
+Qwen2.5-7B & \texttt{WordLimit(10)} & 60.2\% & 34.6\% & 55.8\% & 60.2\% & 21 / 0.0\% \\
+Qwen2.5-7B & \texttt{WordLimit(100)} & 68.1\% & 40.9\% & 60.7\% & 68.2\% & 50 / 0.0\% \\
+Qwen2.5-7B & \texttt{WordLimit(15)} & 61.5\% & 39.0\% & 56.3\% & 61.5\% & 29 / 0.0\% \\
+Qwen2.5-7B & \texttt{WordLimit(25)} & 63.2\% & 40.3\% & 56.8\% & 63.2\% & 34 / 0.0\% \\
+Qwen2.5-7B & \texttt{WordLimit(5)} & 55.7\% & 39.5\% & 51.5\% & 55.7\% & 14 / 0.0\% \\
+Qwen2.5-7B & \texttt{WordLimit(50)} & 65.9\% & 42.3\% & 59.6\% & 66.0\% & 38 / 0.0\% \\
+Qwen3-8B & \texttt{AbbreviateWords} & 58.2\% & 32.3\% & 46.2\% & 61.0\% & 83 / 3.2\% \\
+Qwen3-8B & \texttt{BeConcise} & 73.5\% & 40.7\% & 66.2\% & 74.2\% & 82 / 0.1\% \\
+Qwen3-8B & \texttt{BulletPoints} & 49.7\% & 29.0\% & 55.3\% & 81.9\% & 294 / 15.0\% \\
+Qwen3-8B & \texttt{CharLimit(10)} & 62.2\% & 45.6\% & 57.5\% & 62.2\% & 35 / 0.4\% \\
+Qwen3-8B & \texttt{CharLimit(100)} & 70.2\% & 40.3\% & 60.5\% & 70.3\% & 84 / 2.2\% \\
+Qwen3-8B & \texttt{CharLimit(50)} & 66.4\% & 41.8\% & 60.6\% & 66.4\% & 56 / 1.3\% \\
+Qwen3-8B & \texttt{CharLimit(500)} & 75.3\% & 33.8\% & 64.0\% & 75.8\% & 138 / 1.8\% \\
+Qwen3-8B & \texttt{ChineseCoT} & 69.2\% & 42.2\% & 61.9\% & 72.4\% & 95 / 0.2\% \\
+Qwen3-8B & \texttt{ChineseCoT(10)} & 55.8\% & 45.9\% & 55.5\% & 59.4\% & 28 / 0.1\% \\
+Qwen3-8B & \texttt{ChineseCoT(100)} & 62.2\% & 45.4\% & 60.8\% & 65.6\% & 41 / 0.1\% \\
+Qwen3-8B & \texttt{ChineseCoT(50)} & 58.2\% & 43.9\% & 58.4\% & 61.5\% & 35 / 0.0\% \\
+Qwen3-8B & \texttt{ChineseCoT(500)} & 60.3\% & 39.2\% & 59.9\% & 69.2\% & 89 / 0.2\% \\
+Qwen3-8B & \texttt{DefaultCoT} & 63.2\% & 38.2\% & 64.9\% & 77.9\% & 146 / 0.5\% \\
+Qwen3-8B & \texttt{NoCoT} & 67.3\% & 43.6\% & 64.0\% & 67.4\% & 47 / 0.7\% \\
+Qwen3-8B & \texttt{NoProperGrammar} & 74.1\% & 30.2\% & 40.6\% & 74.3\% & 358 / 35.3\% \\
+Qwen3-8B & \texttt{NoSpaces} & 67.7\% & 25.8\% & 42.2\% & 68.1\% & 134 / 10.5\% \\
+Qwen3-8B & \texttt{OnlyNumbers} & 64.4\% & 40.3\% & 56.8\% & 72.8\% & 140 / 7.6\% \\
+Qwen3-8B & \texttt{StepLimit(1)} & 68.8\% & 36.1\% & 62.9\% & 70.3\% & 86 / 0.2\% \\
+Qwen3-8B & \texttt{StepLimit(2)} & 36.9\% & 27.9\% & 63.6\% & 70.6\% & 102 / 0.0\% \\
+Qwen3-8B & \texttt{StepLimit(5)} & 5.2\% & 23.7\% & 62.4\% & 70.6\% & 156 / 0.0\% \\
+Qwen3-8B & \texttt{TokenLimit(10)} & 64.8\% & 43.9\% & 60.5\% & 64.9\% & 42 / 0.3\% \\
+Qwen3-8B & \texttt{TokenLimit(100)} & 73.5\% & 39.8\% & 64.8\% & 73.8\% & 83 / 0.8\% \\
+Qwen3-8B & \texttt{TokenLimit(50)} & 69.8\% & 41.8\% & 63.1\% & 69.9\% & 63 / 0.4\% \\
+Qwen3-8B & \texttt{TokenLimit(500)} & 74.8\% & 32.5\% & 64.8\% & 75.2\% & 118 / 1.1\% \\
+Qwen3-8B & \texttt{WordLimit(1)} & 63.0\% & 49.4\% & 55.8\% & 63.0\% & 29 / 0.2\% \\
+Qwen3-8B & \texttt{WordLimit(10)} & 60.2\% & 32.2\% & 59.0\% & 60.2\% & 31 / 0.0\% \\
+Qwen3-8B & \texttt{WordLimit(100)} & 74.9\% & 37.0\% & 64.2\% & 75.3\% & 110 / 1.1\% \\
+Qwen3-8B & \texttt{WordLimit(15)} & 63.9\% & 36.2\% & 60.8\% & 63.9\% & 39 / 0.1\% \\
+Qwen3-8B & \texttt{WordLimit(25)} & 68.1\% & 41.9\% & 62.4\% & 68.1\% & 53 / 0.4\% \\
+Qwen3-8B & \texttt{WordLimit(5)} & 58.6\% & 43.2\% & 57.6\% & 58.8\% & 29 / 0.4\% \\
+Qwen3-8B & \texttt{WordLimit(50)} & 70.3\% & 40.4\% & 62.7\% & 70.5\% & 67 / 0.4\% \\
+\end{longtable}}
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{20 篇文档 9 位置精细扫描双模型命中率、95\% 聚类区间与同题配对优势表}\label{tab:app-f-pos9}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedleft\arraybackslash}p{1.2cm} >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.9cm} >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.9cm} >{\raggedleft\arraybackslash}X@{}}
+\toprule
+\textbf{位置} & \textbf{Qwen2.5 命中} & \textbf{Qwen2.5 95\% CI} & \textbf{Qwen3 命中} & \textbf{Qwen3 95\% CI} & \textbf{Qwen3 优势 (pp)} \\
+\midrule
+1  & 54.5\% & [47.5\%, 61.5\%] & 71.0\% & [64.5\%, 77.0\%] & +16.50 \\
+3  & 52.5\% & [45.5\%, 59.5\%] & 61.0\% & [54.0\%, 68.0\%] & +8.50 \\
+5  & 50.0\% & [43.0\%, 57.0\%] & 61.0\% & [54.0\%, 67.5\%] & +11.00 \\
+8  & 52.0\% & [45.0\%, 59.0\%] & 61.5\% & [54.5\%, 68.0\%] & +9.50 \\
 10 & 52.5\% & [45.5\%, 59.5\%] & 61.5\% & [54.5\%, 68.0\%] & +9.00 \\
 13 & 50.5\% & [43.5\%, 57.5\%] & 58.5\% & [51.5\%, 65.0\%] & +8.00 \\
 15 & 51.0\% & [44.0\%, 58.0\%] & 58.5\% & [51.5\%, 65.5\%] & +7.50 \\
@@ -85,50 +365,422 @@ Qwen3 & MMLU-Pro & 63.5\% & 73.5\% & 37.7\% & 29.5\% & 12.5\% \\
 20 & 56.5\% & [49.5\%, 63.5\%] & 59.0\% & [52.0\%, 65.5\%] & +2.50 \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table}}
 
-\begin{table}[H]
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
 \centering
-\caption{代码反馈补充实验六策略终稿强测全表（164 题 $\times$ 3 初稿 = 492 程序，含相对单反例差值）}\label{tab:app-repair-ext}
+\caption{文档问答上下文由 10 篇扩充至 20 篇时的同题配对命中率变化表（20 篇减 10 篇，200 题簇）}\label{tab:app-f-docexp}
 \ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.65cm} >{\raggedright\arraybackslash}p{2.15cm} >{\raggedleft\arraybackslash}p{1.55cm} >{\raggedleft\arraybackslash}p{2.35cm} >{\raggedleft\arraybackslash}p{1.65cm} >{\raggedleft\arraybackslash}p{1.15cm} >{\raggedleft\arraybackslash}X@{}}
+\fontsize{9.4bp}{11.6bp}\selectfont
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedleft\arraybackslash}p{2.1cm} >{\raggedleft\arraybackslash}X@{}}
 \toprule
-\textbf{模型} & \textbf{反馈处理组} & \textbf{终稿通过} & \textbf{终稿 95\% CI} & \textbf{初错修复} & \textbf{回退} & \textbf{总 Token / 相对单反例} \\
+\textbf{策略范围} & \textbf{模型} & \textbf{评分标尺} & \textbf{证据位置} & \textbf{20减10差值} & \textbf{95\% 聚类区间 (pp)} \\
 \midrule
-Qwen2.5 & 独立重采样 & 379/492 & [70.5\%, 82.9\%] & 11/110 & 14/382 & 2,184 / -4.47 pp \\
-Qwen2.5 & 自行检查 & 392/492 & [73.8\%, 85.2\%] & 18/110 & 8/382 & 5,644 / -1.83 pp \\
-Qwen2.5 & 仅通过状态 & 398/492 & [75.0\%, 86.4\%] & 17/110 & 1/382 & 5,814 / -0.61 pp \\
-Qwen2.5 & 错误定位诊断 & 401/492 & [75.8\%, 86.8\%] & 21/110 & 2/382 & 5,924 / -0.00 pp \\
-Qwen2.5 & 单个失败反例 & 401/492 & [76.0\%, 86.6\%] & 22/110 & 3/382 & 5,909 / 基线 \\
-Qwen2.5 & 多个失败反例 & 399/492 & [75.4\%, 86.6\%] & 19/110 & 2/382 & 6,911 / -0.41 pp \\
-\addlinespace[2pt]
-Qwen3 & 独立重采样 & 377/492 & [69.9\%, 82.7\%] & 18/122 & 11/370 & 1,837 / -8.33 pp \\
-Qwen3 & 自行检查 & 376/492 & [69.9\%, 82.5\%] & 9/122 & 3/370 & 4,431 / -8.54 pp \\
-Qwen3 & 仅通过状态 & 395/492 & [74.4\%, 85.8\%] & 25/122 & 0/370 & 4,654 / -4.67 pp \\
-Qwen3 & 错误定位诊断 & 409/492 & [77.4\%, 88.2\%] & 39/122 & 0/370 & 4,909 / -1.83 pp \\
-Qwen3 & 单个失败反例 & 418/492 & [79.9\%, 89.8\%] & 48/122 & 0/370 & 4,904 / 基线 \\
-Qwen3 & 多个失败反例 & 421/492 & [80.5\%, 90.2\%] & 51/122 & 0/370 & 5,671 / +0.61 pp \\
+主对比19策略 & Qwen2.5-7B & \texttt{paper\_firstline} & 首段 (Front) & -2.21\,pp & [-4.84, +0.37] \\
+主对比19策略 & Qwen2.5-7B & \texttt{paper\_firstline} & 中段 (Middle) & -3.61\,pp & [-6.34, -1.05] \\
+主对比19策略 & Qwen2.5-7B & \texttt{paper\_firstline} & 末段 (Back) & -0.97\,pp & [-3.76, +1.79] \\
+主对比19策略 & Qwen3-8B & \texttt{paper\_firstline} & 首段 (Front) & +0.58\,pp & [-1.13, +2.32] \\
+主对比19策略 & Qwen3-8B & \texttt{paper\_firstline} & 中段 (Middle) & -1.61\,pp & [-4.03, +0.79] \\
+主对比19策略 & Qwen3-8B & \texttt{paper\_firstline} & 末段 (Back) & -4.18\,pp & [-6.55, -1.95] \\
+主对比19策略 & Qwen2.5-7B & \texttt{final\_contains} & 首段 (Front) & -3.05\,pp & [-6.08, -0.18] \\
+主对比19策略 & Qwen2.5-7B & \texttt{final\_contains} & 中段 (Middle) & -3.92\,pp & [-6.92, -1.03] \\
+主对比19策略 & Qwen2.5-7B & \texttt{final\_contains} & 末段 (Back) & -2.47\,pp & [-5.66, +0.61] \\
+主对比19策略 & Qwen3-8B & \texttt{final\_contains} & 首段 (Front) & -0.82\,pp & [-2.63, +1.00] \\
+主对比19策略 & Qwen3-8B & \texttt{final\_contains} & 中段 (Middle) & -3.29\,pp & [-6.11, -0.63] \\
+主对比19策略 & Qwen3-8B & \texttt{final\_contains} & 末段 (Back) & -5.21\,pp & [-7.95, -2.61] \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table}}
 
+\section{代码生成依赖分层、采样多样性与细粒度错误构成表}
 
-\Needspace{10\baselineskip}\section{代码生成独立采样与模型配对对照}
+图~\ref{fig:app-f-cg-pair} 给出了代码生成五次独立采样的边际饱和曲线与“输出长度—Pass@1”散点分布；表~\ref{tab:app-f-codedep} 与表~\ref{tab:app-f-codeerr} 分别列出 \texttt{CodePromptEval} 按外部依赖复杂度的分层通过率及 \texttt{DefaultCoT} 下的主要错误类型占比。
 
-\begin{table}[H]
+\begin{figure}[!htbp]
 \centering
-\caption{CodePromptEval 独立采样通过率与按题配对差异（193 道共同可评题，89,745 条可评记录）}\label{tab:app-codegen-passk}
+\subfigure[独立采样 Pass@1 至 Pass@5 饱和曲线]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/cg-02-sampling-sat.pdf}}}\hfill
+\subfigure[93 个模型$\times$提示条件的 Token 与通过率分布]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/cg-06-tokens-pass1.pdf}}}
+\caption{代码生成任务的重复采样饱和特征（左）与长度—正确率非单调分布（右）}
+\label{fig:app-f-cg-pair}
+\end{figure}
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{\texttt{CodePromptEval} 四个外部依赖复杂度层级下的分层通过率对照（全 31 策略均值）}\label{tab:app-f-codedep}
 \ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.0cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedleft\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedleft\arraybackslash}p{1.4cm} >{\raggedleft\arraybackslash}p{2.1cm} >{\raggedleft\arraybackslash}p{2.8cm} >{\raggedleft\arraybackslash}X@{}}
 \toprule
-\textbf{受测模型} & \textbf{Pass@1} & \textbf{Pass@3} & \textbf{Pass@5} & \textbf{第 5 次新增 / 配对差异参考} \\
+\textbf{受测模型} & \textbf{依赖复杂度层级} & \textbf{题数} & \textbf{Pass@1} & \textbf{Pass@1 95\% CI} & \textbf{Pass@5} \\
 \midrule
-DeepSeek Flash & 30.22\% & 33.73\% & 34.97\% & +0.47 pp；相对 Qwen2.5 高 +7.62 pp（Pass@1 [4.48, 10.85]） \\
-Qwen2.5 7B & 22.59\% & 26.04\% & 27.34\% & +0.60 pp；相对 Qwen3 差 +0.50 pp（95\% CI [-1.96, 2.91]，跨 0） \\
-Qwen3 8B & 22.09\% & 26.36\% & 28.01\% & +0.79 pp；NoCoT 下 44.0\% 可评回答未能提取目标函数 \\
+DeepSeek Flash & 第三方包依赖 (External pkg) & 13 & 25.61\% & [6.5\%, 48.6\%] & 27.79\% \\
+DeepSeek Flash & 跨文件工程依赖 (Project) & 21 & 11.92\% & [0.3\%, 25.7\%] & 14.75\% \\
+DeepSeek Flash & 独立纯函数 (Self-contained) & 30 & 58.88\% & [43.4\%, 73.4\%] & 62.80\% \\
+DeepSeek Flash & 仅标准库依赖 (Stdlib) & 20 & 44.39\% & [26.1\%, 64.0\%] & 53.39\% \\
+Qwen2.5-7B & 第三方包依赖 (External pkg) & 13 & 17.77\% & [1.4\%, 35.7\%] & 20.84\% \\
+Qwen2.5-7B & 跨文件工程依赖 (Project) & 21 & 11.86\% & [0.8\%, 24.5\%] & 14.59\% \\
+Qwen2.5-7B & 独立纯函数 (Self-contained) & 30 & 41.25\% & [27.9\%, 54.8\%] & 46.34\% \\
+Qwen2.5-7B & 仅标准库依赖 (Stdlib) & 20 & 37.52\% & [21.8\%, 53.7\%] & 44.68\% \\
+Qwen3-8B & 第三方包依赖 (External pkg) & 13 & 16.58\% & [3.8\%, 32.7\%] & 22.08\% \\
+Qwen3-8B & 跨文件工程依赖 (Project) & 21 & 12.20\% & [2.2\%, 24.1\%] & 15.98\% \\
+Qwen3-8B & 独立纯函数 (Self-contained) & 30 & 38.30\% & [26.5\%, 50.3\%] & 48.49\% \\
+Qwen3-8B & 仅标准库依赖 (Stdlib) & 20 & 31.45\% & [17.4\%, 46.1\%] & 38.23\% \\
 \bottomrule
 \end{tabularx}
-\end{table}
+\end{table}}
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{\texttt{CodePromptEval} 在标准分步（\texttt{DefaultCoT}，每模型 965 条可评记录）下的主要失败类别构成}\label{tab:app-f-codeerr}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedleft\arraybackslash}p{1.6cm} >{\raggedleft\arraybackslash}p{2.2cm} >{\raggedleft\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}X@{}}
+\toprule
+\textbf{受测模型} & \textbf{失败错误类别} & \textbf{条数} & \textbf{失败总条数} & \textbf{占失败比例} & \textbf{占全样本比例} \\
+\midrule
+DeepSeek Flash & \texttt{assertion\_failure} & 346 & 680 & 50.9\% & 35.9\% \\
+DeepSeek Flash & \texttt{attribute\_error} & 121 & 680 & 17.8\% & 12.5\% \\
+DeepSeek Flash & \texttt{type\_error} & 59 & 680 & 8.7\% & 6.1\% \\
+DeepSeek Flash & \texttt{extraction\_error} & 48 & 680 & 7.1\% & 5.0\% \\
+DeepSeek Flash & \texttt{key\_error} & 27 & 680 & 4.0\% & 2.8\% \\
+Qwen2.5-7B & \texttt{assertion\_failure} & 317 & 709 & 44.7\% & 32.8\% \\
+Qwen2.5-7B & \texttt{attribute\_error} & 172 & 709 & 24.3\% & 17.8\% \\
+Qwen2.5-7B & \texttt{type\_error} & 82 & 709 & 11.6\% & 8.5\% \\
+Qwen2.5-7B & \texttt{key\_error} & 29 & 709 & 4.1\% & 3.0\% \\
+Qwen2.5-7B & \texttt{syntax\_error} & 24 & 709 & 3.4\% & 2.5\% \\
+Qwen3-8B & \texttt{assertion\_failure} & 349 & 705 & 49.5\% & 36.2\% \\
+Qwen3-8B & \texttt{attribute\_error} & 142 & 705 & 20.1\% & 14.7\% \\
+Qwen3-8B & \texttt{type\_error} & 82 & 705 & 11.6\% & 8.5\% \\
+Qwen3-8B & \texttt{syntax\_error} & 38 & 705 & 5.4\% & 3.9\% \\
+Qwen3-8B & \texttt{key\_error} & 34 & 705 & 4.8\% & 3.5\% \\
+\bottomrule
+\end{tabularx}
+\end{table}}
 
 
-\paragraph{代码任务两类实验口径边界}表~\ref{tab:app-repair-ext} 来自 \texttt{HumanEval+ Mini} 多轮反馈补充批次，主指标要求同时通过公开诊断与强保留测试；表~\ref{tab:app-codegen-passk} 来自 \texttt{CodePromptEval} 单轮五次独立采样，两者题目集合与采样协议不同，不作跨实验直接混合对比。
+表~\ref{tab:app-f-codegen31} 进一步给出 \texttt{CodePromptEval} 全部 31 种提示策略在三个受测模型上的无偏 \texttt{Pass@1}、\texttt{Pass@5} 与平均输出 Token 完整查阅表（每格 193 道共同可评题 $\times$ 5 次独立采样 = 965 条可评响应，格式为“Pass@1 / Pass@5 / 均Token”）。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\fontsize{9.2bp}{11.4bp}\selectfont
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.1cm} >{\raggedleft\arraybackslash}p{3.4cm} >{\raggedleft\arraybackslash}p{3.4cm} >{\raggedleft\arraybackslash}p{3.4cm}@{}}
+\caption{\texttt{CodePromptEval} 31 策略 $\times$ 三模型无偏 Pass@1 / Pass@5 与平均 Token 全表}\label{tab:app-f-codegen31}\\
+\toprule
+\textbf{提示策略} & \textbf{DeepSeek Flash} & \textbf{Qwen2.5-7B} & \textbf{Qwen3-8B} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\fontsize{9.5bp}{11.5bp}\selectfont 表~\ref{tab:app-f-codegen31}（续）：\texttt{CodePromptEval} 31 策略通过率与开销全表} \\
+\toprule
+\textbf{提示策略} & \textbf{DeepSeek Flash} & \textbf{Qwen2.5-7B} & \textbf{Qwen3-8B} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\texttt{AbbreviateWords} & 30.6\% / 35.8\% / 480 & 7.4\% / 15.5\% / 171 & 27.8\% / 34.7\% / 178 \\
+\texttt{BeConcise} & 32.4\% / 37.8\% / 282 & 25.9\% / 31.6\% / 260 & 28.5\% / 34.2\% / 214 \\
+\texttt{BulletPoints} & 31.8\% / 37.8\% / 287 & 27.6\% / 33.2\% / 156 & 29.6\% / 35.8\% / 205 \\
+\texttt{CharLimit(10)} & 31.1\% / 34.7\% / 190 & 11.2\% / 14.5\% / 87 & 19.9\% / 27.5\% / 119 \\
+\texttt{CharLimit(100)} & 31.4\% / 35.8\% / 173 & 28.0\% / 31.1\% / 90 & 19.0\% / 25.4\% / 110 \\
+\texttt{CharLimit(50)} & 32.2\% / 36.3\% / 189 & 26.0\% / 31.1\% / 70 & 17.1\% / 22.8\% / 110 \\
+\texttt{CharLimit(500)} & 31.4\% / 35.2\% / 194 & 24.4\% / 31.1\% / 180 & 24.6\% / 30.6\% / 138 \\
+\texttt{ChineseCoT} & 28.1\% / 35.2\% / 635 & 26.6\% / 33.7\% / 211 & 29.3\% / 36.8\% / 276 \\
+\texttt{ChineseCoT(10)} & 34.1\% / 37.3\% / 229 & 23.5\% / 28.0\% / 86 & 28.4\% / 32.6\% / 77 \\
+\texttt{ChineseCoT(100)} & 23.5\% / 32.1\% / 172 & 25.9\% / 30.6\% / 111 & 29.2\% / 31.6\% / 118 \\
+\texttt{ChineseCoT(50)} & 30.3\% / 35.8\% / 193 & 25.4\% / 28.5\% / 84 & 27.8\% / 32.6\% / 95 \\
+\texttt{ChineseCoT(500)} & 29.4\% / 37.3\% / 318 & 26.3\% / 33.7\% / 171 & 29.1\% / 36.3\% / 223 \\
+\texttt{DefaultCoT} & 29.5\% / 35.2\% / 662 & 26.5\% / 33.7\% / 334 & 26.9\% / 33.2\% / 351 \\
+\texttt{NoCoT} & 32.6\% / 36.8\% / 205 & 25.5\% / 28.5\% / 107 & 12.6\% / 17.6\% / 90 \\
+\texttt{NoProperGrammar} & 17.9\% / 23.3\% / 207 & 0.7\% / 2.1\% / 116 & 10.7\% / 18.7\% / 322 \\
+\texttt{NoSpaces} & 20.6\% / 25.9\% / 215 & 2.5\% / 4.7\% / 93 & 13.0\% / 19.7\% / 140 \\
+\texttt{OnlyNumbers} & 33.7\% / 36.8\% / 199 & 24.8\% / 27.5\% / 129 & 4.2\% / 8.3\% / 107 \\
+\texttt{StepLimit(1)} & 30.5\% / 35.8\% / 213 & 25.3\% / 31.6\% / 121 & 27.8\% / 33.2\% / 156 \\
+\texttt{StepLimit(2)} & 31.4\% / 37.3\% / 218 & 24.5\% / 30.1\% / 133 & 29.0\% / 33.2\% / 139 \\
+\texttt{StepLimit(5)} & 31.6\% / 36.8\% / 265 & 26.3\% / 32.6\% / 189 & 29.2\% / 35.2\% / 216 \\
+\texttt{TokenLimit(10)} & 29.1\% / 33.2\% / 166 & 24.7\% / 28.5\% / 92 & 17.5\% / 23.8\% / 112 \\
+\texttt{TokenLimit(100)} & 31.7\% / 35.2\% / 167 & 24.5\% / 30.6\% / 149 & 22.5\% / 29.5\% / 159 \\
+\texttt{TokenLimit(50)} & 29.9\% / 33.2\% / 154 & 26.6\% / 31.6\% / 129 & 21.9\% / 30.1\% / 144 \\
+\texttt{TokenLimit(500)} & 33.4\% / 37.3\% / 237 & 26.0\% / 33.2\% / 256 & 24.1\% / 32.6\% / 241 \\
+\texttt{WordLimit(1)} & 32.1\% / 35.8\% / 194 & 4.9\% / 5.7\% / 67 & 21.3\% / 27.5\% / 129 \\
+\texttt{WordLimit(10)} & 29.9\% / 34.7\% / 181 & 27.9\% / 31.6\% / 84 & 14.4\% / 18.7\% / 73 \\
+\texttt{WordLimit(100)} & 32.4\% / 36.3\% / 185 & 26.8\% / 32.1\% / 135 & 25.8\% / 31.6\% / 146 \\
+\texttt{WordLimit(15)} & 31.0\% / 35.2\% / 175 & 26.3\% / 30.6\% / 96 & 14.8\% / 22.3\% / 84 \\
+\texttt{WordLimit(25)} & 28.9\% / 33.7\% / 179 & 28.4\% / 30.6\% / 97 & 18.7\% / 21.8\% / 92 \\
+\texttt{WordLimit(5)} & 32.2\% / 34.7\% / 199 & 22.3\% / 26.9\% / 74 & 22.5\% / 26.4\% / 97 \\
+\texttt{WordLimit(50)} & 31.7\% / 35.8\% / 176 & 27.8\% / 33.2\% / 103 & 17.6\% / 24.4\% / 95 \\
+\end{longtable}}
+
+\section{代码修复补充批次逐轮轨迹与两两配对检验全表}
+
+表~\ref{tab:app-f-repair-curves} 完整合并了补充批次（164 题 $\times$ 3 初稿 = 492 份程序）在第 0 至第 4 轮上的公开诊断通过率、强保留测试通过率与累计平均输出 Token；表~\ref{tab:app-f-repair-pairs} 则收录全部预先规定的处理臂两两配对“赢 / 输 / 平”程序份数、百分点差值与 95\% 题簇 Bootstrap 置信区间。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\fontsize{9.3bp}{11.5bp}\selectfont
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{2.3cm} >{\raggedleft\arraybackslash}p{0.85cm} >{\raggedleft\arraybackslash}p{2.1cm} >{\raggedleft\arraybackslash}p{2.1cm} >{\raggedleft\arraybackslash}p{2.65cm} >{\raggedleft\arraybackslash}p{1.6cm}@{}}
+\caption{代码修复补充实验六策略第 0--4 轮公开诊断与强保留测试完整轨迹表（分母 492 份程序）}\label{tab:app-f-repair-curves}\\
+\toprule
+\textbf{模型} & \textbf{反馈策略} & \textbf{轮次} & \textbf{公开诊断通过} & \textbf{强保留测试通过} & \textbf{强测 95\% CI} & \textbf{累计Token} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\fontsize{9.5bp}{11.5bp}\selectfont 表~\ref{tab:app-f-repair-curves}（续）：代码修复逐轮公开与强测轨迹全表} \\
+\toprule
+\textbf{模型} & \textbf{反馈策略} & \textbf{轮次} & \textbf{公开诊断通过} & \textbf{强保留测试通过} & \textbf{强测 95\% CI} & \textbf{累计Token} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Qwen2.5-7B & 独立重采样 & R0 & 413 (83.9\%) & 382 (77.6\%) & [71.3\%, 83.3\%] & 437 \\
+Qwen2.5-7B & 独立重采样 & R1 & 401 (81.5\%) & 378 (76.8\%) & [70.5\%, 82.7\%] & 876 \\
+Qwen2.5-7B & 独立重采样 & R2 & 411 (83.5\%) & 385 (78.3\%) & [72.0\%, 83.9\%] & 1313 \\
+Qwen2.5-7B & 独立重采样 & R3 & 402 (81.7\%) & 376 (76.4\%) & [70.1\%, 82.3\%] & 1748 \\
+Qwen2.5-7B & 独立重采样 & R4 & 407 (82.7\%) & 379 (77.0\%) & [70.5\%, 82.9\%] & 2184 \\
+Qwen2.5-7B & 自行检查 & R0 & 413 (83.9\%) & 382 (77.6\%) & [71.3\%, 83.3\%] & 437 \\
+Qwen2.5-7B & 自行检查 & R1 & 415 (84.3\%) & 388 (78.9\%) & [73.0\%, 84.3\%] & 1209 \\
+Qwen2.5-7B & 自行检查 & R2 & 418 (85.0\%) & 391 (79.5\%) & [73.6\%, 85.0\%] & 2333 \\
+Qwen2.5-7B & 自行检查 & R3 & 419 (85.2\%) & 392 (79.7\%) & [73.8\%, 85.2\%] & 3811 \\
+Qwen2.5-7B & 自行检查 & R4 & 419 (85.2\%) & 392 (79.7\%) & [73.8\%, 85.2\%] & 5644 \\
+Qwen2.5-7B & 仅通过状态 & R0 & 413 (83.9\%) & 382 (77.6\%) & [71.3\%, 83.3\%] & 437 \\
+Qwen2.5-7B & 仅通过状态 & R1 & 423 (86.0\%) & 395 (80.3\%) & [74.4\%, 85.8\%] & 1214 \\
+Qwen2.5-7B & 仅通过状态 & R2 & 424 (86.2\%) & 396 (80.5\%) & [74.6\%, 86.0\%] & 2354 \\
+Qwen2.5-7B & 仅通过状态 & R3 & 426 (86.6\%) & 398 (80.9\%) & [75.0\%, 86.4\%] & 3883 \\
+Qwen2.5-7B & 仅通过状态 & R4 & 426 (86.6\%) & 398 (80.9\%) & [75.0\%, 86.4\%] & 5814 \\
+Qwen2.5-7B & 错误定位诊断 & R0 & 413 (83.9\%) & 382 (77.6\%) & [71.3\%, 83.3\%] & 437 \\
+Qwen2.5-7B & 错误定位诊断 & R1 & 424 (86.2\%) & 397 (80.7\%) & [74.8\%, 86.0\%] & 1228 \\
+Qwen2.5-7B & 错误定位诊断 & R2 & 425 (86.4\%) & 398 (80.9\%) & [75.0\%, 86.2\%] & 2394 \\
+Qwen2.5-7B & 错误定位诊断 & R3 & 427 (86.8\%) & 400 (81.3\%) & [75.6\%, 86.6\%] & 3955 \\
+Qwen2.5-7B & 错误定位诊断 & R4 & 428 (87.0\%) & 401 (81.5\%) & [75.8\%, 86.8\%] & 5924 \\
+Qwen2.5-7B & 单个失败反例 & R0 & 413 (83.9\%) & 382 (77.6\%) & [71.3\%, 83.3\%] & 437 \\
+Qwen2.5-7B & 单个失败反例 & R1 & 425 (86.4\%) & 396 (80.5\%) & [74.8\%, 85.8\%] & 1233 \\
+Qwen2.5-7B & 单个失败反例 & R2 & 428 (87.0\%) & 398 (80.9\%) & [75.2\%, 86.2\%] & 2402 \\
+Qwen2.5-7B & 单个失败反例 & R3 & 431 (87.6\%) & 401 (81.5\%) & [76.0\%, 86.6\%] & 3957 \\
+Qwen2.5-7B & 单个失败反例 & R4 & 432 (87.8\%) & 401 (81.5\%) & [76.0\%, 86.6\%] & 5909 \\
+Qwen2.5-7B & 多个失败反例 & R0 & 413 (83.9\%) & 382 (77.6\%) & [71.3\%, 83.3\%] & 437 \\
+Qwen2.5-7B & 多个失败反例 & R1 & 423 (86.0\%) & 394 (80.1\%) & [74.2\%, 85.6\%] & 1333 \\
+Qwen2.5-7B & 多个失败反例 & R2 & 427 (86.8\%) & 397 (80.7\%) & [74.8\%, 86.2\%] & 2699 \\
+Qwen2.5-7B & 多个失败反例 & R3 & 427 (86.8\%) & 397 (80.7\%) & [75.0\%, 86.2\%] & 4552 \\
+Qwen2.5-7B & 多个失败反例 & R4 & 429 (87.2\%) & 399 (81.1\%) & [75.4\%, 86.6\%] & 6911 \\
+Qwen3-8B & 独立重采样 & R0 & 395 (80.3\%) & 370 (75.2\%) & [68.7\%, 81.3\%] & 369 \\
+Qwen3-8B & 独立重采样 & R1 & 398 (80.9\%) & 373 (75.8\%) & [69.3\%, 81.9\%] & 739 \\
+Qwen3-8B & 独立重采样 & R2 & 400 (81.3\%) & 376 (76.4\%) & [70.1\%, 82.5\%] & 1106 \\
+Qwen3-8B & 独立重采样 & R3 & 397 (80.7\%) & 373 (75.8\%) & [69.3\%, 81.9\%] & 1470 \\
+Qwen3-8B & 独立重采样 & R4 & 400 (81.3\%) & 377 (76.6\%) & [69.9\%, 82.7\%] & 1837 \\
+Qwen3-8B & 自行检查 & R0 & 395 (80.3\%) & 370 (75.2\%) & [68.7\%, 81.3\%] & 369 \\
+Qwen3-8B & 自行检查 & R1 & 401 (81.5\%) & 377 (76.6\%) & [70.1\%, 82.5\%] & 990 \\
+Qwen3-8B & 自行检查 & R2 & 402 (81.7\%) & 374 (76.0\%) & [69.5\%, 81.9\%] & 1870 \\
+Qwen3-8B & 自行检查 & R3 & 402 (81.7\%) & 376 (76.4\%) & [69.9\%, 82.3\%] & 3015 \\
+Qwen3-8B & 自行检查 & R4 & 404 (82.1\%) & 376 (76.4\%) & [69.9\%, 82.5\%] & 4431 \\
+Qwen3-8B & 仅通过状态 & R0 & 395 (80.3\%) & 370 (75.2\%) & [68.7\%, 81.3\%] & 369 \\
+Qwen3-8B & 仅通过状态 & R1 & 411 (83.5\%) & 383 (77.8\%) & [71.5\%, 83.7\%] & 1019 \\
+Qwen3-8B & 仅通过状态 & R2 & 418 (85.0\%) & 387 (78.7\%) & [72.6\%, 84.3\%] & 1953 \\
+Qwen3-8B & 仅通过状态 & R3 & 419 (85.2\%) & 389 (79.1\%) & [73.0\%, 84.8\%] & 3164 \\
+Qwen3-8B & 仅通过状态 & R4 & 424 (86.2\%) & 395 (80.3\%) & [74.4\%, 85.8\%] & 4654 \\
+Qwen3-8B & 错误定位诊断 & R0 & 395 (80.3\%) & 370 (75.2\%) & [68.7\%, 81.3\%] & 369 \\
+Qwen3-8B & 错误定位诊断 & R1 & 419 (85.2\%) & 390 (79.3\%) & [73.2\%, 85.0\%] & 1048 \\
+Qwen3-8B & 错误定位诊断 & R2 & 431 (87.6\%) & 400 (81.3\%) & [75.6\%, 86.8\%] & 2032 \\
+Qwen3-8B & 错误定位诊断 & R3 & 435 (88.4\%) & 404 (82.1\%) & [76.4\%, 87.4\%] & 3317 \\
+Qwen3-8B & 错误定位诊断 & R4 & 440 (89.4\%) & 409 (83.1\%) & [77.4\%, 88.2\%] & 4909 \\
+Qwen3-8B & 单个失败反例 & R0 & 395 (80.3\%) & 370 (75.2\%) & [68.7\%, 81.3\%] & 369 \\
+Qwen3-8B & 单个失败反例 & R1 & 421 (85.6\%) & 391 (79.5\%) & [73.6\%, 85.0\%] & 1049 \\
+Qwen3-8B & 单个失败反例 & R2 & 438 (89.0\%) & 406 (82.5\%) & [77.0\%, 87.6\%] & 2034 \\
+Qwen3-8B & 单个失败反例 & R3 & 447 (90.9\%) & 415 (84.3\%) & [79.3\%, 89.2\%] & 3321 \\
+Qwen3-8B & 单个失败反例 & R4 & 450 (91.5\%) & 418 (85.0\%) & [79.9\%, 89.8\%] & 4904 \\
+Qwen3-8B & 多个失败反例 & R0 & 395 (80.3\%) & 370 (75.2\%) & [68.7\%, 81.3\%] & 369 \\
+Qwen3-8B & 多个失败反例 & R1 & 434 (88.2\%) & 403 (81.9\%) & [76.4\%, 87.0\%] & 1136 \\
+Qwen3-8B & 多个失败反例 & R2 & 445 (90.4\%) & 412 (83.7\%) & [78.5\%, 88.6\%] & 2278 \\
+Qwen3-8B & 多个失败反例 & R3 & 451 (91.7\%) & 417 (84.8\%) & [79.7\%, 89.4\%] & 3788 \\
+Qwen3-8B & 多个失败反例 & R4 & 457 (92.9\%) & 421 (85.6\%) & [80.5\%, 90.2\%] & 5671 \\
+\end{longtable}}
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\fontsize{9.4bp}{11.6bp}\selectfont
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.45cm} >{\raggedright\arraybackslash}p{2.45cm} >{\raggedleft\arraybackslash}p{2.25cm} >{\raggedleft\arraybackslash}p{1.75cm} >{\raggedleft\arraybackslash}p{3.1cm}@{}}
+\caption{代码修复补充实验终稿强测两两配对胜负平计数与 95\% 题簇 Bootstrap 差值全表}\label{tab:app-f-repair-pairs}\\
+\toprule
+\textbf{模型} & \textbf{实验组策略} & \textbf{对照基线策略} & \textbf{赢 / 输 / 平} & \textbf{差值 (pp)} & \textbf{95\% 探索区间 (pp)} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\fontsize{9.5bp}{11.5bp}\selectfont 表~\ref{tab:app-f-repair-pairs}（续）：终稿强测两两配对检验全表} \\
+\toprule
+\textbf{模型} & \textbf{实验组策略} & \textbf{对照基线策略} & \textbf{赢 / 输 / 平} & \textbf{差值 (pp)} & \textbf{95\% 探索区间 (pp)} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Qwen2.5-7B & 自行检查 & 独立重采样 & 28 / 15 / 449 & +2.64 & [-0.41, +5.89] \\
+Qwen2.5-7B & 仅通过状态 & 独立重采样 & 28 / 9 / 455 & +3.86 & [+1.22, +6.71] \\
+Qwen2.5-7B & 仅通过状态 & 自行检查 & 11 / 5 / 476 & +1.22 & [-0.81, +3.46] \\
+Qwen2.5-7B & 错误定位诊断 & 独立重采样 & 31 / 9 / 452 & +4.47 & [+1.63, +7.72] \\
+Qwen2.5-7B & 错误定位诊断 & 自行检查 & 15 / 6 / 471 & +1.83 & [-0.61, +4.27] \\
+Qwen2.5-7B & 错误定位诊断 & 仅通过状态 & 8 / 5 / 479 & +0.61 & [-1.22, +2.44] \\
+Qwen2.5-7B & 单个失败反例 & 独立重采样 & 33 / 11 / 448 & +4.47 & [+1.42, +7.72] \\
+Qwen2.5-7B & 单个失败反例 & 自行检查 & 16 / 7 / 469 & +1.83 & [-0.20, +4.07] \\
+Qwen2.5-7B & 单个失败反例 & 仅通过状态 & 12 / 9 / 471 & +0.61 & [-1.22, +2.64] \\
+Qwen2.5-7B & 单个失败反例 & 错误定位诊断 & 6 / 6 / 480 & +0.00 & [-1.42, +1.63] \\
+Qwen2.5-7B & 多个失败反例 & 独立重采样 & 31 / 11 / 450 & +4.07 & [+1.02, +7.32] \\
+Qwen2.5-7B & 多个失败反例 & 自行检查 & 12 / 5 / 475 & +1.42 & [-0.41, +3.66] \\
+Qwen2.5-7B & 多个失败反例 & 仅通过状态 & 7 / 6 / 479 & +0.20 & [-1.42, +2.03] \\
+Qwen2.5-7B & 多个失败反例 & 错误定位诊断 & 5 / 7 / 480 & -0.41 & [-2.03, +1.22] \\
+Qwen2.5-7B & 多个失败反例 & 单个失败反例 & 7 / 9 / 476 & -0.41 & [-2.24, +1.22] \\
+Qwen3-8B & 自行检查 & 独立重采样 & 17 / 18 / 457 & -0.20 & [-3.05, +2.64] \\
+Qwen3-8B & 仅通过状态 & 独立重采样 & 30 / 12 / 450 & +3.66 & [+0.20, +7.32] \\
+Qwen3-8B & 仅通过状态 & 自行检查 & 20 / 1 / 471 & +3.86 & [+2.03, +6.10] \\
+Qwen3-8B & 错误定位诊断 & 独立重采样 & 41 / 9 / 442 & +6.50 & [+2.64, +10.98] \\
+Qwen3-8B & 错误定位诊断 & 自行检查 & 35 / 2 / 455 & +6.71 & [+3.46, +10.37] \\
+Qwen3-8B & 错误定位诊断 & 仅通过状态 & 21 / 7 / 464 & +2.85 & [+0.00, +6.10] \\
+Qwen3-8B & 单个失败反例 & 独立重采样 & 51 / 10 / 431 & +8.33 & [+3.86, +13.21] \\
+Qwen3-8B & 单个失败反例 & 自行检查 & 43 / 1 / 448 & +8.54 & [+4.88, +12.60] \\
+Qwen3-8B & 单个失败反例 & 仅通过状态 & 28 / 5 / 459 & +4.67 & [+1.63, +7.93] \\
+Qwen3-8B & 单个失败反例 & 错误定位诊断 & 19 / 10 / 463 & +1.83 & [-1.02, +4.67] \\
+Qwen3-8B & 多个失败反例 & 独立重采样 & 55 / 11 / 426 & +8.94 & [+4.47, +13.82] \\
+Qwen3-8B & 多个失败反例 & 自行检查 & 47 / 2 / 443 & +9.15 & [+5.49, +13.41] \\
+Qwen3-8B & 多个失败反例 & 仅通过状态 & 29 / 3 / 460 & +5.28 & [+2.44, +8.33] \\
+Qwen3-8B & 多个失败反例 & 错误定位诊断 & 19 / 7 / 466 & +2.44 & [+0.00, +4.88] \\
+Qwen3-8B & 多个失败反例 & 单个失败反例 & 11 / 8 / 473 & +0.61 & [-1.02, +2.24] \\
+Qwen2.5-7B & 自行检查 & 独立重采样 & 45 / 33 / 906 & +1.22 & [-1.12, +3.66] \\
+Qwen2.5-7B & 仅通过状态 & 独立重采样 & 58 / 21 / 905 & +3.76 & [+1.22, +6.61] \\
+Qwen2.5-7B & 仅通过状态 & 自行检查 & 31 / 6 / 947 & +2.54 & [+1.02, +4.27] \\
+Qwen2.5-7B & 错误定位诊断 & 独立重采样 & 72 / 18 / 894 & +5.49 & [+2.64, +8.74] \\
+Qwen2.5-7B & 错误定位诊断 & 自行检查 & 50 / 8 / 926 & +4.27 & [+2.03, +6.71] \\
+Qwen2.5-7B & 错误定位诊断 & 仅通过状态 & 29 / 12 / 943 & +1.73 & [-0.20, +3.76] \\
+Qwen2.5-7B & 单个失败反例 & 独立重采样 & 84 / 21 / 879 & +6.40 & [+3.46, +9.65] \\
+Qwen2.5-7B & 单个失败反例 & 自行检查 & 59 / 8 / 917 & +5.18 & [+3.05, +7.52] \\
+Qwen2.5-7B & 单个失败反例 & 仅通过状态 & 40 / 14 / 930 & +2.64 & [+0.81, +4.57] \\
+Qwen2.5-7B & 单个失败反例 & 错误定位诊断 & 25 / 16 / 943 & +0.91 & [-0.71, +2.74] \\
+Qwen2.5-7B & 多个失败反例 & 独立重采样 & 86 / 22 / 876 & +6.50 & [+3.35, +9.86] \\
+Qwen2.5-7B & 多个失败反例 & 自行检查 & 59 / 7 / 918 & +5.28 & [+3.15, +7.72] \\
+Qwen2.5-7B & 多个失败反例 & 仅通过状态 & 36 / 9 / 939 & +2.74 & [+1.02, +4.67] \\
+Qwen2.5-7B & 多个失败反例 & 错误定位诊断 & 24 / 14 / 946 & +1.02 & [-0.51, +2.74] \\
+Qwen2.5-7B & 多个失败反例 & 单个失败反例 & 18 / 17 / 949 & +0.10 & [-1.12, +1.32] \\
+\end{longtable}}
+
+
+\subsection{代码修复首轮修改（R0 $\to$ R1）公开测试状态转移频数表}
+
+表~\ref{tab:app-f-transitions} 统计了从第 0 轮共享初稿进入第 1 轮修改后，程序在加载错误（\texttt{load}）、输出不匹配（\texttt{output\_mismatch}）、运行期异常（\texttt{runtime}）与通过（\texttt{pass}）四类状态间的精确转移频数，直观展示各反馈臂首轮修好初错与改坏初对的流向差异。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\fontsize{9.3bp}{11.5bp}\selectfont
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{3.3cm} >{\raggedleft\arraybackslash}p{1.9cm}@{}}
+\caption{代码修复补充批次首轮修改（Round 0 $\to$ Round 1）状态转移频数明细}\label{tab:app-f-transitions}\\
+\toprule
+\textbf{受测模型} & \textbf{反馈策略} & \textbf{初稿状态 (From)} & \textbf{首轮后状态 (To)} & \textbf{程序份数} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\fontsize{9.5bp}{11.5bp}\selectfont 表~\ref{tab:app-f-transitions}（续）：首轮修改状态转移频数明细} \\
+\toprule
+\textbf{受测模型} & \textbf{反馈策略} & \textbf{初稿状态 (From)} & \textbf{首轮后状态 (To)} & \textbf{程序份数} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Qwen2.5-7B & 单个失败反例 & \texttt{load} & \texttt{load} & 3 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{load} & \texttt{output\_mismatch} & 1 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{load} & \texttt{pass} & 8 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{load} & 1 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 53 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{pass} & 6 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{pass} & \texttt{output\_mismatch} & 3 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{pass} & \texttt{pass} & 410 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{runtime} & \texttt{load} & 2 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{runtime} & \texttt{runtime} & 3 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{syntax} & \texttt{output\_mismatch} & 1 \\
+Qwen2.5-7B & 单个失败反例 & \texttt{syntax} & \texttt{pass} & 1 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{load} & \texttt{load} & 2 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{load} & \texttt{output\_mismatch} & 2 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{load} & \texttt{pass} & 8 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{output\_mismatch} & \texttt{load} & 2 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 55 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{output\_mismatch} & \texttt{pass} & 3 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{pass} & \texttt{output\_mismatch} & 3 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{pass} & \texttt{pass} & 410 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{runtime} & \texttt{pass} & 2 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{runtime} & \texttt{runtime} & 2 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{runtime} & \texttt{timeout} & 1 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{syntax} & \texttt{load} & 1 \\
+Qwen2.5-7B & 错误定位诊断 & \texttt{syntax} & \texttt{pass} & 1 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{load} & \texttt{load} & 7 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{load} & \texttt{output\_mismatch} & 2 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{load} & \texttt{pass} & 3 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{output\_mismatch} & \texttt{load} & 1 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 51 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{output\_mismatch} & \texttt{pass} & 8 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{pass} & \texttt{output\_mismatch} & 2 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{pass} & \texttt{pass} & 411 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{runtime} & \texttt{runtime} & 5 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{syntax} & \texttt{load} & 1 \\
+Qwen2.5-7B & 仅通过状态 & \texttt{syntax} & \texttt{pass} & 1 \\
+Qwen2.5-7B & 自行检查 & \texttt{load} & \texttt{load} & 5 \\
+Qwen2.5-7B & 自行检查 & \texttt{load} & \texttt{output\_mismatch} & 2 \\
+Qwen2.5-7B & 自行检查 & \texttt{load} & \texttt{pass} & 5 \\
+Qwen2.5-7B & 自行检查 & \texttt{output\_mismatch} & \texttt{load} & 1 \\
+Qwen2.5-7B & 自行检查 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 53 \\
+Qwen2.5-7B & 自行检查 & \texttt{output\_mismatch} & \texttt{pass} & 6 \\
+Qwen2.5-7B & 自行检查 & \texttt{pass} & \texttt{load} & 3 \\
+Qwen2.5-7B & 自行检查 & \texttt{pass} & \texttt{output\_mismatch} & 6 \\
+Qwen2.5-7B & 自行检查 & \texttt{pass} & \texttt{pass} & 403 \\
+Qwen2.5-7B & 自行检查 & \texttt{pass} & \texttt{syntax} & 1 \\
+Qwen2.5-7B & 自行检查 & \texttt{runtime} & \texttt{runtime} & 4 \\
+Qwen2.5-7B & 自行检查 & \texttt{runtime} & \texttt{timeout} & 1 \\
+Qwen2.5-7B & 自行检查 & \texttt{syntax} & \texttt{load} & 1 \\
+Qwen2.5-7B & 自行检查 & \texttt{syntax} & \texttt{pass} & 1 \\
+Qwen3-8B & 单个失败反例 & \texttt{load} & \texttt{output\_mismatch} & 1 \\
+Qwen3-8B & 单个失败反例 & \texttt{load} & \texttt{pass} & 2 \\
+Qwen3-8B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{load} & 3 \\
+Qwen3-8B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 53 \\
+Qwen3-8B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{pass} & 20 \\
+Qwen3-8B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{runtime} & 1 \\
+Qwen3-8B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{syntax} & 2 \\
+Qwen3-8B & 单个失败反例 & \texttt{output\_mismatch} & \texttt{timeout} & 1 \\
+Qwen3-8B & 单个失败反例 & \texttt{pass} & \texttt{pass} & 395 \\
+Qwen3-8B & 单个失败反例 & \texttt{runtime} & \texttt{output\_mismatch} & 2 \\
+Qwen3-8B & 单个失败反例 & \texttt{runtime} & \texttt{pass} & 2 \\
+Qwen3-8B & 单个失败反例 & \texttt{runtime} & \texttt{runtime} & 4 \\
+Qwen3-8B & 单个失败反例 & \texttt{runtime} & \texttt{syntax} & 1 \\
+Qwen3-8B & 单个失败反例 & \texttt{syntax} & \texttt{output\_mismatch} & 1 \\
+Qwen3-8B & 单个失败反例 & \texttt{timeout} & \texttt{pass} & 2 \\
+Qwen3-8B & 单个失败反例 & \texttt{timeout} & \texttt{timeout} & 2 \\
+Qwen3-8B & 错误定位诊断 & \texttt{load} & \texttt{output\_mismatch} & 1 \\
+Qwen3-8B & 错误定位诊断 & \texttt{load} & \texttt{pass} & 2 \\
+Qwen3-8B & 错误定位诊断 & \texttt{output\_mismatch} & \texttt{load} & 3 \\
+Qwen3-8B & 错误定位诊断 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 55 \\
+Qwen3-8B & 错误定位诊断 & \texttt{output\_mismatch} & \texttt{pass} & 19 \\
+Qwen3-8B & 错误定位诊断 & \texttt{output\_mismatch} & \texttt{syntax} & 3 \\
+Qwen3-8B & 错误定位诊断 & \texttt{pass} & \texttt{output\_mismatch} & 1 \\
+Qwen3-8B & 错误定位诊断 & \texttt{pass} & \texttt{pass} & 394 \\
+Qwen3-8B & 错误定位诊断 & \texttt{runtime} & \texttt{output\_mismatch} & 3 \\
+Qwen3-8B & 错误定位诊断 & \texttt{runtime} & \texttt{pass} & 3 \\
+Qwen3-8B & 错误定位诊断 & \texttt{runtime} & \texttt{runtime} & 2 \\
+Qwen3-8B & 错误定位诊断 & \texttt{runtime} & \texttt{syntax} & 1 \\
+Qwen3-8B & 错误定位诊断 & \texttt{syntax} & \texttt{output\_mismatch} & 1 \\
+Qwen3-8B & 错误定位诊断 & \texttt{timeout} & \texttt{pass} & 1 \\
+Qwen3-8B & 错误定位诊断 & \texttt{timeout} & \texttt{runtime} & 1 \\
+Qwen3-8B & 错误定位诊断 & \texttt{timeout} & \texttt{timeout} & 2 \\
+Qwen3-8B & 仅通过状态 & \texttt{load} & \texttt{load} & 3 \\
+Qwen3-8B & 仅通过状态 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 61 \\
+Qwen3-8B & 仅通过状态 & \texttt{output\_mismatch} & \texttt{pass} & 15 \\
+Qwen3-8B & 仅通过状态 & \texttt{output\_mismatch} & \texttt{runtime} & 3 \\
+Qwen3-8B & 仅通过状态 & \texttt{output\_mismatch} & \texttt{syntax} & 1 \\
+Qwen3-8B & 仅通过状态 & \texttt{pass} & \texttt{pass} & 395 \\
+Qwen3-8B & 仅通过状态 & \texttt{runtime} & \texttt{output\_mismatch} & 2 \\
+Qwen3-8B & 仅通过状态 & \texttt{runtime} & \texttt{runtime} & 7 \\
+Qwen3-8B & 仅通过状态 & \texttt{syntax} & \texttt{syntax} & 1 \\
+Qwen3-8B & 仅通过状态 & \texttt{timeout} & \texttt{pass} & 1 \\
+Qwen3-8B & 仅通过状态 & \texttt{timeout} & \texttt{timeout} & 3 \\
+Qwen3-8B & 自行检查 & \texttt{load} & \texttt{load} & 3 \\
+Qwen3-8B & 自行检查 & \texttt{output\_mismatch} & \texttt{output\_mismatch} & 73 \\
+Qwen3-8B & 自行检查 & \texttt{output\_mismatch} & \texttt{pass} & 6 \\
+Qwen3-8B & 自行检查 & \texttt{output\_mismatch} & \texttt{runtime} & 1 \\
+Qwen3-8B & 自行检查 & \texttt{pass} & \texttt{output\_mismatch} & 1 \\
+Qwen3-8B & 自行检查 & \texttt{pass} & \texttt{pass} & 394 \\
+Qwen3-8B & 自行检查 & \texttt{runtime} & \texttt{output\_mismatch} & 1 \\
+Qwen3-8B & 自行检查 & \texttt{runtime} & \texttt{runtime} & 7 \\
+Qwen3-8B & 自行检查 & \texttt{runtime} & \texttt{syntax} & 1 \\
+Qwen3-8B & 自行检查 & \texttt{syntax} & \texttt{syntax} & 1 \\
+Qwen3-8B & 自行检查 & \texttt{timeout} & \texttt{pass} & 1 \\
+Qwen3-8B & 自行检查 & \texttt{timeout} & \texttt{timeout} & 3 \\
+\end{longtable}}

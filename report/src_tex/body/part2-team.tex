@@ -1,29 +1,66 @@
 \chapter{小组分工}\label{part:team}
 
-\textbf{协作模式}\quad 本小组由四名同学共同完成，采用\textbf{“统一契约先行、模块并行推进、交叉测试合流”}的平权协作方式，不设组长与组员层级，所有成员均深度参与需求设计、编码实现、数据分析、系统测试与报告撰写工作。开工前，四人共同审定课程题目二的评分细则与五项研究问题，确定统一的 \texttt{snake\_case} 数据规范、21 列匿名特征 Schema 以及四份科研 JSON 快照接口格式，保证数据管道、统计脚本与前端视图之间能够端到端的无缝衔接与口径一致。
+\section{平权协作模式与“契约先行”工程规范}
 
-\textbf{研发推进顺序}\quad 整体研发分为四个阶段（见图~\ref{fig:roadmap}）：第一阶段完成多任务推理、文档问答与代码生成原始数据的采集、SHA-256 校验冻结及匿名化清洗脚本；第二阶段开展文档位置 9 点剖面专题与代码反馈双层隔离补充实验，并完成 5,000 次按题聚类 Bootstrap 统计重算与出版级 SVG 图稿绘制；第三阶段研发“知微”五球入口与五屏交互主系统，迁移保留完整历史探索图册，并建立基于 Python 标准库的静态构建与防漂移校验脚本；第四阶段完成 Playwright 全链路浏览器回归、无障碍审计与报告归档。
+\Needspace{15\baselineskip}
+\begin{wrapfigure}{r}{0.48\linewidth}
+\vspace{-6pt}
+\centering
+\includegraphics[width=\linewidth]{\detokenize{figures/diagrams/d09-collab-git.pdf}}
+\caption{四人“契约先行”并行分支与合流守门机制}
+\label{fig:collab-git}
+\vspace{-8pt}
+\end{wrapfigure}
 
-\textbf{质量与版本约定}\quad 仓库使用 Git 进行多分支协同开发，每项数据分析脚本与前端迭代均须通过 \texttt{scripts/system/check\_coursework.py} 的链接与交付物检查。任何涉及页面数值口径调整的改动，必须同步更新 \texttt{docs/} 下的口径说明与测试断言，严禁在页面代码中硬编码未经统计脚本验证的估算数据。
+本课程设计由李承文、仲禹潼、范文丽、赵紫怡四名同班同学合作完成。在项目启动会上，我们复盘了以往课程大作业容易出现的协作脱节问题——如果负责跑数据的同学随意改了 CSV 列名，或者负责写前端页面的同学为了省事直接在 JavaScript 里手填几个估算百分比，到了答辩前夕往往会出现“报告里的数、统计表里的数和网页上画出来的图三边对不上”的混乱局面。
 
-具体工作量与职责划分见表~\ref{tab:team-work}。
+为了从源头避开这个坑，我们采取了\textbf{“不设虚名组长、数据契约先行、模块独立分支、交叉测试合流”}的平权协作方式（见图~\ref{fig:collab-git}）。在真正动手写业务代码之前，四个人先花两天时间集中核对了课程指导书第 1 至第 8 页的全部评分细则，把后端清洗层向统计层输出的 21 列 \texttt{snake\_case} 字段类型、缺失值表示规则，以及统计层向前端页面导出的四份核心只读快照（\texttt{summary.json}、\texttt{research-charts.json}、\texttt{research-content.json} 与 \texttt{code-feedback-extension.json}）的键名结构全部敲定并写入校验脚本。只要上下游严格遵守这份数据契约，四名成员就能在各自负责的子目录内高效率并行推进，而不会互相阻塞进度。
+
+在日常代码合流时，团队依托 Git 分支与仓库自带的静态守门脚本进行管理。每次修改统计口径、图表生成脚本或前端交互模块后，提交者必须在本地跑通 \texttt{scripts/system/check\_coursework.py} 的相对链接与文件完整性检查，并由另一名成员在独立终端复核无误后再并入 \texttt{main} 主干。我们内部立下一条硬规矩：\emph{前端任何视图组件严禁硬编码未经离线脚本复算的实验统计值}，所有展示数字必须可由 \texttt{reports/} 下的 CSV 或 JSON 快照溯源。
+
+\section{四阶段研发演进与协同里程碑}
+
+回顾整个课设周期，小组的工程重心经历了四次清晰的迭代跃升，每一阶段都伴随着真实问题的暴露与集体攻关：
+
+\paragraph{第一阶段：多任务基线采集与异构日志归并}四人首先分头整理并核验了数学与多选推理（\texttt{GSM8K}、\texttt{MATH500}、\texttt{MMLU-Pro}）、开放域多文档问答（\texttt{NQ-Open}）以及单轮多采样代码生成（\texttt{CodePromptEval}）的原始响应日志。针对不同采集脚本输出的字段名差异与时间戳时区混乱问题，仲禹潼牵头编写了统一归并流水线，李承文设计了实验域隔离的 SHA-256 题号伪匿名函数，范文丽与赵紫怡则分别完成了推理源评分抽检与代码生成初版沙箱测试排错。
+
+\paragraph{第二阶段：评分器 v2 重写与两项专题补充实验}在对初版结果做探索性分析时，我们发现了三处必须补强的研究缺口：一是代码生成初版评测器把类方法的缩进和常见标准库导入误判成了语法错误，赵紫怡与李承文随即基于 Python \texttt{ast} 标准库重写了 \texttt{target-function-ast-v2} 规范化提取器，精准剔除了沙箱环境不兼容的 \texttt{T149} 题目；二是早期文档问答只有首、中、尾三个粗粒度位置点，难以刻画完整的 U 型曲线，小组遂补充采集了 20 篇文档下 9 个精细位置的对照实验（3,600 条物理响应）；三是历史代码修复记录缺少全轮次强保留测试隔离，李承文主导设计并跑通了 164 题 $\times$ 2 模型 $\times$ 3 初稿 $\times$ 6 反馈臂 $\times$ 4 轮次的补充实验（24,600 条物理响应），彻底消除了公开测试与隐藏强测试混用的隐患。
+
+\paragraph{第三阶段：双模式可视化系统构建与“知微”主站重构}在可视化实现上，团队最初构建了浅色科研工作台（现保留为 \texttt{explore.html} 与 \texttt{legacy.html}），集成 Vega-Lite、D3.js、Plotly.js 与 ECharts 完成了 44 幅科学图表与刷选联动功能。但在组内试讲演练时，我们感觉直接把几十张高密度科研图平铺在首页会让初次接触项目的读者抓不住主线。于是，赵紫怡设计实现了极具辨识度的“五球时空光晕”开场入口（\texttt{zhiwei-gate.js}），仲禹潼重构了五屏渐进式响应式布局，范文丽则用原生 JavaScript 手写了零外部依赖的七大核心 SVG 图版与代码行级 Diff 抽屉（\texttt{zhiwei.js}），实现了“主站讲透故事脉络、工作台支撑深度自由钻取”的有机结合。
+
+\paragraph{第四阶段：全链路防漂移互锁与多视口回归交付}收尾阶段，四人合力搭建了 SHA-256 数据快照互锁脚本与双套件 Playwright + \texttt{axe-core} 无头浏览器回归测试，在桌面宽屏、笔记本、平板与手机竖横屏等多种视口下逐一排查文字截断、水平滚动溢出与键盘焦点丢失问题，最终整理出答辩幻灯片、精简案例报告与本份完整课程报告。
+
+\section{成员核心职责与工作量概览}
+
+四名成员在数据工程、统计分析、前端交互与自动化测试四个核心板块中各有侧重又紧密交叉。表~\ref{tab:team-summary} 简要归纳了每位成员的主导模块与代表性工程产出；更细粒度的目录级代码行数分解（全仓 37,534 行）与测试验收清单请参阅附录~\ref{app:environment} 与附录~\ref{app:validation}。
 
 \begin{table}[!htbp]
 \centering
-\caption{小组成员分工与主要工作量明细}\label{tab:team-work}
+\caption{小组成员主导模块与核心工程贡献概览}\label{tab:team-summary}
 \ReportTableStyle
-\renewcommand{\arraystretch}{1.06}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.45cm}>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{姓名} & \textbf{学号} & \textbf{核心职责与代码贡献} \\
+\textbf{姓名} & \textbf{学号} & \textbf{主要负责方向} & \textbf{代表性实现模块与实证产出} \\
 \midrule
-李承文 & 3024232129 & 负责研究协议与数据采集规范设计；主导文档证据位置 9 点专题实验与配对差距统计；设计代码反馈协议隔离与强保留评测模块（\texttt{experiments/code\_repair\_v2/}）；编写静态构建流水线 \texttt{build\_web\_app.py} 与科研保护校验脚本，并承担第四屏对比卡与配对统计交互逻辑开发。 \\
+李承文 & 3024232129 & 实验协议、代码修复评测与构建防漂移 & 主导 9 位置文档问答与 \texttt{code\_repair\_v2} 六臂隔离协议；实现双层沙箱评测、配对比较卡交互及 \texttt{build\_web\_app.py} 指纹互锁管线。 \\
 \addlinespace[2pt]
-仲禹潼 & 3024244140 & 负责数据清洗流水线与 21 列统一匿名特征 Schema 构建（\texttt{scripts/cleaning/}）；实现聚类 Bootstrap 重算与异常缺失值审计脚本；设计“知微”五屏布局与响应式 CSS 体系（\texttt{app/styles/}）；完成历史探索图册 \texttt{explore.html} 与 \texttt{legacy.html} 的兼容整合及数据表弹窗开发。 \\
+仲禹潼 & 3024244140 & 清洗管道、Bootstrap 推断与多入口整合 & 构建 21 列统一匿名特征表与缺失值审计脚本；实现 5,000 次按题聚类重采样；主导五屏响应式布局及 \texttt{explore.html} 四库工作台整合。 \\
 \addlinespace[2pt]
-范文丽 & 3024244438 & 负责推理提示与文档问答实验的采集调度与源评分核对；主导中文作答模板与极端限长反弹异常的深度分析；开发零依赖原生 SVG 绘图引擎 \texttt{zhiwei.js} 与七大核心图版渲染模块；负责真实代码修复 Diff 案例抽取、抽屉交互组件开发及数据字典编写。 \\
+范文丽 & 3024244438 & 提示词效应剖析、原生 SVG 引擎与案例库 & 完成中文模板提分机制与极限限长反弹案例溯源；手写 \texttt{zhiwei.js} 原生 SVG 渲染器、OKLCH 配色映射、代码 Diff 抽屉与数据字典。 \\
 \addlinespace[2pt]
-赵紫怡 & 3024244137 & 负责代码生成任务的目标函数 AST 抽取与多轮修复数据规范化；独立设计与实现五球时空光晕开场入口及全键盘无障碍导航（\texttt{zhiwei-gate.js}）；主导 Playwright 浏览器双套件回归测试（\texttt{zhiwei.mjs}、\texttt{zhiwei-gate.mjs}）与单元测试编写，并负责课程报告 LaTeX 迁移排版与答辩材料校对。 \\
+赵紫怡 & 3024244137 & AST 评分修正、五球无障碍入口与回归测试 & 参与研发 \texttt{target-function-ast-v2} 函数规范化抽取；独立实现 \texttt{zhiwei-gate.js} 五球入口与全键盘导航；编写 Playwright 双套件回归与报告排版。 \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+在实际开发过程中，每当遇到棘手的跨层问题——例如第四屏图版 III 的代码生成气泡置信区间需要从原始逐题记录重新导出，或者手机端 $390\times 844$ 视口下需要协调 CSS 流式降级与 SVG 字号裁剪——相关模块的同学都会围坐在一起联调代码、现场比对浏览器控制台输出，确保每一处细节都在理解透彻的基础上落地。
+
+\section{跨模块联调与典型口径对齐实例}
+
+在并行开发过程中，四人并非各写各的、最后简单拼凑，而是围绕“数据口径绝对一致”开展了三次关键的跨模块集中联调：
+
+\paragraph{实例一：代码生成简洁分步置信区间的源表溯源联调}在合流第四屏图版 III（17 组跨任务 \texttt{BeConcise} 气泡散点）时，负责前端绘图的范文丽发现早期汇总表里只存了推理与文档问答的差值区间，缺少代码生成三个模型点的 95\% 题簇区间。负责清洗与统计的仲禹潼、李承文随即联合编写了独立脚本 \texttt{scripts/analysis/derive\_concise\_ci.py}，直接从压缩包 \texttt{code-features.json.gz} 的 89,745 条逐样本评测记录中按 193 个题簇重跑 5,000 次配对抽样，把精确算出的区间导出至前端快照，彻底杜绝了手填近似区间。
+
+\paragraph{实例二：工作台 400 行位置切片与主站 9 位置剖面的分工边界梳理}在整合浅色探索工作台（\texttt{explore.html}）与新主站（\texttt{index.html}）时，赵紫怡在编写无头浏览器断言脚本过程中注意到：工作台“位置矩阵”点击单元格会打开 400 条匹配记录（源自基线实验中同一模型、同一提示在 10 篇与 20 篇两档条件下的 $200\times 2$ 次回答），而主站图版 VI 展示的是固定 20 篇文档与 \texttt{NoCoT} 的 9 位置精细扫描（每位置 200 条）。四人专门核对了提示文案与弹窗副标题，在两处界面分别写明各自对应的实验批次与样本分母，并在浏览器测试中加入行数精确断言（CSV 导出严格为含表头 401 行）。
+
+\paragraph{实例三：全站模型专属色标与无障碍对比度统一校准}早期不同成员各自画图时，Matplotlib 脚本与网页 CSS 曾使用过略有出入的蓝绿色号。在第三阶段合流时，团队统一锁定了 \texttt{palette.css} 与 \texttt{zhiwei.js} 的四模型标准色值，并由赵紫怡运行 \texttt{axe-core} 无障碍色彩对比度扫描，逐一调亮深空背景上的次级说明文字明度，直到桌面与手机视口下的严重对比度违例清零。

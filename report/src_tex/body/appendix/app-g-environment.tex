@@ -1,0 +1,145 @@
+\chapter{工程架构、代码规模与 44 幅科学图册目录}\label{app:environment}
+
+本附录汇总系统的运行与复算环境配置、全仓库 158 个源代码文件的分层模块清单，以及随仓归档的全部 44 幅衍生科学图稿（Research Atlas）完整检索目录。
+
+\section{本地运行、离线复算与自动化测试环境栈}
+
+表~\ref{tab:app-g-env} 与表~\ref{tab:app-g-loc} 分别列出了不同使用场景所需的软件依赖入口以及排除构建产物（\texttt{app/dist/}）与第三方依赖包后的精确源码行数统计。日常演示与批改查阅只需 Python 3.10+ 标准库即可直接启动全部网页交互视图。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{系统分层运行与复算环境依赖栈对照表}\label{tab:app-g-env}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{运行场景} & \textbf{依赖清单入口} & \textbf{核心工具链版本与离线运行特性} \\
+\midrule
+交互网站启动与打包 & 零第三方包依赖 & 仅需 Python 3.10+ 标准库（\texttt{http.server, gzip, hashlib}），断网可用 \\
+前端四库探索工作台 & \texttt{app/assets/vendor/} & 本地离线固化 ECharts、D3 7.9.0、Vega-Lite 5.23.0、Plotly 3.1.1（共 2.45\,MB） \\
+统计复算与图稿重绘 & \texttt{requirements/analysis.txt} & NumPy、SciPy、Matplotlib、psutil；缺失 NumPy 时分析脚本含标准库回退路径 \\
+课程报告编译排版 & \texttt{report/src\_tex/build.sh} & TeX Live 2026（XeLaTeX + xdvipdfmx + ctex + Fandol + TikZ + booktabs） \\
+无头浏览器回归验收 & \texttt{tests/package.json} & Node.js 22+、\texttt{playwright-core}、Google Chrome / Chromium 与 \texttt{axe-core} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{全仓库核心源码目录文件数与代码行数精确分解表}\label{tab:app-g-loc}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.3cm} >{\raggedleft\arraybackslash}p{1.5cm} >{\raggedleft\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{顶层目录} & \textbf{源码类型} & \textbf{文件数} & \textbf{总行数} & \textbf{非空行数} & \textbf{承担的核心工程职责} \\
+\midrule
+\texttt{app/src/} 等 & \texttt{.js} & 23 & 10,811 & 10,688 & 五球时空门户、手写七大 SVG 图版与四库联动控制器 \\
+\texttt{app/} & \texttt{.css} & 19 & 5,012 & 4,944 & 深海景深主题、响应式流式断点与打印/无障碍样式 \\
+\texttt{app/} & \texttt{.html / .py} & 5 & 658 & 607 & 三入口 HTML 模板与标准库一键启动服务脚本 \\
+\texttt{scripts/} & \texttt{.py} & 40 & 7,080 & 6,591 & 异构日志清洗、21 列归并、Bootstrap 分析与快照构建 \\
+\texttt{experiments/} & \texttt{.py} & 43 & 10,386 & 9,509 & AST-v2 规范化评测、六臂防泄漏沙箱与补充批次统计 \\
+\texttt{tests/} & \texttt{.mjs / .py} & 28 & 3,587 & 3,356 & 33 项协议与分母单测、双套件无头浏览器与无障碍断言 \\
+\midrule
+\textbf{全仓总计} & \textbf{核心源码} & \textbf{158} & \textbf{37,534} & \textbf{35,695} & \textbf{端到端可复现实验数据处理与可视分析系统} \\
+\bottomrule
+\end{tabularx}
+\end{table}}
+
+\section{核心脚本与前端模块职责映射索引}
+
+为便于快速定位具体功能实现，表~\ref{tab:app-g-modmap} 列出了仓库内最关键的 16 个核心脚本与模块的相对路径及其输入输出职责。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{关键后端处理脚本、评测模块与前端控制器路径速查表}\label{tab:app-g-modmap}
+\ReportTableStyle
+\fontsize{9.6bp}{11.8bp}\selectfont
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{6.2cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{仓库内相对路径} & \textbf{模块核心功能与上下游衔接说明} \\
+\midrule
+\texttt{app/launch.py} & 标准库一键启动入口：触发快照校验构建、自动选取可用端口并托管静态目录 \\
+\texttt{app/src/zhiwei-gate.js} & 首页五球时空光晕开场、星尘粒子场、键盘方向键导航与 \texttt{prefers-reduced-motion} 控制 \\
+\texttt{app/src/zhiwei.js} & 主站五屏状态管理、七大原生 SVG 图版渲染、OKLCH 色阶、配对比较卡与代码 Diff 抽屉 \\
+\texttt{app/src/app.js} & 浅色探索工作台主控制器：统筹共享筛选栏、URL 状态同步与 13 类交互图表切换 \\
+\texttt{app/src/code-study.js} & 代码生成专题交互层：驱动 Vega-Lite 二维框选信号监听与 D3 采样步进揭示播放器 \\
+\texttt{scripts/cleaning/build\_unified\_features.py} & 将五类异构清洗表归并为 21 列匿名特征表 \texttt{all\_records.csv.gz} 并输出质量报告 \\
+\texttt{scripts/cleaning/classify\_and\_audit.py} & 执行可见输出组织形态四分类、完成状态四分类与分层人工复核抽样 \\
+\texttt{scripts/analysis/analyze\_baselines.py} & 计算推理与多文档问答基线的策略汇总、四判分分歧诊断与词元遵从率 \\
+\texttt{scripts/analysis/analyze\_prompt\_variants.py} & 计算跨提示采样多样性增益、工程依赖层级对比与数学截断救援比例 \\
+\texttt{scripts/analysis/derive\_concise\_ci.py} & 从逐条代码评测记录按 193 个独立题簇执行 5,000 次重采样导出简洁压缩区间 \\
+\texttt{experiments/code\_generation/src/evaluate\_responses.py} & 实现 \texttt{target-function-ast-v2} 类方法去缩进、顶层导入内迁与受限沙箱评测 \\
+\texttt{experiments/code\_repair\_v2/src/protocol.py} & 定义六臂反馈白名单投影规则，在接口层物理阻断隐藏保留测试集信息流入提示词 \\
+\texttt{experiments/code\_repair\_v2/src/analyze.py} & 执行补充批次完整性核验、164 题簇配对 Bootstrap、回退拆解与缺失上下界测算 \\
+\texttt{scripts/system/build\_web\_app.py} & 核对图稿与 JSON 快照 SHA-256 同源性，注入资源哈希后缀并生成 \texttt{app/dist/} \\
+\texttt{scripts/system/check\_coursework.py} & 静态扫描全仓说明文档的 185 处本地链接、锚点与课程必需交付物完备性 \\
+\texttt{tests/browser/zhiwei.mjs} & 启动无头 Chrome 逐屏核验 29 项渲染数值、弹窗焦点、多视口零溢出与无障碍合规 \\
+\bottomrule
+\end{tabularx}
+\end{table}}
+
+\section{44 幅衍生科学图册（Research Atlas）完整检索目录}
+
+系统在 \texttt{legacy.html?chapter=atlas}、\texttt{app/assets/research/}（37 幅原专题图）与 \texttt{app/assets/research-extension/}（7 幅代码修复补充与历史对照图）中完整保留了全部 44 幅静态出版级 SVG 图稿，逐幅编号与研究主题对应见表~\ref{tab:app-g-atlas44}（代表性矢量图版选编见附录~\ref{app:atlas}）。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\ReportTableStyle
+\fontsize{9.4bp}{11.6bp}\selectfont
+\begin{longtable}{@{}>{\raggedleft\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}p{3.1cm} >{\raggedright\arraybackslash}p{6.0cm}@{}}
+\caption{随仓交付的 44 幅出版级衍生科学图册（Research Atlas）完整目录}\label{tab:app-g-atlas44}\\
+\toprule
+\textbf{序号} & \textbf{图稿文件标识} & \textbf{所属研究专题} & \textbf{图版标题与核心表达内容} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\fontsize{9.5bp}{11.5bp}\selectfont 表~\ref{tab:app-g-atlas44}（续）：44 幅衍生科学图册完整检索目录} \\
+\toprule
+\textbf{序号} & \textbf{图稿文件标识} & \textbf{所属研究专题} & \textbf{图版标题与核心表达内容} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+01 & \texttt{budget-log-gsm8k.svg} & 输出预算与对数律 & Token投入的边际收益：GSM8K \\
+02 & \texttt{budget-log-math500.svg} & 输出预算与对数律 & Token投入的边际收益：MATH500 \\
+03 & \texttt{budget-log-mmlu.svg} & 输出预算与对数律 & Token投入的边际收益：MMLU-Pro \\
+04 & \texttt{budget-fit-comparison.svg} & 输出预算与对数律 & 对数关系并非所有条件都一样 \\
+05 & \texttt{budget-prompt-landscape.svg} & 输出预算与对数律 & 31种提示的完整评分全景 \\
+06 & \texttt{scale-known-parameters.svg} & 模型规模与基准表现 & 模型规模与表现：先看已知参数的真实比较 \\
+07 & \texttt{scale-models-gsm8k.svg} & 模型规模与基准表现 & 模型差异需要放回任务：GSM8K \\
+08 & \texttt{scale-models-math500.svg} & 模型规模与基准表现 & 模型差异需要放回任务：MATH500 \\
+09 & \texttt{scale-models-mmlu.svg} & 模型规模与基准表现 & 模型差异需要放回任务：MMLU-Pro \\
+10 & \texttt{scale-performance-cost.svg} & 模型规模与基准表现 & 更强表现与输出成本一起看 \\
+11 & \texttt{concise-baseline.svg} & 温和简洁分步效应 & 保留分步，压缩表达 \\
+12 & \texttt{concise-cross-task.svg} & 温和简洁分步效应 & 17组跨任务对照：输出都缩短 \\
+13 & \texttt{concise-savings.svg} & 温和简洁分步效应 & 省下的输出有多大？ \\
+14 & \texttt{concise-quality-matrix.svg} & 温和简洁分步效应 & 简洁后的质量变化，逐条件保留 \\
+15 & \texttt{concise-token-pairs.svg} & 温和简洁分步效应 & 相同数学题，表达预算可以压缩 \\
+16 & \texttt{limits-rebound-main.svg} & 极端限长与反弹 & 越严的限制，未必越短 \\
+17 & \texttt{limits-word-qwen.svg} & 极端限长与反弹 & 越严的限制，未必越短 \\
+18 & \texttt{limits-word-qwen3.svg} & 极端限长与反弹 & 越严的限制，未必越短 \\
+19 & \texttt{limits-token-qwen3.svg} & 极端限长与反弹 & 越严的限制，未必越短 \\
+20 & \texttt{limits-rebound-ratios.svg} & 极端限长与反弹 & 从100字母收紧到10字母：反弹在哪里？ \\
+21 & \texttt{language-math-score.svg} & 中文作答模板效应 & 中文作答模板：三模型提分，一模型略降 \\
+22 & \texttt{language-math-tokens.svg} & 中文作答模板效应 & 四个模型，都缩短了数学作答 \\
+23 & \texttt{language-truncation.svg} & 中文作答模板效应 & 更紧凑的表达与完成情况一起看 \\
+24 & \texttt{language-task-boundary.svg} & 中文作答模板效应 & 中文模板的收益有任务边界 \\
+25 & \texttt{language-cost-quality.svg} & 中文作答模板效应 & 语言模板的质量—开销折衷 \\
+26 & \texttt{position-nine-profile.svg} & 多文档证据位置 & 模型优势随证据位置改变 \\
+27 & \texttt{position-model-advantage.svg} & 多文档证据位置 & 首位领先16.5个百分点，末位只领先2.5 \\
+28 & \texttt{position-output-cost.svg} & 多文档证据位置 & 证据移动时，回答开销也可检查 \\
+29 & \texttt{position-scoring-sensitivity.svg} & 多文档证据位置 & 更换评分口径，现象如何变化？ \\
+30 & \texttt{feedback-rounds-qwen3.svg} & 采样与早期代码反馈 & 反馈内容，决定修改轮次的收益 \\
+31 & \texttt{feedback-rounds-qwen.svg} & 采样与早期代码反馈 & 反馈内容，决定修改轮次的收益 \\
+32 & \texttt{feedback-cost-quality.svg} & 采样与早期代码反馈 & 修复质量与累计调用成本一起比较 \\
+33 & \texttt{feedback-repair-regression.svg} & 采样与早期代码反馈 & 修好了多少，又改坏了多少？ \\
+34 & \texttt{feedback-stop-budget.svg} & 采样与早期代码反馈 & 停止时机：真实轨迹回放可节省调用 \\
+35 & \texttt{feedback-independent-sampling.svg} & 采样与早期代码反馈 & 独立生成五次：覆盖收益逐渐减小 \\
+36 & \texttt{feedback-code-errors.svg} & 采样与早期代码反馈 & 代码失败类型：断言与运行问题有多大？ \\
+37 & \texttt{feedback-real-code-case.svg} & 采样与早期代码反馈 & 一个失败输入，暴露了错误的边界假设 \\
+38 & \texttt{01-strong-endpoints.svg} & 代码修复补充 v2 & 六种反馈策略在完整强保留集上的终稿通过率与 95\% 区间 \\
+39 & \texttt{02-public-trajectories.svg} & 代码修复补充 v2 & 六种反馈策略在第 0 至第 4 轮的公开诊断通过率演化曲线 \\
+40 & \texttt{03-repair-regression.svg} & 代码修复补充 v2 & 初稿错误修复数与初稿正确改坏回退数的双向拆解对比 \\
+41 & \texttt{04-cost-quality.svg} & 代码修复补充 v2 & 累计输出 Token 消耗与终稿强保留通过率的成本效益折衷 \\
+42 & \texttt{05-initial-error-support.svg} & 代码修复补充 v2 & 492 份共享初稿的加载失败、运行异常与输出不匹配分布 \\
+43 & \texttt{06-strong-trajectories.svg} & 代码修复补充 v2 & 164 题严格全轮配对队列在强保留测试集上的真实逐轮曲线 \\
+44 & \texttt{legacy/01-mini-full-final.svg} & 代码修复跨批核对 & 早期基线与新版补充批次在 Mini/Full 口径下的对照图 \\
+\end{longtable}}

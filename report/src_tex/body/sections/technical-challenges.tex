@@ -1,19 +1,19 @@
-\section{工程难点与关键解决方案}\label{sec:challenges}
+\subsection{三项典型工程难点的排查与解决过程}
 
-\subsection{异构任务评分口径与环境排除语义隔离}
+除了前文第~\ref{sec:cleaning} 节详述的 AST-v2 评分器重写外，团队在推进过程中还攻克了三项颇具代表性的工程难题：
 
-\textbf{问题描述}\quad 数学/选择（0/1 准确率）、文档问答（四类字符串匹配规则）与代码生成（沙箱执行 \texttt{Pass@k}）天然不处于同一标尺；同时，代码生成基准中存在因系统依赖或环境超时触发的 465 条排除记录，若按常见做法将空评分统一填 0，会系统性压低模型真实代码能力并混淆“模型写错”与“环境故障”。
+\Needspace{15\baselineskip}
+\begin{wrapfigure}{r}{0.31\linewidth}
+\vspace{-8pt}
+\centering
+\shot[0.92\linewidth]{\detokenize{figures/screenshots/live-mobile-s4.jpg}}
+\caption{窄屏手机视口下第四屏自动解除整屏吸附并实现零水平溢出堆叠}
+\label{fig:mobile-s4}
+\vspace{-8pt}
+\end{wrapfigure}
 
-\textbf{解决方案}\quad 在清洗层建立 \texttt{metric\_name} + \texttt{environment\_excluded} 双字段隔离规范（详见附录~\ref{app:db}），在 CSV 中保留空单元格作为 \texttt{null}，统计重算时由分析脚本显式过滤环境排除项与审查剔除题（如 \texttt{T149}），在前端交互中严格分置三套指标标尺，绝不渲染误导性的“全任务总得分”。
+\paragraph{难点一：多轮代码修复反馈构造器的防泄漏硬隔离}在设计 \texttt{code\_repair\_v2} 补充实验时，我们格外警惕一个致命的实验漏洞：如果评测脚本把公开诊断测试（\texttt{public}）和隐藏强保留测试（\texttt{held-out}）放在同一个字典里传给下一轮提示词拼接函数，哪怕只是不小心泄漏了一个隐藏报错行号或期望输出，多轮修复的高通过率就会沦为“看答案抄作业”。为此，我们在 \texttt{experiments/code\_repair\_v2/src/protocol.py} 中从接口签名层做了硬隔离：\texttt{feedback\_message(arm, evaluation)} 只被允许读取 \texttt{evaluation["public"]} 分支下的白名单投影字段（如诊断组只投影异常类型、行号与候选栈，反例组只投影输入输出对），并在 \texttt{test\_repair\_v2\_protocol.py} 中专门构造塞有哨兵密钥的伪造 \texttt{held-out} 字典做反泄漏单元测试，验证任何反馈臂生成的提示词中绝对不包含半个字节的隐藏测试信息。同时，当某份候选代码在模块导入阶段即因语法或顶层异常崩溃（\texttt{load\_failed=true}）时，分析器将“阻断未测用例数（\texttt{blocked\_cases}）”与“实际逐例执行失败数（\texttt{executed\_failed\_cases}）”分列记录，主指标严格按程序份数统计，彻底理顺了分母逻辑。
 
-\subsection{多轮代码修复的防隐藏测试泄漏机制}
+\paragraph{难点二：桌面整屏对焦与移动端窄屏流式排版的零溢出兼容}主站桌面端采用 CSS \texttt{scroll-snap-type: y mandatory} 实现类似光学镜头逐档对焦的整屏切换体验。但在真机模拟测试时我们发现，一旦到了高度不足 \texttt{680px} 的矮屏笔记本或宽度仅 \texttt{390px} 的手机竖屏上，一屏之内根本塞不下双栏图版与配对卡片，强行开启整屏吸附会导致下半截图表永远滚不到底。我们通过多维媒体查询（\texttt{@media (max-width: 960px), (max-height: 700px)}）实施了平滑降级：窄矮屏自动解除强制吸附、将左右分栏改为单列纵向流式堆叠，并在 \texttt{zhiwei.js} 中编写 \texttt{fitText} 字符宽度自适应裁剪与 SVG \texttt{viewBox="0 0 W H"} 等比缩放（实测效果见图~\ref{fig:mobile-s4}），最终在从 $320\times 568$ 到 $2560\times 1440$ 的全部测试视口下均做到了 \texttt{documentElement.scrollWidth === innerWidth}（零像素横向溢出）。
 
-\textbf{问题描述}\quad 如果代码修复的反馈生成器在构建提示词时意外读取到保留测试集（\texttt{held-out}）的输入或标准输出，多轮修复的准确率提升便会沦为“数据泄漏幻觉”；此外，当某份代码在加载阶段即因语法错误崩溃（\texttt{load\_failed=true}）时，传统脚本容易把未执行的用例计作 0/N，扰乱错误支持度分母。
-
-\textbf{解决方案}\quad 在 \texttt{experiments/code\_repair\_v2/src/protocol.py} 中强制限定 \texttt{feedback\_message(arm, \{"public": ...\})} 接口签名，从数据结构层切断隐藏评测字典的传入通路，并通过 \texttt{test\_repair\_v2\_protocol.py} 对每一种反馈臂进行反泄漏断言。同时，分析脚本在审计加载失败时将 \texttt{executed\_failed\_cases} 与 \texttt{blocked\_cases} 拆列保存，主通过率严格按程序总数（492 份程序 / 164 独立题簇）统计，确保每条修复轨迹真实可信。
-
-\subsection{零依赖原生 SVG 的高精度缩放与多视口排布}
-
-\textbf{问题描述}\quad 第三方图表库在面对“17 组跨任务对齐气泡”“9 位置非等距误差带”及“动态配对差值卡片”时定制成本高，且在窄屏手机（$390\times844$）与超宽桌面屏（$1920\times1080$）之间切换时极易出现文字截断或横向滚动溢出。
-
-\textbf{解决方案}\quad 团队在 \texttt{zhiwei.js} 中实现了一套基于固定逻辑视框（\texttt{viewBox}）的轻量级 SVG 排版引擎，配合 CSS \texttt{scroll-snap-type} 桌面整屏吸附与移动端自然流式降级策略，实现了宽屏下每屏全览、窄屏下自动堆叠且 \texttt{scrollWidth === clientWidth}（零水平溢出）的响应效果，并利用 \texttt{scripts/analysis/derive\_concise\_ci.py} 确保散点区间直接复算自逐条记录。
+\paragraph{难点三：历史旧口径与新补充实验在前端的透明并存}由于早期案例短报告基于原 248,586 条统一表撰写，而主站第四屏接入了更严谨的 24,600 条代码反馈补充批次，如何防止读者在对照阅读时产生困惑？我们在数据快照层保留了双轨元数据，在主站首屏、第四屏图版 VII 读图说明及第五屏材料卡片处均显式注明两套批次编号与样本替换算式，同时把早期完整 44 图探索台原封不动保留在 \texttt{legacy.html} 中，做到了新旧成果互不覆盖、各司其职。

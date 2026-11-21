@@ -1,88 +1,127 @@
-\chapter{提示策略、受测模型与实验配置}\label{app:prompts}
+\chapter{提示词策略字典、受测模型规格与实验协议配置}\label{app:prompts}
 
-本附录完整列出在推理、文档问答与代码生成中使用的 31 种提示词策略模板、四款受测模型的公开参数规格及代码反馈补充实验的运行参数配置。
+本附录完整归档四大提示词族系共 31 种单轮提示模板原文、多文档问答上下文组装格式、多轮代码修复六种反馈臂协议规范以及受测模型与运行沙箱的精确配置参数。
 
-\section{31 种提示策略完整清单}
+\section{31 种单轮提示词策略完整字典}
 
-\begingroup
+表~\ref{tab:app-b-prompts31} 列出了推理、多选、文档问答与代码生成共同使用的 31 种提示策略。在代码生成任务（\texttt{CodePromptEval}）中，长度与格式要求被统一附加在“仅约束代码块之外的自然语言解释、保持代码块内目标函数签名完整”的任务适配前缀下，以检验提示约束对推理阐述与代码提取稳定性的双重影响。图~\ref{fig:app-b-prompt-overview} 并排展示了这 31 种策略在代码生成与文档问答两个任务上的整体准确率排序概览。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
 \ReportTableStyle
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.35cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{\dimexpr\linewidth-5.25cm-4\tabcolsep\relax}@{}}
-\caption{31 种提示策略的家族划分与原始指令文本（来自 prompts\_clean.csv）}\label{tab:prompts-31}\\
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{5.5cm} >{\raggedright\arraybackslash}p{4.0cm}@{}}
+\caption{31 种单轮提示词策略模板原文与设计意图全表}\label{tab:app-b-prompts31}\\
 \toprule
-\textbf{策略标识} & \textbf{所属族系} & \textbf{实际注入的英文提示词模板} \\
+\textbf{策略编号} & \textbf{所属族系} & \textbf{实际注入的英文提示词模板原文} & \textbf{实验考察目标} \\
 \midrule
 \endfirsthead
-\multicolumn{3}{@{}l}{表~\ref{tab:prompts-31}（续）} \\
+\multicolumn{4}{@{}l}{\fontsize{10bp}{12bp}\selectfont 表~\ref{tab:app-b-prompts31}（续）：31 种单轮提示词策略字典} \\
 \toprule
-\textbf{策略标识} & \textbf{所属族系} & \textbf{实际注入的英文提示词模板} \\
+\textbf{策略编号} & \textbf{所属族系} & \textbf{实际注入的英文提示词模板原文} & \textbf{实验考察目标} \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-NoCoT & 回答组织 & Only give the final answer. Do not give any explanation. \\
-DefaultCoT & 回答组织 & Think step by step before answering. \\
-BeConcise & 回答组织 & Think step by step before answering, but be concise. \\
-StepLimit(1) & 回答组织 & List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 1 steps. \\
-StepLimit(2) & 回答组织 & List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 2 steps. \\
-StepLimit(5) & 回答组织 & List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 5 steps. \\
+\texttt{NoCoT} & 回答组织 & Only give the final answer. Do not give any explanation. & 零解释极简输出下界基线 \\
+\texttt{DefaultCoT} & 回答组织 & Think step by step before answering. & 标准分步思维链对照基线 \\
+\texttt{BeConcise} & 回答组织 & Think step by step before answering, but be concise. & 温和简洁分步无损压缩测试 \\
+\texttt{StepLimit(1)} & 回答组织 & List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 1 steps. & 单步显式结构化推理约束 \\
+\texttt{StepLimit(2)} & 回答组织 & List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 2 steps. & 两步显式结构化推理约束 \\
+\texttt{StepLimit(5)} & 回答组织 & List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 5 steps. & 五步以内中等步数约束 \\
+\texttt{ChineseCoT} & 语言模板 & Respond in Chinese. & 英文题干切换中文分步作答 \\
+\texttt{ChineseCoT(10)} & 语言模板 & Respond in Chinese, but use at most 10 characters. & 中文极端 10 字上限压力测试 \\
+\texttt{ChineseCoT(50)} & 语言模板 & Respond in Chinese, but use at most 50 characters. & 中文紧缩 50 字上限测试 \\
+\texttt{ChineseCoT(100)} & 语言模板 & Respond in Chinese, but use at most 100 characters. & 中文适度 100 字上限测试 \\
+\texttt{ChineseCoT(500)} & 语言模板 & Respond in Chinese, but use at most 500 characters. & 中文宽松 500 字上限测试 \\
+\texttt{WordLimit(1)} & 长度预算 & Only use 1 words for your answer. & 极限 1 词软约束反弹测试 \\
+\texttt{WordLimit(5)} & 长度预算 & Only use 5 words for your answer. & 极紧 5 词软约束测试 \\
+\texttt{WordLimit(10)} & 长度预算 & Only use 10 words for your answer. & 紧缩 10 词预算梯度点 \\
+\texttt{WordLimit(15)} & 长度预算 & Only use 15 words for your answer. & 中低 15 词预算梯度点 \\
+\texttt{WordLimit(25)} & 长度预算 & Only use 25 words for your answer. & 中等 25 词预算梯度点 \\
+\texttt{WordLimit(50)} & 长度预算 & Only use 50 words for your answer. & 中高 50 词预算梯度点 \\
+\texttt{WordLimit(100)} & 长度预算 & Only use 100 words for your answer. & 宽松 100 词对数拟合锚点 \\
+\texttt{CharLimit(10)} & 长度预算 & Only use 10 letters for your answer. & 极限 10 字母拼写纠结测试 \\
+\texttt{CharLimit(50)} & 长度预算 & Only use 50 letters for your answer. & 紧缩 50 字母预算梯度点 \\
+\texttt{CharLimit(100)} & 长度预算 & Only use 100 letters for your answer. & 中等 100 字母预算梯度点 \\
+\texttt{CharLimit(500)} & 长度预算 & Only use 500 letters for your answer. & 宽松 500 字母预算梯度点 \\
+\texttt{TokenLimit(10)} & 长度预算 & Only use 10 tokens for your answer. & 模型子词计数自知力极限测试 \\
+\texttt{TokenLimit(50)} & 长度预算 & Only use 50 tokens for your answer. & 50 词元名义预算遵从测试 \\
+\texttt{TokenLimit(100)} & 长度预算 & Only use 100 tokens for your answer. & 100 词元名义预算遵从测试 \\
+\texttt{TokenLimit(500)} & 长度预算 & Only use 500 tokens for your answer. & 500 词元宽松预算遵从测试 \\
+\texttt{BulletPoints} & 表达格式 & Only use bullet points. Do not use complete sentences. & 去完整句项目符号列表表达 \\
+\texttt{AbbreviateWords} & 表达格式 & Abbreviate words as much as possible. Remove vowels. & 删元音高强度词汇缩写压力 \\
+\texttt{NoProperGrammar} & 表达格式 & Do not use proper grammar. Avoid connecting words like 'and', 'so'... & 禁用连接词与规范语法结构 \\
+\texttt{NoSpaces} & 表达格式 & Do not use any spaces or line breaks. & 禁空格换行对分词与代码破坏 \\
+\texttt{OnlyNumbers} & 表达格式 & Only use numbers or equations in your steps. Use as few words as possible. & 纯数字算式去自然语言推导 \\
+\end{longtable}}
 
-ChineseCoT & 语言模板 & Respond in Chinese. \\
-ChineseCoT(10) & 语言模板 & Respond in Chinese, but use at most 10 characters. \\
-ChineseCoT(50) & 语言模板 & Respond in Chinese, but use at most 50 characters. \\
-ChineseCoT(100) & 语言模板 & Respond in Chinese, but use at most 100 characters. \\
-ChineseCoT(500) & 语言模板 & Respond in Chinese, but use at most 500 characters. \\
+\begin{figure}[!htbp]
+\centering
+\subfigure[代码生成任务 31 策略 Pass@1 分布]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/cg-03-prompt-pass1.pdf}}}\hfill
+\subfigure[文档问答任务各提示策略准确率对照]{\includegraphics[width=0.485\linewidth]{\detokenize{figures/charts/lim-03-strategy-acc.pdf}}}
+\caption{31 种提示策略在代码生成（左）与多文档问答（右）两类异构任务上的表现全景}
+\label{fig:app-b-prompt-overview}
+\end{figure}
 
-WordLimit(1/5/10/\newline 15/25/50/100) & 长度预算 & Only use $k$ words for your answer. ($k\in\{1,5,10,15,25,50,100\}$) \\
-CharLimit(10/50/\newline 100/500) & 长度预算 & Only use $k$ letters for your answer. ($k\in\{10,50,100,500\}$) \\
-TokenLimit(10/50/\newline 100/500) & 长度预算 & Only use $k$ tokens for your answer. ($k\in\{10,50,100,500\}$) \\
+\section{多轮代码修复六种反馈臂协议与多文档拼装规范}
 
-BulletPoints & 表达格式 & Only use bullet points. Do not use complete sentences. \\
-AbbreviateWords & 表达格式 & Abbreviate words as much as possible. Remove vowels. \\
-NoProperGrammar & 表达格式 & Do not use proper grammar. Avoid connecting words like 'and', 'so'... \\
-NoSpaces & 表达格式 & Do not use any spaces or line breaks. \\
-OnlyNumbers & 表达格式 & Only use numbers or equations in your steps. Use as few words as possible. \\
-\end{longtable}
-\endgroup
+在代码修复补充实验（\texttt{experiments/code\_repair\_v2/}）中，除 \texttt{resample} 仅重传原始函数题目外，其余五种沿着历史版本迭代的处理臂统一采用后缀指令：“\emph{Review your previous implementation against the original task. Correct any correctness issue you find; otherwise preserve the working implementation. Return the complete implementation in one Python code block, including required imports. Preserve the specified interface.}”各处理臂前置注入的诊断 JSON 字段权限严格按表~\ref{tab:app-b-arms} 执行白名单投影，物理隔绝隐藏保留集。
 
-\section{受测模型公开规格与补充实验参数}
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{多轮代码修复补充实验六种处理臂（Arm）的输入历史与反馈载荷定义}\label{tab:app-b-arms}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.45cm} >{\raggedright\arraybackslash}p{1.95cm} >{\raggedright\arraybackslash}p{3.45cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{处理臂代码} & \textbf{中文名称} & \textbf{允许投影的公开评测字段} & \textbf{轮次推进与防泄漏约束} \\
+\midrule
+\texttt{resample} & 独立重采样 & 无（不传上一轮代码与评测） & 第 $1\dots 4$ 轮均只接收原题，测算无状态采样基线 \\
+\texttt{self\_review} & 自行检查 & 无（仅传入上一轮候选代码） & 检验无执行信号下模型自我审查的净增益与回退风险 \\
+\texttt{pass\_fail} & 仅通过状态 & \texttt{diagnostic\_status} (\texttt{PASS/FAIL}) & 仅提供二值通过信号，验证最小止损锚点作用 \\
+\texttt{diagnostic} & 错误定位诊断 & \texttt{kind, stage, error\_type, line, source\_line, traceback} & 暴露异常种类与报错行位置，隐去具体输入与标准答案 \\
+\texttt{counterexample} & 单个失败反例 & \texttt{first\_failure: \{input, expected, actual, error\_type\}} & 提供首个失败公开用例的完整输入输出反例对 \\
+\texttt{multi\_counterexample} & 多个失败反例 & 前 3 条失败反例列表 + \texttt{test\_summary} 计数摘要 & 检验叠加多条反例与计数摘要能否带来额外边际提升 \\
+\bottomrule
+\end{tabularx}
+\end{table}}
+
+在多文档问答 9 位置专题实验中，系统将唯一含标准答案的支持文档与 19 篇同主题检索干扰文档按预设序号 $p \in \{1,3,5,8,10,13,15,18,20\}$ 组装为 \texttt{Document [1] ... Document [20]} 上下文块，并在末尾统一要求模型以 \texttt{FINAL ANSWER:} 引导简短实体答案，确保不同位置之间除段落排列顺序外其余字符完全一致。
+
+\section{受测模型公开规格与运行环境参数明细}
+
+表~\ref{tab:app-b-models} 与表~\ref{tab:app-b-batches} 汇总了四个受测模型的公开架构参数（核对依据见 \texttt{docs/model-spec-sources.md}）以及六个采集批次的采样温度、输出预算与本地沙箱限制配置。
+
+{\setlength{\parfillskip}{0pt plus 1fil}
+\begin{table}[!htbp]
+\centering
+\caption{四个受测模型的规范标识、架构类型、参数规模与覆盖实验范围}\label{tab:app-b-models}
+\ReportTableStyle
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.35cm} >{\raggedright\arraybackslash}p{2.25cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{规范化模型版本标识} & \textbf{架构类别} & \textbf{公开总参 / 激活参数} & \textbf{实验参与范围与采集控制备注} \\
+\midrule
+\texttt{Qwen2.5-7B-Instruct} & 稠密 Transformer & 7.61B / 7.61B & 推理、文档问答、9 位置扫描、代码生成、代码修复全覆盖 \\
+\texttt{Qwen3-8B} & 稠密 Transformer & 8.2B / 8.2B & 全实验覆盖；代码修复补充批次显式关闭额外思考预算以保证公平对照 \\
+\texttt{DeepSeek-V4.1-Flash-1017} & 稀疏 MoE & 552B / 8--16B & 推理三题库与代码生成（公开说明另含 196B Engram 记忆模块） \\
+\texttt{HY4 preview} & 稀疏 MoE & 770B / 49B & 推理与多学科选择题三题库全策略对照（不含多词元预测头参数） \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \begin{table}[!htbp]
 \centering
-\caption{受测模型展示标识、公开参数架构及实验执行参数}\label{tab:model-specs}
+\caption{六批次实验的题目规模、采样设置与沙箱评测资源配额表}\label{tab:app-b-batches}
 \ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.05cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}X@{}}
 \toprule
-\textbf{规范标识 / 版本} & \textbf{架构类型} & \textbf{总参 / 激活} & \textbf{参与实验与展示备注} \\
+\textbf{实验批次} & \textbf{题集与独立题量} & \textbf{主评测标尺} & \textbf{采样温度、输出预算与沙箱限制} \\
 \midrule
-Qwen2.5-7B-Instruct & 稠密模型 & 7.61B 稠密 & 推理、文档问答、代码生成、文档位置、代码修复全覆盖 \\
-Qwen3-8B & 稠密模型 & 8.2B 稠密 & 全覆盖；代码修复补充批次显式关闭额外思考模式 \\
-DeepSeek-V4.1-Flash-1017 & MoE 稀疏 & 552B / 8–16B & 推理、代码生成（含 196B Engram 未计入骨干） \\
-HY4 preview & MoE 稀疏 & 770B / 49B & 推理与选择题（不含 MTP 参数） \\
+推理与多选 & GSM8K / MATH500 / MMLU-Pro（各 200 题） & \texttt{source\_score}（含人工复核覆盖） & 4 模型 $\times$ 31 策略单次生成，单响应上限约 800 Token，保留原生 \texttt{length} 截断标记 \\
+文档问答基线 & NQ-Open（200 题） & \texttt{final\_contains} 等四标尺并存 & 2 模型 $\times$ 闭卷/10 篇/20 篇 $\times$ 首/中/尾位置，记录完整 HTTP 重试状态链 \\
+文档 9 位置专题 & NQ-Open（200 题） & \texttt{final\_contains} & 固定 20 篇文档与 \texttt{NoCoT}，精确扫描第 1 至第 20 位共 9 个锚点（3,600 条） \\
+代码生成 & CodePromptEval（194 题，193 题可评） & \texttt{target-function-ast-v2} 单元测试 & 3 模型 $\times$ 31 策略 $\times$ 5 次低温独立采样，禁外网、仅临时目录可写沙箱 \\
+历史代码修复 & HumanEval+（164 题） & \texttt{base\_and\_heldout\_pass} & 早期五策略多轮基线（5,576 条唯一物理响应），归入统一匿名表留档 \\
+代码修复补充 v2 & HumanEval+ Mini（164 题） & 公开诊断 + 强保留测试双层隔离 & \texttt{temperature=0.2, top\_p=1.0}，单次上限 2,048 Token；单进程内存上限 768\,MB，保留集总墙钟限时 300\,s \\
 \bottomrule
 \end{tabularx}
-\end{table}
-
-代码反馈补充批次（\texttt{code-repair-extension-free-full-20261105-3rep-v2}）固定采样参数为 \texttt{temperature=0.2}、\texttt{top\_p=1.0}、单次输出上限 2,048 Token；本地沙箱执行强制限定单程序内存上限 768\,MB，完整强保留测试验证墙钟上限 300 秒。
-
-
-\section{六组实验采样与评测协议参数明细}
-
-\begin{table}[H]
-\centering
-\caption{各方向实验采集协议与评分基准配置}\label{tab:exp-protocol-params}
-\ReportTableStyle
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}X@{}}
-\toprule
-\textbf{实验方向} & \textbf{基准与题量} & \textbf{主评分指标} & \textbf{关键采样与隔离设置} \\
-\midrule
-推理与选择题 & GSM8K / MATH500 /\newline MMLU-Pro（600题） & 源评分与复核覆盖 & 4 模型 $\times$ 31 策略，保留原截断与提取状态 \\
-文档问答 & NQ-Open（200题） & \texttt{final\_contains} 等 4 项 & 10/20 篇文档 + 闭卷基线，前/中/尾位置对照 \\
-代码生成 & CodePromptEval（194题） & \texttt{target-function-ast-v2} & 3 模型 $\times$ 31 策略 $\times$ 5 次独立采样（剔除 T149 后 193 题可评） \\
-文档位置专题 & NQ-Open（200题） & \texttt{final\_contains} & 固定 \texttt{NoCoT} 与 20 篇文档，精细采样 9 个位置 \\
-代码修复补充 & HumanEval+ Mini（164题） & 公开诊断 + 强保留测试 & 3 份共享初稿 $\times$ 6 组反馈 $\times$ 4 轮，768\,MB 沙箱隔离 \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-
-\paragraph{实验跨度与权重说明}推理与代码生成采集自历史统一归档；文档位置专题与代码反馈补充实验分别于独立时间窗口完成采集，同题控制但保留采集时间戳差异，分析时遵循各实验独立协议，不跨批次混接曲线。
+\end{table}}

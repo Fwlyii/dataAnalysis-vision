@@ -5,18 +5,13 @@
 \input{setup/package}
 \input{setup/format}
 \graphicspath{{figures/}}
-\hypersetup{pdftitle={AI对话数据与智能体行为可视分析系统（知微）},pdfsubject={数据分析与可视化实践课程报告},pdfauthor={课程项目组}}
+\hypersetup{pdftitle={AI对话数据与智能体行为可视分析系统（知微）},pdfsubject={数据分析与可视化实践课程报告},pdfauthor={李承文、仲禹潼、范文丽、赵紫怡}}
 \begin{document}
 	\input{setup/info}
-	\frontmatter
+	\pagenumbering{arabic}
 	\pagestyle{empty}
 	\makecover
 
-	\include{setup/toc}
-
-	\mainmatter\defaultfont\raggedbottom
-\tolerance=2000 \emergencystretch=2em
-	\renewcommand{\thelstlisting}{\arabic{chapter}-\arabic{lstlisting}}
 	\makeatletter
 	\fancypagestyle{plain}{
 		\fancyhf{}
@@ -26,8 +21,14 @@
 		\renewcommand{\footrulewidth}{0pt}
 	}
 	\makeatother
+
+	\include{setup/toc}
+
+	\defaultfont\raggedbottom
+	\tolerance=1800 \emergencystretch=1.8em
+	\setlength{\parfillskip}{0pt plus 0.78\linewidth}
+	\renewcommand{\thelstlisting}{\arabic{chapter}-\arabic{lstlisting}}
 	\pagestyle{fancy}
-	\setcounter{page}{3}
 	\titleformat{\chapter}{\centering\fontsize{18bp}{21.6bp}\selectfont\bfseries}{\chaptername}{0pt}{}
 
 	\include{body/part1-purpose}

@@ -1,14 +1,19 @@
 \appendix
 \renewcommand{\chaptername}{附录\thechapter}
-\titleformat{\chapter}{\centering\fontsize{18bp}{21.6bp}\selectfont\bfseries}{附录\thechapter}{1em}{}
+\titleformat{\chapter}{\centering\fontsize{18bp}{21.6bp}\selectfont\bfseries}{附录\thechapter}{0.8em}{}
 \renewcommand{\thefigure}{\Alph{chapter}-\arabic{figure}}
 \renewcommand{\thetable}{\Alph{chapter}-\arabic{table}}
 \renewcommand{\thelstlisting}{\Alph{chapter}-\arabic{lstlisting}}
 
+\begingroup
+\setlength{\parfillskip}{0pt plus 0.82\linewidth}
 \input{body/appendix/app-a-data-dict}
 \input{body/appendix/app-b-prompts}
 \input{body/appendix/app-c-code}
-\input{body/appendix/app-d-evidence}
-\input{body/appendix/app-e-environment}
+\input{body/appendix/app-d-cases}
+\input{body/appendix/app-e-evidence}
 \input{body/appendix/app-f-stats}
-\input{body/appendix/app-g-validation}
+\input{body/appendix/app-g-environment}
+\input{body/appendix/app-h-validation}
+\input{body/appendix/app-i-atlas}
+\endgroup

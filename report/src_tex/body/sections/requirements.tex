@@ -1,22 +1,35 @@
-\section{课程要求分析与功能映射}\label{sec:requirements}
+\section{课程设计要求落实与多入口功能协同}\label{sec:requirements}
 
-对照《数据分析与可视化实践》课程设计题目二（选项 B：可视交互系统）的八大核心验收项，我们在系统设计初期便制定了可逐项核验的功能映射方案（详尽分值对照见附录~\ref{app:validation} 表~\ref{tab:rubric-map}）。
-
-\paragraph{数据管道与匿名化需求}指导书要求严禁覆盖原始数据、必须完成 JSON/CSV 解析清洗并具备完整的数据字典与匿名化处理。为此，系统将原始采集字节固化于 \texttt{data/raw/}，由 \texttt{scripts/cleaning/} 产出带有明确空值语义（空单元格即 \texttt{null}，绝不填零）的分实验清洗表与 21 列统一特征表 \texttt{all\_records.csv.gz}，同时在网页前端彻底剥离原始题目文本、API 请求指纹与真实时间戳，仅加载经校验的匿名数值快照。
+课程设计指导书对选项 B“可视交互系统”提出了六项明确的功能闭环要求：具备清晰的分析目标、打通从日志解析到行为分类的数据管道、实现不少于 3 个核心交互视图、提供至少一种跨视图有效联动、依托系统沉淀具体案例洞察，以及交付可独立运行的代码仓库与说明文档。我们在规划系统功能时，逐条核对了指导书第 5 至第 8 页的细则（完整评分点映射表见附录~\ref{app:validation}），并在此基础上做了更扎实的工程拓展。
 
 \begin{figure}[!htbp]
 \centering
-\subfigure[第二屏：31 种提示策略矩阵联动]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s2-chinese.jpg}}}\hfill
-\subfigure[第三屏：21 列统一记录字段映射]{\shot[0.48\linewidth]{\detokenize{figures/screenshots/s3-finish.jpg}}}
-\caption{实验设计与数据管道交互界面实测}
-\label{fig:req-s2-s3}
+\includegraphics[width=0.92\linewidth]{\detokenize{figures/diagrams/d02-project-stats.pdf}}
+\caption{“知微”系统核心规模指标与跨任务评测覆盖概览}
+\label{fig:project-stats}
 \end{figure}
 
-\paragraph{多维交互与有效联动需求}指导书要求系统至少包含三个核心交互视图与一种以上有效联动。在“知微”中，我们将所有视图与联动按科研叙事流组织为五个连续屏（见图~\ref{fig:req-s2-s3}）：
-\begin{enumerate}
-  \item \textbf{第一屏（研究问题）}：支持四模型按钮切换，实时刷新 31 项策略在三大题库上的得分概览条形图与参数标注。
-  \item \textbf{第二屏（实验设计）}：鼠标悬停或点击左侧 31 项策略矩阵中的任一按钮，右侧立即联动高亮对应的实验组别、实际发送的英文原指令文本、相对 \texttt{DefaultCoT} 的平均百分点变化，以及 4 模型 $\times$ 3 题库的差值热力格。
-  \item \textbf{第三屏（数据处理）}：通过顶部字段选择器（如 \texttt{finish\_reason}、\texttt{metric\_value}、\texttt{question\_key} 等），联动高亮左侧“两种原始格式 $\to$ 转换规则”映射面板与右侧 21 列统一结构中的对应列定义与缺失策略。
-  \item \textbf{第四屏（核心发现）}：内部拆分为三个分页标签（提示策略总体规律 I–IV、专项数学与文档 V–VI、专项代码 VII），集成题库切换、置信区间开关、公开诊断/强保留测试口径切换、成对比较选择器、弹窗数据表与真实代码 Diff 抽屉。
-  \item \textbf{第五屏（结论与反思）}：汇总五条工程建议、局限性声明与数据伦理规范，并提供课程指导书、案例报告及答辩材料的一键预览入口。
-\end{enumerate}
+如图~\ref{fig:project-stats} 所示，系统在任务广度、视图丰富度与交互深度三个维度均大幅超出了基准线要求：
+
+\paragraph{四类任务与多维行为分类管道}指导书要求至少设计 2～3 类任务且总消息数不少于 150 条。本项目实际覆盖了算术与竞赛数学（\texttt{GSM8K}、\texttt{MATH500}）、多学科专业选择（\texttt{MMLU-Pro}）、多文档开放问答（\texttt{NQ-Open}）以及 Python 函数生成与多轮测试修复（\texttt{CodePromptEval}、\texttt{HumanEval+}），样本规模达二十余万条。清洗脚本不仅提取了 Token 开销、响应耗时与停止原因，还通过规则分类器与沙箱执行器自动标定了 4 类外显输出组织形态、14 类细粒度代码运行错误以及多轮修复中的“初错修复 / 初对保持 / 过度修改回退”轨迹状态。
+
+\paragraph{主叙事七大原生图版与工作台十三类交互图种}指导书第 5 页列举了时间线、柱状/饼图/堆叠图、错误恢复路径树、散点/热力图、分组箱线图、平行坐标图与原始文本详情面板等推荐图种。我们在主站（\texttt{index.html}）第四屏手写了七幅高信息密度的原生 SVG 交互图版，聚焦回答五项核心研究问题；同时在探索工作台（\texttt{explore.html}）完整实现了模型柱图、多维雷达图、31 策略热力图、规模开销气泡图、分组环形柱图、资料位置曲线、Plotly 分组箱线图、ECharts 平行坐标图、状态饼图与堆叠图、输出形态约束矩阵、HTTP 请求时间线、重试路径前缀树以及评分分歧桑基流图共计 \textbf{13 类交互视图}，让每一种推荐图种都承载真实的分析任务而非充当摆设。
+
+\paragraph{五重跨视图交互联动机制}为了避免“点一下按钮只换一张静态图片”的假交互，我们在系统内打通了五条真实的数据联动链路：（1）第二屏点选任意提示词单元格，实时联动右侧实际英文指令模板、实验控制条件与样本覆盖统计；（2）第三屏点选 21 列数据字典字段，同步高亮上游原始表来源、清洗转换规则与真实匿名记录切片；（3）第四屏切换模型、基准题库或测试口径时，SVG 曲线、$R^2$ 对数拟合线、右上角配对比较卡的胜负平计数与 95\% 区间同步重绘；（4）点击“真实修改案例”滑出侧边抽屉，逐轮比对 JSON 测试反馈原文与前后代码行级 Diff；（5）在探索工作台中用鼠标框选（Brush）代码开销散点区域，右侧错误构成柱状图、可评样本计数与底部匿名记录导出集合立即按框选坐标过滤同步。
+
+
+\subsection{面向课堂演示与自由钻取的双轨交互动线}
+
+在完成全部视图组件开发后，团队结合日常排查数据的真实使用习惯（文档记录于 \texttt{docs/demo-guide.md} 与 \texttt{docs/product.md}），打磨了两条互补的分析操作动线，防止用户在丰富控件中迷失方向（图~\ref{fig:demo-paths}）：
+
+\begin{figure}[!htbp]
+\centering
+\subfigure[主站第二屏：默认分步基线策略卡片状态]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/s2-default.jpg}}}\hfill
+\subfigure[探索台引导案例：输出长度直方分布与异常入口]{\shot[0.485\linewidth]{\detokenize{figures/screenshots/explore-demo.jpg}}}
+\caption{面向结构化讲解的主站策略沙盘（左）与面向异常记录排查的探索台分布入口（右）}
+\label{fig:demo-paths}
+\end{figure}
+
+\paragraph{动线一：五分钟主线验证动线（宏观规律 $\to$ 配对区间 $\to$ 单题代码 Diff）}适用于首次了解本项目的读者。从首页五球门户点击进入第一屏对比不同模型在 31 策略下的基准带宽；随后滑入第二屏（图~\ref{fig:demo-paths}a）交替点击 \texttt{DefaultCoT}、\texttt{BeConcise} 与 \texttt{CharLimit(10)} 核对原始英文指令；接着在第三屏查看 21 列统一表如何将 \texttt{T149} 环境排除项置空隔离；最后进入第四屏依次切换三大题库预算拟合线、9 位置剖面与代码修复轨迹，并在右侧配对卡中将“单个失败反例”对比“自行检查”，直接拉开侧滑抽屉检视 \texttt{HumanEval/54} 一行修好集合比较的真实代码差异。
+
+\paragraph{动线二：探索式异常归因动线（分布框选 $\to$ 错误拆解 $\to$ 匿名子集导出）}适用于追查反常样本的研究者。从探索工作台（图~\ref{fig:demo-paths}b）切入“代码生成 $\to$ 输出开销”，用鼠标在 Vega-Lite 散点图上框选“高 Token 消耗但低 Pass@1”或“极短输出低通过率”的局部点簇，观察右侧 ECharts 柱状图是否由常规断言失败突变为高达八九成的 \texttt{extraction\_error}；随后点击对应错误柱打开底层匿名评分记录表，将命中条件导出为标准 CSV 文件做离线复核。两条动线通过顶栏导航按钮双向打通，确保叙事引导与自由探索无缝切换。
